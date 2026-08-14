@@ -1,12 +1,10 @@
 package model;
 
 import java.math.BigDecimal;
-import java.util.Currency;
-import java.util.Objects;
 
 public class MoneyValue {
-    private final BigDecimal value; // not float because of rounding errors (e.g., 0.1 + 0.2 != 0.3)
-    private final CurrencyEnum currency;
+    private BigDecimal value; // not float because of rounding errors (e.g., 0.1 + 0.2 != 0.3)
+    private CurrencyEnum currency;
 
     public MoneyValue(BigDecimal value, CurrencyEnum currency) {
         if (value.compareTo(BigDecimal.ZERO) < 0){
@@ -23,6 +21,14 @@ public class MoneyValue {
 
     public String toString(){
         return value.toString() + " " + currency.name();
+    }
+
+    public void changeValue(BigDecimal newValue){
+        this.value = newValue;
+    }
+
+    public void changeCurrency(CurrencyEnum newCurrency){
+        this.currency = newCurrency;
     }
 
 }

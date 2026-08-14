@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public class Band {
+public class Band implements Artist {
     String name;
     String description;
     List<Musician> members;
@@ -31,4 +31,13 @@ public class Band {
     }
 
 
+    @Override
+    public String getArtistName() {
+        return this.name;
+    }
+
+    @Override
+    public ArtistType getType() {
+        return ArtistType.BAND;
+    }
 }

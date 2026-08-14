@@ -3,7 +3,7 @@ package model;
 import java.util.List;
 import java.util.Map;
 
-public class Local {
+public class JobEvent {
 
     String name;
     String address;
@@ -11,7 +11,7 @@ public class Local {
     Map<String, String> contacts;
     List<Promoter> promoters;
 
-    public Local(String name, String address, String city, Map<String, String> contacts, List<Promoter> promoters){
+    public JobEvent(String name, String address, String city, Map<String, String> contacts, List<Promoter> promoters){
         this.name = name;
         this.address = address;
         this.city = city;

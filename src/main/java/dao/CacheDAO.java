@@ -3,9 +3,9 @@ package dao;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class CacheDAO<Obj> {
+public abstract class CacheDAO<T> {
 
-    private Map<String, Obj> cache;
+    private Map<String, T> cache;
     // the String will be a unique key that identifies the cached object (e.g., email for User, id for announcement)
 
     protected CacheDAO(){
@@ -17,26 +17,26 @@ public abstract class CacheDAO<Obj> {
     }
 
     // Overload
-    public boolean isCached(Obj obj){
+    public boolean isCached(T obj){
         return this.cache.containsValue(obj);
     }
 
-    public abstract String getKey(Obj o);
+    public abstract String getKey(T obj);
 
-    public Obj getFromCache(String id){
+    public T getFromCache(String id){
         return this.cache.get(id);
     }
 
-    public void addToCache(Obj o){
-        if (o != null && !this.isCached(o)){
-            this.cache.put(this.getKey(o), o);
+    public void addToCache(T obj){
+        if (obj != null && !this.isCached(obj)){
+            this.cache.put(this.getKey(obj), obj);
         }
 
     }
 
-    public void deleteFromCache(Obj o){
-        if (this.isCached(o)){
-            String key = this.getKey(o);
+    public void deleteFromCache(T obj){
+        if (this.isCached(obj)){
+            String key = this.getKey(obj);
             this.cache.remove(key);
         }
     }
@@ -45,5 +45,5 @@ public abstract class CacheDAO<Obj> {
         this.cache.clear();
     }
 
-    public abstract void flush();
+    public abstract void flush(T obj);
 }

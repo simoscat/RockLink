@@ -3,23 +3,23 @@ package model;
 public class Promoter extends User {
 
     String role;
-    Local local;
+    JobEvent jobEvent;
 
-    public Promoter(String name, String surname, String email, Gender gender, Local local,
+    public Promoter(String name, String surname, String email, Gender gender, JobEvent jobEvent,
                     String role) {
         super(name, surname, email, gender);
         this.role = role;
-        this.local = local;
+        this.jobEvent = jobEvent;
 
-        if (local != null) {
-            this.local.addPromoter(this);
+        if (jobEvent != null) {
+            this.jobEvent.addPromoter(this);
         }
     }
 
-    public void changeLocal(Local local){
-        this.local.removePromoter(this);
-        this.local = local;
-        this.local.addPromoter(this);
+    public void changeLocal(JobEvent jobEvent){
+        this.jobEvent.removePromoter(this);
+        this.jobEvent = jobEvent;
+        this.jobEvent.addPromoter(this);
     }
 
 }
