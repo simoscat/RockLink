@@ -4,7 +4,7 @@ public abstract class InstrumentDecorator implements Instrument {
 
     Instrument wrappedInstrument;
 
-    public InstrumentDecorator(Instrument instrument) {
+    protected InstrumentDecorator(Instrument instrument) {
         this.wrappedInstrument = instrument;
     }
 

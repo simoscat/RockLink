@@ -6,7 +6,7 @@ public abstract class User {
     private String email;
     private Gender gender;
 
-    public User(String name, String surname, String email, Gender gender){
+    protected User(String name, String surname, String email, Gender gender){
         this.name = name;
         this.surname = surname;
         this.email = email;

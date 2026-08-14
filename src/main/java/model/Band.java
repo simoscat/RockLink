@@ -4,13 +4,15 @@ import java.util.List;
 
 public class Band {
     String name;
+    String description;
     List<Musician> members;
     Musician leader;
     String mainCity;
 
 
-    public Band(String name, Musician leader, List<Musician> members, String mainCity){
+    public Band(String name, String description, Musician leader, List<Musician> members, String mainCity){
         this.name = name;
+        this.description = description;
         this.leader = leader;
         this.mainCity = mainCity;
         this.members = members;
