@@ -60,4 +60,7 @@ public abstract class UserBean {
         this.password = password;
     }
 
+    public void clearPassword() {
+        this.password = "";
+    }
 }

@@ -1,5 +1,7 @@
 package model;
 
+import engineering.enums.Gender;
+
 public class Promoter extends User {
 
     String role;
@@ -22,4 +24,12 @@ public class Promoter extends User {
         this.jobEvent.addPromoter(this);
     }
 
+
+    public String getRole() {
+        return this.role;
+    }
+
+    public JobEvent getJobEvent() {
+        return this.jobEvent;
+    }
 }

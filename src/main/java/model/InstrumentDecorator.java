@@ -1,5 +1,7 @@
 package model;
 
+import engineering.enums.Mastery;
+
 public abstract class InstrumentDecorator implements Instrument {
 
     Instrument wrappedInstrument;

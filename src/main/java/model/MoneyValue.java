@@ -1,5 +1,7 @@
 package model;
 
+import engineering.enums.CurrencyEnum;
+
 import java.math.BigDecimal;
 
 public class MoneyValue {

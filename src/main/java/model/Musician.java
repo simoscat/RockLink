@@ -1,5 +1,8 @@
 package model;
 
+import engineering.enums.ArtistType;
+import engineering.enums.Gender;
+
 import java.util.List;
 
 public class Musician extends User implements Artist {
@@ -23,5 +26,8 @@ public class Musician extends User implements Artist {
         return ArtistType.MUSICIAN;
     }
 
+    public List<Instrument> getInstruments() {
+        return instruments;
+    }
 
 }

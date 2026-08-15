@@ -1,12 +1,14 @@
 package model;
 
+import engineering.enums.Gender;
+
 public abstract class User {
     private String name;
     private String surname;
     private String email;
     private Gender gender;
 
-    protected User(String name, String surname, String email, Gender gender){
+    protected User(String name, String surname, String email, Gender gender) {
         this.name = name;
         this.surname = surname;
         this.email = email;

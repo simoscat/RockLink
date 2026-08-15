@@ -1,6 +1,8 @@
 package model;
 
 
+import engineering.enums.AnnouncementStatus;
+
 import java.util.Date;
 
 public class JobAnnouncement extends Announcement{

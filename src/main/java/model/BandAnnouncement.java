@@ -1,5 +1,7 @@
 package model;
 
+import engineering.enums.AnnouncementStatus;
+
 import java.util.Date;
 import java.util.List;
 

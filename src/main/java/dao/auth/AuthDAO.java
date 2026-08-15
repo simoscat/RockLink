@@ -2,12 +2,22 @@ package dao.auth;
 
 import exception.DAOException;
 import model.Credential;
-import model.UserType;
 
-public interface AuthDAO {
+public abstract class AuthDAO {
 
-    public abstract Credential getUserCredential(String email, UserType type) throws DAOException;
+    private static final String EMAIL_REGEX =
+            "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@"
+                    + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 
-    public abstract void registerUser(Credential credential, UserType type) throws DAOException;
+    protected boolean invalidEmail(String email) {
+        return !email.matches(EMAIL_REGEX);
+    }
 
+    public abstract Credential getMusicianCredential(String email) throws DAOException;
+
+    public abstract Credential getPromoterCredential(String email) throws DAOException;
+
+    public abstract void registerMusician(Credential credential) throws DAOException;
+    
+    public abstract void registerPromoter(Credential credential) throws DAOException;
 }

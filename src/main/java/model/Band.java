@@ -1,5 +1,7 @@
 package model;
 
+import engineering.enums.ArtistType;
+
 import java.util.List;
 
 public class Band implements Artist {

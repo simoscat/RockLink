@@ -3,12 +3,12 @@ package dao;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class CacheDAO<T> {
+public abstract class DAOWithCache<T> {
 
     private Map<String, T> cache;
     // the String will be a unique key that identifies the cached object (e.g., email for User, id for announcement)
 
-    protected CacheDAO(){
+    protected DAOWithCache(){
         this.cache = new HashMap<>();
     }
 
@@ -45,5 +45,4 @@ public abstract class CacheDAO<T> {
         this.cache.clear();
     }
 
-    public abstract void flush(T obj);
 }

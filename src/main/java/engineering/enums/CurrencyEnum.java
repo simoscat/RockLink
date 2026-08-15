@@ -1,4 +1,4 @@
-package model;
+package engineering.enums;
 
 public enum CurrencyEnum {
     USD,

@@ -1,5 +1,7 @@
 package model;
 
+import engineering.enums.Mastery;
+
 public interface Instrument {
 
     public String getName();
