@@ -1,29 +1,19 @@
 package model;
 
 import engineering.enums.AnnouncementStatus;
-import engineering.enums.AnnouncementType;
 
 import java.util.Date;
 
-public abstract class Announcement {
+public interface Announcement {
 
-    private String id;
-    private String title;
-    private String content;
-    private Date date;
-    private AnnouncementStatus status;
-    private AnnouncementType type;
+    public User getPublisher();
+    public String getTitle();
+    public String getContent();
+    public Date getDate();
 
-    protected Announcement(String id, String title, String content, Date date, AnnouncementStatus status,
-                           AnnouncementType type) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.date = date;
-        this.status = status;
-        this.type = type;
-    }
+    public void openAnnouncement();
+    public void hireArtist(Artist artist);
+    public void closeAnnouncement();
 
-    //TODO
-
+    public AnnouncementStatus getStatus();
 }

@@ -1,0 +1,319 @@
+/* ==========================================================================
+   RockLink - stile condiviso per le schermate del flusso di login
+   (RoleSelection.fxml, Login.fxml)
+   ========================================================================== */
+
+.root-pane {
+    -fx-background-color: #0a0a0a;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Header ---------- */
+
+.app-header {
+    -fx-padding: 24 40 24 40;
+}
+.brand-logo {
+    -fx-background-color: #ff4416;
+    -fx-background-radius: 8;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+    -fx-alignment: center;
+}
+.brand-logo-icon {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+.brand-title {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+}
+.icon-button {
+    -fx-background-color: #16161a;
+    -fx-background-insets: 0;
+    -fx-background-radius: 8;
+    -fx-border-color: #2a2a2e;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-text-fill: #e0e0e0;
+    -fx-min-width: 38;
+    -fx-min-height: 38;
+    -fx-max-width: 38;
+    -fx-max-height: 38;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+}
+.icon-button:hover {
+    -fx-background-color: #1f1f24;
+}
+.back-button {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* ---------- Wrapper centrale ---------- */
+
+.page-center {
+    -fx-padding: 20 40 20 40;
+}
+.content-box {
+    -fx-padding: 10 0 10 0;
+}
+
+/* ---------- Titoli: schermata selezione ruolo (centrati) ---------- */
+
+.role-select-title {
+    -fx-text-fill: white;
+    -fx-font-size: 42px;
+    -fx-font-weight: 800;
+    -fx-alignment: center;
+}
+.role-select-subtitle {
+    -fx-text-fill: #9a9a9f;
+    -fx-font-size: 15px;
+    -fx-alignment: center;
+}
+
+/* ---------- Titoli: schermata login (allineati a sinistra) ---------- */
+
+.login-title {
+    -fx-text-fill: white;
+    -fx-font-size: 38px;
+    -fx-font-weight: 800;
+    -fx-alignment: center-left;
+    -fx-max-width: infinity;
+}
+.login-subtitle {
+    -fx-text-fill: #9a9a9f;
+    -fx-font-size: 14px;
+    -fx-alignment: center-left;
+    -fx-max-width: infinity;
+}
+.login-top-row {
+    -fx-max-width: infinity;
+    -fx-padding: 0 0 8 0;
+}
+
+/* ---------- Badge di ruolo (schermata login) ---------- */
+
+.role-badge {
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 4;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+.role-badge-musician {
+    -fx-background-color: rgba(255, 68, 22, 0.15);
+    -fx-text-fill: #ff4416;
+}
+.role-badge-promoter {
+    -fx-background-color: rgba(255, 212, 0, 0.15);
+    -fx-text-fill: #ffd400;
+}
+
+/* ---------- Card selezione ruolo ---------- */
+
+.role-cards-row {
+    -fx-padding: 6 0 6 0;
+}
+.role-card {
+    -fx-background-color: #0f0f11;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-width: 1 1 1 4;
+    -fx-padding: 28 24 24 24;
+}
+.role-card-musician {
+    -fx-border-color: #232327 #232327 #232327 #ff4416;
+}
+.role-card-promoter {
+    -fx-border-color: #232327 #232327 #232327 #ffd400;
+}
+.role-card-icon {
+    -fx-min-width: 44;
+    -fx-min-height: 44;
+    -fx-max-width: 44;
+    -fx-max-height: 44;
+    -fx-background-radius: 8;
+    -fx-alignment: center;
+}
+.role-card-icon-musician {
+    -fx-background-color: rgba(255, 68, 22, 0.15);
+}
+.role-card-icon-promoter {
+    -fx-background-color: rgba(255, 212, 0, 0.15);
+}
+.role-card-icon-glyph {
+    -fx-font-size: 20px;
+}
+.role-card-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+}
+.role-card-subtitle-musician {
+    -fx-text-fill: #ff4416;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
+}
+.role-card-subtitle-promoter {
+    -fx-text-fill: #ffd400;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
+}
+.role-card-desc {
+    -fx-text-fill: #8a8a8f;
+    -fx-font-size: 13px;
+}
+.role-card-link-musician {
+    -fx-text-fill: #ff4416;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
+    -fx-underline: false;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+.role-card-link-promoter {
+    -fx-text-fill: #ffd400;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
+    -fx-underline: false;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+/* ---------- Card login ---------- */
+
+.login-card {
+    -fx-background-color: #121214;
+    -fx-border-color: #232327;
+    -fx-border-width: 3 1 1 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 32 28 28 28;
+    -fx-max-width: infinity;
+}
+.accent-musician {
+    -fx-border-color: #ff4416 #232327 #232327 #232327;
+}
+.accent-promoter {
+    -fx-border-color: #ffd400 #232327 #232327 #232327;
+}
+
+.field-label {
+    -fx-text-fill: #8a8a8f;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+.text-input {
+    -fx-background-color: #0d0d0f;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+    -fx-border-color: #2a2a2e;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-padding: 10 12 10 12;
+    -fx-text-fill: #f0f0f0;
+    -fx-prompt-text-fill: #55555a;
+    -fx-font-size: 14px;
+    -fx-max-width: infinity;
+}
+.text-input:focused {
+    -fx-border-color: #55555a;
+}
+
+.muted-link {
+    -fx-text-fill: #7a7a7f;
+    -fx-font-size: 12px;
+    -fx-underline: false;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+.muted-link:hover {
+    -fx-text-fill: #b0b0b5;
+}
+
+.btn-primary {
+    -fx-font-weight: 800;
+    -fx-font-size: 14px;
+    -fx-padding: 12 0 12 0;
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+    -fx-cursor: hand;
+    -fx-max-width: infinity;
+}
+.btn-musician {
+    -fx-background-color: #ff4416;
+    -fx-text-fill: #111111;
+}
+.btn-musician:hover {
+    -fx-background-color: #ff5c33;
+}
+.btn-promoter {
+    -fx-background-color: #ffd400;
+    -fx-text-fill: #111111;
+}
+.btn-promoter:hover {
+    -fx-background-color: #ffe14d;
+}
+
+.error-label {
+    -fx-text-fill: #ff5c5c;
+    -fx-font-size: 12px;
+}
+
+/* ---------- Link finale (Registrati / Accedi) ---------- */
+
+.register-row {
+    -fx-max-width: infinity;
+    -fx-padding: 16 0 0 0;
+}
+.muted-text {
+    -fx-text-fill: #7a7a7f;
+    -fx-font-size: 13px;
+}
+.inline-link {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-underline: false;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+.link-musician {
+    -fx-text-fill: #ff4416;
+}
+.link-promoter {
+    -fx-text-fill: #ffd400;
+}
+
+/* ---------- Footer ---------- */
+
+.app-footer {
+    -fx-padding: 20 40 24 40;
+}
+.footer-tagline {
+    -fx-text-fill: #5a5a5f;
+    -fx-font-size: 11px;
+}
+.help-button {
+    -fx-background-color: #141416;
+    -fx-background-insets: 0;
+    -fx-border-color: #2a2a2e;
+    -fx-border-width: 1;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+    -fx-max-width: 30;
+    -fx-max-height: 30;
+    -fx-text-fill: #8a8a8f;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+.help-button:hover {
+    -fx-background-color: #1f1f24;
+}

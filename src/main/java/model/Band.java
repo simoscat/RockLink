@@ -42,4 +42,8 @@ public class Band implements Artist {
     public ArtistType getType() {
         return ArtistType.BAND;
     }
+
+    public Musician getLeader() {
+        return this.leader;
+    }
 }

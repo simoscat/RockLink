@@ -5,7 +5,7 @@ import engineering.enums.AnnouncementStatus;
 import java.util.Date;
 import java.util.List;
 
-public class BandAnnouncement extends Announcement{
+public class BandAnnouncement extends BaseAnnouncement {
 
     private Band band;
     private List<Instrument> instruments;
@@ -16,6 +16,11 @@ public class BandAnnouncement extends Announcement{
         super(id, title, content, date, status);
         this.band = band;
         this.instruments = instruments;
+    }
+
+    @Override
+    public User getPublisher() {
+        return this.band.getLeader();
     }
 
     //TODO

@@ -3,7 +3,6 @@ package controller;
 import bean.MusicianBean;
 import bean.PromoterBean;
 import bean.SessionBean;
-import bean.UserBean;
 import dao.auth.AuthDAO;
 import dao.factories.DAOFactory;
 import dao.musician.MusicianDAO;
@@ -22,7 +21,7 @@ import model.Promoter;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO
+
 public class LoginController {
 
     public SessionBean musicianLogIn(MusicianBean musician) {

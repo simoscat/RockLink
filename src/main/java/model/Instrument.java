@@ -2,14 +2,31 @@ package model;
 
 import engineering.enums.Mastery;
 
-public interface Instrument {
+public class Instrument {
 
-    public String getName();
+    private String name;
+    private Mastery mastery;
 
-    public Mastery getMastery();
+    public Instrument(String name, Mastery mastery) {
+        this.name = name;
+        this.mastery = mastery;
+    }
 
-    public void setMastery(Mastery mastery);
+    public String getName() {
+        return this.name;
+    }
 
-    public void upMastery();
+    public Mastery getMastery() {
+        return this.mastery;
+    }
 
+    public void setMastery(Mastery mastery) {
+        this.mastery = mastery;
+    }
+
+    public void upMastery() {
+        int currentNum = this.mastery.ordinal();
+
+        this.mastery = Mastery.values()[(currentNum + 1) %  Mastery.values().length];
+    }
 }

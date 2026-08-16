@@ -1,6 +1,6 @@
 package dao.musician;
 
-import dao.DAOWithCache;
+import engineering.persistency.DAOWithCache;
 import model.Musician;
 
 public abstract class MusicianDAO extends DAOWithCache<Musician> {
@@ -11,5 +11,7 @@ public abstract class MusicianDAO extends DAOWithCache<Musician> {
     }
 
     public abstract Musician getMusicianByEmail(String email);
-    public abstract Musician flush(Musician m);
+
+    public abstract void flush(Musician m);
+
 }

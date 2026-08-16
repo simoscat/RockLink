@@ -5,7 +5,7 @@ import engineering.enums.AnnouncementStatus;
 
 import java.util.Date;
 
-public class JobAnnouncement extends Announcement{
+public class JobAnnouncement extends BaseAnnouncement {
     private Promoter promoter;
     private MoneyValue salary;
 
@@ -14,6 +14,11 @@ public class JobAnnouncement extends Announcement{
         super(id, title, content, date, status);
         this.promoter = promoter;
         this.salary = salary;
+    }
+
+    @Override
+    public User getPublisher() {
+        return this.promoter;
     }
 
     //TODO
