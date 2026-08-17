@@ -1,6 +1,6 @@
 package dao.instrument;
 
-import engineering.CsvManager;
+import engineering.persistency.CsvManager;
 import engineering.enums.Mastery;
 import exception.DAOException;
 import model.Instrument;

@@ -1,6 +1,6 @@
 package dao.auth;
 
-import engineering.CsvManager;
+import engineering.persistency.CsvManager;
 import exception.DAOException;
 import model.Credential;
 

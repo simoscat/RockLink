@@ -8,50 +8,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/ApplicationBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/BaseAnnouncementBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/InstrumentBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/MoneyValueBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/EmailChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/job/JobAnnouncementDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/DecoratorApplier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/factory/AnnouncementFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/MusicianBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/MusicianBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/PromoterBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/PromoterBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/UserBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/PublishJobPostingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PublishJobPostingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOSQLite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/AnnouncementDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/AnnouncementDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactorySQLite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/DAOWithCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/DAOWithCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/SQLiteConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/CsvManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/CsvManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Announcement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Announcement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/AnnouncementDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/AnnouncementDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Band.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/BandAnnouncement.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/BaseAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BaseAnnouncement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/ExpertsOnlyDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/ExpertsOnlyDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/JobEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/LongTimeContractDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/LongTimeContractDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Musician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Musician.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/NegotiableSalaryDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/NegotiableSalaryDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Promoter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Promoter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/UrgentAnnouncementDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/UrgentAnnouncementDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +40,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="77" />
+    <option name="cachedIndexableFilesCount" value="95" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -76,6 +52,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -115,27 +94,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/luma/Scaricati/RockLink_login_fxml/RockLink_test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/luma/Scaricati/RockLink_login_fxml/RockLink_test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.completions.CompletionsConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -154,6 +135,8 @@
       <workItem from="1786892536464" duration="84000" />
       <workItem from="1786893036753" duration="124000" />
       <workItem from="1786893172482" duration="9513000" />
+      <workItem from="1786955065414" duration="24148000" />
+      <workItem from="1786984083570" duration="562000" />
     </task>
     <servers />
   </component>

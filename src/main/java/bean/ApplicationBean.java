@@ -1,7 +1,7 @@
 package bean;
 
 import engineering.EmailChecker;
-
+//TODO CHECK
 public class ApplicationBean {
 
     private BaseAnnouncementBean announcementReference;

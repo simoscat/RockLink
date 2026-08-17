@@ -1,6 +1,7 @@
 package dao.factories;
 
 import dao.announcement.AnnouncementDAO;
+import dao.announcement.AnnouncementDAOCsv;
 import dao.application.ApplicationDAO;
 import dao.application.ApplicationDAOCsv;
 import dao.auth.AuthDAO;
@@ -15,7 +16,7 @@ import dao.promoter.PromoterDAOCsv;
 public class DAOFactoryCsv extends DAOFactory {
 
     @Override
-    public AnnouncementDAO getAnnouncementDAO() {
+    public AnnouncementDAO getJobAnnouncementDAO() {
         if (this.announcementDAO == null){
             this.announcementDAO = new AnnouncementDAOCsv();
         }

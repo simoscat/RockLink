@@ -17,5 +17,8 @@ public interface Announcement {
 
     public AnnouncementStatus getStatus();
 
-    String getId();
+    public Artist whoWasHired();
+
+    public LocalDateTime getAnnouncementPublishDate();
+    public void publishNow();
 }

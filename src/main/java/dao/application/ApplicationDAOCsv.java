@@ -1,7 +1,7 @@
 package dao.application;
 
 import dao.factories.DAOFactory;
-import engineering.CsvManager;
+import engineering.persistency.CsvManager;
 import engineering.enums.ApplicationStatus;
 import exception.DAOException;
 import model.Announcement;
@@ -89,7 +89,7 @@ public class ApplicationDAOCsv extends ApplicationDAO {
                 return null;
             }
 
-            Announcement announcement = DAOFactory.getInstance().getAnnouncementDAO().getAnnouncementById(fields[0]);
+            Announcement announcement = DAOFactory.getInstance().getJobAnnouncementDAO().getAnnouncementById(fields[0]);
 
             return new Application(announcement, fields[1], ApplicationStatus.valueOf(fields[2]));
 

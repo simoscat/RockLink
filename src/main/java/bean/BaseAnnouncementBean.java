@@ -1,5 +1,5 @@
 package bean;
-
+//TODO SISTEMA
 public abstract class BaseAnnouncementBean {
 
     private String id;

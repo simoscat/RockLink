@@ -34,7 +34,4 @@ public class Application {
         this.status = ApplicationStatus.REJECTED;
     }
 
-    public String getId() {
-        return announcementReference.getId() + "_" + candidateEmail;
-    }
 }

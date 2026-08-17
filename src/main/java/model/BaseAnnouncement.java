@@ -3,33 +3,36 @@ package model;
 import engineering.enums.AnnouncementStatus;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 public abstract class BaseAnnouncement implements Announcement {
 
-    private String id;
     private String title;
     private String content;
     private LocalDateTime date;
     private AnnouncementStatus status;
     private Artist hiredArtist = null;
+    private LocalDateTime publishDate;
 
-    protected BaseAnnouncement(String id, String title, String content, LocalDateTime date, AnnouncementStatus status) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.date = date;
-        this.status = status;
+    protected BaseAnnouncement(String title, String content, LocalDateTime date, AnnouncementStatus status,
+                               LocalDateTime publishDate, Artist hiredArtist) {
+        this(title, content, date, status, publishDate);
+        this.hiredArtist = hiredArtist;
     }
 
-    protected BaseAnnouncement(String id, String title, String content, LocalDateTime date, AnnouncementStatus status
-    , Artist hiredArtist) {
-        this.id = id;
+    protected BaseAnnouncement(String title, String content, LocalDateTime date, AnnouncementStatus status,
+                               LocalDateTime publishDate){
+        this(title, content, date, status);
+        this.publishDate = publishDate;
+    }
+
+
+    protected BaseAnnouncement(String title, String content, LocalDateTime date, AnnouncementStatus status) {
         this.title = title;
         this.content = content;
         this.date = date;
         this.status = status;
-        this.hiredArtist = hiredArtist;
     }
 
     public String getTitle(){
@@ -47,7 +50,6 @@ public abstract class BaseAnnouncement implements Announcement {
         this.status = AnnouncementStatus.OPEN;
     }
 
-
     public void closeAnnouncement(){
         this.status = AnnouncementStatus.CLOSED;
     }
@@ -61,8 +63,18 @@ public abstract class BaseAnnouncement implements Announcement {
         this.status = AnnouncementStatus.FILLED;
     }
 
-    public String getId() {
-        return this.id;
+    public Artist whoWasHired(){
+        return this.hiredArtist;
+    }
+
+    @Override
+    public LocalDateTime getAnnouncementPublishDate(){
+        return this.publishDate;
+    }
+
+    @Override
+    public void publishNow(){
+        this.publishDate = LocalDateTime.now(ZoneId.systemDefault());
     }
 
 }

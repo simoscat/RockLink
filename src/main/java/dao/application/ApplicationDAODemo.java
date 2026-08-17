@@ -4,6 +4,7 @@ import dao.announcement.AnnouncementDAO;
 import dao.factories.DAOFactory;
 import engineering.enums.ApplicationStatus;
 import exception.DAOException;
+import model.Announcement;
 import model.Application;
 
 import java.util.ArrayList;
@@ -11,12 +12,14 @@ import java.util.List;
 
 //TODO
 public class ApplicationDAODemo extends ApplicationDAO {
+
     @Override
-    protected List<Application> retrieveApplicationsFromAnnouncement(String id) {
+    protected List<Application> getApplicationsFromAnnouncement(Announcement announcement) {
+
         if (id.equals("0")){
             List<Application> applications = new ArrayList<>();
 
-            AnnouncementDAO announcementDAO = DAOFactory.getInstance().getAnnouncementDAO();
+            AnnouncementDAO announcementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
 
             Application app = new Application(
                     announcementDAO.getAnnouncementById(id),

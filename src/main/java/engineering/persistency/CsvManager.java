@@ -1,6 +1,4 @@
-package engineering;
-
-import exception.DAOException;
+package engineering.persistency;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +14,9 @@ public class CsvManager {
                 Files.createDirectories(parentDir.toPath());
             }
 
-            file.createNewFile(); //creates the csv if it doesn't exist
+            if (!file.createNewFile()){
+                throw new IOException("Failed to create CSV File: " + path );//creates the csv if it doesn't exist
+            }
         }
     }
 

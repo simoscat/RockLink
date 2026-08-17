@@ -1,6 +1,6 @@
 package dao.promoter;
 
-import engineering.CsvManager;
+import engineering.persistency.CsvManager;
 import engineering.enums.Gender;
 import exception.DAOException;
 import model.Promoter;

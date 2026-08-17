@@ -55,7 +55,7 @@ public class DAOFactoryDemo extends DAOFactory{
     }
 
     @Override
-    public AnnouncementDAO getAnnouncementDAO() {
+    public AnnouncementDAO getJobAnnouncementDAO() {
         if (this.announcementDAO == null) {
             this.announcementDAO = new AnnouncementDAODemo();
         }

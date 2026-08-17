@@ -10,13 +10,16 @@ import java.util.List;
 public abstract class ApplicationDAO extends DAOWithCache<Application> {
 
     @Override
-    public String getKey(Application obj) {
-        return obj.getId();
+    public String getKey(Application application) {
+        return application.getApplicationAnnouncement().getAnnouncementPublishDate().toString() + "_" +
+                application.getApplicationAnnouncement().getPublisher().getEmail() + "_" +
+                application.getCandidateEmail();
+
+        // the application key is built as follows:
+        // publishDateAndTime_publisherEmail_candidateEmail
     }
 
-    public List<Application> getApplicationsFromAnnouncement(Announcement announcement) throws DAOException{
-        return retrieveApplicationsFromAnnouncement(announcement.getId());
-    }
+    public abstract List<Application> getApplicationsFromAnnouncement(Announcement announcement) throws DAOException;
 
 
     @Override
@@ -25,7 +28,6 @@ public abstract class ApplicationDAO extends DAOWithCache<Application> {
         addToCache(application);
     }
 
-    protected abstract List<Application> retrieveApplicationsFromAnnouncement(String id);
     protected abstract void saveToPersistency(Application application);
 
 }

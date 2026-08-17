@@ -2,7 +2,7 @@ package dao.musician;
 
 import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAOCsv;
-import engineering.CsvManager;
+import engineering.persistency.CsvManager;
 import engineering.enums.Gender;
 import exception.DAOException;
 import model.Instrument;
@@ -92,7 +92,7 @@ public class MusicianDAOCsv extends MusicianDAO {
         }
 
         // gli strumenti sono gestiti dall'InstrumentDAO, non da questa classe
-        this.instrumentDAO.saveMusicianInstruments(m.getEmail(), m.getInstruments());
+        this.instrumentDAO.saveMusicianInstruments(m.getEmail(), m.presentInstruments());
     }
 
     private Musician parseRowIfMatches(String line, String email) {

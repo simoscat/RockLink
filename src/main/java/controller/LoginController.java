@@ -43,7 +43,7 @@ public class LoginController {
 
                 List<InstrumentBean> instr = new ArrayList<>();
 
-                for (Instrument i : m.getInstruments()){
+                for (Instrument i : m.presentInstruments()){
                     instr.add(new InstrumentBean(i.getName(), i.getMastery().name()));
                 }
 

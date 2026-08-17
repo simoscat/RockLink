@@ -7,7 +7,7 @@ public abstract class AnnouncementDAO extends DAOWithCache<Announcement> {
 
     @Override
     public String getKey(Announcement obj) {
-        return obj.getId();
+        return;
     }
 
     public Announcement getAnnouncementById(String id) {

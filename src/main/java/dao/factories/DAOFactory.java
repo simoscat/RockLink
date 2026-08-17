@@ -45,7 +45,7 @@ public abstract class DAOFactory {
         return instance;
     }
 
-    public abstract AnnouncementDAO getAnnouncementDAO();
+    public abstract AnnouncementDAO getJobAnnouncementDAO();
     public abstract ApplicationDAO getApplicationDAO();
     public abstract AuthDAO getAuthDAO();
     public abstract InstrumentDAO getInstrumentDAO();

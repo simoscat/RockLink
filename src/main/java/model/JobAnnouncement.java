@@ -17,21 +17,30 @@ public class JobAnnouncement extends BaseAnnouncement {
     private MoneyValue salary;
     private String address;
 
-    public JobAnnouncement(String id, String title, String content, LocalDateTime date, AnnouncementStatus status,
-                           Promoter promoter, MoneyValue salary, String address) {
-        super(id, title, content, date, status);
+    public JobAnnouncement(String title, String content, LocalDateTime date, AnnouncementStatus status,
+                              LocalDateTime publishDate, Artist hiredArtist, Promoter promoter, MoneyValue salary, String address) {
+        super(title, content, date, status, publishDate, hiredArtist);
         this.promoter = promoter;
         this.salary = salary;
         this.address = address;
     }
 
-    public JobAnnouncement(String id, String title, String content, LocalDateTime date, AnnouncementStatus status,
-                           Artist hiredArtist, Promoter promoter, MoneyValue salary, String address) {
-        super(id, title, content, date, status, hiredArtist);
+    public JobAnnouncement(String title, String content, LocalDateTime date, AnnouncementStatus status, LocalDateTime publishDate,
+                           Promoter promoter,  MoneyValue salary, String address) {
+        super(title, content, date, status, publishDate);
         this.promoter = promoter;
         this.salary = salary;
         this.address = address;
     }
+
+    public JobAnnouncement(String title, String content, LocalDateTime date, AnnouncementStatus status,
+                           Promoter promoter, MoneyValue salary, String address) {
+        super(title, content, date, status);
+        this.promoter = promoter;
+        this.salary = salary;
+        this.address = address;
+    }
+
 
     @Override
     public User getPublisher() {
@@ -39,8 +48,7 @@ public class JobAnnouncement extends BaseAnnouncement {
     }
 
     public void giveJobToPromoter(Promoter promoter) {
-
+        this.promoter = promoter;
     }
 
-    //TODO
 }
