@@ -1,5 +1,7 @@
 package dao.musician;
 
+import dao.factories.DAOFactory;
+import dao.instrument.InstrumentDAO;
 import engineering.enums.Gender;
 import engineering.enums.Mastery;
 import exception.DAOException;
@@ -14,7 +16,7 @@ public class MusicianDAODemo extends MusicianDAO{
     private final String mail = "anna.muscatello@gmail.com";
 
     @Override
-    public Musician getMusicianByEmail(String email) {
+    public Musician retrieveMusicianByEmail(String email) {
 
         if (!email.equals(mail)) {
             throw new DAOException("No musician with this email exists");
@@ -22,17 +24,10 @@ public class MusicianDAODemo extends MusicianDAO{
 
 
         if (this.musician == null) {
-            List<Instrument> iL = new ArrayList<>();
 
-            Instrument c = new Instrument("Chitarra elettrica", Mastery.MASTER);
+            InstrumentDAO instrumentDAO = DAOFactory.getInstance().getInstrumentDAO();
 
-            Instrument c1 = new Instrument("Chitarra acustica", Mastery.EXPERIENCED);
-
-            Instrument b = new Instrument("Batteria", Mastery.BEGINNER);
-
-            iL.add(c);
-            iL.add(c1);
-            iL.add(b);
+            List<Instrument> iL = instrumentDAO.getMusicianInstruments("anna.muscatello@gmail.com");
 
             this.musician = new Musician("Anna", "Muscatello", "Muschio", "anna.muscatello@gmail.com",
                     Gender.FEMALE, iL);
@@ -41,8 +36,11 @@ public class MusicianDAODemo extends MusicianDAO{
         return this.musician;
     }
 
+
     @Override
-    public void flush(Musician m) {
+    public void saveToPersistency(Musician m) {
         //nothing to do in demo version
     }
+
+
 }

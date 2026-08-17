@@ -10,8 +10,18 @@ public abstract class MusicianDAO extends DAOWithCache<Musician> {
         return obj.getEmail();
     }
 
-    public abstract Musician getMusicianByEmail(String email);
+    public Musician getMusicianByEmail(String email){
+        if (this.isCached(email)){
+            return this.getFromCache(email);
+        } else {
+            Musician m = this.retrieveMusicianByEmail(email);
+            this.addToCache(m);
+            return m;
+        }
+    }
 
-    public abstract void flush(Musician m);
+    public abstract Musician retrieveMusicianByEmail(String email);
+
+    public abstract void saveToPersistency(Musician m);
 
 }

@@ -1,11 +1,17 @@
 package dao.factories;
 
+import dao.announcement.AnnouncementDAO;
+import dao.announcement.AnnouncementDAODemo;
+import dao.application.ApplicationDAO;
+import dao.application.ApplicationDAODemo;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAODemo;
-import dao.auth.AuthDAOSQLite;
+import dao.instrument.InstrumentDAO;
+import dao.instrument.InstrumentDAODemo;
 import dao.musician.MusicianDAO;
 import dao.musician.MusicianDAODemo;
 import dao.promoter.PromoterDAO;
+import dao.promoter.PromoterDAODemo;
 
 public class DAOFactoryDemo extends DAOFactory{
     @Override
@@ -30,6 +36,14 @@ public class DAOFactoryDemo extends DAOFactory{
             this.authDAO = new AuthDAODemo();
         }
         return this.authDAO;
+    }
+
+    @Override
+    public InstrumentDAO getInstrumentDAO() {
+        if (this.instrumentDAO == null){
+            this.instrumentDAO = new InstrumentDAODemo();
+        }
+        return this.instrumentDAO;
     }
 
     @Override

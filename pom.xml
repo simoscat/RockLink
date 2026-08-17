@@ -14,7 +14,12 @@
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.organization>simoscat</sonar.organization>
+        <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
+        <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S106</sonar.issue.ignore.multicriteria.e1.ruleKey>
+        <sonar.issue.ignore.multicriteria.e1.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e1.resourceKey>
+        <javafx.version>21.0.4</javafx.version>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -27,6 +32,17 @@
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.53.2.1</version>
+        </dependency>
+        <!-- JavaFX: necessario per i controller grafici (FXML) delle schermate -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
     </dependencies>
 

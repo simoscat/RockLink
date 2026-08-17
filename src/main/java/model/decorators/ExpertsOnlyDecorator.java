@@ -1,4 +1,6 @@
-package model;
+package model.decorators;
+
+import model.Announcement;
 
 public class ExpertsOnlyDecorator extends AnnouncementDecorator{
     public ExpertsOnlyDecorator(Announcement wrappedAnnouncement) {

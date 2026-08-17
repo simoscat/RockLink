@@ -1,9 +1,8 @@
 package dao.auth;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
+import java.util.Properties;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,14 +13,31 @@ import model.Credential;
 
 public class AuthDAOJson extends AuthDAO {
 
-    private static final String MUSICIANS_FILE = "data/musicians_creds.json";
-    private static final String PROMOTERS_FILE = "data/promoters_creds.json";
+    private static String MUSICIANS_FILE;
+    private static String PROMOTERS_FILE;
 
     private static final String EMAIL_KEY = "email";
     private static final String PASSWORD_KEY = "cryptPassword";
 
 
+    AuthDAOJson() {
 
+        try(InputStream is = new FileInputStream("config.properties")){
+            Properties prop = new Properties();
+            prop.load(is);
+
+            String basepath = prop.getProperty("json.path");
+
+            MUSICIANS_FILE = basepath+"musicians_creds.json";
+            PROMOTERS_FILE = basepath+"promoters_creds.json";
+
+        } catch (FileNotFoundException e) {
+            throw new DAOException("Property file doesn't exist", e);
+        } catch (IOException e) {
+            throw new DAOException("Error reading properties file", e);
+        }
+
+    }
 
     @Override
     public Credential getMusicianCredential(String email) throws DAOException {

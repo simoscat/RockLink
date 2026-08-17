@@ -1,5 +1,6 @@
 package model;
 
+import engineering.EmailChecker;
 import engineering.enums.Gender;
 
 public abstract class User {
@@ -11,7 +12,7 @@ public abstract class User {
     protected User(String name, String surname, String email, Gender gender) {
         this.name = name;
         this.surname = surname;
-        this.email = email;
+        setEmail(email);
         this.gender = gender;
     }
 
@@ -36,6 +37,9 @@ public abstract class User {
     }
 
     public void setEmail(String email){
+        if (!EmailChecker.isValidEmail(email)) {
+            throw new IllegalArgumentException("Invalid email: " + email);
+        }
         this.email = email;
     }
 

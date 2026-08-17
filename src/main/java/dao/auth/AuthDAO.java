@@ -1,16 +1,15 @@
 package dao.auth;
 
+import engineering.EmailChecker;
 import exception.DAOException;
 import model.Credential;
 
 public abstract class AuthDAO {
 
-    private static final String EMAIL_REGEX =
-            "^[a-zA-Z0-9_+&*-]++(?:\\.[a-zA-Z0-9_+&*-]++)*+@"
-                    + "(?:[a-zA-Z0-9-]++\\.)++[a-zA-Z]{2,7}$";;
 
+    //common logic
     protected boolean invalidEmail(String email) {
-        return !email.matches(EMAIL_REGEX);
+        return !EmailChecker.isValidEmail(email);
     }
 
     public abstract Credential getMusicianCredential(String email) throws DAOException;

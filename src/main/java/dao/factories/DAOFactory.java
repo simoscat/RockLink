@@ -1,6 +1,9 @@
 package dao.factories;
 
+import dao.announcement.AnnouncementDAO;
+import dao.application.ApplicationDAO;
 import dao.auth.AuthDAO;
+import dao.instrument.InstrumentDAO;
 import dao.musician.MusicianDAO;
 import dao.promoter.PromoterDAO;
 import exception.DAOException;
@@ -8,7 +11,6 @@ import exception.DAOException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 import java.util.Properties;
 
 
@@ -22,6 +24,7 @@ public abstract class DAOFactory {
     protected AuthDAO authDAO = null;
     protected ApplicationDAO applicationDAO = null;
     protected AnnouncementDAO announcementDAO = null;
+    protected InstrumentDAO instrumentDAO = null;
 
     public static synchronized DAOFactory getInstance() {
         if (instance == null) {
@@ -30,10 +33,10 @@ public abstract class DAOFactory {
                 properties.load(in);
                 String persistenceType = properties.getProperty("persistence.type", "JSON").toUpperCase();
                 instance = switch (persistenceType) {
-                    case "JSON" -> new DAOFactoryJSON();
-                    case "SQLITE" -> new DAOFactorySQLite();
+                    case "JSON" -> new DAOFactoryJson();
+                    case "CSV" -> new DAOFactoryCsv();
                     case "DEMO" -> new DAOFactoryDemo();
-                    default -> new DAOFactoryJSON(); // Default fallback
+                    default -> new DAOFactoryJson(); // Default fallback
                 };
             } catch (IOException e) {
                 throw new DAOException("Error reading config.properties", e);
@@ -42,9 +45,12 @@ public abstract class DAOFactory {
         return instance;
     }
 
+    public abstract AnnouncementDAO getAnnouncementDAO();
+    public abstract ApplicationDAO getApplicationDAO();
+    public abstract AuthDAO getAuthDAO();
+    public abstract InstrumentDAO getInstrumentDAO();
     public abstract MusicianDAO getMusicianDAO();
     public abstract PromoterDAO getPromoterDAO();
-    public abstract AuthDAO getAuthDAO();
-    public abstract ApplicationDAO getApplicationDAO();
-    public abstract AnnouncementDAO getAnnouncementDAO();
+
+
 }

@@ -7,44 +7,51 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="103ea0c7-7c0c-486a-8159-e3589db7fa17" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOSQLite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactorySQLite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/enums/AnnouncementTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/SQLiteConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/AnnouncementDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/BaseAnnouncement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/ExpertsOnlyDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/LongTimeContractDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/NegotiableSalaryDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/UrgentAnnouncementDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Context.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/LoginGraphicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Navigator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Screen.java" afterDir="false" />
+    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/ApplicationBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/BaseAnnouncementBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/InstrumentBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/MoneyValueBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/EmailChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/MusicianBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/MusicianBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/PromoterBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/PromoterBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/UserBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/PublishJobPostingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PublishJobPostingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOWithCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/DAOWithCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOSQLite.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactorySQLite.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/AcousticInstrumentDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/DAOWithCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/DAOWithCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/SQLiteConnection.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Announcement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Announcement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/AnnouncementDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/AnnouncementDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Band.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Band.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/BandAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BandAnnouncement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/BaseInstrument.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/ElectricInstrumentDecorator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Instrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Instrument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/InstrumentDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Band.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/BandAnnouncement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/BaseAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BaseAnnouncement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ExpertsOnlyDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/ExpertsOnlyDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/JobEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/LongTimeContractDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/LongTimeContractDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Musician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Musician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/NegotiableSalaryDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/NegotiableSalaryDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Promoter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Promoter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UrgentAnnouncementDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/UrgentAnnouncementDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,19 +60,16 @@
   </component>
   <component name="CopilotPersistence">
     <persistenceIdMap>
-      <entry key="_/home/luma/Documenti/Anno 3.1/ISPW-Nuovo/RockLink" value="3I0BJWKUBXiHpEAZ2oLOllwuvuf" />
+      <entry key="_/home/luma/Documenti/Anno 3.1/ISPW-Nuovo/RockLink" value="3I0EOlMPkeBlYMhjJIg05zSwXpx" />
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="71" />
+    <option name="cachedIndexableFilesCount" value="77" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Exception" />
-        <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -73,17 +77,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 6
 }</component>
-  <component name="ProjectId" id="3HuIhGylE2t5j3jUerBM35oQJsC" />
+  <component name="ProjectId" id="3I0DLG58FS67QqbAJiZuKKBWNG9" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectSessionTemplates">
+    <option name="inlineTemplate">
+      <template>
+        <option name="modeId" value="InlineAgent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="LOCAL" />
+      </template>
+    </option>
     <option name="panelTemplate">
       <template>
         <option name="modeId" value="Agent" />
@@ -104,10 +117,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -122,22 +132,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="bean" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/.idea" />
-    </key>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -148,37 +146,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="103ea0c7-7c0c-486a-8159-e3589db7fa17" name="Changes" comment="" />
-      <created>1786711645023</created>
+      <changelist id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="" />
+      <created>1786892535229</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1786711645023</updated>
-      <workItem from="1786711646401" duration="5362000" />
-      <workItem from="1786721109033" duration="83000" />
-      <workItem from="1786722008296" duration="6684000" />
-      <workItem from="1786793181648" duration="18364000" />
-      <workItem from="1786873680892" duration="13062000" />
-      <workItem from="1786891509771" duration="1332000" />
+      <updated>1786892535229</updated>
+      <workItem from="1786892536464" duration="84000" />
+      <workItem from="1786893036753" duration="124000" />
+      <workItem from="1786893172482" duration="9513000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/.." />
-    </ignored-roots>
   </component>
 </project>

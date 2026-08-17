@@ -1,34 +1,28 @@
 package bean;
 
-import model.JobEvent;
+import java.util.List;
+import java.util.Map;
 
 public class PromoterBean extends UserBean{
 
-    private String role;
-    private JobEvent jobEvent;
+    private Map<String, String> contacts;
 
-    protected PromoterBean(String name, String surname, String email, String gender, String password,
-                           String role, JobEvent jobEvent) {
+    public PromoterBean(String name, String surname, String email, String gender, String password,
+                           List<JobAnnouncementBean> jobAnnouncements, Map<String, String> contacts) {
         super(name, surname, email, gender, password);
-        this.role = role;
-        this.jobEvent = jobEvent;
+        this.contacts = contacts;
     }
 
-    protected PromoterBean(String email, String password) {
+    public PromoterBean(String email, String password) {
         super(email, password);
     }
 
-    public String getRole() {
-        return role;
+
+    public Map<String, String> getContacts() {
+        return contacts;
     }
-    public void setRole(String role) {
-        this.role = role;
+
+    public void setContacts(Map<String, String> contacts) {
+        this.contacts = contacts;
     }
-    public JobEvent getJobEvent() {
-        return jobEvent;
-    }
-    public void setJobEvent(JobEvent jobEvent) {
-        this.jobEvent = jobEvent;
-    }
-    //TODO
 }

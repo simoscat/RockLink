@@ -1,7 +1,10 @@
 package dao.factories;
 
+import dao.announcement.AnnouncementDAO;
+import dao.application.ApplicationDAO;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAOJson;
+import dao.instrument.InstrumentDAO;
 import dao.musician.MusicianDAO;
 import dao.promoter.PromoterDAO;
 
@@ -31,6 +34,14 @@ public class DAOFactoryJson extends DAOFactory {
         }
 
         return this.authDAO;
+    }
+
+    @Override
+    public InstrumentDAO getInstrumentDAO() {
+        if (this.instrumentDAO == null) {
+            this.instrumentDAO = new InstrumentDAOJson();
+        }
+        return this.instrumentDAO;
     }
 
     @Override

@@ -45,4 +45,11 @@ public abstract class DAOWithCache<T> {
         this.cache.clear();
     }
 
+    public void save(T obj){
+        saveToPersistency(obj);
+        addToCache(obj);
+    }
+
+    protected abstract void saveToPersistency(T obj);
+
 }

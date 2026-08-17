@@ -2,34 +2,21 @@ package model;
 
 import engineering.enums.Gender;
 
+import java.util.List;
+import java.util.Map;
+
 public class Promoter extends User {
 
-    String role;
-    JobEvent jobEvent;
+    private Map<String, String> contacts;
 
-    public Promoter(String name, String surname, String email, Gender gender, JobEvent jobEvent,
-                    String role) {
+    // create promoter without job announcements
+    public Promoter(String name, String surname, String email, Gender gender, Map<String, String> contacts) {
         super(name, surname, email, gender);
-        this.role = role;
-        this.jobEvent = jobEvent;
-
-        if (jobEvent != null) {
-            this.jobEvent.addPromoter(this);
-        }
-    }
-
-    public void changeLocal(JobEvent jobEvent){
-        this.jobEvent.removePromoter(this);
-        this.jobEvent = jobEvent;
-        this.jobEvent.addPromoter(this);
+        this.contacts = contacts;
     }
 
 
-    public String getRole() {
-        return this.role;
-    }
-
-    public JobEvent getJobEvent() {
-        return this.jobEvent;
+    public Map<String, String> promoterContacts() {
+        return contacts;
     }
 }

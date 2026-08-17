@@ -10,6 +10,17 @@ public abstract class PromoterDAO extends DAOWithCache<Promoter> {
         return obj.getEmail();
     }
 
-    public abstract Promoter getPromoterByEmail(String email);
-    public abstract void flush(Promoter promoter);
+    public Promoter getPromoterByEmail(String email){
+        if (isCached(email)){
+            return getFromCache(email);
+        } else {
+            Promoter promoter = retrievePromoterByEmail(email);
+            addToCache(promoter);
+            return promoter;
+        }
+    }
+
+    protected abstract Promoter retrievePromoterByEmail(String email);
+
+    protected abstract void saveToPersistency(Promoter promoter);
 }

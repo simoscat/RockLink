@@ -1,5 +1,6 @@
 package controller;
 
+import bean.InstrumentBean;
 import bean.MusicianBean;
 import bean.PromoterBean;
 import bean.SessionBean;
@@ -40,10 +41,10 @@ public class LoginController {
                 musician.setStageName(m.getArtistName());
                 musician.clearPassword();
 
-                List<String> instr = new ArrayList<>();
+                List<InstrumentBean> instr = new ArrayList<>();
 
                 for (Instrument i : m.getInstruments()){
-                    instr.add(i.getName());
+                    instr.add(new InstrumentBean(i.getName(), i.getMastery().name()));
                 }
 
                 musician.setInstruments(instr);

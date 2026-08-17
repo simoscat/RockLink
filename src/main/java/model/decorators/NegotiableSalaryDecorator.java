@@ -1,4 +1,6 @@
-package model;
+package model.decorators;
+
+import model.Announcement;
 
 public class NegotiableSalaryDecorator extends AnnouncementDecorator{
     public NegotiableSalaryDecorator(Announcement wrappedAnnouncement) {

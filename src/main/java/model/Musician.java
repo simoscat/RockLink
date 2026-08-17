@@ -30,4 +30,8 @@ public class Musician extends User implements Artist {
         return instruments;
     }
 
+    public void addInstrument(Instrument instrument) {
+        this.instruments.add(instrument);
+    }
+
 }

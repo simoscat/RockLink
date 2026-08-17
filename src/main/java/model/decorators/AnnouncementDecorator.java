@@ -1,8 +1,11 @@
-package model;
+package model.decorators;
 
 import engineering.enums.AnnouncementStatus;
+import model.Announcement;
+import model.Artist;
+import model.User;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public abstract class AnnouncementDecorator implements Announcement {
 
@@ -10,6 +13,10 @@ public abstract class AnnouncementDecorator implements Announcement {
 
     protected AnnouncementDecorator(Announcement wrappedAnnouncement) {
         this.wrappedAnnouncement = wrappedAnnouncement;
+    }
+
+    public Announcement unwrapAnnouncement() {
+        return wrappedAnnouncement;
     }
 
     @Override
@@ -28,8 +35,8 @@ public abstract class AnnouncementDecorator implements Announcement {
     }
 
     @Override
-    public Date getDate() {
-        return this.wrappedAnnouncement.getDate();
+    public LocalDateTime getAnnouncementDate() {
+        return this.wrappedAnnouncement.getAnnouncementDate();
     }
 
     @Override
@@ -51,5 +58,10 @@ public abstract class AnnouncementDecorator implements Announcement {
     @Override
     public AnnouncementStatus getStatus() {
         return this.wrappedAnnouncement.getStatus();
+    }
+
+    @Override
+    public String getId() {
+        return this.wrappedAnnouncement.getId();
     }
 }
