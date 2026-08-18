@@ -36,7 +36,7 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
     }
 
     @Override
-    public List<JobApplication> getAllJobApplicationsFromEmail(String email) {
+    public List<JobApplication> retrieveAllJobApplicationsFromEmail(String email) {
 
         List<JobApplication> jobApplications = new ArrayList<>();
 
@@ -44,6 +44,10 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
 
             if (jobApplication.getCandidateEmail().equals(email)) {
                 jobApplications.add(jobApplication);
+
+                if (!isCached(getUniqueId(jobApplication))) {
+                    this.addToCache(jobApplication);
+                }
             }
 
         }
@@ -76,6 +80,6 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
 
     @Override
     protected void saveToPersistency(JobApplication obj) {
-        //nothing to do in demo
+        jobApplications.add(obj);
     }
 }

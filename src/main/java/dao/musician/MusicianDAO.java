@@ -22,6 +22,4 @@ public abstract class MusicianDAO extends DAOWithCache<Musician> {
 
     public abstract Musician retrieveMusicianByEmail(String email);
 
-    public abstract void saveToPersistency(Musician m);
-
 }

@@ -78,7 +78,7 @@ public class MusicianDAOCsv extends MusicianDAO {
     }
 
     @Override
-    public void saveToPersistency(Musician m) {
+    protected void saveToPersistency(Musician m) {
         List<String> lines = readAllLinesReplacingMusician(m);
 
         File file = new File(this.PATH);

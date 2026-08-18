@@ -6,7 +6,7 @@ import model.jobAnnouncementDecorators.*;
 
 import java.util.List;
 
-public class JobDecoratorApplier {
+public class JobDecoratorManager {
 
     public static JobAnnouncement applyDecorators(JobAnnouncement a, List<JobAnnouncementTag> tags){
         if (tags == null || tags.isEmpty()) return a;
@@ -23,6 +23,18 @@ public class JobDecoratorApplier {
         }
 
         return a;
+    }
+
+    public static JobAnnouncement unwrapJobAnnouncement(JobAnnouncement job) {
+
+        JobAnnouncement current = job;
+
+        while (current instanceof JobAnnouncementDecorator jad){
+            current = jad.unwrapAnnouncement();
+        }
+
+        return current;
+
     }
 
 

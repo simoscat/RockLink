@@ -3,6 +3,7 @@ package model.jobAnnouncementDecorators;
 import engineering.enums.JobAnnouncementStatus;
 import model.JobAnnouncement;
 import model.Artist;
+import model.MoneyValue;
 import model.User;
 
 import java.time.LocalDateTime;
@@ -45,6 +46,11 @@ public abstract class JobAnnouncementDecorator implements JobAnnouncement {
     }
 
     @Override
+    public MoneyValue getJobPay() {
+        return this.wrappedJobAnnouncement.getJobPay();
+    }
+
+    @Override
     public void hireArtist(Artist artist) {
         this.wrappedJobAnnouncement.hireArtist(artist);
     }
@@ -73,6 +79,11 @@ public abstract class JobAnnouncementDecorator implements JobAnnouncement {
     @Override
     public void publishNow() {
         this.wrappedJobAnnouncement.publishNow();
+    }
+
+    @Override
+    public String getEventAddress() {
+        return this.wrappedJobAnnouncement.getEventAddress();
     }
 
 

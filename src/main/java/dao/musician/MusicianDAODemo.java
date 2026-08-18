@@ -38,8 +38,8 @@ public class MusicianDAODemo extends MusicianDAO{
 
 
     @Override
-    public void saveToPersistency(Musician m) {
-        //nothing to do in demo version
+    protected void saveToPersistency(Musician m) {
+        //nothing to do
     }
 
 

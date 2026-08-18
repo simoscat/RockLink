@@ -17,7 +17,7 @@ public class MoneyValue {
         this.currency = currency;
     }
 
-    public BigDecimal getValue() {
+    public BigDecimal moneyAmount() {
         return value;
     }
 
@@ -33,4 +33,7 @@ public class MoneyValue {
         this.currency = newCurrency;
     }
 
+    public CurrencyType whichCurrency(){
+        return this.currency;
+    }
 }

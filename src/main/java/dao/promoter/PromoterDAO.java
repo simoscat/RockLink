@@ -21,6 +21,4 @@ public abstract class PromoterDAO extends DAOWithCache<Promoter> {
     }
 
     protected abstract Promoter retrievePromoterByEmail(String email);
-
-    protected abstract void saveToPersistency(Promoter promoter);
 }

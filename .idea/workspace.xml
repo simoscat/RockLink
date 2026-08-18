@@ -7,7 +7,46 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="" />
+    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/ApplicationBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dao/TestJobAnnouncementDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dao/TestMusicianDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dao/TestPromoterDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/decorator/TestDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/engineering/TestEmailChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/passwordEncryption/TestPasswordEncrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/musicians.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/BaseAnnouncementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/BaseAnnouncementBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/JobApplicationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/JobApplicationBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorApplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ConcreteJobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ConcreteJobAnnouncement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MoneyValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MoneyValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/jobAnnouncementDecorators/JobAnnouncementDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/jobAnnouncementDecorators/JobAnnouncementDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/suggerimenti.md" beforeDir="false" afterPath="$PROJECT_DIR$/suggerimenti.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +58,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="95" />
+    <option name="cachedIndexableFilesCount" value="94" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -73,29 +112,126 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/luma/Scaricati/RockLink_login_fxml/RockLink_test&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.completions.CompletionsConfigurable&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.TestDecorator.executor": "Run",
+    "JUnit.TestEmailChecker.executor": "Run",
+    "JUnit.TestEmailChecker.testNoAtEmail.executor": "Run",
+    "JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement.executor": "Run",
+    "JUnit.TestMusicianDAO.cacheTest.executor": "Run",
+    "JUnit.TestMusicianDAO.executor": "Run",
+    "JUnit.TestMusicianDAO.testAddMusician.executor": "Run",
+    "JUnit.TestPasswordEncrypt.testPasswordEncrypting.executor": "Run",
+    "JUnit.TestPromoterDAO.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/luma/Scaricati/RockLink_login_fxml/RockLink_test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager" selected="JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement">
+    <configuration name="TestDecorator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RockLink" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="decorator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="decorator" />
+      <option name="MAIN_CLASS_NAME" value="decorator.TestDecorator" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestEmailChecker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RockLink" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="engineering.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="engineering" />
+      <option name="MAIN_CLASS_NAME" value="engineering.TestEmailChecker" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestEmailChecker.testNoAtEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RockLink" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="engineering.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="engineering" />
+      <option name="MAIN_CLASS_NAME" value="engineering.TestEmailChecker" />
+      <option name="METHOD_NAME" value="testNoAtEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RockLink" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.TestJobAnnouncementDAO" />
+      <option name="METHOD_NAME" value="testAddDecoratedJobAnnouncement" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestPromoterDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RockLink" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.TestPromoterDAO" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement" />
+        <item itemvalue="JUnit.TestPromoterDAO" />
+        <item itemvalue="JUnit.TestEmailChecker.testNoAtEmail" />
+        <item itemvalue="JUnit.TestEmailChecker" />
+        <item itemvalue="JUnit.TestDecorator" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -116,6 +252,7 @@
       <workItem from="1786893172482" duration="9513000" />
       <workItem from="1786955065414" duration="24148000" />
       <workItem from="1786984083570" duration="4670000" />
+      <workItem from="1787040564407" duration="20701000" />
     </task>
     <servers />
   </component>

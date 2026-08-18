@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+//TODO CONTROLLA!!!!
+
 public class JobApplicationDAOJson extends JobApplicationDAO {
 
     private final String PATH;
@@ -30,7 +32,7 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
     }
 
     @Override
-    public List<JobApplication> getAllJobApplicationsFromEmail(String email) {
+    public List<JobApplication> retrieveAllJobApplicationsFromEmail(String email) {
         JSONArray applications = readJsonFile();
         List<JobApplication> result = new ArrayList<>();
 

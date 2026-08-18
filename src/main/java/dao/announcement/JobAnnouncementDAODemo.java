@@ -20,7 +20,6 @@ import java.util.List;
 
 public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
 
-
     private List<JobAnnouncement> jobAnnouncements;
 
     public JobAnnouncementDAODemo(){
@@ -87,13 +86,17 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
     }
 
     @Override
-    public List<JobAnnouncement> getAllJobAnnouncements() {
+    protected List<JobAnnouncement> retrieveAllJobAnnouncements() {
+
         return jobAnnouncements;
+
     }
 
     @Override
     protected void saveToPersistency(JobAnnouncement obj) {
-        //nothing to do in demo
+
+        jobAnnouncements.add(obj);
+
     }
 
     private String uniformTitle(String title){

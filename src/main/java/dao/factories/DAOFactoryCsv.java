@@ -8,6 +8,10 @@ import dao.musician.MusicianDAO;
 import dao.musician.MusicianDAOCsv;
 import dao.promoter.PromoterDAO;
 import dao.promoter.PromoterDAOCsv;
+import dao.announcement.JobAnnouncementDAO;
+import dao.announcement.JobAnnouncementDAOCsv;
+import dao.application.JobApplicationDAO;
+import dao.application.JobApplicationDAOCsv;
 
 public class DAOFactoryCsv extends DAOFactory {
 

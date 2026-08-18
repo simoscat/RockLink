@@ -12,6 +12,9 @@ public interface JobAnnouncement {
     public LocalDateTime getAnnouncementDate();
 
     public void openAnnouncement();
+
+    MoneyValue getJobPay();
+
     public void hireArtist(Artist artist);
     public void closeAnnouncement();
 
@@ -21,4 +24,6 @@ public interface JobAnnouncement {
 
     public LocalDateTime getAnnouncementPublishDate();
     public void publishNow();
+
+    public String getEventAddress();
 }

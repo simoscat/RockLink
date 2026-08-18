@@ -36,6 +36,7 @@ public class LoginController {
 
                 Musician m = mDAO.getMusicianByEmail(musician.getEmail());
 
+
                 musician.setName(m.getName());
                 musician.setSurname(m.getSurname());
                 musician.setStageName(m.getArtistName());
@@ -58,7 +59,7 @@ public class LoginController {
             }
         }
         catch (DAOException e){
-            throw new WrongCredentialsException("Invalid credentials");
+            throw new WrongCredentialsException("Invalid musician credentials");
         }
 
     }
@@ -67,7 +68,7 @@ public class LoginController {
         AuthDAO authDAO = DAOFactory.getInstance().getAuthDAO();
 
         try {
-            Credential creds = authDAO.getMusicianCredential(promoter.getEmail());
+            Credential creds = authDAO.getPromoterCredential(promoter.getEmail());
 
             if (PasswordEncrypter.checkPassword(promoter.getPassword(), creds.getCryptPassword())){// correct password
 
@@ -76,8 +77,9 @@ public class LoginController {
 
                 promoter.setName(p.getName());
                 promoter.setSurname(p.getSurname());
-                promoter.setRole(p.getRole());
-                promoter.setJobEvent(p.getJobEvent());
+                promoter.setContacts(p.promoterContacts());
+                promoter.setEmail(p.getEmail());
+                promoter.setGender(p.getGender().name());
                 promoter.clearPassword();
 
                 Session newSesh = SessionManager.getInstance().getNewSession(p);
@@ -89,7 +91,7 @@ public class LoginController {
             }
         }
         catch (DAOException e){
-            throw new WrongCredentialsException("Invalid credentials");
+            throw new WrongCredentialsException("Invalid promoter credentials");
         }
 
     }

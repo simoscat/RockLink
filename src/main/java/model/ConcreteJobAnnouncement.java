@@ -48,10 +48,12 @@ public class ConcreteJobAnnouncement extends BaseAnnouncement implements JobAnno
     }
 
 
+    @Override
     public String getEventAddress() {
         return this.address;
     }
 
+    @Override
     public MoneyValue getJobPay() {
         return this.salary;
     }
@@ -67,18 +69,21 @@ public class ConcreteJobAnnouncement extends BaseAnnouncement implements JobAnno
         return this.hiredArtist;
     }
 
+    @Override
     public void openAnnouncement(){
         if (this.hiredArtist == null) {
             this.jobAnnouncementStatus = JobAnnouncementStatus.OPEN;
         }
     }
 
+    @Override
     public void closeAnnouncement(){
         if (this.hiredArtist == null) {
             this.jobAnnouncementStatus = JobAnnouncementStatus.CLOSED;
         }
     }
 
+    @Override
     public JobAnnouncementStatus getStatus(){
         return this.jobAnnouncementStatus;
     }

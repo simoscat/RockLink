@@ -1,7 +1,6 @@
 package dao.application;
 
 import engineering.persistency.DAOWithCache;
-import model.JobAnnouncement;
 import model.JobApplication;
 
 import java.util.List;
@@ -27,7 +26,21 @@ public abstract class JobApplicationDAO extends DAOWithCache<JobApplication> {
 
     }
 
-    public abstract List<JobApplication> getAllJobApplicationsFromEmail(String email);
+    public List<JobApplication> getAllJobApplicationsFromEmail(String email) {
+
+        List<JobApplication> jobApplications = retrieveAllJobApplicationsFromEmail(email);
+
+        for (JobApplication jobApplication : jobApplications) {
+            if (!isCached(jobApplication)){
+                addToCache(jobApplication);
+            }
+        }
+
+        return jobApplications;
+
+    }
+
+    protected abstract List<JobApplication> retrieveAllJobApplicationsFromEmail(String email);
 
     protected abstract JobApplication retrieveJobApplicationById(String id);
 

@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+
+
+
 public class JobApplicationDAOCsv extends JobApplicationDAO {
 
     private static final String CSV_SEPARATOR = ",";
@@ -36,7 +39,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
     }
 
     @Override
-    public List<JobApplication> getAllJobApplicationsFromEmail(String email) {
+    public List<JobApplication> retrieveAllJobApplicationsFromEmail(String email) {
         List<JobApplication> applications = new ArrayList<>();
         File file = new File(this.PATH);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {

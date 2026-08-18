@@ -29,10 +29,21 @@ public abstract class JobAnnouncementDAO extends DAOWithCache<JobAnnouncement> {
     }
 
 
+    public List<JobAnnouncement> getAllJobAnnouncements(){
+        List<JobAnnouncement> jobAnnouncements = this.retrieveAllJobAnnouncements();
 
-    public abstract JobAnnouncement retrieveJobAnnouncementById(String id);
+        for (JobAnnouncement jobAnnouncement : jobAnnouncements){
+            if (!isCached(jobAnnouncement)){
+                addToCache(jobAnnouncement);
+            }
+        }
+        return jobAnnouncements;
+    }
+
+
+    protected abstract JobAnnouncement retrieveJobAnnouncementById(String id);
     public abstract String getUniqueId(JobAnnouncement job);
-    public abstract List<JobAnnouncement> getAllJobAnnouncements();
+    protected abstract List<JobAnnouncement> retrieveAllJobAnnouncements();
 
     // these methods are abstract because the id will depend on the persistency mechanism at runtime;
     // this also implies that the id stored in the application that references its relative job will change based on

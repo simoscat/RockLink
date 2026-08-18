@@ -20,7 +20,7 @@ public class AuthDAOJson extends AuthDAO {
     private static final String PASSWORD_KEY = "cryptPassword";
 
 
-    AuthDAOJson() {
+    public AuthDAOJson() {
 
         try(InputStream is = new FileInputStream("config.properties")){
             Properties prop = new Properties();

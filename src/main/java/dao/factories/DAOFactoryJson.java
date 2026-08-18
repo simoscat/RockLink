@@ -3,8 +3,15 @@ package dao.factories;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAOJson;
 import dao.instrument.InstrumentDAO;
+import dao.instrument.InstrumentDAOJson;
 import dao.musician.MusicianDAO;
+import dao.musician.MusicianDAOJson;
 import dao.promoter.PromoterDAO;
+import dao.announcement.JobAnnouncementDAO;
+import dao.announcement.JobAnnouncementDAOJson;
+import dao.application.JobApplicationDAO;
+import dao.application.JobApplicationDAOJson;
+import dao.promoter.PromoterDAOJson;
 
 public class DAOFactoryJson extends DAOFactory {
     @Override

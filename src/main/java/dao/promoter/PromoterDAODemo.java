@@ -3,6 +3,7 @@ package dao.promoter;
 import engineering.enums.Gender;
 import exception.DAOException;
 import model.BaseAnnouncement;
+import model.Musician;
 import model.Promoter;
 
 import java.io.FileInputStream;
@@ -46,7 +47,7 @@ public class PromoterDAODemo extends PromoterDAO {
     }
 
     @Override
-    protected void saveToPersistency(Promoter promoter) {
-        //nothing to do in demo
+    protected void saveToPersistency(Promoter p) {
+        //nothing to do
     }
 }
