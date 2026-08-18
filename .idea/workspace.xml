@@ -8,22 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/ApplicationBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dao/TestJobAnnouncementDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dao/TestMusicianDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dao/TestPromoterDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/decorator/TestDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/engineering/TestEmailChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/passwordEncryption/TestPasswordEncrypt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dao/TestJobApplicationDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/musicians.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/BaseAnnouncementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/BaseAnnouncementBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/job_announcements.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bean/JobApplicationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/JobApplicationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" afterDir="false" />
@@ -31,21 +19,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAODemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorApplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/ConcreteJobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ConcreteJobAnnouncement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MoneyValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MoneyValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/jobAnnouncementDecorators/JobAnnouncementDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/jobAnnouncementDecorators/JobAnnouncementDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/suggerimenti.md" beforeDir="false" afterPath="$PROJECT_DIR$/suggerimenti.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/DAOWithCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/DAOWithCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +95,7 @@
     "JUnit.TestEmailChecker.executor": "Run",
     "JUnit.TestEmailChecker.testNoAtEmail.executor": "Run",
     "JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement.executor": "Run",
+    "JUnit.TestJobApplicationDAO.testJobApplicationAndJobAnnouncementDAO.executor": "Run",
     "JUnit.TestMusicianDAO.cacheTest.executor": "Run",
     "JUnit.TestMusicianDAO.executor": "Run",
     "JUnit.TestMusicianDAO.testAddMusician.executor": "Run",
@@ -144,22 +122,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement">
-    <configuration name="TestDecorator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RockLink" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="decorator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="decorator" />
-      <option name="MAIN_CLASS_NAME" value="decorator.TestDecorator" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TestJobApplicationDAO.testJobApplicationAndJobAnnouncementDAO">
     <configuration name="TestEmailChecker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RockLink" />
       <extension name="coverage">
@@ -207,6 +170,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestJobApplicationDAO.testJobApplicationAndJobAnnouncementDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RockLink" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.TestJobApplicationDAO" />
+      <option name="METHOD_NAME" value="testJobApplicationAndJobAnnouncementDAO" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestPromoterDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RockLink" />
       <extension name="coverage">
@@ -224,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestJobApplicationDAO.testJobApplicationAndJobAnnouncementDAO" />
         <item itemvalue="JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement" />
         <item itemvalue="JUnit.TestPromoterDAO" />
         <item itemvalue="JUnit.TestEmailChecker.testNoAtEmail" />
         <item itemvalue="JUnit.TestEmailChecker" />
-        <item itemvalue="JUnit.TestDecorator" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +231,7 @@
       <workItem from="1786893172482" duration="9513000" />
       <workItem from="1786955065414" duration="24148000" />
       <workItem from="1786984083570" duration="4670000" />
-      <workItem from="1787040564407" duration="20701000" />
+      <workItem from="1787040564407" duration="28796000" />
     </task>
     <servers />
   </component>

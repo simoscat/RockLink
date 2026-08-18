@@ -3,9 +3,13 @@ package dao.application;
 import dao.announcement.JobAnnouncementDAO;
 import dao.factories.DAOFactory;
 import engineering.enums.ApplicationStatus;
+import engineering.enums.Gender;
+import engineering.enums.Mastery;
 import exception.DAOException;
+import model.Instrument;
 import model.JobAnnouncement;
 import model.JobApplication;
+import model.Musician;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -23,15 +27,45 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
 
         JobAnnouncement job =  jobAnnouncements.getFirst();
 
+        Instrument i1 = new Instrument("Electric guitar", Mastery.MASTER);
+
+        List<Instrument> iList = new ArrayList<>();
+
+        iList.add(i1);
+
+
+        Musician m = new Musician("Anna", "Muscatello",
+                "Muschio", "anna.muscatello@gmail.com", Gender.FEMALE,
+                iList);
+
         JobApplication jobApp = new JobApplication(
-                jobAnnouncementDAO.getUniqueId(job),
-                "anna.muscatello@gmail.com",
-                ApplicationStatus.PENDING,
-                new BigDecimal(30)
-        );
+                job,
+                m);
 
         jobApplications = new ArrayList<>();
         jobApplications.add(jobApp);
+
+    }
+
+    @Override
+    protected JobApplication retrieveJobApplication(String candidateEmail, JobAnnouncement jobAnnouncement) {
+
+        for (JobApplication jobApplication : this.jobApplications) {
+
+            if (jobApplication.whoIsCandidate().getEmail().equals(candidateEmail) &&
+            jobApplication.whichJobAnnouncement().equals(jobAnnouncement)) {
+
+                if (!isCached(getUniqueId(jobApplication))) {
+                    this.addToCache(jobApplication);
+                }
+
+                return jobApplication;
+            }
+
+        }
+
+        throw new DAOException("No application found for email "+candidateEmail+" and job announcement "
+                +jobAnnouncement.getTitle());
 
     }
 
@@ -42,7 +76,7 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
 
         for (JobApplication jobApplication : this.jobApplications) {
 
-            if (jobApplication.getCandidateEmail().equals(email)) {
+            if (jobApplication.whoIsCandidate().getEmail().equals(email)) {
                 jobApplications.add(jobApplication);
 
                 if (!isCached(getUniqueId(jobApplication))) {
@@ -59,24 +93,25 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
     }
 
     @Override
-    protected JobApplication retrieveJobApplicationById(String id) {
+    protected List<JobApplication> retrieveAllJobApplicationsFromJob(JobAnnouncement jobAnnouncement) {
+
+        List<JobApplication> jobs = new ArrayList<>();
 
         for (JobApplication jobApplication : jobApplications) {
 
-            if (getUniqueId(jobApplication).equals(id)) {
-                return jobApplication;
+            if (jobApplication.whichJobAnnouncement().equals(jobAnnouncement)) {
+                jobs.add(jobApplication);
             }
 
         }
 
-        throw new DAOException("No applications found for id: "+ id);
+        if (jobs.isEmpty()) {
+            throw new DAOException("No applications found for announcement: "+jobAnnouncement);
+        }
 
+        return jobs;
     }
 
-    @Override
-    protected String getUniqueId(JobApplication jobApp) {
-        return jobApp.getCandidateEmail() + "~" + jobApp.getApplicationAnnouncementId();
-    }
 
     @Override
     protected void saveToPersistency(JobApplication obj) {

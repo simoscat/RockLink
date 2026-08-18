@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 public class JobApplication extends Application {
 
     private BigDecimal raiseOffer;
+    private JobAnnouncement jobAnnouncementReference;
 
     //the raiseOffer models how much more the applicant wants on their salary
 
@@ -16,13 +17,22 @@ public class JobApplication extends Application {
     if the salary is accepted as it is the counteroffer will be 0
      */
 
-    public JobApplication(String announcementId, String email, ApplicationStatus s) {
-        super(announcementId, email, s);
+    public JobApplication(JobAnnouncement jobAnnouncement, Artist artist) {
+        super(artist);
+        this.jobAnnouncementReference = jobAnnouncement;
+        this.raiseOffer = BigDecimal.ZERO;
     }
 
-    public JobApplication(String announcementId, String email, ApplicationStatus s, BigDecimal raiseOffer) {
-        super(announcementId, email, s);
+    public JobApplication(JobAnnouncement jobAnnouncementReference, Artist artist, BigDecimal raiseOffer) {
+        super(artist);
         this.raiseOffer = raiseOffer;
+        this.jobAnnouncementReference = jobAnnouncementReference;
+    }
+
+    public JobApplication(JobAnnouncement jobAnnouncementReference, Artist artist, ApplicationStatus s, BigDecimal raiseOffer) {
+        super(artist, s);
+        this.raiseOffer = raiseOffer;
+        this.jobAnnouncementReference = jobAnnouncementReference;
     }
 
     public BigDecimal currentRaiseAmount() {
@@ -35,6 +45,10 @@ public class JobApplication extends Application {
 
     public void askForRaise(BigDecimal amount){
         this.raiseOffer = amount;
+    }
+
+    public JobAnnouncement whichJobAnnouncement(){
+        return this.jobAnnouncementReference;
     }
 
 

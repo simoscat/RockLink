@@ -4,22 +4,21 @@ import engineering.enums.ApplicationStatus;
 
 public abstract class Application {
 
-    private String announcementId;
-    private String candidateEmail;
+    private Artist artist;
     private ApplicationStatus status;
 
-    public Application(String announcementId, String email, ApplicationStatus s) {
-        this.announcementId = announcementId;
-        this.candidateEmail = email;
+    public Application(Artist artist, ApplicationStatus s) {
+        this.artist = artist;
         this.status = s;
     }
 
-    public String getApplicationAnnouncementId() {
-        return announcementId;
+    public Application(Artist artist){
+        this.status = ApplicationStatus.PENDING;
+        this.artist = artist;
     }
 
-    public String getCandidateEmail() {
-        return candidateEmail;
+    public Artist whoIsCandidate() {
+        return artist;
     }
 
     public ApplicationStatus currentApplicationStatus() {

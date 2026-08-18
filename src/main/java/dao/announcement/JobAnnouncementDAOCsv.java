@@ -74,9 +74,11 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
     @Override
     public String getUniqueId(JobAnnouncement job) {
-        return job.getPublisher().getEmail() + "~" +
-                job.getTitle().replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9_]", "") + "~" +
-                job.getAnnouncementPublishDate().toString();
+//        return job.getPublisher().getEmail() + "~" +
+//                job.getTitle().replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9_]", "") + "~" +
+//                job.getAnnouncementPublishDate().toString();
+
+        return job.getPublisher().getEmail() + "~" + job.getAnnouncementPublishDate().toString();
     }
 
     @Override
@@ -98,6 +100,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
     @Override
     protected void saveToPersistency(JobAnnouncement obj) {
+
         List<String> lines = new ArrayList<>();
         boolean found = false;
         String id = getUniqueId(obj);

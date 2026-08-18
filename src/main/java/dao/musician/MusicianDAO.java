@@ -21,5 +21,4 @@ public abstract class MusicianDAO extends DAOWithCache<Musician> {
     }
 
     public abstract Musician retrieveMusicianByEmail(String email);
-
 }

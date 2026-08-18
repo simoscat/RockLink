@@ -27,25 +27,25 @@ public abstract class DAOWithCache<T> {
         return this.cache.get(id);
     }
 
-    public void addToCache(T obj){
+    public synchronized void addToCache(T obj){
         if (obj != null && !this.isCached(obj)){
             this.cache.put(this.getKey(obj), obj);
         }
 
     }
 
-    public void deleteFromCache(T obj){
+    public synchronized void deleteFromCache(T obj){
         if (this.isCached(obj)){
             String key = this.getKey(obj);
             this.cache.remove(key);
         }
     }
 
-    public void clearCache(){
+    public synchronized void clearCache(){
         this.cache.clear();
     }
 
-    public void save(T obj){
+    public synchronized void save(T obj){
         saveToPersistency(obj);
         addToCache(obj);
     }

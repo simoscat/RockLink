@@ -1,9 +1,14 @@
 package dao.application;
 
+import dao.factories.DAOFactory;
+import dao.musician.MusicianDAO;
 import engineering.enums.ApplicationStatus;
 import engineering.persistency.CsvManager;
 import exception.DAOException;
+import model.Artist;
+import model.JobAnnouncement;
 import model.JobApplication;
+import model.Musician;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -36,6 +41,9 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
         } catch (IOException e) {
             throw new DAOException("Can't initialize csv file " + this.PATH, e);
         }
+
+        jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
+
     }
 
     @Override
@@ -62,34 +70,11 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
         return applications;
     }
 
-    @Override
-    protected JobApplication retrieveJobApplicationById(String id) {
-        File file = new File(this.PATH);
-        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.isBlank()) continue;
-                String[] fields = line.split(CSV_SEPARATOR, -1);
-                if (fields[0].equals(id)) {
-                    return parseRow(fields);
-                }
-            }
-            throw new DAOException("Couldn't find job application with id: " + id);
-        } catch (IOException e) {
-            throw new DAOException("Can't read job application with id: " + id, e);
-        }
-    }
-
-    @Override
-    protected String getUniqueId(JobApplication jobApp) {
-        return jobApp.getCandidateEmail() + "~" + jobApp.getApplicationAnnouncementId();
-    }
 
     @Override
     protected void saveToPersistency(JobApplication obj) {
         List<String> lines = new ArrayList<>();
         boolean found = false;
-        String id = getUniqueId(obj);
 
         File file = new File(this.PATH);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
@@ -97,8 +82,9 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
             while ((line = reader.readLine()) != null) {
                 if (line.isBlank()) continue;
                 String[] fields = line.split(CSV_SEPARATOR, -1);
-                if (fields[0].equals(id)) {
-                    lines.add(toCsvRow(id, obj));
+                if (fields[0].equals(obj.whoIsCandidate().getEmail()) &&
+                        fields[1].equals(jobAnnouncementDAO.getUniqueId(obj.whichJobAnnouncement()))) {
+                    lines.add(toCsvRow(obj));
                     found = true;
                 } else {
                     lines.add(line);
@@ -109,7 +95,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
         }
 
         if (!found) {
-            lines.add(toCsvRow(id, obj));
+            lines.add(toCsvRow(obj));
         }
 
         try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())) {
@@ -118,26 +104,107 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
                 writer.newLine();
             }
         } catch (IOException e) {
-            throw new DAOException("Couldn't save job application with id " + id, e);
+            throw new DAOException("Couldn't save job application with email " + obj.whoIsCandidate().getEmail() +
+                    " and announcement id " + jobAnnouncementDAO.getUniqueId(obj.whichJobAnnouncement()), e);
         }
     }
 
     private JobApplication parseRow(String[] fields) {
+        String candidateEmail = fields[0];
         String announcementId = fields[1];
-        String candidateEmail = fields[2];
         ApplicationStatus status = ApplicationStatus.valueOf(fields[3]);
         BigDecimal raiseOffer = new BigDecimal(fields[4]);
 
-        return new JobApplication(announcementId, candidateEmail, status, raiseOffer);
+        //TODO!!!!
+
+        //right now, musician is the only artist, so this is just a temporary fix
+        MusicianDAO musicianDAO = DAOFactory.getInstance().getMusicianDAO();
+
+        Musician m = musicianDAO.getMusicianByEmail(candidateEmail);
+
+        return new JobApplication(
+                jobAnnouncementDAO.getAnnouncementFromId(announcementId),
+                m, status, raiseOffer
+        );
     }
 
-    private String toCsvRow(String id, JobApplication jobApp) {
+    private String toCsvRow(JobApplication jobApp) {
         return String.join(CSV_SEPARATOR,
-                id,
-                jobApp.getApplicationAnnouncementId(),
-                jobApp.getCandidateEmail(),
+                jobApp.whoIsCandidate().getEmail(),
+                jobAnnouncementDAO.getUniqueId(jobApp.whichJobAnnouncement()),
                 jobApp.currentApplicationStatus().name(),
                 jobApp.currentRaiseAmount() != null ? jobApp.currentRaiseAmount().toString() : "0"
         );
     }
+
+    @Override
+    protected List<JobApplication> retrieveAllJobApplicationsFromJob(JobAnnouncement jobAnnouncement) {
+
+        String jobId = jobAnnouncementDAO.getUniqueId(jobAnnouncement);
+
+        List<JobApplication> applications = new ArrayList<>();
+
+        File file = new File(this.PATH);
+
+        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                if (line.isBlank()) continue;
+
+                String[] fields = line.split(CSV_SEPARATOR, -1);
+
+                if (fields[1].equals(jobId)) {
+                    applications.add(parseRow(fields));
+                }
+
+            }
+
+        } catch (IOException e) {
+            throw new DAOException("Can't read job applications", e);
+        }
+
+        if (applications.isEmpty()) {
+            throw new DAOException("No applications found for job announcement: "+jobAnnouncement.getTitle());
+        }
+
+        return applications;
+
+
+    }
+
+    @Override
+    protected JobApplication retrieveJobApplication(String candidateEmail, JobAnnouncement jobAnnouncement) {
+
+        String jobId = jobAnnouncementDAO.getUniqueId(jobAnnouncement);
+
+        File file = new File(this.PATH);
+
+        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                if (line.isBlank()) continue;
+
+                String[] fields = line.split(CSV_SEPARATOR, -1);
+
+                if (fields[0].equals(candidateEmail) && fields[1].equals(jobId)) {
+                    return parseRow(fields);
+                }
+
+            }
+
+        } catch (IOException e) {
+            throw new DAOException("Can't read job applications", e);
+        }
+
+        throw new DAOException("No Job application found for email " + candidateEmail + " in job announcement "
+                + jobAnnouncement.getTitle());
+
+    }
+
 }

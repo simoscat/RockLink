@@ -4,7 +4,6 @@ import dao.factories.DAOFactory;
 import dao.promoter.PromoterDAO;
 import engineering.enums.CurrencyType;
 import engineering.enums.JobAnnouncementStatus;
-import engineering.enums.JobAnnouncementTag;
 import engineering.persistency.JobDecoratorManager;
 import exception.DAOException;
 import model.ConcreteJobAnnouncement;
@@ -59,9 +58,12 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     @Override
     public String getUniqueId(JobAnnouncement job) {
-        return job.getPublisher().getEmail() + "~" +
-                job.getTitle().replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9_]", "") + "~" +
-                job.getAnnouncementPublishDate().toString();
+//        return job.getPublisher().getEmail() + "~" +
+//                job.getTitle().replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9_]", "") + "~" +
+//                job.getAnnouncementPublishDate().toString();
+
+        return job.getPublisher().getEmail() + "~" + job.getAnnouncementPublishDate().toString();
+
     }
 
     @Override

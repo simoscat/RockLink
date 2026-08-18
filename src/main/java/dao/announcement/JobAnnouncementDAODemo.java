@@ -4,7 +4,6 @@ import dao.factories.DAOFactory;
 import dao.promoter.PromoterDAO;
 import engineering.enums.CurrencyType;
 import engineering.enums.JobAnnouncementStatus;
-import engineering.enums.JobAnnouncementTag;
 import exception.DAOException;
 import model.ConcreteJobAnnouncement;
 import model.JobAnnouncement;
@@ -62,8 +61,6 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
     @Override
     public JobAnnouncement retrieveJobAnnouncementById(String id) {
 
-        String[] fields = id.split("~");
-
         for (JobAnnouncement job : jobAnnouncements) {
 
             String uid = getUniqueId(job);
@@ -80,9 +77,12 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
 
     @Override
     public String getUniqueId(JobAnnouncement job) {
-        return job.getPublisher().getEmail()+"~"+
-                uniformTitle(job.getTitle())+"~"+
-                job.getAnnouncementPublishDate().toString();
+//        return job.getPublisher().getEmail() + "~" +
+//                job.getTitle().replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9_]", "") + "~" +
+//                job.getAnnouncementPublishDate().toString();
+
+        return job.getPublisher().getEmail() + "~" + job.getAnnouncementPublishDate().toString();
+
     }
 
     @Override
