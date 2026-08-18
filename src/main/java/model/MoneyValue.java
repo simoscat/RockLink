@@ -1,14 +1,14 @@
 package model;
 
-import engineering.enums.CurrencyEnum;
+import engineering.enums.CurrencyType;
 
 import java.math.BigDecimal;
 
 public class MoneyValue {
     private BigDecimal value; // not float because of rounding errors (e.g., 0.1 + 0.2 != 0.3)
-    private CurrencyEnum currency;
+    private CurrencyType currency;
 
-    public MoneyValue(BigDecimal value, CurrencyEnum currency) {
+    public MoneyValue(BigDecimal value, CurrencyType currency) {
         if (value.compareTo(BigDecimal.ZERO) < 0){
             throw new IllegalArgumentException("Money value cannot be negative");
         }
@@ -29,7 +29,7 @@ public class MoneyValue {
         this.value = newValue;
     }
 
-    public void changeCurrency(CurrencyEnum newCurrency){
+    public void changeCurrency(CurrencyType newCurrency){
         this.currency = newCurrency;
     }
 

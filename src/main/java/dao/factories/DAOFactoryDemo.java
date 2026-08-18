@@ -1,9 +1,9 @@
 package dao.factories;
 
-import dao.announcement.AnnouncementDAO;
-import dao.announcement.AnnouncementDAODemo;
-import dao.application.ApplicationDAO;
-import dao.application.ApplicationDAODemo;
+import dao.announcement.JobAnnouncementDAO;
+import dao.announcement.JobAnnouncementDAODemo;
+import dao.application.JobApplicationDAO;
+import dao.application.JobApplicationDAODemo;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAODemo;
 import dao.instrument.InstrumentDAO;
@@ -47,18 +47,18 @@ public class DAOFactoryDemo extends DAOFactory{
     }
 
     @Override
-    public ApplicationDAO getApplicationDAO() {
-        if (this.applicationDAO == null) {
-            this.applicationDAO = new ApplicationDAODemo();
+    public JobApplicationDAO getJobApplicationDAO() {
+        if (this.jobApplicationDAO == null) {
+            this.jobApplicationDAO = new JobApplicationDAODemo();
         }
-        return this.applicationDAO;
+        return this.jobApplicationDAO;
     }
 
     @Override
-    public AnnouncementDAO getJobAnnouncementDAO() {
-        if (this.announcementDAO == null) {
-            this.announcementDAO = new AnnouncementDAODemo();
+    public JobAnnouncementDAO getJobAnnouncementDAO() {
+        if (this.jobAnnouncementDAO == null) {
+            this.jobAnnouncementDAO = new JobAnnouncementDAODemo();
         }
-        return this.announcementDAO;
+        return this.jobAnnouncementDAO;
     }
 }

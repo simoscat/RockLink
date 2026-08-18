@@ -1,6 +1,6 @@
 package engineering.enums;
 
-public enum AnnouncementTag {
+public enum JobAnnouncementTag {
     LONG_TIME_CONTRACT,
     NEGOTIABLE_SALARY,
     URGENT,

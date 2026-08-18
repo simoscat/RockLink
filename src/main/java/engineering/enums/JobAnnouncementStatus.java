@@ -1,6 +1,6 @@
 package engineering.enums;
 
-public enum AnnouncementStatus {
+public enum JobAnnouncementStatus {
     OPEN,
     FILLED,
     CLOSED

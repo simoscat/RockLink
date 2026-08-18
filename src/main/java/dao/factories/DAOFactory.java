@@ -1,7 +1,7 @@
 package dao.factories;
 
-import dao.announcement.AnnouncementDAO;
-import dao.application.ApplicationDAO;
+import dao.announcement.JobAnnouncementDAO;
+import dao.application.JobApplicationDAO;
 import dao.auth.AuthDAO;
 import dao.instrument.InstrumentDAO;
 import dao.musician.MusicianDAO;
@@ -22,8 +22,8 @@ public abstract class DAOFactory {
     protected MusicianDAO musicianDAO = null;
     protected PromoterDAO promoterDAO = null;
     protected AuthDAO authDAO = null;
-    protected ApplicationDAO applicationDAO = null;
-    protected AnnouncementDAO announcementDAO = null;
+    protected JobApplicationDAO jobApplicationDAO = null;
+    protected JobAnnouncementDAO jobAnnouncementDAO = null;
     protected InstrumentDAO instrumentDAO = null;
 
     public static synchronized DAOFactory getInstance() {
@@ -45,8 +45,8 @@ public abstract class DAOFactory {
         return instance;
     }
 
-    public abstract AnnouncementDAO getJobAnnouncementDAO();
-    public abstract ApplicationDAO getApplicationDAO();
+    public abstract JobAnnouncementDAO getJobAnnouncementDAO();
+    public abstract JobApplicationDAO getJobApplicationDAO();
     public abstract AuthDAO getAuthDAO();
     public abstract InstrumentDAO getInstrumentDAO();
     public abstract MusicianDAO getMusicianDAO();

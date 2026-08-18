@@ -1,9 +1,5 @@
 package dao.factories;
 
-import dao.announcement.AnnouncementDAO;
-import dao.announcement.AnnouncementDAOCsv;
-import dao.application.ApplicationDAO;
-import dao.application.ApplicationDAOCsv;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAOCsv;
 import dao.instrument.InstrumentDAO;
@@ -16,21 +12,21 @@ import dao.promoter.PromoterDAOCsv;
 public class DAOFactoryCsv extends DAOFactory {
 
     @Override
-    public AnnouncementDAO getJobAnnouncementDAO() {
-        if (this.announcementDAO == null){
-            this.announcementDAO = new AnnouncementDAOCsv();
+    public JobAnnouncementDAO getJobAnnouncementDAO() {
+        if (this.jobAnnouncementDAO == null){
+            this.jobAnnouncementDAO = new JobAnnouncementDAOCsv();
         }
 
-        return this.announcementDAO;
+        return this.jobAnnouncementDAO;
     }
 
     @Override
-    public ApplicationDAO getApplicationDAO() {
-        if (this.applicationDAO == null){
-            this.applicationDAO = new ApplicationDAOCsv();
+    public JobApplicationDAO getJobApplicationDAO() {
+        if (this.jobApplicationDAO == null){
+            this.jobApplicationDAO = new JobApplicationDAOCsv();
         }
 
-        return this.applicationDAO;
+        return this.jobApplicationDAO;
     }
 
     @Override

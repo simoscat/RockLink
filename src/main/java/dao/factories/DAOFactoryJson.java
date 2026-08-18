@@ -1,7 +1,5 @@
 package dao.factories;
 
-import dao.announcement.AnnouncementDAO;
-import dao.application.ApplicationDAO;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAOJson;
 import dao.instrument.InstrumentDAO;
@@ -45,20 +43,20 @@ public class DAOFactoryJson extends DAOFactory {
     }
 
     @Override
-    public ApplicationDAO getApplicationDAO() {
-        if (this.applicationDAO == null) {
-            this.applicationDAO = new ApplicationDAOJson();
+    public JobApplicationDAO getJobApplicationDAO() {
+        if (this.jobApplicationDAO == null) {
+            this.jobApplicationDAO = new JobApplicationDAOJson();
         }
 
-        return this.applicationDAO;
+        return this.jobApplicationDAO;
     }
 
     @Override
-    public AnnouncementDAO getJobAnnouncementDAO() {
-        if (this.announcementDAO == null) {
-            this.announcementDAO = new AnnouncementDAOJson();
+    public JobAnnouncementDAO getJobAnnouncementDAO() {
+        if (this.jobAnnouncementDAO == null) {
+            this.jobAnnouncementDAO = new JobAnnouncementDAOJson();
         }
 
-        return this.announcementDAO;
+        return this.jobAnnouncementDAO;
     }
 }

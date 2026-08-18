@@ -7,28 +7,7 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/job/JobAnnouncementDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/DecoratorApplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/factory/AnnouncementFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PublishJobPostingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PublishJobPostingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/AnnouncementDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/AnnouncementDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/ApplicationDAODemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/CsvManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/CsvManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Announcement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Announcement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/BaseAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BaseAnnouncement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" afterDir="false" />
-    </list>
+    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,7 +115,7 @@
       <workItem from="1786893036753" duration="124000" />
       <workItem from="1786893172482" duration="9513000" />
       <workItem from="1786955065414" duration="24148000" />
-      <workItem from="1786984083570" duration="562000" />
+      <workItem from="1786984083570" duration="4670000" />
     </task>
     <servers />
   </component>

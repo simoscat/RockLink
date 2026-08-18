@@ -2,20 +2,20 @@ package model;
 
 import engineering.enums.ApplicationStatus;
 
-public class Application {
+public abstract class Application {
 
-    private Announcement announcementReference;
+    private String announcementId;
     private String candidateEmail;
     private ApplicationStatus status;
 
-    public Application(Announcement a, String email, ApplicationStatus s) {
-        this.announcementReference = a;
+    public Application(String announcementId, String email, ApplicationStatus s) {
+        this.announcementId = announcementId;
         this.candidateEmail = email;
         this.status = s;
     }
 
-    public Announcement getApplicationAnnouncement() {
-        return announcementReference;
+    public String getApplicationAnnouncementId() {
+        return announcementId;
     }
 
     public String getCandidateEmail() {

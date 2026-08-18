@@ -1,6 +1,6 @@
 package engineering.enums;
 
-public enum CurrencyEnum {
+public enum CurrencyType {
     USD,
     EUR
 }
