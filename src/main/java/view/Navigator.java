@@ -1,12 +1,34 @@
 package view;
 
+import bean.MusicianBean;
+import bean.PromoterBean;
 import engineering.enums.Screen;
 
 public abstract class Navigator {
     
     private Screen currentScreen;
     private Context context;
-    
+
+    // context retrieving and setting
+
+    public MusicianBean getMusician(){
+        return context.getMusician();
+    }
+
+    public PromoterBean getPromoter(){
+        return context.getPromoter();
+    }
+
+    public void setMusician(MusicianBean musician){
+        this.context.setMusician(musician);
+    }
+
+    public void setPromoter(PromoterBean promoter){
+        this.context.setPromoter(promoter);
+    }
+
+    // navigation
+
     protected Navigator() {
         this.context = new Context();
     }
@@ -28,7 +50,6 @@ public abstract class Navigator {
             case PROMOTER_DASHBOARD -> viewPromoterDashboard();
             case VIEW_ANNOUNCEMENT_DETAILS -> viewAnnouncementDetails();
             case VIEW_ANNOUNCEMENT_APPLICATIONS -> viewAnnouncementApplications();
-            case VIEW_MY_ANNOUNCEMENTS -> viewMyAnnouncements();
             case CREATE_ANNOUNCEMENT -> viewCreateAnnouncement();
             
         }
@@ -40,7 +61,6 @@ public abstract class Navigator {
     public void goToPromoterDashboard(){ setCurrentScreen(Screen.PROMOTER_DASHBOARD); viewPromoterDashboard();}
     public void goToAnnouncementDetails(){ setCurrentScreen(Screen.VIEW_ANNOUNCEMENT_DETAILS); viewAnnouncementDetails();}
     public void goToAnnouncementApplications(){ setCurrentScreen(Screen.VIEW_ANNOUNCEMENT_APPLICATIONS); viewAnnouncementApplications();}
-    public void goToMyAnnouncements(){ setCurrentScreen(Screen.VIEW_MY_ANNOUNCEMENTS); viewMyAnnouncements();}
     public void goToCreateAnnouncement(){ setCurrentScreen(Screen.CREATE_ANNOUNCEMENT); viewCreateAnnouncement();}
 
     public abstract void startUp();
@@ -50,7 +70,6 @@ public abstract class Navigator {
     public abstract void viewPromoterDashboard();
     public abstract void viewAnnouncementDetails();
     public abstract void viewAnnouncementApplications();
-    public abstract void viewMyAnnouncements();
     public abstract void viewCreateAnnouncement();
 
 }

@@ -71,13 +71,9 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
     }
 
     private void printHeader() {
-        System.out.println("  _____            _    _      _       _    ");
-        System.out.println(" |  __ \\          | |  | |    (_)     | |   ");
-        System.out.println(" | |__) |___   ___| | _| |     _ _ __ | | __");
-        System.out.println(" |  _  // _ \\ / __| |/ / |    | | '_ \\| |/ /");
-        System.out.println(" | | \\ \\ (_) | (__|   <| |____| | | | |   < ");
-        System.out.println(" |_|  \\_\\___/ \\___|_|\\_\\______|_|_| |_|_|\\_\\");
-        System.out.println("                                            ");
+        System.out.println("╔══════════════════════════════════╗\n");
+        System.out.println("║        RockLink Login         ║\n");
+        System.out.println("╚══════════════════════════════════╝\n");
     }
 
     private void musicianLogin() {

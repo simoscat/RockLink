@@ -10,6 +10,14 @@ public class NavigatorCLI extends Navigator {
     private Scanner scanner = new Scanner(System.in);
 
     private LoginGraphicControllerCLI login;
+    private MusicianDashboardCLI musicianDashboard;
+    private PromoterDashboardCLI promoterDashboard;
+
+    private AnnouncementDetailsCLI announcementDetails;
+    private AnnouncementApplicationsCLI announcementApplications;
+    private CreateAnnouncementCLI createAnnouncement;
+
+
 
 
     @Override
@@ -25,7 +33,6 @@ public class NavigatorCLI extends Navigator {
 
     @Override
     public void viewMusicianDashboard() {
-        System.exit(0);
     }
 
     @Override
@@ -41,11 +48,6 @@ public class NavigatorCLI extends Navigator {
 
     @Override
     public void viewAnnouncementApplications() {
-
-    }
-
-    @Override
-    public void viewMyAnnouncements() {
 
     }
 

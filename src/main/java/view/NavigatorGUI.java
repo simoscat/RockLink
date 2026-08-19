@@ -49,11 +49,6 @@ public class NavigatorGUI extends Navigator {
     }
 
     @Override
-    public void viewMyAnnouncements() {
-
-    }
-
-    @Override
     public void viewCreateAnnouncement() {
 
     }
