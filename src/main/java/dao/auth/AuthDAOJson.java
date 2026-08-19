@@ -41,21 +41,29 @@ public class AuthDAOJson extends AuthDAO {
 
     @Override
     public Credential getMusicianCredential(String email) throws DAOException {
-        JSONArray credentials = readCredentialsFile(MUSICIANS_FILE);
+        Credential creds = getUserCredential(email, MUSICIANS_FILE);
 
-        for (int i = 0; i < credentials.length(); i++) {
-            JSONObject obj = credentials.getJSONObject(i);
-            if (obj.getString(EMAIL_KEY).equalsIgnoreCase(email)) {
-                return new Credential(obj.getString(EMAIL_KEY), obj.getString(PASSWORD_KEY));
-            }
+        if (creds == null){
+            throw new DAOException("No musician credentials found for this email: " + email);
         }
 
-        throw new DAOException("No musician credentials found for this email: " + email);
+        return creds;
     }
 
     @Override
     public Credential getPromoterCredential(String email) throws DAOException {
-        JSONArray credentials = readCredentialsFile(PROMOTERS_FILE);
+        Credential creds = getUserCredential(email, PROMOTERS_FILE);
+
+        if (creds == null){
+            throw new DAOException("No promoter credentials found for this email: " + email);
+        }
+
+        return creds;
+    }
+
+    private Credential getUserCredential(String email, String path){
+
+        JSONArray credentials = readCredentialsFile(path);
 
         for (int i = 0; i < credentials.length(); i++) {
             JSONObject obj = credentials.getJSONObject(i);
@@ -64,9 +72,9 @@ public class AuthDAOJson extends AuthDAO {
             }
         }
 
-        throw new DAOException("No promoter credentials found for this email: " + email);
-    }
+        return null;
 
+    }
 
     @Override
     public void registerMusician(Credential credential) throws DAOException {
@@ -114,6 +122,16 @@ public class AuthDAOJson extends AuthDAO {
         credentials.put(newCredential);
 
         writeCredentialsFile(PROMOTERS_FILE, credentials);
+    }
+
+    @Override
+    public boolean isMusicianAlreadyRegistered(String email) {
+        return getUserCredential(email, MUSICIANS_FILE) != null;
+    }
+
+    @Override
+    public boolean isPromoterAlreadyRegistered(String email) {
+        return getUserCredential(email, PROMOTERS_FILE) != null;
     }
 
     private JSONArray readCredentialsFile(String path) throws DAOException {

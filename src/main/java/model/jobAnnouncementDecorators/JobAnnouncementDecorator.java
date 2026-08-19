@@ -1,10 +1,7 @@
 package model.jobAnnouncementDecorators;
 
 import engineering.enums.JobAnnouncementStatus;
-import model.JobAnnouncement;
-import model.Artist;
-import model.MoneyValue;
-import model.User;
+import model.*;
 
 import java.time.LocalDateTime;
 

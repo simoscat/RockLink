@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    ROCK LINK — musician_login.fxml
+    Musician account login (orange theme).
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            styleClass="page-bg" prefWidth="1440" prefHeight="900"
+            stylesheets="@../css/style.css">
+
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="10">
+            <StackPane styleClass="logo-icon-box">
+                <Label text="⚡" styleClass="logo-icon-symbol"/>
+            </StackPane>
+            <Label text="ROCK LINK" styleClass="logo-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="24">
+            <VBox spacing="24" maxWidth="400" prefWidth="400">
+
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Button fx:id="backButton" text="‹" styleClass="back-button"/>
+                    <Label text="MUSICIAN" styleClass="badge, badge-musician"/>
+                </HBox>
+
+                <VBox spacing="8">
+                    <Label text="WELCOME BACK" styleClass="page-heading-md"/>
+                    <Label text="Log in to your musician account" styleClass="page-subtitle"/>
+                </VBox>
+
+                <VBox styleClass="form-card, form-card-orange" spacing="16">
+
+                    <VBox spacing="6">
+                        <Label text="EMAIL" styleClass="field-label"/>
+                        <TextField fx:id="emailField" promptText="e.g. john.doe@email.com"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="PASSWORD" styleClass="field-label"/>
+                        <PasswordField fx:id="passwordField" promptText="••••••••"/>
+                    </VBox>
+
+                    <HBox alignment="CENTER_RIGHT">
+                        <Hyperlink fx:id="forgotPasswordLink" text="Forgot password?" styleClass="link-orange"/>
+                    </HBox>
+
+                    <Button fx:id="loginButton" text="LOG IN" styleClass="btn-primary-orange" maxWidth="Infinity"/>
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="4">
+                    <Label text="Don't have an account?" styleClass="helper-text"/>
+                    <Hyperlink fx:id="signupLink" text="Sign up" styleClass="link-orange"/>
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER">
+            <padding><Insets top="20" bottom="24"/></padding>
+            <Label text="Connecting Musicians · Join Bands · Find Gigs" styleClass="footer-text"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

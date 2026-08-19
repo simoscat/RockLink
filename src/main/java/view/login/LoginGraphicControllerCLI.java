@@ -11,16 +11,14 @@ import engineering.enums.Screen;
 import exception.ControllerLogicException;
 import exception.WrongCredentialsException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
 import view.Navigator;
 
 public class LoginGraphicControllerCLI extends LoginGraphicController {
 
     private final LoginController loginController;
-    private final Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
 
     public LoginGraphicControllerCLI(Navigator navigator) {
         super(navigator);
@@ -28,7 +26,10 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
     }
 
     @Override
-    public void start() {
+    public void start(Scanner s) {
+
+        this.scanner = s;
+
         printHeader();
         boolean running = true;
 
@@ -93,7 +94,7 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
             navigator.nextScreen();
         } catch (WrongCredentialsException | ControllerLogicException | IllegalArgumentException e) {
             showError(e.getMessage());
-            start();
+            start(scanner);
         }
     }
 
@@ -111,7 +112,7 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
             navigator.nextScreen();
         } catch (WrongCredentialsException | ControllerLogicException | IllegalArgumentException e) {
             showError(e.getMessage());
-            start();
+            start(scanner);
         }
     }
 
@@ -121,7 +122,7 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
 
         System.out.println("--- Musician Registration ---");
         System.out.print("Name: ");
-        String name = scanner.nextLine().trim();
+        String name = scanner.nextLine();
         System.out.print("Surname: ");
         String surname = scanner.nextLine().trim();
         String gender = getValidGender();
@@ -130,7 +131,7 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
 
         List<InstrumentBean> instruments = new ArrayList<>();
         
-        System.out.print("-- Add your instruments (you must have at least one) --");
+        System.out.print("-- Add your instruments (you must have at least one) --\n");
 
         boolean done = false;
 
@@ -150,6 +151,7 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
             System.out.println("[3] Intermediate");
             System.out.println("[4] Experienced");
             System.out.println("[5] Master");
+            System.out.println("> ");
             String masteryNumber = scanner.nextLine().trim();
             String mastery = "";
 
@@ -206,7 +208,7 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
             navigator.nextScreen();
         } catch (ControllerLogicException | IllegalArgumentException e) {
             showError(e.getMessage());
-            start();
+            start(scanner);
         }
     }
 
@@ -215,22 +217,53 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
 
         System.out.println("--- Promoter Registration ---");
         System.out.print("Name: ");
-        String name = scanner.nextLine().trim();
+        String name = scanner.nextLine();
         System.out.print("Surname: ");
         String surname = scanner.nextLine().trim();
         String gender = getValidGender();
         String email = getValidEmail();
         String password = getValidPassword();
 
+        Map<String, String> contacts = new HashMap<>();
+
+        boolean done = false;
+
+        do{
+
+            System.out.println("-- Insert contacts (at least one) --");
+            System.out.print("Contact type (e.g. phone): ");
+            String contactType = scanner.nextLine().trim();
+            System.out.print("Contact value: ");
+            String contactValue = scanner.nextLine().trim();
+            contacts.put(contactType, contactValue);
+
+            while (contactType.isBlank() || contactValue.isBlank()) {
+                System.out.println("Invalid contact information. Please try again.");
+                System.out.print("Contact type (e.g. phone): ");
+                contactType = scanner.nextLine().trim();
+                System.out.print("Contact value: ");
+                contactValue = scanner.nextLine().trim();
+            }
+
+            System.out.println("Do you want to insert another contact? [y/N]: ");
+            String answer = scanner.nextLine().trim();
+
+            if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("yes")) {
+                done = true;
+            }
+
+        }while(!done);
+
+
         try {
-            PromoterBean pb = new PromoterBean(name, surname, email, gender.toUpperCase(), password, new HashMap<>());
+            PromoterBean pb = new PromoterBean(name, surname, email, gender.toUpperCase(), password, contacts);
             SessionBean session = loginController.promoterRegistration(pb);
             showInfo("Registration successful! Welcome " + session.getPromoter().getName());
             navigator.setCurrentScreen(Screen.PROMOTER_DASHBOARD);
             navigator.nextScreen();
         } catch (ControllerLogicException | IllegalArgumentException e) {
             showError(e.getMessage());
-            start();
+            start(scanner);
         }
     }
 

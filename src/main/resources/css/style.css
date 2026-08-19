@@ -1,319 +1,327 @@
 /* ==========================================================================
-   RockLink - stile condiviso per le schermate del flusso di login
-   (RoleSelection.fxml, Login.fxml)
+   ROCK LINK — JavaFX Stylesheet
+   Dark theme with orange accents (Musician) and yellow accents (Promoter)
    ========================================================================== */
 
-.root-pane {
-    -fx-background-color: #0a0a0a;
-    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+.root {
+    -bg-primary: #0a0a0a;
+    -bg-card: #131313;
+    -bg-input: #0d0d0d;
+    -bg-input-focus: #171717;
+    -border-subtle: #262626;
+    -border-input: #333333;
+    -text-primary: #f5f5f2;
+    -text-secondary: #999999;
+    -text-muted: #666666;
+    -orange: #ff4713;
+    -orange-hover: #ff5c2b;
+    -orange-dim: #341c12;
+    -yellow: #ffd400;
+    -yellow-hover: #ffdd33;
+    -yellow-dim: #35300c;
+
+    -fx-background-color: -bg-primary;
+    -fx-font-family: "Arial";
+}
+
+/* Typography note: headings in the mockup use a bold condensed font
+   (e.g. "Oswald", "Bebas Neue"). If that font is embedded in the project,
+   replace "Arial Black" with it in the *-heading* rules below. */
+
+.page-bg {
+    -fx-background-color: -bg-primary;
 }
 
 /* ---------- Header ---------- */
-
-.app-header {
+.header-bar {
     -fx-padding: 24 40 24 40;
 }
-.brand-logo {
-    -fx-background-color: #ff4416;
+
+.logo-icon-box {
+    -fx-background-color: -orange;
     -fx-background-radius: 8;
-    -fx-min-width: 34;
-    -fx-min-height: 34;
-    -fx-max-width: 34;
-    -fx-max-height: 34;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-max-width: 32;
+    -fx-max-height: 32;
     -fx-alignment: center;
 }
-.brand-logo-icon {
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-}
-.brand-title {
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-weight: 800;
-}
-.icon-button {
-    -fx-background-color: #16161a;
-    -fx-background-insets: 0;
-    -fx-background-radius: 8;
-    -fx-border-color: #2a2a2e;
-    -fx-border-width: 1;
-    -fx-border-radius: 8;
-    -fx-text-fill: #e0e0e0;
-    -fx-min-width: 38;
-    -fx-min-height: 38;
-    -fx-max-width: 38;
-    -fx-max-height: 38;
-    -fx-cursor: hand;
-    -fx-font-size: 14px;
-}
-.icon-button:hover {
-    -fx-background-color: #1f1f24;
-}
-.back-button {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-}
-
-/* ---------- Wrapper centrale ---------- */
-
-.page-center {
-    -fx-padding: 20 40 20 40;
-}
-.content-box {
-    -fx-padding: 10 0 10 0;
-}
-
-/* ---------- Titoli: schermata selezione ruolo (centrati) ---------- */
-
-.role-select-title {
-    -fx-text-fill: white;
-    -fx-font-size: 42px;
-    -fx-font-weight: 800;
-    -fx-alignment: center;
-}
-.role-select-subtitle {
-    -fx-text-fill: #9a9a9f;
+.logo-icon-symbol {
+    -fx-text-fill: #0a0a0a;
     -fx-font-size: 15px;
-    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+.logo-title {
+    -fx-text-fill: -text-primary;
+    -fx-font-family: "Arial Black";
+    -fx-font-weight: 900;
+    -fx-font-size: 18px;
 }
 
-/* ---------- Titoli: schermata login (allineati a sinistra) ---------- */
-
-.login-title {
-    -fx-text-fill: white;
-    -fx-font-size: 38px;
-    -fx-font-weight: 800;
-    -fx-alignment: center-left;
-    -fx-max-width: infinity;
-}
-.login-subtitle {
-    -fx-text-fill: #9a9a9f;
+/* ---------- Back button ---------- */
+.back-button {
+    -fx-background-color: #141414;
+    -fx-border-color: -border-subtle;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-max-width: 32;
+    -fx-max-height: 32;
+    -fx-text-fill: -text-secondary;
     -fx-font-size: 14px;
-    -fx-alignment: center-left;
-    -fx-max-width: infinity;
+    -fx-cursor: hand;
 }
-.login-top-row {
-    -fx-max-width: infinity;
-    -fx-padding: 0 0 8 0;
-}
-
-/* ---------- Badge di ruolo (schermata login) ---------- */
-
-.role-badge {
-    -fx-padding: 4 10 4 10;
-    -fx-background-radius: 4;
-    -fx-font-size: 11px;
-    -fx-font-weight: 700;
-}
-.role-badge-musician {
-    -fx-background-color: rgba(255, 68, 22, 0.15);
-    -fx-text-fill: #ff4416;
-}
-.role-badge-promoter {
-    -fx-background-color: rgba(255, 212, 0, 0.15);
-    -fx-text-fill: #ffd400;
+.back-button:hover {
+    -fx-border-color: -text-muted;
+    -fx-text-fill: -text-primary;
 }
 
-/* ---------- Card selezione ruolo ---------- */
-
-.role-cards-row {
-    -fx-padding: 6 0 6 0;
-}
-.role-card {
-    -fx-background-color: #0f0f11;
+/* ---------- Role badge ---------- */
+.badge {
+    -fx-padding: 5 12 5 12;
     -fx-background-radius: 4;
     -fx-border-radius: 4;
-    -fx-border-width: 1 1 1 4;
+    -fx-border-width: 1;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+.badge-musician {
+    -fx-background-color: -orange-dim;
+    -fx-border-color: derive(-orange, -20%);
+    -fx-text-fill: -orange;
+}
+.badge-promoter {
+    -fx-background-color: -yellow-dim;
+    -fx-border-color: derive(-yellow, -20%);
+    -fx-text-fill: -yellow;
+}
+
+/* ---------- Headings ---------- */
+.page-heading {
+    -fx-text-fill: -text-primary;
+    -fx-font-family: "Arial Black";
+    -fx-font-weight: 900;
+    -fx-font-size: 54px;
+}
+.page-heading-md {
+    -fx-text-fill: -text-primary;
+    -fx-font-family: "Arial Black";
+    -fx-font-weight: 900;
+    -fx-font-size: 40px;
+}
+.page-subtitle {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 15px;
+}
+
+/* ---------- Role selection cards (base_login) ---------- */
+.role-card {
+    -fx-background-color: -bg-card;
+    -fx-border-color: -border-subtle;
+    -fx-border-width: 1;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
     -fx-padding: 28 24 24 24;
+    -fx-cursor: hand;
+    -fx-pref-width: 310;
+    -fx-max-width: 310;
 }
-.role-card-musician {
-    -fx-border-color: #232327 #232327 #232327 #ff4416;
+.role-card:hover {
+    -fx-border-color: -text-muted;
 }
-.role-card-promoter {
-    -fx-border-color: #232327 #232327 #232327 #ffd400;
-}
-.role-card-icon {
-    -fx-min-width: 44;
-    -fx-min-height: 44;
-    -fx-max-width: 44;
-    -fx-max-height: 44;
+
+.role-icon-box {
     -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-min-width: 48;
+    -fx-min-height: 48;
+    -fx-max-width: 48;
+    -fx-max-height: 48;
     -fx-alignment: center;
 }
-.role-card-icon-musician {
-    -fx-background-color: rgba(255, 68, 22, 0.15);
-}
-.role-card-icon-promoter {
-    -fx-background-color: rgba(255, 212, 0, 0.15);
-}
-.role-card-icon-glyph {
-    -fx-font-size: 20px;
-}
+.role-icon-musician { -fx-background-color: -orange-dim; }
+.role-icon-promoter { -fx-background-color: -yellow-dim; }
+.role-icon-symbol-orange { -fx-text-fill: -orange; -fx-font-size: 20px; }
+.role-icon-symbol-yellow { -fx-text-fill: -yellow; -fx-font-size: 20px; }
+
 .role-card-title {
-    -fx-text-fill: white;
-    -fx-font-size: 20px;
-    -fx-font-weight: 800;
+    -fx-text-fill: -text-primary;
+    -fx-font-family: "Arial Black";
+    -fx-font-weight: 900;
+    -fx-font-size: 22px;
 }
-.role-card-subtitle-musician {
-    -fx-text-fill: #ff4416;
-    -fx-font-weight: 700;
+.role-card-subtitle-orange {
+    -fx-text-fill: -orange;
     -fx-font-size: 13px;
+    -fx-font-weight: bold;
 }
-.role-card-subtitle-promoter {
-    -fx-text-fill: #ffd400;
-    -fx-font-weight: 700;
+.role-card-subtitle-yellow {
+    -fx-text-fill: -yellow;
     -fx-font-size: 13px;
+    -fx-font-weight: bold;
 }
 .role-card-desc {
-    -fx-text-fill: #8a8a8f;
+    -fx-text-fill: -text-secondary;
     -fx-font-size: 13px;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 2;
 }
-.role-card-link-musician {
-    -fx-text-fill: #ff4416;
-    -fx-font-weight: 700;
+.role-card-link-orange {
+    -fx-text-fill: -orange;
     -fx-font-size: 13px;
-    -fx-underline: false;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
+    -fx-font-weight: bold;
+    -fx-border-width: 0;
 }
-.role-card-link-promoter {
-    -fx-text-fill: #ffd400;
-    -fx-font-weight: 700;
+.role-card-link-yellow {
+    -fx-text-fill: -yellow;
     -fx-font-size: 13px;
-    -fx-underline: false;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
+    -fx-font-weight: bold;
+    -fx-border-width: 0;
 }
 
-/* ---------- Card login ---------- */
-
-.login-card {
-    -fx-background-color: #121214;
-    -fx-border-color: #232327;
+/* ---------- Form card (login / signup) ---------- */
+.form-card {
+    -fx-background-color: -bg-card;
+    -fx-border-color: -border-subtle;
+    -fx-border-width: 1;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-padding: 32;
+}
+.form-card-orange {
+    -fx-border-color: -orange -border-subtle -border-subtle -border-subtle;
     -fx-border-width: 3 1 1 1;
-    -fx-border-radius: 4;
-    -fx-background-radius: 4;
-    -fx-padding: 32 28 28 28;
-    -fx-max-width: infinity;
 }
-.accent-musician {
-    -fx-border-color: #ff4416 #232327 #232327 #232327;
-}
-.accent-promoter {
-    -fx-border-color: #ffd400 #232327 #232327 #232327;
+.form-card-yellow {
+    -fx-border-color: -yellow -border-subtle -border-subtle -border-subtle;
+    -fx-border-width: 3 1 1 1;
 }
 
 .field-label {
-    -fx-text-fill: #8a8a8f;
+    -fx-text-fill: -text-muted;
     -fx-font-size: 11px;
-    -fx-font-weight: 700;
+    -fx-font-weight: bold;
 }
-.text-input {
-    -fx-background-color: #0d0d0f;
-    -fx-background-insets: 0;
-    -fx-background-radius: 4;
-    -fx-border-color: #2a2a2e;
+
+.text-field, .password-field {
+    -fx-background-color: -bg-input;
+    -fx-border-color: -border-input;
     -fx-border-width: 1;
-    -fx-border-radius: 4;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-muted;
     -fx-padding: 10 12 10 12;
-    -fx-text-fill: #f0f0f0;
-    -fx-prompt-text-fill: #55555a;
-    -fx-font-size: 14px;
-    -fx-max-width: infinity;
+    -fx-font-size: 13px;
 }
-.text-input:focused {
-    -fx-border-color: #55555a;
+.text-field:focused, .password-field:focused {
+    -fx-border-color: -text-muted;
+    -fx-background-color: -bg-input-focus;
 }
 
-.muted-link {
-    -fx-text-fill: #7a7a7f;
+.link-orange {
+    -fx-text-fill: -orange;
     -fx-font-size: 12px;
-    -fx-underline: false;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
-}
-.muted-link:hover {
-    -fx-text-fill: #b0b0b5;
-}
-
-.btn-primary {
-    -fx-font-weight: 800;
-    -fx-font-size: 14px;
-    -fx-padding: 12 0 12 0;
-    -fx-background-radius: 4;
-    -fx-background-insets: 0;
+    -fx-font-weight: bold;
     -fx-cursor: hand;
-    -fx-max-width: infinity;
+    -fx-border-width: 0;
 }
-.btn-musician {
-    -fx-background-color: #ff4416;
-    -fx-text-fill: #111111;
-}
-.btn-musician:hover {
-    -fx-background-color: #ff5c33;
-}
-.btn-promoter {
-    -fx-background-color: #ffd400;
-    -fx-text-fill: #111111;
-}
-.btn-promoter:hover {
-    -fx-background-color: #ffe14d;
-}
-
-.error-label {
-    -fx-text-fill: #ff5c5c;
+.link-yellow {
+    -fx-text-fill: -yellow;
     -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
 }
 
-/* ---------- Link finale (Registrati / Accedi) ---------- */
+.helper-text {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 13px;
+}
 
-.register-row {
-    -fx-max-width: infinity;
-    -fx-padding: 16 0 0 0;
+/* ---------- Primary buttons ---------- */
+.btn-primary-orange {
+    -fx-background-color: -orange;
+    -fx-text-fill: #0a0a0a;
+    -fx-font-weight: 900;
+    -fx-font-size: 14px;
+    -fx-background-radius: 2;
+    -fx-padding: 13 0 13 0;
+    -fx-cursor: hand;
 }
-.muted-text {
-    -fx-text-fill: #7a7a7f;
-    -fx-font-size: 13px;
+.btn-primary-orange:hover { -fx-background-color: -orange-hover; }
+
+.btn-primary-yellow {
+    -fx-background-color: -yellow;
+    -fx-text-fill: #0a0a0a;
+    -fx-font-weight: 900;
+    -fx-font-size: 14px;
+    -fx-background-radius: 2;
+    -fx-padding: 13 0 13 0;
+    -fx-cursor: hand;
 }
-.inline-link {
-    -fx-font-size: 13px;
-    -fx-font-weight: 700;
-    -fx-underline: false;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
+.btn-primary-yellow:hover { -fx-background-color: -yellow-hover; }
+
+/* ---------- Toggle pill (Gender / Instrument level) ---------- */
+.toggle-pill {
+    -fx-background-color: -bg-input;
+    -fx-border-color: -border-input;
+    -fx-border-width: 1;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 9 0 9 0;
+    -fx-cursor: hand;
 }
-.link-musician {
-    -fx-text-fill: #ff4416;
+.toggle-pill:hover {
+    -fx-border-color: -text-muted;
 }
-.link-promoter {
-    -fx-text-fill: #ffd400;
+.toggle-pill:selected {
+    -fx-background-color: -orange;
+    -fx-border-color: -orange;
+    -fx-text-fill: #0a0a0a;
+}
+
+/* yellow variant, add as an extra class where a promoter-themed
+   toggle is needed */
+.toggle-pill-yellow:selected {
+    -fx-background-color: -yellow;
+    -fx-border-color: -yellow;
+    -fx-text-fill: #0a0a0a;
+}
+
+.add-item-button {
+    -fx-background-color: transparent;
+    -fx-border-color: -border-input;
+    -fx-border-style: segments(4, 3);
+    -fx-border-width: 1;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 12px;
+    -fx-padding: 9 0 9 0;
+    -fx-cursor: hand;
+}
+.add-item-button:hover {
+    -fx-text-fill: -text-primary;
+    -fx-border-color: -text-muted;
+}
+
+.instrument-box {
+    -fx-background-color: -bg-input;
+    -fx-border-color: -border-input;
+    -fx-border-width: 1;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-padding: 12;
 }
 
 /* ---------- Footer ---------- */
-
-.app-footer {
-    -fx-padding: 20 40 24 40;
-}
-.footer-tagline {
-    -fx-text-fill: #5a5a5f;
+.footer-text {
+    -fx-text-fill: -text-muted;
     -fx-font-size: 11px;
-}
-.help-button {
-    -fx-background-color: #141416;
-    -fx-background-insets: 0;
-    -fx-border-color: #2a2a2e;
-    -fx-border-width: 1;
-    -fx-border-radius: 100;
-    -fx-background-radius: 100;
-    -fx-min-width: 30;
-    -fx-min-height: 30;
-    -fx-max-width: 30;
-    -fx-max-height: 30;
-    -fx-text-fill: #8a8a8f;
-    -fx-font-size: 12px;
-    -fx-cursor: hand;
-}
-.help-button:hover {
-    -fx-background-color: #1f1f24;
 }

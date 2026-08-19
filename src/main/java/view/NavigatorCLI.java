@@ -1,9 +1,26 @@
 package view;
 
+import view.login.LoginGraphicController;
+import view.login.LoginGraphicControllerCLI;
+
+import java.util.Scanner;
+
 public class NavigatorCLI extends Navigator {
+
+    private Scanner scanner = new Scanner(System.in);
+
+    private LoginGraphicControllerCLI login;
+
+
+    @Override
+    public void startUp() {
+        goToLogin();
+    }
+
     @Override
     public void viewLogin() {
-
+        if (this.login == null) { login = new LoginGraphicControllerCLI(this);}
+        this.login.start(scanner);
     }
 
     @Override
@@ -33,7 +50,7 @@ public class NavigatorCLI extends Navigator {
     }
 
     @Override
-    public void createAnnouncement() {
+    public void viewCreateAnnouncement() {
 
     }
 }

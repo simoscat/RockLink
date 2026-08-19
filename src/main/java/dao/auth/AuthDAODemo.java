@@ -54,4 +54,14 @@ public class AuthDAODemo extends AuthDAO{
     public void registerPromoter(Credential credential) throws DAOException {
         throw new DAOException("Sign-in is disabled in Demo mode"); //nothing to do
     }
+
+    @Override
+    public boolean isMusicianAlreadyRegistered(String email) {
+        return musicianMail.equals(email);
+    }
+
+    @Override
+    public boolean isPromoterAlreadyRegistered(String email) {
+        return promoterMail.equals(email);
+    }
 }

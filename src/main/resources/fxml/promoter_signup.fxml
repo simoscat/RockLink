@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    ROCK LINK — promoter_signup.fxml
+    Promoter account signup (yellow theme).
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            styleClass="page-bg" prefWidth="1440" prefHeight="950"
+            stylesheets="@../css/style.css">
+
+    <fx:define>
+        <ToggleGroup fx:id="genderGroup"/>
+    </fx:define>
+
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="10">
+            <StackPane styleClass="logo-icon-box">
+                <Label text="⚡" styleClass="logo-icon-symbol"/>
+            </StackPane>
+            <Label text="ROCK LINK" styleClass="logo-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="24">
+            <padding><Insets top="30" bottom="30"/></padding>
+
+            <VBox spacing="24" maxWidth="520" prefWidth="520">
+
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Button fx:id="backButton" text="‹" styleClass="back-button"/>
+                    <Label text="PROMOTER" styleClass="badge, badge-promoter"/>
+                </HBox>
+
+                <VBox spacing="8">
+                    <Label text="SIGN UP" styleClass="page-heading-md"/>
+                    <Label text="Create your promoter account" styleClass="page-subtitle"/>
+                </VBox>
+
+                <VBox styleClass="form-card, form-card-yellow" spacing="18">
+
+                    <HBox spacing="16">
+                        <VBox spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                            <Label text="FIRST NAME" styleClass="field-label"/>
+                            <TextField fx:id="firstNameField" promptText="e.g. Emma"/>
+                        </VBox>
+                        <VBox spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                            <Label text="LAST NAME" styleClass="field-label"/>
+                            <TextField fx:id="lastNameField" promptText="e.g. Carter"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox spacing="6">
+                        <Label text="GENDER" styleClass="field-label"/>
+                        <HBox spacing="10">
+                            <ToggleButton fx:id="genderMaleToggle" text="Male" toggleGroup="$genderGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                            <ToggleButton fx:id="genderFemaleToggle" text="Female" toggleGroup="$genderGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                            <ToggleButton fx:id="genderNotSpecifiedToggle" text="Not specified" toggleGroup="$genderGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="EMAIL" styleClass="field-label"/>
+                        <TextField fx:id="emailField" promptText="e.g. booking@venue.com"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="PASSWORD" styleClass="field-label"/>
+                        <PasswordField fx:id="passwordField" promptText="••••••••"/>
+                    </VBox>
+
+                    <VBox spacing="10">
+                        <Label text="CONTACTS" styleClass="field-label"/>
+                        <VBox fx:id="contactsContainer" spacing="10">
+                            <HBox spacing="10">
+                                <TextField fx:id="contactTypeField" promptText="Type (e.g. Phone)" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                <TextField fx:id="contactValueField" promptText="Value (e.g. +1 555 123 4567)" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                            </HBox>
+                        </VBox>
+                        <Button fx:id="addContactButton" text="+ Add contact" styleClass="add-item-button" maxWidth="Infinity"/>
+                    </VBox>
+
+                    <Button fx:id="createAccountButton" text="CREATE ACCOUNT" styleClass="btn-primary-yellow" maxWidth="Infinity"/>
+
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="4">
+                    <Label text="Already have an account?" styleClass="helper-text"/>
+                    <Hyperlink fx:id="loginLink" text="Log in" styleClass="link-yellow"/>
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER">
+            <padding><Insets top="20" bottom="24"/></padding>
+            <Label text="Connecting Musicians · Join Bands · Find Gigs" styleClass="footer-text"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

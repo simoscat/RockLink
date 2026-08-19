@@ -29,11 +29,21 @@ public abstract class Navigator {
             case VIEW_ANNOUNCEMENT_DETAILS -> viewAnnouncementDetails();
             case VIEW_ANNOUNCEMENT_APPLICATIONS -> viewAnnouncementApplications();
             case VIEW_MY_ANNOUNCEMENTS -> viewMyAnnouncements();
-            case CREATE_ANNOUNCEMENT -> createAnnouncement();
+            case CREATE_ANNOUNCEMENT -> viewCreateAnnouncement();
             
         }
         
     }
+
+    public void goToLogin(){ setCurrentScreen(Screen.LOGIN); viewLogin();}
+    public void goToMusicianDashboard(){ setCurrentScreen(Screen.MUSICIAN_DASHBOARD); viewMusicianDashboard();}
+    public void goToPromoterDashboard(){ setCurrentScreen(Screen.PROMOTER_DASHBOARD); viewPromoterDashboard();}
+    public void goToAnnouncementDetails(){ setCurrentScreen(Screen.VIEW_ANNOUNCEMENT_DETAILS); viewAnnouncementDetails();}
+    public void goToAnnouncementApplications(){ setCurrentScreen(Screen.VIEW_ANNOUNCEMENT_APPLICATIONS); viewAnnouncementApplications();}
+    public void goToMyAnnouncements(){ setCurrentScreen(Screen.VIEW_MY_ANNOUNCEMENTS); viewMyAnnouncements();}
+    public void goToCreateAnnouncement(){ setCurrentScreen(Screen.CREATE_ANNOUNCEMENT); viewCreateAnnouncement();}
+
+    public abstract void startUp();
 
     public abstract void viewLogin();
     public abstract void viewMusicianDashboard();
@@ -41,6 +51,6 @@ public abstract class Navigator {
     public abstract void viewAnnouncementDetails();
     public abstract void viewAnnouncementApplications();
     public abstract void viewMyAnnouncements();
-    public abstract void createAnnouncement();
+    public abstract void viewCreateAnnouncement();
 
 }

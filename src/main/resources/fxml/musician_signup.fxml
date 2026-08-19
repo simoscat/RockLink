@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    ROCK LINK — musician_signup.fxml
+    Musician account signup (orange theme).
+    The Gender and Instrument level ToggleButtons are grouped through
+    the ToggleGroups defined in fx:define; the "BEG" level is
+    preselected, as in the mockup.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            styleClass="page-bg" prefWidth="1440" prefHeight="1050"
+            stylesheets="@../css/style.css">
+
+    <fx:define>
+        <ToggleGroup fx:id="genderGroup"/>
+        <ToggleGroup fx:id="levelGroup"/>
+    </fx:define>
+
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="10">
+            <StackPane styleClass="logo-icon-box">
+                <Label text="⚡" styleClass="logo-icon-symbol"/>
+            </StackPane>
+            <Label text="ROCK LINK" styleClass="logo-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="24">
+            <padding><Insets top="30" bottom="30"/></padding>
+
+            <VBox spacing="24" maxWidth="520" prefWidth="520">
+
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Button fx:id="backButton" text="‹" styleClass="back-button"/>
+                    <Label text="MUSICIAN" styleClass="badge, badge-musician"/>
+                </HBox>
+
+                <VBox spacing="8">
+                    <Label text="SIGN UP" styleClass="page-heading-md"/>
+                    <Label text="Create your musician account" styleClass="page-subtitle"/>
+                </VBox>
+
+                <VBox styleClass="form-card, form-card-orange" spacing="18">
+
+                    <HBox spacing="16">
+                        <VBox spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                            <Label text="FIRST NAME" styleClass="field-label"/>
+                            <TextField fx:id="firstNameField" promptText="e.g. John"/>
+                        </VBox>
+                        <VBox spacing="6" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                            <Label text="LAST NAME" styleClass="field-label"/>
+                            <TextField fx:id="lastNameField" promptText="e.g. Doe"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox spacing="6">
+                        <Label text="STAGE NAME" styleClass="field-label"/>
+                        <TextField fx:id="stageNameField" promptText="e.g. Johnny Slide"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="GENDER" styleClass="field-label"/>
+                        <HBox spacing="10">
+                            <ToggleButton fx:id="genderMaleToggle" text="Male" toggleGroup="$genderGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                            <ToggleButton fx:id="genderFemaleToggle" text="Female" toggleGroup="$genderGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                            <ToggleButton fx:id="genderNotSpecifiedToggle" text="Not specified" toggleGroup="$genderGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="EMAIL" styleClass="field-label"/>
+                        <TextField fx:id="emailField" promptText="e.g. john.doe@email.com"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="PASSWORD" styleClass="field-label"/>
+                        <PasswordField fx:id="passwordField" promptText="••••••••"/>
+                    </VBox>
+
+                    <VBox spacing="10">
+                        <Label text="INSTRUMENTS" styleClass="field-label"/>
+                        <VBox fx:id="instrumentsContainer" spacing="10">
+                            <VBox styleClass="instrument-box" spacing="10">
+                                <TextField fx:id="instrumentNameField" promptText="Instrument name (e.g. Guitar)"/>
+                                <HBox spacing="8">
+                                    <ToggleButton fx:id="levelAmateurToggle" text="AMT" toggleGroup="$levelGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                    <ToggleButton fx:id="levelBeginnerToggle" text="BEG" toggleGroup="$levelGroup" selected="true" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                    <ToggleButton fx:id="levelIntermediateToggle" text="INT" toggleGroup="$levelGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                    <ToggleButton fx:id="levelExperiencedToggle" text="EXP" toggleGroup="$levelGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                    <ToggleButton fx:id="levelMasterToggle" text="MAS" toggleGroup="$levelGroup" styleClass="toggle-pill" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                        <Button fx:id="addInstrumentButton" text="+ Add instrument" styleClass="add-item-button" maxWidth="Infinity"/>
+                    </VBox>
+
+                    <Button fx:id="createAccountButton" text="CREATE ACCOUNT" styleClass="btn-primary-orange" maxWidth="Infinity"/>
+
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="4">
+                    <Label text="Already have an account?" styleClass="helper-text"/>
+                    <Hyperlink fx:id="loginLink" text="Log in" styleClass="link-orange"/>
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER">
+            <padding><Insets top="20" bottom="24"/></padding>
+            <Label text="Connecting Musicians · Join Bands · Find Gigs" styleClass="footer-text"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>
