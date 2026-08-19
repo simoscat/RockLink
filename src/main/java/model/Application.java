@@ -5,7 +5,9 @@ import engineering.enums.ApplicationStatus;
 public abstract class Application {
 
     private Artist artist;
-    private ApplicationStatus status;
+    private ApplicationStatus status = ApplicationStatus.PENDING;
+    //when application is instantiated for the first time it's considered pending
+    //this removes the controller responsibility to initialize the value of the status
 
     public Application(Artist artist, ApplicationStatus s) {
         this.artist = artist;
@@ -13,7 +15,6 @@ public abstract class Application {
     }
 
     public Application(Artist artist){
-        this.status = ApplicationStatus.PENDING;
         this.artist = artist;
     }
 
