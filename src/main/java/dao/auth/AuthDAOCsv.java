@@ -54,12 +54,22 @@ public class AuthDAOCsv extends AuthDAO {
     }
     @Override
     public Credential getMusicianCredential(String email) throws DAOException {
-        return getUserCredential(email, MUSICIANS_PATH);
+
+        if (getUserCredential(email, MUSICIANS_PATH) != null) {
+            return getUserCredential(email, MUSICIANS_PATH);
+        }
+
+        throw new DAOException("Couldn't find musician credentials: " + email);
+
     }
 
     @Override
     public Credential getPromoterCredential(String email) throws DAOException {
-        return getUserCredential(email, PROMOTERS_PATH);
+        if (getUserCredential(email, PROMOTERS_PATH) != null) {
+            return getUserCredential(email, PROMOTERS_PATH);
+        }
+
+        throw new DAOException("Couldn't find promoter credentials: " + email);
     }
     
     private Credential getUserCredential(String email, String path){
@@ -83,9 +93,10 @@ public class AuthDAOCsv extends AuthDAO {
                 }
                 
             }
+
+            return null;
             
-            throw new DAOException("Couldn't find credentials of "+email+" in "+path);
-            
+
         } catch (IOException e) {
             throw new DAOException("Couldn't read credential file: "+path, e);
         }
@@ -112,7 +123,21 @@ public class AuthDAOCsv extends AuthDAO {
     public void registerPromoter(Credential credential) throws DAOException {
         registerUser(credential, PROMOTERS_PATH);
     }
-    
+
+    @Override
+    public boolean isMusicianAlreadyRegistered(String email) {
+
+        return getUserCredential(email, MUSICIANS_PATH) != null;
+
+    }
+
+    @Override
+    public boolean isPromoterAlreadyRegistered(String email) {
+
+        return getUserCredential(email, PROMOTERS_PATH) != null;
+
+    }
+
     private void registerUser(Credential credential, String path) {
         List<String> lines = readAllLinesAndRegister(credential, path);
         

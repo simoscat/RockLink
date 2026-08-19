@@ -3,6 +3,8 @@ package bean;
 import model.Artist;
 import model.MoneyValue;
 
+import java.util.List;
+
 public class JobAnnouncementBean extends BaseAnnouncementBean {
 
     private PromoterBean promoter;
@@ -10,6 +12,7 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
     private String address;
     private Artist hiredArtist;
     private String jobAnnouncementStatus;
+    private List<String> tags;
 
     public JobAnnouncementBean() {
         super();
@@ -63,6 +66,14 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
 
     public void setJobAnnouncementStatus(String jobAnnouncementStatus) {
         this.jobAnnouncementStatus = jobAnnouncementStatus;
+    }
+
+    public void setTags(List<String> tags){
+        this.tags = tags;
+    }
+
+    public List<String> getTags() {
+        return tags;
     }
 
 }

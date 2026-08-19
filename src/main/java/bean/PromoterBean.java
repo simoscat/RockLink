@@ -8,7 +8,7 @@ public class PromoterBean extends UserBean{
     private Map<String, String> contacts;
 
     public PromoterBean(String name, String surname, String email, String gender, String password,
-                           List<JobAnnouncementBean> jobAnnouncements, Map<String, String> contacts) {
+                        Map<String, String> contacts) {
         super(name, surname, email, gender, password);
         this.contacts = contacts;
     }

@@ -21,7 +21,7 @@ public abstract class JobAnnouncementDecorator implements JobAnnouncement {
     }
 
     @Override
-    public User getPublisher() {
+    public Promoter getPublisher() {
         return this.wrappedJobAnnouncement.getPublisher();
     }
 

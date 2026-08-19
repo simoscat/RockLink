@@ -1,35 +1,20 @@
 package bean;
 
+import model.Artist;
+
 public abstract class ApplicationBean {
     
-    private String announcementId;
-    private String candidateEmail;
+    private Artist artist;
     private String status;
 
     public ApplicationBean() {
     }
 
-    public ApplicationBean(String announcementId, String candidateEmail, String status) {
-        this.announcementId = announcementId;
-        this.candidateEmail = candidateEmail;
+    public ApplicationBean(Artist artist, String status) {
+        this.artist = artist;
         this.status = status;
     }
 
-    public String getAnnouncementId() {
-        return announcementId;
-    }
-
-    public void setAnnouncementId(String announcementId) {
-        this.announcementId = announcementId;
-    }
-
-    public String getCandidateEmail() {
-        return candidateEmail;
-    }
-
-    public void setCandidateEmail(String candidateEmail) {
-        this.candidateEmail = candidateEmail;
-    }
 
     public String getStatus() {
         return status;

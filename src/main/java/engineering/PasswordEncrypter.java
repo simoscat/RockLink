@@ -2,7 +2,7 @@ package engineering;
 
 import java.util.Objects;
 
-public class PasswordEncrypter {
+public final class PasswordEncrypter {
 
     public static String encryptPassword(String password){
         String encryptedPassword = "";

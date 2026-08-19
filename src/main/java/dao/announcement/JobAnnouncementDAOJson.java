@@ -45,6 +45,26 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
     }
 
     @Override
+    protected List<JobAnnouncement> retrieveAllPromoterAnnouncementsFromEmail(String email) {
+
+        JSONArray jobs = readJsonFile();
+        List<JobAnnouncement> promoterJobs = new ArrayList<>();
+
+        for (int i = 0; i < jobs.length(); i++) {
+            JSONObject obj = jobs.getJSONObject(i);
+            if (obj.getString("promoterEmail").equals(email)) {
+                promoterJobs.add(parseJson(obj));
+            }
+        }
+
+        if (promoterJobs.isEmpty()) {
+            throw new DAOException("No job announcements found for promoter email: " + email);
+        }
+
+        return promoterJobs;
+    }
+
+    @Override
     public JobAnnouncement retrieveJobAnnouncementById(String id) {
         JSONArray jobs = readJsonFile();
         for (int i = 0; i < jobs.length(); i++) {

@@ -6,7 +6,7 @@ import model.jobAnnouncementDecorators.*;
 
 import java.util.List;
 
-public class JobDecoratorManager {
+public final class JobDecoratorManager {
 
     public static JobAnnouncement applyDecorators(JobAnnouncement a, List<JobAnnouncementTag> tags){
         if (tags == null || tags.isEmpty()) return a;

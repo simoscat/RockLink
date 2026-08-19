@@ -1,5 +1,6 @@
 package dao.auth;
 
+import dao.factories.DAOFactory;
 import engineering.EmailChecker;
 import exception.DAOException;
 import model.Credential;
@@ -19,4 +20,9 @@ public abstract class AuthDAO {
     public abstract void registerMusician(Credential credential) throws DAOException;
     
     public abstract void registerPromoter(Credential credential) throws DAOException;
+
+    public abstract boolean isMusicianAlreadyRegistered(String email);
+
+    public abstract boolean isPromoterAlreadyRegistered(String email);
+
 }

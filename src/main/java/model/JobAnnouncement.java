@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public interface JobAnnouncement {
 
-    public User getPublisher();
+    public Promoter getPublisher();
     public String getTitle();
     public String getContent();
     public LocalDateTime getAnnouncementDate();

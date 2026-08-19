@@ -59,6 +59,26 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
     }
 
     @Override
+    protected List<JobAnnouncement> retrieveAllPromoterAnnouncementsFromEmail(String email) {
+
+        List<JobAnnouncement> jobs = new ArrayList<>();
+
+        for (JobAnnouncement job : jobAnnouncements){
+
+            if (job.getPublisher().getEmail().equals(email)){
+                jobs.add(job);
+            }
+
+        }
+
+        if (jobs.isEmpty()){
+            throw new DAOException("No job announcements found for promoter email: "+email);
+        }
+
+        return jobs;
+    }
+
+    @Override
     public JobAnnouncement retrieveJobAnnouncementById(String id) {
 
         for (JobAnnouncement job : jobAnnouncements) {
@@ -98,6 +118,8 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
         jobAnnouncements.add(obj);
 
     }
+
+
 
     private String uniformTitle(String title){
         return title.replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9]", "");

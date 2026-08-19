@@ -43,7 +43,7 @@ public class ConcreteJobAnnouncement extends BaseAnnouncement implements JobAnno
 
 
     @Override
-    public User getPublisher() {
+    public Promoter getPublisher() {
         return this.promoter;
     }
 

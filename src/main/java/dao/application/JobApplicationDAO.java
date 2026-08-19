@@ -21,7 +21,7 @@ public abstract class JobApplicationDAO extends DAOWithCache<JobApplication> {
         return getUniqueId(jobApp);
     }
 
-    public List<JobApplication> getAllJobApplicationsFromEmail(String email) {
+    public List<JobApplication> getAllMusicianJobApplicationsFromEmail(String email) {
 
         List<JobApplication> jobApplications = retrieveAllJobApplicationsFromEmail(email);
 

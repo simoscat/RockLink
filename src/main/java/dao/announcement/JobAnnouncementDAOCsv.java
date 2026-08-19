@@ -16,6 +16,7 @@ import model.jobAnnouncementDecorators.*;
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.nio.Buffer;
 import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -52,6 +53,39 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
         } catch (IOException e) {
             throw new DAOException("Can't initialize csv file " + this.PATH, e);
         }
+    }
+
+    @Override
+    protected List<JobAnnouncement> retrieveAllPromoterAnnouncementsFromEmail(String email) {
+
+        File file = new File(this.PATH);
+        List<JobAnnouncement> jobAnnouncements = new ArrayList<>();
+
+        try(BufferedReader reader = Files.newBufferedReader(file.toPath())){
+
+            String line;
+            while ((line = reader.readLine()) != null){
+
+                if (line.isBlank()) continue;
+
+                String[] fields = line.split(CSV_SEPARATOR, -1);
+
+                if (fields[6].equals(email)){
+                    jobAnnouncements.add(parseRow(fields));
+                }
+
+            }
+
+        } catch (IOException e) {
+            throw new DAOException("Can't read promoter job announcements with email: "+email, e);
+        }
+
+        if (jobAnnouncements.isEmpty()){
+            throw new DAOException("No job announcements found with promoter email: "+email);
+        }
+
+        return jobAnnouncements;
+
     }
 
     @Override
@@ -97,6 +131,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
         }
         return announcements;
     }
+
 
     @Override
     protected void saveToPersistency(JobAnnouncement obj) {

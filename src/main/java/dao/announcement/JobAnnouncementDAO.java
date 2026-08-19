@@ -1,8 +1,12 @@
 package dao.announcement;
 
+import engineering.enums.JobAnnouncementStatus;
 import engineering.persistency.DAOWithCache;
+import exception.DAOException;
 import model.JobAnnouncement;
+import model.Promoter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class JobAnnouncementDAO extends DAOWithCache<JobAnnouncement> {
@@ -28,25 +32,69 @@ public abstract class JobAnnouncementDAO extends DAOWithCache<JobAnnouncement> {
 
     }
 
-
     public List<JobAnnouncement> getAllJobAnnouncements(){
         List<JobAnnouncement> jobAnnouncements = this.retrieveAllJobAnnouncements();
 
+        checkForCache(jobAnnouncements);
+
+        return jobAnnouncements;
+    }
+
+    public List<JobAnnouncement> getAllOpenJobAnnouncements(){
+
+        List<JobAnnouncement> jobAnnouncements = this.retrieveAllOpenJobAnnouncements();
+        checkForCache(jobAnnouncements);
+        return jobAnnouncements;
+
+    }
+
+    public List<JobAnnouncement> getAllPromoterAnnouncementsFromEmail(String email){
+
+        List<JobAnnouncement> jobAnnouncements = retrieveAllPromoterAnnouncementsFromEmail(email);
+
+        checkForCache(jobAnnouncements);
+
+        return jobAnnouncements;
+
+    }
+
+
+    private void checkForCache(List<JobAnnouncement> jobAnnouncements){
         for (JobAnnouncement jobAnnouncement : jobAnnouncements){
             if (!isCached(jobAnnouncement)){
                 addToCache(jobAnnouncement);
             }
         }
-        return jobAnnouncements;
     }
 
 
+    protected abstract List<JobAnnouncement> retrieveAllPromoterAnnouncementsFromEmail(String email);
     protected abstract JobAnnouncement retrieveJobAnnouncementById(String id);
     public abstract String getUniqueId(JobAnnouncement job);
     protected abstract List<JobAnnouncement> retrieveAllJobAnnouncements();
 
-    // these methods are abstract because the id will depend on the persistency mechanism at runtime;
-    // this also implies that the id stored in the application that references its relative job will change based on
-    // the configuration
+    protected List<JobAnnouncement> retrieveAllOpenJobAnnouncements() {
+
+        List<JobAnnouncement> allJobs = getAllJobAnnouncements();
+        List<JobAnnouncement> openJobAnnouncements = new ArrayList<>();
+
+        for (JobAnnouncement jobAnnouncement : allJobs) {
+
+            if (jobAnnouncement.getStatus().equals(JobAnnouncementStatus.OPEN)) {
+                openJobAnnouncements.add(jobAnnouncement);
+            }
+
+        }
+
+        if (openJobAnnouncements.isEmpty()) {
+            throw new DAOException("No open job announcements found");
+        }
+
+        return openJobAnnouncements;
+    }
+
+    //Important: retrieveAllOpenJobAnnouncements is implemented like this to avoid code duplication.
+    // if we were using different persistency mechanisms that implement this differently and (probably) more
+    // efficiently, we should override this method
 
 }
