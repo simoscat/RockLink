@@ -70,7 +70,7 @@ public class PromoterDashboardGraphicControllerCLI extends PromoterDashboardGrap
         System.out.println("║        Dashboard Promoter        ║\n");
         System.out.println("╚══════════════════════════════════╝\n");
 
-        System.out.printf("Promoter %s %s", navigator.getSession().getPromoter().getName(),
+        System.out.printf("Promoter %s %s%n", navigator.getSession().getPromoter().getName(),
                 navigator.getSession().getPromoter().getSurname());
         System.out.println("Email: "+navigator.getSession().getPromoter().getEmail());
     }
@@ -87,10 +87,10 @@ public class PromoterDashboardGraphicControllerCLI extends PromoterDashboardGrap
 
         int announcementNumber = jobAnnouncements.toArray().length;
 
-        if (operation.equals("X")) {
+        if (operation.equalsIgnoreCase("X")) {
             doLogout();
         }
-        else if (operation.equals("R")) {
+        else if (operation.equalsIgnoreCase("R")) {
             reloadDashboard();
         }
 

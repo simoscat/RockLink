@@ -54,7 +54,7 @@ public abstract class PromoterDashboardGraphicController {
     }
 
     protected void reloadDashboard(){
-
+        start();
     }
 
     public abstract void start();

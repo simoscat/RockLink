@@ -110,12 +110,16 @@ public abstract class Navigator {
             case PROMOTER_DASHBOARD -> viewPromoterDashboard();
             case VIEW_ANNOUNCEMENT_DETAILS -> viewAnnouncementDetails();
             case VIEW_ANNOUNCEMENT_APPLICATIONS -> viewAnnouncementApplications();
+            case VIEW_APPLICATION_DETAILS -> viewApplicationDetails();
             case CREATE_ANNOUNCEMENT -> viewCreateAnnouncement();
+            case OPEN_ANNOUNCEMENTS_DISCOVERY -> viewOpenAnnouncementsDiscovery();
             
         }
 
     }
 
+    public void goToOpenAnnouncementsDiscovery(){ setCurrentScreen(Screen.OPEN_ANNOUNCEMENTS_DISCOVERY);
+        viewOpenAnnouncementsDiscovery();}
     public void goToLogin(){ setCurrentScreen(Screen.LOGIN); viewLogin();}
     public void goToMusicianDashboard(){ setCurrentScreen(Screen.MUSICIAN_DASHBOARD); viewMusicianDashboard();}
     public void goToPromoterDashboard(){ setCurrentScreen(Screen.PROMOTER_DASHBOARD); viewPromoterDashboard();}
@@ -124,6 +128,7 @@ public abstract class Navigator {
     public void goToCreateAnnouncement(){ setCurrentScreen(Screen.CREATE_ANNOUNCEMENT); viewCreateAnnouncement();}
     public void goToPromoterRegistration(){ setCurrentScreen(Screen.PROMOTER_REGISTRATION); viewPromoterRegistration();}
     public void goToMusicianRegistration(){ setCurrentScreen(Screen.MUSICIAN_REGISTRATION); viewMusicianRegistration();}
+    public void goToApplicationDetails(){ setCurrentScreen(Screen.VIEW_APPLICATION_DETAILS); viewApplicationDetails();}
 
     public abstract void startUp();
     public abstract void viewLogin();
@@ -134,6 +139,8 @@ public abstract class Navigator {
     public abstract void viewCreateAnnouncement();
     public abstract void viewPromoterRegistration();
     public abstract void viewMusicianRegistration();
+    public abstract void viewApplicationDetails();
+    public abstract void viewOpenAnnouncementsDiscovery();
 
     public void close() {
         System.exit(0);

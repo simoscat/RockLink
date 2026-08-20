@@ -53,7 +53,7 @@ public class PromoterRegistrationGraphicControllerCLI extends PromoterRegistrati
                 contactValue = scanner.nextLine().trim();
             }
 
-            System.out.println("Do you want to insert another contact? [y/N]: ");
+            System.out.print("Do you want to insert another contact? [y/N]: ");
             String answer = scanner.nextLine().trim();
 
             if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("yes")) {
@@ -78,19 +78,28 @@ public class PromoterRegistrationGraphicControllerCLI extends PromoterRegistrati
 
     private String getGender() {
 
-        System.out.print("Gender (MALE/FEMALE/UNSPECIFIED) [M/F/U] : ");
-        String g = scanner.nextLine().trim().toUpperCase();
+        while (true) {
 
-        if (g.equalsIgnoreCase("M") || g.equalsIgnoreCase("male")) {
-            return "MALE";
-        }
+            System.out.println("Select your gender: ");
+            System.out.println("[1] Male");
+            System.out.println("[2] Female");
+            System.out.println("[3] Not specified");
+            System.out.print("> ");
 
-        else if (g.equalsIgnoreCase("F") || g.equalsIgnoreCase("female")) {
-            return "FEMALE";
-        }
+            switch(scanner.nextLine().trim()) {
 
-        else {
-            return "NOT_SPECIFIED";
+                case "1":
+                    return "MALE";
+                case "2":
+                    return "FEMALE";
+                case "3":
+                    return "NOT_SPECIFIED";
+
+                default:
+                    showError("Invalid selection");
+
+            }
+
         }
 
     }

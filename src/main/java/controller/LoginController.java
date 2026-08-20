@@ -46,6 +46,7 @@ public class LoginController {
 
                 musician.setName(m.getName());
                 musician.setSurname(m.getSurname());
+                musician.setGender(m.getGender().name());
                 musician.setStageName(m.getArtistName());
                 musician.clearPassword();
 

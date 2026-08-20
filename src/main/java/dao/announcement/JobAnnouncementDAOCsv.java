@@ -168,8 +168,8 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
     }
 
     private JobAnnouncement parseRow(String[] fields) {
-        String title = fields[1].replace("%2C", ",");
-        String content = fields[2].replace("%2C", ",");
+        String title = fields[1].replace("%2C", ",").replace("%0A", "\n");
+        String content = fields[2].replace("%2C", ",").replace("%0A", "\n");
         LocalDateTime date = LocalDateTime.parse(fields[3]);
         JobAnnouncementStatus status = JobAnnouncementStatus.valueOf(fields[4]);
         LocalDateTime publishDate = LocalDateTime.parse(fields[5]);
@@ -201,8 +201,8 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
         return String.join(CSV_SEPARATOR,
                 id,
-                cja.getTitle().replace(",", "%2C"),
-                cja.getContent().replace(",", "%2C"),
+                cja.getTitle().replace(",", "%2C").replace("\n", "%0A"),
+                cja.getContent().replace(",", "%2C").replace("\n", "%0A"),
                 cja.getAnnouncementDate().toString(),
                 cja.getStatus().name(),
                 cja.getAnnouncementPublishDate().toString(),

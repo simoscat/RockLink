@@ -74,6 +74,8 @@ public final class BeanConverter {
     public static JobApplicationBean fromJobApplicationToBean(JobApplication ja){
 
         return new JobApplicationBean(
+                ja.whoIsCandidate(),
+                ja.currentApplicationStatus().name(),
                 ja.currentRaiseAmount(),
                 fromJobAnnouncementToBean(ja.whichJobAnnouncement())
         );

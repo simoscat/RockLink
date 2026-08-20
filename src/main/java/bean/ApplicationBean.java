@@ -16,6 +16,14 @@ public abstract class ApplicationBean {
     }
 
 
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
+
     public String getStatus() {
         return status;
     }

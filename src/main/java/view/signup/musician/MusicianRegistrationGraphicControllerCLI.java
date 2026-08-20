@@ -124,20 +124,29 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
 
     private String getGender() {
 
-        System.out.print("Gender (MALE/FEMALE/UNSPECIFIED) [M/F/U] : ");
-        String g = scanner.nextLine().trim().toUpperCase();
+        while (true){
 
-        if (g.equalsIgnoreCase("M") || g.equalsIgnoreCase("male")) {
-            return "MALE";
+            System.out.println("Select your gender: ");
+            System.out.println("[1] Male");
+            System.out.println("[2] Female");
+            System.out.println("[3] Not specified");
+
+            switch(scanner.nextLine().trim()) {
+
+                case "1":
+                    return "MALE";
+                case "2":
+                    return "FEMALE";
+                case "3":
+                    return "NOT_SPECIFIED";
+
+                default:
+                    showError("Invalid selection");
+
+            }
+
         }
 
-        else if (g.equalsIgnoreCase("F") || g.equalsIgnoreCase("female")) {
-            return "FEMALE";
-        }
-
-        else {
-            return "NOT_SPECIFIED";
-        }
 
     }
 

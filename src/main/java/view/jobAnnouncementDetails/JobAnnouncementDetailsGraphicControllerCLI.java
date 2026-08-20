@@ -1,22 +1,21 @@
-package view.announcementDetails;
+package view.jobAnnouncementDetails;
 
 import bean.JobAnnouncementBean;
 import model.Artist;
 import view.Navigator;
 
+import java.math.BigDecimal;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class AnnouncementDetailsGraphicControllerCLI extends AnnouncementDetailsGraphicController {
+public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementDetailsGraphicController {
 
     private final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd, HH:mm");
 
     private final Scanner scanner = new Scanner(System.in);
 
-    public AnnouncementDetailsGraphicControllerCLI(Navigator navigator) {
+    public JobAnnouncementDetailsGraphicControllerCLI(Navigator navigator) {
         super(navigator);
     }
 
@@ -98,7 +97,7 @@ public class AnnouncementDetailsGraphicControllerCLI extends AnnouncementDetails
             switch(scanner.nextLine().trim()){
 
                 case "1":
-                    applyMusicianForJob();
+                    applyForJob();
                     done = true;
                     break;
 
@@ -114,6 +113,47 @@ public class AnnouncementDetailsGraphicControllerCLI extends AnnouncementDetails
 
         }
 
+
+    }
+
+    private void applyForJob(){
+
+        String current = navigator.getCurrentJobAnnouncement().getMoneyValue().getValue() + " "
+                + navigator.getCurrentJobAnnouncement().getMoneyValue().getCurrency();
+
+        System.out.print("Do you want to do a counter offer? Base offer is "+current+" [Y/n]: ");
+
+        BigDecimal raiseOffer = new BigDecimal(0);
+
+        String answer = scanner.nextLine().trim();
+
+        if (!answer.equalsIgnoreCase("n") &&
+                !answer.equalsIgnoreCase("no")){
+
+            boolean done = false;
+
+            while (!done){
+
+                try {
+                    System.out.print("Insert your raise offer (how much more you want): ");
+
+                    raiseOffer = new BigDecimal(Integer.parseInt(scanner.nextLine().trim()));
+
+                    if (raiseOffer.compareTo(BigDecimal.ZERO) < 0){
+                        showError("Invalid value. Try again");
+                    }
+
+                    else done = true;
+
+                } catch (NumberFormatException e) {
+                    showError("Invalid number. Try again");
+                }
+
+            }
+
+        }
+
+        applyMusicianForJob(raiseOffer);
 
     }
 
@@ -147,11 +187,11 @@ public class AnnouncementDetailsGraphicControllerCLI extends AnnouncementDetails
 
     @Override
     protected void showError(String message) {
-
+        System.out.println("[ERROR]: " + message);
     }
 
     @Override
     protected void showInfo(String message) {
-
+        System.out.println("[INFO]: " + message);
     }
 }

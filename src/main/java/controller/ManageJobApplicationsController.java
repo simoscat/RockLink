@@ -12,6 +12,7 @@ import exception.ControllerLogicException;
 import exception.DAOException;
 import model.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -149,6 +150,19 @@ public class ManageJobApplicationsController {
 
             jobAnnouncementDAO.save(jobAnnouncement);
 
+            List<JobApplication> toReject = jobApplicationDAO.getAllJobAnnouncementApplications(jobAnnouncement);
+
+            for (JobApplication jobApplicationToReject : toReject){
+
+                if (!jobApplicationToReject.equals(jobApplication)){
+
+                    jobApplicationToReject.rejectApplication();
+                    jobApplicationDAO.save(jobApplicationToReject);
+
+                }
+
+            }
+
         } catch (DAOException _) {
             throw new ControllerLogicException("Could not accept job application");
         }
@@ -204,7 +218,8 @@ public class ManageJobApplicationsController {
 
     }
 
-    public void applyForJobAnnouncement(JobAnnouncementBean jobAnnouncementBean, MusicianBean applicant){
+    public void applyForJobAnnouncement(JobAnnouncementBean jobAnnouncementBean, MusicianBean applicant,
+                                        BigDecimal raiseOffer){
 
         try {
 
@@ -212,9 +227,14 @@ public class ManageJobApplicationsController {
 
             JobAnnouncement jobAnnouncement = BeanConverter.fromBeanToJobAnnouncement(jobAnnouncementBean);
 
+            if (jobApplicationDAO.getJobApplication(m.getEmail(), jobAnnouncement) != null) {
+                throw new ControllerLogicException("You have already applied for this job announcement");
+            }
+
             JobApplication application = new JobApplication(
                     jobAnnouncement,
-                    m
+                    m,
+                    raiseOffer
             );
 
             jobApplicationDAO.save(application);

@@ -77,4 +77,14 @@ public class NavigatorGUI extends Navigator {
     public void viewMusicianRegistration() {
         //TODO
     }
+
+    @Override
+    public void viewApplicationDetails() {
+        //TODO
+    }
+
+    @Override
+    public void viewOpenAnnouncementsDiscovery() {
+        //TODO
+    }
 }

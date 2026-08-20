@@ -1,16 +1,16 @@
 package view;
 
-import view.login.LoginGraphicController;
+import bean.ApplicationBean;
+import view.applicationDetail.JobApplicationDetailGraphicControllerCLI;
 import view.login.LoginGraphicControllerCLI;
 import view.musicianDashboard.MusicianDashboardGraphicControllerCLI;
+import view.openAnnouncementsDiscovery.OpenAnnouncementsDiscoveryGraphicControllerCLI;
 import view.promoterDashboard.PromoterDashboardGraphicControllerCLI;
-import view.announcementDetails.AnnouncementDetailsGraphicControllerCLI;
+import view.jobAnnouncementDetails.JobAnnouncementDetailsGraphicControllerCLI;
 import view.announcementApplications.AnnouncementApplicationsGraphicControllerCLI;
 import view.createAnnouncement.CreateAnnouncementGraphicControllerCLI;
 import view.signup.musician.MusicianRegistrationGraphicControllerCLI;
 import view.signup.promoter.PromoterRegistrationGraphicControllerCLI;
-
-import java.util.Scanner;
 
 public class NavigatorCLI extends Navigator {
 
@@ -22,9 +22,12 @@ public class NavigatorCLI extends Navigator {
     private MusicianDashboardGraphicControllerCLI musicianDashboard;
     private PromoterDashboardGraphicControllerCLI promoterDashboard;
 
-    private AnnouncementDetailsGraphicControllerCLI announcementDetails;
+    private JobAnnouncementDetailsGraphicControllerCLI announcementDetails;
     private AnnouncementApplicationsGraphicControllerCLI announcementApplications;
     private CreateAnnouncementGraphicControllerCLI createAnnouncement;
+
+    private JobApplicationDetailGraphicControllerCLI applicationDetails;
+    private OpenAnnouncementsDiscoveryGraphicControllerCLI announcementDiscovery;
 
 
     @Override
@@ -67,7 +70,7 @@ public class NavigatorCLI extends Navigator {
 
     @Override
     public void viewAnnouncementDetails() {
-        if (this.announcementDetails == null) { announcementDetails = new AnnouncementDetailsGraphicControllerCLI(this); }
+        if (this.announcementDetails == null) { announcementDetails = new JobAnnouncementDetailsGraphicControllerCLI(this); }
         this.announcementDetails.start();
     }
 
@@ -93,5 +96,17 @@ public class NavigatorCLI extends Navigator {
     public void viewMusicianRegistration() {
         if (this.musicianRegistration == null) { musicianRegistration = new MusicianRegistrationGraphicControllerCLI(this); }
         this.musicianRegistration.start();
+    }
+
+    @Override
+    public void viewApplicationDetails() {
+        if (this.applicationDetails == null) { applicationDetails = new JobApplicationDetailGraphicControllerCLI(this); }
+        this.applicationDetails.start();
+    }
+
+    @Override
+    public void viewOpenAnnouncementsDiscovery() {
+        if (this.announcementDiscovery == null) { announcementDiscovery = new OpenAnnouncementsDiscoveryGraphicControllerCLI(this); }
+        this.announcementDiscovery.start();
     }
 }

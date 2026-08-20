@@ -31,7 +31,7 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
         boolean running = true;
 
         while (running) {
-            System.out.println("\n--- Login Operations ---");
+            System.out.println("--- Login Operations ---");
             System.out.println("[1] Musician Login");
             System.out.println("[2] Promoter Login");
             System.out.println("[3] Musician Registration");

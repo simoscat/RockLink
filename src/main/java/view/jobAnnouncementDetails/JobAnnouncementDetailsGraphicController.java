@@ -1,19 +1,20 @@
-package view.announcementDetails;
+package view.jobAnnouncementDetails;
 
 import bean.JobApplicationBean;
 import controller.ManageJobApplicationsController;
 import exception.ControllerLogicException;
-import model.JobApplication;
 import view.Navigator;
 
+import java.math.BigDecimal;
+
 //TODO
-public abstract class AnnouncementDetailsGraphicController {
+public abstract class JobAnnouncementDetailsGraphicController {
 
     protected Navigator navigator;
 
     protected ManageJobApplicationsController jobAppController = new ManageJobApplicationsController();
 
-    public AnnouncementDetailsGraphicController(Navigator navigator) {
+    public JobAnnouncementDetailsGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 
@@ -41,7 +42,7 @@ public abstract class AnnouncementDetailsGraphicController {
 
     }
 
-    protected void applyMusicianForJob(){
+    protected void applyMusicianForJob(BigDecimal raiseOffer){
 
         try{
 
@@ -49,10 +50,13 @@ public abstract class AnnouncementDetailsGraphicController {
 
                 jobAppController.applyForJobAnnouncement(
                         navigator.getCurrentJobAnnouncement(),
-                        navigator.getMusician()
+                        navigator.getMusician(),
+                        raiseOffer
                 );
 
             }
+
+            backToDashboard();
 
         }
         catch (ControllerLogicException e){
@@ -63,9 +67,6 @@ public abstract class AnnouncementDetailsGraphicController {
             showError("Internal error: "+e.getMessage());
             start();
         }
-
-        backToDashboard();
-
     }
 
     protected void backToDashboard(){

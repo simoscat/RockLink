@@ -25,25 +25,23 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
 
         List<JobAnnouncement> jobAnnouncements = jobAnnouncementDAO.getAllJobAnnouncements();
 
-        JobAnnouncement job =  jobAnnouncements.getFirst();
-
-        Instrument i1 = new Instrument("Electric guitar", Mastery.MASTER);
-
-        List<Instrument> iList = new ArrayList<>();
-
-        iList.add(i1);
+        JobAnnouncement job = jobAnnouncements.getFirst();
 
 
-        Musician m = new Musician("Anna", "Muscatello",
-                "Muschio", "anna.muscatello@gmail.com", Gender.FEMALE,
-                iList);
+        Musician m = DAOFactory.getInstance().getMusicianDAO().retrieveMusicianByEmail("anna.muscatello@gmail.com");
 
         JobApplication jobApp = new JobApplication(
                 job,
-                m);
+                m,
+                ApplicationStatus.PENDING,
+                new BigDecimal(50)
+        );
 
         jobApplications = new ArrayList<>();
         jobApplications.add(jobApp);
+
+        //TODO NON SO PERCHÉ MA NON SEMBRA SALVARE LA CANDIDATURA, SISTEMA
+        //cioè, non si trova la candidatura a partire dal job
 
     }
 

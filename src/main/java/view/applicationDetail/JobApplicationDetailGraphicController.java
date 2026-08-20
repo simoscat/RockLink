@@ -1,43 +1,19 @@
-package view.announcementApplications;
+package view.applicationDetail;
 
-import bean.JobApplicationBean;
 import controller.ManageJobApplicationsController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
-import java.util.List;
-
-public abstract class AnnouncementApplicationsGraphicController {
-
-    protected ManageJobApplicationsController manageJobApplicationsController = new  ManageJobApplicationsController();
+public abstract class JobApplicationDetailGraphicController {
 
     protected Navigator navigator;
+    protected final ManageJobApplicationsController manageJobApplicationsController =  new ManageJobApplicationsController();
 
-    public AnnouncementApplicationsGraphicController(Navigator navigator) {
+    public JobApplicationDetailGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 
-    protected List<JobApplicationBean> getJobApplications(){
-
-        navigator.setJobApplications(manageJobApplicationsController.findJobAnnouncementApplications(
-                navigator.getCurrentJobAnnouncement()
-        ));
-
-        return navigator.getJobApplications();
-
-    }
-
-    protected void jumpToJobApplication(){
-
-        navigator.goToApplicationDetails();
-
-    }
-
-    protected void backToJobPosting(){
-        navigator.goToAnnouncementDetails();
-    }
-
-    protected void acceptJobApplication(){
+    protected void acceptApplication(){
 
         try {
             manageJobApplicationsController.acceptApplication(navigator.getCurrentJobApplication());
@@ -56,12 +32,12 @@ public abstract class AnnouncementApplicationsGraphicController {
         }
     }
 
-    protected void rejectJobApplication(){
+    protected void rejectApplication(){
 
         try{
             manageJobApplicationsController.rejectApplication(navigator.getCurrentJobApplication());
 
-            showInfo("Application was rejected.");
+            showInfo("Application rejected, going back to the job posting.");
 
             start();
         }
@@ -76,10 +52,8 @@ public abstract class AnnouncementApplicationsGraphicController {
 
     }
 
-    protected void refreshUI(){
-
-        start();
-
+    protected void backToJobPosting(){
+        navigator.goToAnnouncementDetails();
     }
 
     public abstract void start();
