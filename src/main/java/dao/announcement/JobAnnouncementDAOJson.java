@@ -57,10 +57,6 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
             }
         }
 
-        if (promoterJobs.isEmpty()) {
-            throw new DAOException("No job announcements found for promoter email: " + email);
-        }
-
         return promoterJobs;
     }
 

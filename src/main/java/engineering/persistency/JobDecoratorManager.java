@@ -4,6 +4,7 @@ import engineering.enums.JobAnnouncementTag;
 import model.JobAnnouncement;
 import model.jobAnnouncementDecorators.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class JobDecoratorManager {
@@ -34,6 +35,36 @@ public final class JobDecoratorManager {
         }
 
         return current;
+
+    }
+
+    public static List<JobAnnouncementTag> getTagsList(JobAnnouncement job){
+
+        List<JobAnnouncementTag> tags = new ArrayList<>();
+
+        while (job instanceof JobAnnouncementDecorator jad){
+
+            if (job instanceof UrgentJobAnnouncementDecorator){
+                tags.add(JobAnnouncementTag.URGENT);
+            }
+
+            else if (job instanceof ExpertsOnlyDecoratorJob){
+                tags.add(JobAnnouncementTag.EXPERTS_ONLY);
+            }
+
+            else if (job instanceof LongTimeContractDecoratorJob){
+                tags.add(JobAnnouncementTag.LONG_TIME_CONTRACT);
+            }
+
+            else if (job instanceof NegotiableSalaryDecoratorJob){
+                tags.add(JobAnnouncementTag.NEGOTIABLE_SALARY);
+            }
+
+            job = jad.unwrapAnnouncement();
+
+        }
+
+        return tags;
 
     }
 

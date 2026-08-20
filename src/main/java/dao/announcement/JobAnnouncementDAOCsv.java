@@ -80,10 +80,6 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
             throw new DAOException("Can't read promoter job announcements with email: "+email, e);
         }
 
-        if (jobAnnouncements.isEmpty()){
-            throw new DAOException("No job announcements found with promoter email: "+email);
-        }
-
         return jobAnnouncements;
 
     }

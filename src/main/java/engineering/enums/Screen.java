@@ -2,6 +2,8 @@ package engineering.enums;
 
 public enum Screen {
     LOGIN,
+    MUSICIAN_REGISTRATION,
+    PROMOTER_REGISTRATION,
     MUSICIAN_DASHBOARD,
     PROMOTER_DASHBOARD,
     VIEW_ANNOUNCEMENT_DETAILS,

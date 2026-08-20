@@ -64,8 +64,7 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
 
         }
 
-        throw new DAOException("No application found for email "+candidateEmail+" and job announcement "
-                +jobAnnouncement.getTitle());
+        return null;
 
     }
 
@@ -86,9 +85,6 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
 
         }
 
-        if (jobApplications.isEmpty()) {
-            throw new DAOException("No applications found for email: "+email);
-        }
         return jobApplications;
     }
 
@@ -103,10 +99,6 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
                 jobs.add(jobApplication);
             }
 
-        }
-
-        if (jobs.isEmpty()) {
-            throw new DAOException("No applications found for announcement: "+jobAnnouncement);
         }
 
         return jobs;

@@ -9,6 +9,7 @@ import dao.factories.DAOFactory;
 import dao.instrument.InstrumentDAO;
 import dao.musician.MusicianDAO;
 import dao.promoter.PromoterDAO;
+import engineering.PasswordChecker;
 import engineering.PasswordEncrypter;
 import engineering.Session;
 import engineering.SessionManager;
@@ -58,7 +59,7 @@ public class LoginController {
 
                 Session newSesh = SessionManager.getInstance().getNewSession(m);
 
-                return new SessionBean(newSesh.getId(), m);
+                return new SessionBean(newSesh.getId(), musician);
             }
             else{
                 throw new ControllerLogicException("Login failed");
@@ -88,7 +89,7 @@ public class LoginController {
 
                 Session newSesh = SessionManager.getInstance().getNewSession(p);
 
-                return new SessionBean(newSesh.getId(), p);
+                return new SessionBean(newSesh.getId(), promoter);
             }
             else{
                 throw new ControllerLogicException("Login failed");
@@ -110,6 +111,11 @@ public class LoginController {
 
                 throw new ControllerLogicException("Email is already in use");
 
+            }
+
+            if (!PasswordChecker.isPasswordValid(musician.getPassword())){
+                throw new ControllerLogicException("Invalid password. You can't use these characters: "+
+                        PasswordChecker.getInvalidCharacters());
             }
 
             String cryptPassword = PasswordEncrypter.encryptPassword(musician.getPassword());
@@ -137,6 +143,11 @@ public class LoginController {
 
             if (authDAO.isPromoterAlreadyRegistered(email)){
                 throw new ControllerLogicException("Email is already in use");
+            }
+
+            if (!PasswordChecker.isPasswordValid(promoter.getPassword())){
+                throw new ControllerLogicException("Invalid password. You can't use these characters: "+
+                        PasswordChecker.getInvalidCharacters());
             }
 
             String cryptPassword = PasswordEncrypter.encryptPassword(promoter.getPassword());

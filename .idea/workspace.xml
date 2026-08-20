@@ -8,23 +8,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/factories/NavigatorFactoryCLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/factories/NavigatorFactoryGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicControllerCLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/announcementDetails/AnnouncementDetailsGraphicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/announcementDetails/AnnouncementDetailsGraphicControllerCLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/createAnnouncement/CreateAnnouncementGraphicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/createAnnouncement/CreateAnnouncementGraphicControllerCLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/musicianDashboard/MusicianDashboardGraphicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/musicianDashboard/MusicianDashboardGraphicControllerCLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/notificationBoundary/MusicianBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/notificationBoundary/PromoterBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerCLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicControllerCLI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAODemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/jobAnnouncementDecorators/JobAnnouncementDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/jobAnnouncementDecorators/JobAnnouncementDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/BaseAnnouncementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/BaseAnnouncementBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/SessionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/SessionBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PublishJobPostingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageJobPostingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/enums/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Navigator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorCLI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/factories/NavigatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/factories/NavigatorFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicControllerCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/RoleSelection.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicControllerGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicControllerCLI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +59,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="116" />
+    <option name="cachedIndexableFilesCount" value="126" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -92,41 +114,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestDecorator.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestEmailChecker.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestEmailChecker.testNoAtEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestJobApplicationDAO.testJobApplicationAndJobAnnouncementDAO.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestMusicianDAO.cacheTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestMusicianDAO.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestMusicianDAO.testAddMusician.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestPasswordEncrypt.testPasswordEncrypting.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestPromoterDAO.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/luma/Scaricati/RockLink_login_fxml/RockLink_test&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.TestDecorator.executor": "Run",
+    "JUnit.TestEmailChecker.executor": "Run",
+    "JUnit.TestEmailChecker.testNoAtEmail.executor": "Run",
+    "JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement.executor": "Run",
+    "JUnit.TestJobApplicationDAO.testJobApplicationAndJobAnnouncementDAO.executor": "Run",
+    "JUnit.TestMusicianDAO.cacheTest.executor": "Run",
+    "JUnit.TestMusicianDAO.executor": "Run",
+    "JUnit.TestMusicianDAO.testAddMusician.executor": "Run",
+    "JUnit.TestPasswordEncrypt.testPasswordEncrypting.executor": "Run",
+    "JUnit.TestPromoterDAO.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/luma/Scaricati/RockLink_login_fxml/RockLink_test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
@@ -236,11 +258,23 @@
       <workItem from="1786984083570" duration="4670000" />
       <workItem from="1787040564407" duration="28796000" />
       <workItem from="1787127292560" duration="21148000" />
-      <workItem from="1787161496129" duration="3061000" />
+      <workItem from="1787161496129" duration="4391000" />
+      <workItem from="1787211967298" duration="18539000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicController.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

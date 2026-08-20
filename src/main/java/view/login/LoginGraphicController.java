@@ -1,6 +1,14 @@
 package view.login;
 
+import bean.MusicianBean;
+import bean.PromoterBean;
+import bean.SessionBean;
+import controller.LoginController;
 import engineering.enums.Role;
+import engineering.enums.Screen;
+import exception.ControllerLogicException;
+import exception.DAOException;
+import exception.WrongCredentialsException;
 import view.Navigator;
 
 import java.util.Scanner;
@@ -10,10 +18,16 @@ public abstract class LoginGraphicController {
     // Navigator used to move between screens
     protected Navigator navigator;
     protected Role role;
+    protected String email;
+    protected String password;
 
     protected LoginGraphicController(Navigator navigator){
         this.navigator = navigator;
     }
+
+    protected void setRole(Role role) { this.role = role; }
+
+    protected Role getRole() {return this.role;}
 
     protected Navigator getNavigator(){
         return this.navigator;
@@ -23,10 +37,69 @@ public abstract class LoginGraphicController {
         this.navigator = navigator;
     }
 
+    protected void doLogin(){
+
+        LoginController loginController = new LoginController();
+
+        if (getRole().equals(Role.MUSICIAN)){
+            try {
+
+                MusicianBean mb = new MusicianBean(email, password);
+
+                SessionBean session = loginController.musicianLogIn(mb);
+
+                navigator.setMusician(mb);
+                navigator.setSession(session);
+
+                showInfo("Login successful! Welcome " + session.getMusician().getName());
+
+                navigator.goToMusicianDashboard();
+
+            } catch (WrongCredentialsException | ControllerLogicException | IllegalArgumentException e) {
+                showError(e.getMessage());
+                start();
+            }
+            catch (RuntimeException e){
+                showError("Internal error: "+ e.getMessage());
+                start();
+            }
+        }
+
+        else if (getRole().equals(Role.PROMOTER)){
+            try{
+
+                PromoterBean pb = new PromoterBean(email, password);
+
+                SessionBean session = loginController.promoterLogin(pb);
+
+                navigator.setPromoter(pb);
+                navigator.setSession(session);
+
+                showInfo("Login successful! Welcome " + session.getPromoter().getName());
+
+                navigator.goToPromoterDashboard();
+
+            } catch (WrongCredentialsException | ControllerLogicException | IllegalArgumentException e) {
+                showError(e.getMessage());
+                start();
+            }
+            catch (RuntimeException e){
+                showError("Internal error: "+ e.getMessage());
+                start();
+            }
+        }
+
+    }
+
+    public void closeApp(){
+        if (navigator != null) navigator.close();
+    }
+
+    public abstract void start();
+
     // UI hook methods the concrete graphic controller must implement
     // to show errors and informational messages to the user.
     public abstract void showError(String message);
     public abstract void showInfo(String message);
-    public abstract void start(Scanner scanner);
 
 }

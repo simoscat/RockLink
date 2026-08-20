@@ -6,15 +6,15 @@ import model.Promoter;
 public class SessionBean {
 
     private int id;
-    private Musician musician;
-    private Promoter promoter;
+    private MusicianBean musician;
+    private PromoterBean promoter;
 
-    public SessionBean(int id, Musician musician) {
+    public SessionBean(int id, MusicianBean musician) {
         this.id = id;
         this.musician = musician;
     }
 
-    public SessionBean(int id, Promoter promoter){
+    public SessionBean(int id, PromoterBean promoter){
         this.id = id;
         this.promoter = promoter;
     }
@@ -27,19 +27,19 @@ public class SessionBean {
         this.id = id;
     }
 
-    public Musician getMusician() {
+    public MusicianBean getMusician() {
         return musician;
     }
 
-    public void setMusician(Musician musician) {
+    public void setMusician(MusicianBean musician) {
         this.musician = musician;
     }
 
-    public Promoter getPromoter() {
+    public PromoterBean getPromoter() {
         return promoter;
     }
 
-    public void setPromoter(Promoter promoter) {
+    public void setPromoter(PromoterBean promoter) {
         this.promoter = promoter;
     }
 

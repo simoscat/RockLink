@@ -1,14 +1,21 @@
 package view;
 
-import bean.MusicianBean;
-import bean.PromoterBean;
-import bean.SessionBean;
+import bean.*;
+
+import java.util.List;
 
 public class Context {
-    
+
+    // user and session
     private SessionBean session;
     private MusicianBean musician;
     private PromoterBean promoter;
+
+    // announcement context
+    private JobAnnouncementBean currentJobAnnouncement;
+    private List<JobAnnouncementBean> jobAnnouncements;
+    private JobApplicationBean currentJobApplication;
+    private List<JobApplicationBean> jobApplications;
 
     public Context(){}
 
@@ -43,5 +50,46 @@ public class Context {
     public void setPromoter(PromoterBean promoter) {
         this.promoter = promoter;
     }
+
+    public void setCurrentJobAnnouncement(JobAnnouncementBean currentJobAnnouncement) {
+        this.currentJobAnnouncement = currentJobAnnouncement;
+    }
+
+    public JobAnnouncementBean getCurrentJobAnnouncement() {
+        return currentJobAnnouncement;
+    }
+
+    public List<JobAnnouncementBean> getJobAnnouncements(){
+        return jobAnnouncements;
+    }
+
+    public void setJobAnnouncements(List<JobAnnouncementBean> jobAnnouncements){
+        this.jobAnnouncements = jobAnnouncements;
+    }
+
+    public void addJobAnnouncement(JobAnnouncementBean jobAnnouncement){
+        this.jobAnnouncements.add(jobAnnouncement);
+    }
+
+    public void setCurrentJobApplication(JobApplicationBean currentJobApplication) {
+        this.currentJobApplication = currentJobApplication;
+    }
+
+    public JobApplicationBean getCurrentJobApplication() {
+        return currentJobApplication;
+    }
+
+    public List<JobApplicationBean> getJobApplications(){
+        return jobApplications;
+    }
+
+    public void setJobApplications(List<JobApplicationBean> jobApplications){
+        this.jobApplications = jobApplications;
+    }
+
+    public void addJobApplication(JobApplicationBean jobApplication){
+        this.jobApplications.add(jobApplication);
+    }
+
 
 }

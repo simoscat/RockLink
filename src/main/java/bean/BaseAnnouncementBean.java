@@ -1,11 +1,27 @@
 package bean;
 
+import java.time.LocalDateTime;
+
 public abstract class BaseAnnouncementBean {
 
     private String title;
     private String content;
-    private String date;
-    private String publishDate;
+    private LocalDateTime date;
+    private LocalDateTime publishDate;
+
+    public BaseAnnouncementBean(String title, String content, LocalDateTime date, LocalDateTime publishDate) {
+        this.title = title;
+        this.content = content;
+        this.date = date;
+        this.publishDate = publishDate;
+    }
+
+    public BaseAnnouncementBean(String title, String content, LocalDateTime date) {
+        this.title = title;
+        this.content = content;
+        this.date = date;
+    }
+
 
     public String getTitle() {
         return title;
@@ -23,19 +39,19 @@ public abstract class BaseAnnouncementBean {
         this.content = content;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
-    public String getPublishDate() {
+    public LocalDateTime getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(String publishDate) {
+    public void setPublishDate(LocalDateTime publishDate) {
         this.publishDate = publishDate;
     }
 

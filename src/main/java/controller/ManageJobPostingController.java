@@ -20,7 +20,7 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PublishJobPostingController {
+public class ManageJobPostingController {
 
     private final PromoterDAO promoterDAO = DAOFactory.getInstance().getPromoterDAO();
     private final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
@@ -33,7 +33,7 @@ public class PublishJobPostingController {
             LocalDateTime eventDate;
 
 
-            eventDate = LocalDateTime.parse(jobAnnouncementBean.getDate());
+            eventDate = jobAnnouncementBean.getDate();
 
             CurrencyType currency;
 
@@ -58,6 +58,8 @@ public class PublishJobPostingController {
 
             jobAnnouncementDAO.save(jobAnnouncement);
 
+            notifyMusicians(jobAnnouncement);
+
 
         } catch (DateTimeParseException e) {
 
@@ -68,8 +70,14 @@ public class PublishJobPostingController {
             throw new ControllerLogicException("Could not publish job announcement");
 
         } catch (IllegalArgumentException | NullPointerException e) {
-            throw new ControllerLogicException("Something went wrong. Please fill all the fields correctly");
+            throw new ControllerLogicException("Something went wrong. Please fill all the fields correctly", e);
         }
+
+    }
+
+    private void notifyMusicians(JobAnnouncement jobAnnouncement) {
+
+        //TODO IMPLEMENTA NOTIFICHE ASINCRONE
 
     }
 

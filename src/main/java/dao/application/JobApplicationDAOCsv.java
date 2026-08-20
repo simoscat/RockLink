@@ -63,10 +63,6 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
             throw new DAOException("Can't read job applications", e);
         }
 
-        if (applications.isEmpty()) {
-            throw new DAOException("No applications found for email: " + email);
-        }
-
         return applications;
     }
 
@@ -114,8 +110,6 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
         String announcementId = fields[1];
         ApplicationStatus status = ApplicationStatus.valueOf(fields[3]);
         BigDecimal raiseOffer = new BigDecimal(fields[4]);
-
-        //TODO!!!!
 
         //right now, musician is the only artist, so this is just a temporary fix
         MusicianDAO musicianDAO = DAOFactory.getInstance().getMusicianDAO();
@@ -166,10 +160,6 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
             throw new DAOException("Can't read job applications", e);
         }
 
-        if (applications.isEmpty()) {
-            throw new DAOException("No applications found for job announcement: "+jobAnnouncement.getTitle());
-        }
-
         return applications;
 
 
@@ -202,8 +192,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
             throw new DAOException("Can't read job applications", e);
         }
 
-        throw new DAOException("No Job application found for email " + candidateEmail + " in job announcement "
-                + jobAnnouncement.getTitle());
+        return null;
 
     }
 

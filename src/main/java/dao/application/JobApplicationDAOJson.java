@@ -49,8 +49,7 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
             }
 
         }
-        throw new DAOException("Job application not found for email " + candidateEmail + " in announcement "
-        + jobAnnouncement.getTitle());
+        return null;
     }
 
     @Override
@@ -63,10 +62,6 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
             if (obj.getString("candidateEmail").equals(email)) {
                 result.add(parseJson(obj));
             }
-        }
-
-        if (result.isEmpty()) {
-            throw new DAOException("No applications found for email: " + email);
         }
 
         return result;
@@ -87,10 +82,6 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
             if (json.getString("announcementId").equals(announcementId)) {
                 result.add(parseJson(json));
             }
-        }
-
-        if (result.isEmpty()) {
-            throw new DAOException("No applications found for job announcement " + jobAnnouncement.getTitle());
         }
 
         return result;
