@@ -24,6 +24,10 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
 
     private static final String CSV_SEPARATOR = ",";
     private final String PATH;
+    private final int EMAIL_FIELD = 0;
+    private final int ID_FIELD = 1;
+    private final int STATUS_FIELD = 2;
+    private final int RAISE_FIELD = 3;
 
     public JobApplicationDAOCsv() {
         try(InputStream is = new FileInputStream("config.properties")){
@@ -55,7 +59,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
             while ((line = reader.readLine()) != null) {
                 if (line.isBlank()) continue;
                 String[] fields = line.split(CSV_SEPARATOR, -1);
-                if (fields[2].equals(email)) {
+                if (fields[EMAIL_FIELD].equals(email)) {
                     applications.add(parseRow(fields));
                 }
             }
@@ -78,8 +82,8 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
             while ((line = reader.readLine()) != null) {
                 if (line.isBlank()) continue;
                 String[] fields = line.split(CSV_SEPARATOR, -1);
-                if (fields[0].equals(obj.whoIsCandidate().getEmail()) &&
-                        fields[1].equals(jobAnnouncementDAO.getUniqueId(obj.whichJobAnnouncement()))) {
+                if (fields[EMAIL_FIELD].equals(obj.whoIsCandidate().getEmail()) &&
+                        fields[ID_FIELD].equals(jobAnnouncementDAO.getUniqueId(obj.whichJobAnnouncement()))) {
                     lines.add(toCsvRow(obj));
                     found = true;
                 } else {
@@ -106,10 +110,10 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
     }
 
     private JobApplication parseRow(String[] fields) {
-        String candidateEmail = fields[0];
-        String announcementId = fields[1];
-        ApplicationStatus status = ApplicationStatus.valueOf(fields[3]);
-        BigDecimal raiseOffer = new BigDecimal(fields[4]);
+        String candidateEmail = fields[EMAIL_FIELD];
+        String announcementId = fields[ID_FIELD];
+        ApplicationStatus status = ApplicationStatus.valueOf(fields[STATUS_FIELD]);
+        BigDecimal raiseOffer = new BigDecimal(fields[RAISE_FIELD]);
 
         //right now, musician is the only artist, so this is just a temporary fix
         MusicianDAO musicianDAO = DAOFactory.getInstance().getMusicianDAO();
@@ -150,7 +154,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
 
                 String[] fields = line.split(CSV_SEPARATOR, -1);
 
-                if (fields[1].equals(jobId)) {
+                if (fields[ID_FIELD].equals(jobId)) {
                     applications.add(parseRow(fields));
                 }
 
@@ -182,7 +186,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
 
                 String[] fields = line.split(CSV_SEPARATOR, -1);
 
-                if (fields[0].equals(candidateEmail) && fields[1].equals(jobId)) {
+                if (fields[EMAIL_FIELD].equals(candidateEmail) && fields[ID_FIELD].equals(jobId)) {
                     return parseRow(fields);
                 }
 

@@ -40,9 +40,6 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
         jobApplications = new ArrayList<>();
         jobApplications.add(jobApp);
 
-        //TODO NON SO PERCHÉ MA NON SEMBRA SALVARE LA CANDIDATURA, SISTEMA
-        //cioè, non si trova la candidatura a partire dal job
-
     }
 
     @Override
@@ -69,21 +66,18 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
     @Override
     public List<JobApplication> retrieveAllJobApplicationsFromEmail(String email) {
 
-        List<JobApplication> jobApplications = new ArrayList<>();
+        List<JobApplication> toRet = new ArrayList<>();
 
         for (JobApplication jobApplication : this.jobApplications) {
 
             if (jobApplication.whoIsCandidate().getEmail().equals(email)) {
-                jobApplications.add(jobApplication);
-
-                if (!isCached(getUniqueId(jobApplication))) {
-                    this.addToCache(jobApplication);
-                }
+                toRet.add(jobApplication);
             }
 
         }
 
-        return jobApplications;
+        return toRet;
+
     }
 
     @Override
@@ -93,7 +87,11 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
 
         for (JobApplication jobApplication : jobApplications) {
 
-            if (jobApplication.whichJobAnnouncement().equals(jobAnnouncement)) {
+            JobAnnouncement job = jobApplication.whichJobAnnouncement();
+
+            if (job.getPublisher().getEmail().equals(jobAnnouncement.getPublisher().getEmail())
+            &&
+            job.getAnnouncementPublishDate().equals(jobAnnouncement.getAnnouncementPublishDate())) {
                 jobs.add(jobApplication);
             }
 
@@ -105,6 +103,23 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
 
     @Override
     protected void saveToPersistency(JobApplication obj) {
-        jobApplications.add(obj);
+
+        boolean found = false;
+
+        for (int i = 0; i < jobApplications.size(); i++) {
+
+            if (getUniqueId(jobApplications.get(i)).equals(getUniqueId(obj))) {
+
+                found = true;
+                jobApplications.set(i, obj);
+
+            }
+
+        }
+
+        if (!found){
+            jobApplications.add(obj);
+        }
+
     }
 }

@@ -35,7 +35,7 @@ public class ManageJobApplicationsController {
         }
         catch (DAOException e) {
 
-            throw new ControllerLogicException("No open announcements found");
+            throw new ControllerLogicException("Could not retrieve open job announcements");
 
         }
 
@@ -49,7 +49,7 @@ public class ManageJobApplicationsController {
 
         }
         catch (DAOException e) {
-            throw new ControllerLogicException("No announcements found");
+            throw new ControllerLogicException("Could not retrieve job announcements");
         }
     }
 
@@ -71,7 +71,7 @@ public class ManageJobApplicationsController {
 
         }
         catch (DAOException e) {
-            throw new ControllerLogicException("No job applications found for this musician");
+            throw new ControllerLogicException("Could not retrieve job applications for this musician");
         }
     }
 
@@ -139,7 +139,12 @@ public class ManageJobApplicationsController {
             }
 
             else if (jobAnnouncement.getStatus().equals(JobAnnouncementStatus.CLOSED)){
-                throw new ControllerLogicException("This job posting is closed");
+                throw new ControllerLogicException("This job announcement is closed");
+            }
+
+            if (!jobApplication.currentApplicationStatus().equals(ApplicationStatus.PENDING)) {
+                throw new ControllerLogicException("You already marked this application as "+
+                        jobApplication.currentApplicationStatus());
             }
 
             jobApplication.acceptApplication();
@@ -154,7 +159,8 @@ public class ManageJobApplicationsController {
 
             for (JobApplication jobApplicationToReject : toReject){
 
-                if (!jobApplicationToReject.equals(jobApplication)){
+                if (!jobApplicationToReject.whoIsCandidate().getEmail().
+                        equals(jobApplication.whoIsCandidate().getEmail())){
 
                     jobApplicationToReject.rejectApplication();
                     jobApplicationDAO.save(jobApplicationToReject);
@@ -255,5 +261,13 @@ public class ManageJobApplicationsController {
     }
 
 
+    public JobAnnouncementBean getUpdatedAnnouncement(JobAnnouncementBean currentJobAnnouncement) {
 
+        JobAnnouncement job = BeanConverter.fromBeanToJobAnnouncement(currentJobAnnouncement);
+
+        job = jobAnnouncementDAO.getFromCache(jobAnnouncementDAO.getUniqueId(job));
+
+        return BeanConverter.fromJobAnnouncementToBean(job);
+
+    }
 }

@@ -111,7 +111,23 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
     @Override
     protected void saveToPersistency(JobAnnouncement obj) {
 
-        jobAnnouncements.add(obj);
+        boolean found = false;
+
+        for (int i = 0; i < jobAnnouncements.size(); i++) {
+
+            if (getUniqueId(jobAnnouncements.get(i)).equals(getUniqueId(obj))){
+
+                found = true;
+
+                jobAnnouncements.set(i, obj);
+
+            }
+
+        }
+
+        if (!found){
+            jobAnnouncements.add(obj);
+        }
 
     }
 

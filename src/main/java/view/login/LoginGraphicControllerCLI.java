@@ -51,11 +51,11 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
                     running = false;
                     break;
                 case "3":
-                    navigator.goToMusicianRegistration();
+                    musicianSignUp();
                     running = false;
                     break;
                 case "4":
-                    navigator.goToPromoterRegistration();
+                    promoterSignUp();
                     running = false;
                     break;
                 case "5":

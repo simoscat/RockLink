@@ -15,7 +15,7 @@ public final class BeanConverter {
 
         return new JobApplication(
                 fromBeanToJobAnnouncement(jobApplicationBean.getJobAnnouncementReference()),
-                jobApplicationBean.getJobAnnouncementReference().getHiredArtist(),
+                jobApplicationBean.getArtist(),
                 ApplicationStatus.valueOf(jobApplicationBean.getStatus()),
                 jobApplicationBean.getRaiseOffer()
         );
@@ -39,14 +39,6 @@ public final class BeanConverter {
 
         List<JobAnnouncementTag> taglist = JobDecoratorManager.getTagsList(ja);
 
-        List<String> stringtags = new ArrayList<>();
-
-        for (JobAnnouncementTag tag : taglist) {
-
-            stringtags.add(tag.name());
-
-        }
-
         return new JobAnnouncementBean(
                 ja.getTitle(),
                 ja.getContent(),
@@ -57,7 +49,7 @@ public final class BeanConverter {
                 ja.getEventAddress(),
                 ja.whoWasHired(),
                 ja.getStatus().name(),
-                stringtags
+                taglist
         );
 
     }

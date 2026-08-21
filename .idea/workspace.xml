@@ -8,36 +8,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/applicationDetail/JobApplicationDetailGraphicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/applicationDetail/JobApplicationDetailGraphicControllerCLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/openAnnouncementsDiscovery/OpenAnnouncementsDiscoveryGraphicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/openAnnouncementsDiscovery/OpenAnnouncementsDiscoveryGraphicControllerCLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/GUIGraphicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/ApplicationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/ApplicationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/JobApplicationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/JobApplicationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageJobPostingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageJobAnnouncementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/enums/Screen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Artist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Musician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Musician.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorCLI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicControllerCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/announcementDetails/AnnouncementDetailsGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/announcementDetails/AnnouncementDetailsGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicControllerCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/applicationDetail/JobApplicationDetailGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/applicationDetail/JobApplicationDetailGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/applicationDetail/JobApplicationDetailGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/applicationDetail/JobApplicationDetailGraphicControllerCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/createAnnouncement/CreateAnnouncementGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/createAnnouncement/CreateAnnouncementGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/createAnnouncement/CreateAnnouncementGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/createAnnouncement/CreateAnnouncementGraphicControllerCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicControllerCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicControllerCLI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/musicianDashboard/MusicianDashboardGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/musicianDashboard/MusicianDashboardGraphicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/musicianDashboard/MusicianDashboardGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/musicianDashboard/MusicianDashboardGraphicControllerCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicControllerCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/notificationBoundary/MusicianBoundary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/notificationBoundary/PromoterBoundary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/openAnnouncementsDiscovery/OpenAnnouncementsDiscoveryGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/openAnnouncementsDiscovery/OpenAnnouncementsDiscoveryGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/openAnnouncementsDiscovery/OpenAnnouncementsDiscoveryGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/openAnnouncementsDiscovery/OpenAnnouncementsDiscoveryGraphicControllerCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicControllerCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/base_login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/musician_login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/musician_signup.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/promoter_login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/promoter_signup.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imageReferences/login/base_login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imageReferences/login/musician_login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imageReferences/login/musician_signup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imageReferences/login/promoter_login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imageReferences/login/promoter_signup.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +65,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="126" />
+    <option name="cachedIndexableFilesCount" value="144" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -58,6 +73,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -107,7 +123,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "JUnit.TestDecorator.executor": "Run",
     "JUnit.TestEmailChecker.executor": "Run",
     "JUnit.TestEmailChecker.testNoAtEmail.executor": "Run",
@@ -128,7 +144,7 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/luma/Scaricati/RockLink_login_fxml/RockLink_test",
+    "last_opened_file_path": "/home/luma/Documenti/Anno 3.1/ISPW/Java/JavaFX/TestJavaFX5",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -141,7 +157,7 @@
   }
 }]]></component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="RockLink" />
       <extension name="coverage">
@@ -217,6 +233,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.TestEmailChecker.testNoAtEmail" />
+      <item itemvalue="JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement" />
+      <item itemvalue="JUnit.TestJobApplicationDAO.testJobApplicationAndJobAnnouncementDAO" />
+      <item itemvalue="JUnit.TestPromoterDAO" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -250,35 +273,47 @@
       <workItem from="1787040564407" duration="28796000" />
       <workItem from="1787127292560" duration="21148000" />
       <workItem from="1787161496129" duration="4391000" />
-      <workItem from="1787211967298" duration="34992000" />
+      <workItem from="1787211967298" duration="35161000" />
+      <workItem from="1787299786876" duration="22198000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicController.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/LoginController.java</url>
           <line>144</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicControllerCLI.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java</url>
-          <line>225</line>
-          <option name="timeStamp" value="23" />
+          <url>file://$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicControllerCLI.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/login/LoginGraphicControllerGUI.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

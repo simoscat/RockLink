@@ -21,8 +21,8 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
         System.out.println("║        Dashboard Musician        ║\n");
         System.out.println("╚══════════════════════════════════╝\n");
 
-        System.out.printf("Musician %s %s", navigator.getSession().getMusician().getName(),
-                navigator.getSession().getMusician().getSurname());
+        System.out.printf("Musician %s %s [%s] %n", navigator.getSession().getMusician().getName(),
+                navigator.getSession().getMusician().getSurname(), navigator.getSession().getMusician().getStageName());
         System.out.println("Email: "+navigator.getSession().getMusician().getEmail());
     }
 
@@ -43,7 +43,7 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
 
             System.out.println("Available operations:");
 
-            System.out.println("[1] View job posting details");
+            System.out.println("[1] View job announcement details");
             System.out.println("[2] View open job announcements");
             System.out.println("[3] Refresh dashboard");
             System.out.println("[4] Logout");
@@ -84,7 +84,7 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
         while (!done){
 
             try{
-                System.out.print("Select an application number to view the posting of: ");
+                System.out.print("Select an application number to view the announcement of: ");
 
                 int num = Integer.parseInt(scanner.nextLine().trim());
 
@@ -109,7 +109,7 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
 
         }
 
-        goToJobPosting();
+        goToJobAnnouncement();
 
     }
 

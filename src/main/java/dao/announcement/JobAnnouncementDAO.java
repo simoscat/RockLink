@@ -86,10 +86,6 @@ public abstract class JobAnnouncementDAO extends DAOWithCache<JobAnnouncement> {
 
         }
 
-        if (openJobAnnouncements.isEmpty()) {
-            throw new DAOException("No open job announcements found");
-        }
-
         return openJobAnnouncements;
     }
 

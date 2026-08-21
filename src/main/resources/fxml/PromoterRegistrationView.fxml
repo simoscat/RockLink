@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" prefHeight="800.0" prefWidth="1280.0"
+            styleClass="root-pane" stylesheets="@../css/musician-signup-style.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+
+    <fx:define>
+        <ToggleGroup fx:id="genderToggleGroup" />
+    </fx:define>
+
+    <!-- ===================== TOP BAR / LOGO + BACK TO LOGIN ===================== -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="24.0" left="34.0" right="34.0" top="24.0" />
+            </padding>
+            <StackPane styleClass="logo-icon">
+                <Label styleClass="logo-icon-text" text="⚡" />
+            </StackPane>
+            <Label styleClass="logo-text" text="ROCK LINK" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="backToLoginButton" mnemonicParsing="false" onAction="#handleBackToLogin"
+                    styleClass="back-button" text="‹ Back to login" />
+        </HBox>
+    </top>
+
+    <!-- ===================== CENTER CONTENT ===================== -->
+    <center>
+        <!-- Il form intero scrolla verticalmente se non entra nell'altezza della finestra,
+             cosi' nessuna sezione (es. la lista contatti o il bottone finale) resta
+             nascosta fuori dallo schermo. -->
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll"
+                    vbarPolicy="AS_NEEDED" BorderPane.alignment="TOP_CENTER">
+        <VBox alignment="TOP_CENTER" spacing="0.0">
+        <VBox alignment="TOP_LEFT" maxWidth="520.0" prefWidth="520.0" spacing="0.0">
+            <padding>
+                <Insets bottom="40.0" top="34.0" />
+            </padding>
+
+            <Label styleClass="role-badge, role-badge-promoter" text="PROMOTER" />
+
+            <Label styleClass="page-title" text="SIGN UP">
+                <VBox.margin>
+                    <Insets top="14.0" />
+                </VBox.margin>
+            </Label>
+
+            <Label styleClass="welcome-subtitle" text="Create your promoter account">
+                <VBox.margin>
+                    <Insets bottom="26.0" top="6.0" />
+                </VBox.margin>
+            </Label>
+
+            <!-- ===================== FORM PANEL ===================== -->
+            <VBox styleClass="panel">
+                <VBox styleClass="panel-top-border, border-promoter" />
+                <VBox spacing="20.0" styleClass="panel-body">
+                    <padding>
+                        <Insets bottom="28.0" left="28.0" right="28.0" top="24.0" />
+                    </padding>
+
+                    <!-- First / Last name -->
+                    <HBox spacing="16.0">
+                        <VBox spacing="7.0" HBox.hgrow="ALWAYS">
+                            <Label styleClass="field-label" text="FIRST NAME" />
+                            <TextField fx:id="firstNameField" maxWidth="1.7976931348623157E308" promptText="e.g. Luca" styleClass="text-field" />
+                        </VBox>
+                        <VBox spacing="7.0" HBox.hgrow="ALWAYS">
+                            <Label styleClass="field-label" text="LAST NAME" />
+                            <TextField fx:id="lastNameField" maxWidth="1.7976931348623157E308" promptText="e.g. Ferrari" styleClass="text-field" />
+                        </VBox>
+                    </HBox>
+
+                    <!-- Gender -->
+                    <VBox spacing="10.0">
+                        <Label styleClass="field-label" text="GENDER" />
+                        <HBox spacing="12.0">
+                            <ToggleButton fx:id="genderMaleToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="gender-toggle" text="Male" toggleGroup="$genderToggleGroup" HBox.hgrow="ALWAYS" />
+                            <ToggleButton fx:id="genderFemaleToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="gender-toggle" text="Female" toggleGroup="$genderToggleGroup" HBox.hgrow="ALWAYS" />
+                            <ToggleButton fx:id="genderNotSpecifiedToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="gender-toggle" text="Not specified" toggleGroup="$genderToggleGroup" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Email -->
+                    <VBox spacing="7.0">
+                        <Label styleClass="field-label" text="EMAIL" />
+                        <TextField fx:id="emailField" maxWidth="1.7976931348623157E308" promptText="e.g. booking@venue.com" styleClass="text-field" />
+                    </VBox>
+
+                    <!-- Password -->
+                    <VBox spacing="7.0">
+                        <Label styleClass="field-label" text="PASSWORD" />
+                        <PasswordField fx:id="passwordField" maxWidth="1.7976931348623157E308" promptText="••••••••" styleClass="text-field" />
+                    </VBox>
+
+                    <!-- Contacts -->
+                    <VBox spacing="10.0">
+                        <Label styleClass="field-label" text="CONTACTS" />
+
+                        <VBox spacing="0.0" styleClass="contacts-box">
+                            <padding>
+                                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                            </padding>
+
+                            <!-- Scrollable list of contact entries: se l'utente ne aggiunge tanti,
+                                 questa area scrolla internamente invece di far crescere la pagina. -->
+                            <ScrollPane fx:id="contactsScrollPane" fitToWidth="true" hbarPolicy="NEVER"
+                                        maxHeight="220.0" minHeight="110.0" prefHeight="110.0"
+                                        styleClass="contacts-scroll" vbarPolicy="AS_NEEDED">
+                                <VBox fx:id="contactsContainer" spacing="10.0">
+
+                                    <!-- Prima riga contatto: presente di default nell'FXML,
+                                         funge anche da template per quelle aggiunte a runtime. -->
+                                    <HBox spacing="8.0">
+                                        <TextField fx:id="contactTypeField" prefWidth="130.0" promptText="Type (e.g. Phone)" styleClass="text-field" />
+                                        <TextField fx:id="contactValueField" maxWidth="1.7976931348623157E308" promptText="Value (e.g. +1 555 123456)" styleClass="text-field" HBox.hgrow="ALWAYS" />
+                                    </HBox>
+
+                                </VBox>
+                            </ScrollPane>
+                        </VBox>
+
+                        <Button fx:id="addContactButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAddContact" styleClass="add-instrument-btn" text="+ Add contact">
+                            <VBox.margin>
+                                <Insets top="12.0" />
+                            </VBox.margin>
+                        </Button>
+                    </VBox>
+
+                    <!-- Create account -->
+                    <Button fx:id="createAccountButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleCreateAccount" styleClass="sign-in-btn, sign-in-btn-promoter" text="CREATE ACCOUNT">
+                        <VBox.margin>
+                            <Insets top="6.0" />
+                        </VBox.margin>
+                    </Button>
+
+                </VBox>
+            </VBox>
+
+        </VBox>
+        </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- ===================== FOOTER ===================== -->
+    <bottom>
+        <VBox alignment="CENTER" styleClass="footer-box" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="22.0" top="18.0" />
+            </padding>
+            <Label styleClass="footer-text" text="Connecting Musicians · Join Bands · Find Jobs" />
+        </VBox>
+    </bottom>
+
+</BorderPane>

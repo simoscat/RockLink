@@ -1,7 +1,7 @@
 package view.createAnnouncement;
 
 import bean.JobAnnouncementBean;
-import controller.ManageJobPostingController;
+import controller.ManageJobAnnouncementController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
@@ -21,9 +21,9 @@ public abstract class CreateAnnouncementGraphicController {
 
         try{
 
-            ManageJobPostingController jobPostingController = new ManageJobPostingController();
+            ManageJobAnnouncementController jobAnnouncementController = new ManageJobAnnouncementController();
 
-            jobPostingController.publishJobAnnouncement(jobAnnouncementBean);
+            jobAnnouncementController.publishJobAnnouncement(jobAnnouncementBean);
 
             showInfo("Announcement was successfully published! Going back to dashboard");
 

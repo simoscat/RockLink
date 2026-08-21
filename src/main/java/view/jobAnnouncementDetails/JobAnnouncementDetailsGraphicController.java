@@ -31,14 +31,13 @@ public abstract class JobAnnouncementDetailsGraphicController {
 
     }
 
-    protected String getMusicianApplicationStatus(){
+    protected JobApplicationBean getMusicianApplication(){
 
-        JobApplicationBean app = jobAppController.findMusicianJobApplication(
+        return jobAppController.findMusicianJobApplication(
                 navigator.getMusician(),
                 navigator.getCurrentJobAnnouncement()
         );
 
-        return app.getStatus();
 
     }
 
@@ -56,7 +55,9 @@ public abstract class JobAnnouncementDetailsGraphicController {
 
             }
 
-            backToDashboard();
+            showInfo("Application sent! Going back to previous screen");
+
+            backToPreviousScreen();
 
         }
         catch (ControllerLogicException e){
@@ -69,32 +70,28 @@ public abstract class JobAnnouncementDetailsGraphicController {
         }
     }
 
-    protected void backToDashboard(){
+    protected void backToPreviousScreen(){
 
-        if (isMusician()){
-            navigator.goToMusicianDashboard();
-        }
-        else{
-            navigator.goToPromoterDashboard();
-        }
+        navigator.goBack();
 
     }
 
-    protected void closeJobPosting(){
+    protected void closeJobAnnouncement(){
 
         try{
 
             jobAppController.closeJobAnnouncement(navigator.getCurrentJobAnnouncement());
+            freshStart();
 
         }
         catch (ControllerLogicException e){
             showError(e.getMessage());
+            start();
         }
         catch(RuntimeException e){
             showError("Internal error: "+e.getMessage());
+            start();
         }
-
-        start();
 
     }
 
@@ -113,6 +110,24 @@ public abstract class JobAnnouncementDetailsGraphicController {
     protected boolean isPromoter(){
 
         return navigator.getPromoter() != null;
+
+    }
+
+    private void freshStart(){
+
+        try {
+            navigator.setCurrentJobAnnouncement(
+                    jobAppController.getUpdatedAnnouncement(navigator.getCurrentJobAnnouncement())
+            );
+        } catch (ControllerLogicException e) {
+            showError(e.getMessage());
+        }
+        catch (RuntimeException e){
+            showError("Internal error: "+e.getMessage());
+        }
+
+        start();
+
 
     }
 

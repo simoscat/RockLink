@@ -33,7 +33,7 @@ public abstract class AnnouncementApplicationsGraphicController {
 
     }
 
-    protected void backToJobPosting(){
+    protected void backToJobAnnouncement(){
         navigator.goToAnnouncementDetails();
     }
 
@@ -48,11 +48,11 @@ public abstract class AnnouncementApplicationsGraphicController {
         }
         catch(ControllerLogicException e){
             showError(e.getMessage());
-            start();
+            this.start();
         }
         catch(RuntimeException e){
             showError("Internal error: "+ e.getMessage());
-            start();
+            this.start();
         }
     }
 
@@ -67,18 +67,18 @@ public abstract class AnnouncementApplicationsGraphicController {
         }
         catch(ControllerLogicException e){
             showError(e.getMessage());
-            start();
+            this.start();
         }
         catch(RuntimeException e){
             showError("Internal error: "+ e.getMessage());
-            start();
+            this.start();
         }
 
     }
 
     protected void refreshUI(){
 
-        start();
+        this.start();
 
     }
 

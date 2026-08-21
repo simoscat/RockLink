@@ -1,0 +1,192 @@
+/* ==========================================================
+   ROCK LINK - Musician sign up screen stylesheet
+   Riusa root-pane, top-bar, logo-*, panel, panel-top-border,
+   border-musician, panel-body, field-label, text-field,
+   sign-in-btn(-musician), welcome-subtitle, footer-* da login-style.css.
+   Qui sotto solo le classi NUOVE necessarie a questa schermata.
+   ========================================================== */
+
+@import url("login-style.css");
+
+/* ---------- Back to login (top bar) ---------- */
+.back-button {
+    -fx-background-color: #161616;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #cfcfcf;
+    -fx-font-size: 13px;
+    -fx-padding: 8 14;
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: #444444;
+}
+
+/* ---------- Role badge (MUSICIAN / PROMOTER pill) ---------- */
+.role-badge {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 12;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.role-badge-musician {
+    -fx-background-color: rgba(255, 77, 31, 0.12);
+    -fx-border-color: rgba(255, 77, 31, 0.5);
+    -fx-text-fill: #ff4d1f;
+}
+
+.role-badge-promoter {
+    -fx-background-color: rgba(255, 212, 0, 0.12);
+    -fx-border-color: rgba(255, 212, 0, 0.5);
+    -fx-text-fill: #ffd400;
+}
+
+/* ---------- Page title (es. "SIGN UP") ---------- */
+.page-title {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 44px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black", "Impact", sans-serif;
+}
+
+/* ---------- Gender toggle (Male / Female / Not specified) ---------- */
+.gender-toggle {
+    -fx-background-color: #0a0a0a;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0;
+    -fx-cursor: hand;
+}
+
+.gender-toggle:hover {
+    -fx-border-color: #555555;
+}
+
+.gender-toggle:selected {
+    -fx-background-color: rgba(255, 77, 31, 0.12);
+    -fx-border-color: #ff4d1f;
+    -fx-text-fill: #f5f2ec;
+}
+
+/* ---------- Instruments / contacts container ---------- */
+.instruments-box,
+.contacts-box {
+    -fx-background-color: #0a0a0a;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+/* ScrollPane trasparente e in tema scuro, scrollbar sottile.
+   Riusata per la lista strumenti (.instruments-scroll), la lista
+   contatti (.contacts-scroll) e per lo scroll dell'intera pagina
+   (.page-scroll), quando il form non entra nell'altezza della finestra. */
+.instruments-scroll,
+.instruments-scroll .viewport,
+.contacts-scroll,
+.contacts-scroll .viewport,
+.page-scroll,
+.page-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.instruments-scroll,
+.contacts-scroll,
+.page-scroll {
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+.instruments-scroll .scroll-bar:vertical,
+.contacts-scroll .scroll-bar:vertical,
+.page-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8;
+}
+
+.instruments-scroll .scroll-bar:vertical .track,
+.contacts-scroll .scroll-bar:vertical .track,
+.page-scroll .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.instruments-scroll .scroll-bar:vertical .thumb,
+.contacts-scroll .scroll-bar:vertical .thumb,
+.page-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #444444;
+    -fx-background-radius: 4;
+}
+
+.instruments-scroll .scroll-bar:vertical .thumb:hover,
+.contacts-scroll .scroll-bar:vertical .thumb:hover,
+.page-scroll .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #5a5a5a;
+}
+
+.instruments-scroll .scroll-bar .increment-button,
+.instruments-scroll .scroll-bar .decrement-button,
+.contacts-scroll .scroll-bar .increment-button,
+.contacts-scroll .scroll-bar .decrement-button,
+.page-scroll .scroll-bar .increment-button,
+.page-scroll .scroll-bar .decrement-button {
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+    -fx-opacity: 0;
+}
+
+/* ---------- Skill level toggle (AMT / BEG / INT / EXP / MAS) ---------- */
+.skill-toggle {
+    -fx-background-color: #131313;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 0;
+    -fx-cursor: hand;
+}
+
+.skill-toggle:hover {
+    -fx-border-color: #555555;
+}
+
+.skill-toggle:selected {
+    -fx-background-color: #ff4d1f;
+    -fx-border-color: #ff4d1f;
+    -fx-text-fill: #1a0800;
+}
+
+/* ---------- Add instrument (dashed button) ---------- */
+.add-instrument-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #444444;
+    -fx-border-width: 1;
+    -fx-border-style: dashed;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0;
+    -fx-cursor: hand;
+}
+
+.add-instrument-btn:hover {
+    -fx-border-color: #666666;
+    -fx-text-fill: #cfcfcf;
+}

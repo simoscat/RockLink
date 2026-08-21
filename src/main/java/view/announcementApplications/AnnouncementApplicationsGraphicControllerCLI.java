@@ -13,6 +13,8 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
     private static final int EMAIL_WIDTH = 28;
     private static final int ARTIST_WIDTH = 22;
     private static final int OFFER_WIDTH = 15;
+    private static final int NUM_WIDTH = 3;
+    private static final int STATUS_WIDTH = 7;
 
     private static final int DETAILS = 1;
     private static final int ACCEPT = 2;
@@ -53,7 +55,7 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
             System.out.println("[2] Accept an application");
             System.out.println("[3] Reject an application");
             System.out.println("[4] Refresh applications");
-            System.out.println("[5] Back to job posting");
+            System.out.println("[5] Back to job announcement");
             System.out.print("> ");
 
             switch (scanner.nextLine().trim()) {
@@ -79,7 +81,7 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
                     break;
 
                 case "5":
-                    backToJobPosting();
+                    backToJobAnnouncement();
                     done = true;
                     break;
 
@@ -94,10 +96,10 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
     private void selectAnApplication(int in){
 
         try{
-            System.out.println("Enter application number: ");
+            System.out.print("Enter application number: ");
             int num = Integer.parseInt(scanner.nextLine().trim());
 
-            if (num < 0 || num > navigator.getJobApplications().size()){
+            if (num <= 0 || num > navigator.getJobApplications().size()){
                 showError("Number is out of range. Try again");
                 start();
             }
@@ -135,13 +137,16 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
 
     private void printApplicationsTable(List<JobApplicationBean> jobApplications) {
 
-        String rowFormat = "%-" + EMAIL_WIDTH + "s | %-" + ARTIST_WIDTH + "s | %-" + OFFER_WIDTH + "s%n";
+        String rowFormat = "%-"+NUM_WIDTH+"s | %-" + EMAIL_WIDTH + "s | %-" + ARTIST_WIDTH + "s | %-" +
+                OFFER_WIDTH + "s | %-" + STATUS_WIDTH + "s%n";
 
-        System.out.printf(rowFormat, "Email", "Artist", "Counteroffer");
-        System.out.println("-".repeat(EMAIL_WIDTH) + "-+-" + "-".repeat(ARTIST_WIDTH) + "-+-" + "-".repeat(OFFER_WIDTH));
+        System.out.printf(rowFormat, "#", "Email", "Artist", "Counteroffer", "Status");
+        System.out.println("-".repeat(NUM_WIDTH) + "-+-" + "-".repeat(EMAIL_WIDTH) + "-+-" +
+                "-".repeat(ARTIST_WIDTH) + "-+-" + "-".repeat(OFFER_WIDTH) + "-+-" + "-".repeat(STATUS_WIDTH));
 
-        for (JobApplicationBean jobApplication : jobApplications) {
+        for (int i = 0; i < jobApplications.size(); i++) {
 
+            JobApplicationBean jobApplication = jobApplications.get(i);
             Artist artist = jobApplication.getArtist();
 
             String email = truncate(artist.getEmail(), EMAIL_WIDTH);
@@ -150,8 +155,12 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
                     ? "+" + jobApplication.getRaiseOffer()
                     : "-";
 
-            System.out.printf(rowFormat, email, artistName, truncate(counterOffer, OFFER_WIDTH));
+            System.out.printf(rowFormat, i + 1, email, artistName, truncate(counterOffer, OFFER_WIDTH),
+                    jobApplication.getStatus());
         }
+
+        System.out.println("-".repeat(NUM_WIDTH + EMAIL_WIDTH + ARTIST_WIDTH + OFFER_WIDTH + STATUS_WIDTH + 12));
+        System.out.println();
 
     }
 
@@ -166,7 +175,7 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
 
     private void printHeader(){
         System.out.println("╔══════════════════════════════════════════════════════════════╗");
-        System.out.println("             Applications for current job posting               ");
+        System.out.println("             Applications for current job announcement               ");
         System.out.println("╚══════════════════════════════════════════════════════════════╝");
     }
 

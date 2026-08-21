@@ -52,7 +52,7 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
 
         MoneyValueBean moneyValue = readMoneyValue();
 
-        List<String> tags = readTags();
+        List<JobAnnouncementTag> tags = readTags();
 
         JobAnnouncementBean jobAnnouncementBean = new JobAnnouncementBean(
                 title,
@@ -64,12 +64,15 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
                 tags
         );
 
+        System.out.print("You are all set! Press enter to post...");
+        scanner.nextLine();
+
 
         publishAnnouncement(jobAnnouncementBean);
 
     }
 
-    private List<String> readTags() {
+    private List<JobAnnouncementTag> readTags() {
 
         JobAnnouncementTag[] availableTags = JobAnnouncementTag.values();
 
@@ -80,14 +83,14 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
 
             System.out.println("Available tags:");
             for (int i = 0; i < availableTags.length; i++) {
-                System.out.printf("[%d] %s%n", i + 1, availableTags[i]);
+                System.out.printf("[%d] %s%n", i + 1, availableTags[i].name().replace("_", " "));
             }
 
             System.out.print("> ");
 
             String[] choices = scanner.nextLine().trim().split("\\s+");
 
-            List<String> tags = new ArrayList<>();
+            List<JobAnnouncementTag> tags = new ArrayList<>();
 
             if (choices.length == 0 || (choices.length == 1 && choices[0].isEmpty())) {
                 return tags;
@@ -106,12 +109,9 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
                         break;
                     }
 
-                    String tagName = availableTags[index].name();
-                    if (!tags.contains(tagName)) {
-                        tags.add(tagName);
-                    }
+                    tags.add(availableTags[index]);
 
-                } catch (NumberFormatException e) {
+                } catch (NumberFormatException ignored) {
                     showError("Invalid tag: " + choice);
                     valid = false;
                     break;

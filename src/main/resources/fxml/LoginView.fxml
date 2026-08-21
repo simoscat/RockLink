@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" prefHeight="952.0" prefWidth="1576.0"
+            styleClass="root-pane" stylesheets="@../css/login-style.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- ===================== TOP BAR / LOGO ===================== -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="24.0" left="34.0" right="34.0" top="24.0" />
+            </padding>
+            <StackPane styleClass="logo-icon">
+                <Label styleClass="logo-icon-text" text="⚡" />
+            </StackPane>
+            <Label styleClass="logo-text" text="ROCK LINK" />
+        </HBox>
+    </top>
+
+    <!-- ===================== CENTER CONTENT ===================== -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="0.0" styleClass="center-box" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="30.0" top="70.0" />
+            </padding>
+
+            <Label styleClass="welcome-title" text="WELCOME BACK" />
+            <Label styleClass="welcome-subtitle" text="Sign in to your account">
+                <VBox.margin>
+                    <Insets bottom="46.0" top="10.0" />
+                </VBox.margin>
+            </Label>
+
+            <HBox alignment="CENTER" spacing="32.0">
+
+                <!-- ===================== MUSICIAN PANEL ===================== -->
+                <VBox prefWidth="352.0" spacing="0.0" styleClass="panel">
+                    <VBox styleClass="panel-top-border, border-musician" />
+                    <VBox spacing="20.0" styleClass="panel-body">
+                        <padding>
+                            <Insets bottom="28.0" left="28.0" right="28.0" top="26.0" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                            <StackPane styleClass="icon-box, icon-box-musician">
+                                <Label styleClass="icon-box-text, icon-text-musician" text="🎸" />
+                            </StackPane>
+                            <VBox spacing="3.0">
+                                <Label styleClass="panel-title" text="MUSICIAN" />
+                                <Label styleClass="panel-subtitle, subtitle-musician" text="Find bands, apply to jobs" />
+                            </VBox>
+                        </HBox>
+
+                        <VBox spacing="7.0">
+                            <Label styleClass="field-label" text="EMAIL" />
+                            <TextField fx:id="musicianEmailField" promptText="e.g. marco.rossi@email.com" styleClass="text-field" />
+                        </VBox>
+
+                        <VBox spacing="7.0">
+                            <Label styleClass="field-label" text="PASSWORD" />
+                            <PasswordField fx:id="musicianPasswordField" promptText="••••••••" styleClass="text-field" />
+                        </VBox>
+
+                        <HBox alignment="CENTER_RIGHT">
+                            <Label styleClass="forgot-link" text="Forgot password?" />
+                        </HBox>
+
+                        <Button fx:id="musicianSignInButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleMusicianSignIn" styleClass="sign-in-btn, sign-in-btn-musician" text="SIGN IN">
+                            <VBox.margin>
+                                <Insets top="6.0" />
+                            </VBox.margin>
+                        </Button>
+                    </VBox>
+                </VBox>
+
+                <!-- ===================== PROMOTER PANEL ===================== -->
+                <VBox prefWidth="352.0" spacing="0.0" styleClass="panel">
+                    <VBox styleClass="panel-top-border, border-promoter" />
+                    <VBox spacing="20.0" styleClass="panel-body">
+                        <padding>
+                            <Insets bottom="28.0" left="28.0" right="28.0" top="26.0" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                            <StackPane styleClass="icon-box, icon-box-promoter">
+                                <Label styleClass="icon-box-text, icon-text-promoter" text="💼" />
+                            </StackPane>
+                            <VBox spacing="3.0">
+                                <Label styleClass="panel-title" text="PROMOTER" />
+                                <Label styleClass="panel-subtitle, subtitle-promoter" text="Discover talent, post jobs" />
+                            </VBox>
+                        </HBox>
+
+                        <VBox spacing="7.0">
+                            <Label styleClass="field-label" text="EMAIL" />
+                            <TextField fx:id="promoterEmailField" promptText="e.g. booking@venue.com" styleClass="text-field" />
+                        </VBox>
+
+                        <VBox spacing="7.0">
+                            <Label styleClass="field-label" text="PASSWORD" />
+                            <PasswordField fx:id="promoterPasswordField" promptText="••••••••" styleClass="text-field" />
+                        </VBox>
+
+                        <HBox alignment="CENTER_RIGHT">
+                            <Label styleClass="forgot-link" text="Forgot password?" />
+                        </HBox>
+
+                        <Button fx:id="promoterSignInButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlePromoterSignIn" styleClass="sign-in-btn, sign-in-btn-promoter" text="SIGN IN">
+                            <VBox.margin>
+                                <Insets top="6.0" />
+                            </VBox.margin>
+                        </Button>
+                    </VBox>
+                </VBox>
+
+            </HBox>
+
+            <Label styleClass="no-account-text" text="You don't have an account?">
+                <VBox.margin>
+                    <Insets bottom="18.0" top="44.0" />
+                </VBox.margin>
+            </Label>
+
+            <HBox alignment="CENTER" spacing="18.0">
+                <Button fx:id="signUpMusicianButton" mnemonicParsing="false" onAction="#handleSignUpMusician" styleClass="signup-btn, signup-btn-musician">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="8.0">
+                            <Label styleClass="signup-btn-icon, icon-text-musician" text="🎸" />
+                            <Label styleClass="signup-btn-text-musician" text="Sign up as Musician" />
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button fx:id="signUpPromoterButton" mnemonicParsing="false" onAction="#handleSignUpPromoter" styleClass="signup-btn, signup-btn-promoter">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="8.0">
+                            <Label styleClass="signup-btn-icon, icon-text-promoter" text="💼" />
+                            <Label styleClass="signup-btn-text-promoter" text="Sign up as Promoter" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+
+        </VBox>
+    </center>
+
+    <!-- ===================== FOOTER ===================== -->
+    <bottom>
+        <VBox alignment="CENTER" styleClass="footer-box" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="22.0" top="18.0" />
+            </padding>
+            <Label styleClass="footer-text" text="Connecting Musicians · Join Bands · Find Jobs" />
+        </VBox>
+    </bottom>
+
+</BorderPane>

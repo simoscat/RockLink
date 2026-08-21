@@ -32,6 +32,11 @@ public abstract class MusicianRegistrationGraphicController {
 
         try{
 
+            if (this.name.isBlank() || this.surname.isBlank() || this.stageName.isBlank() ||
+            this.gender.isBlank() || this.email.isBlank() || this.password.isBlank()){
+                throw new IllegalArgumentException("Can't have blank fields");
+            }
+
             LoginController loginController = new LoginController();
 
             MusicianBean mb = new MusicianBean(this.name, this.surname,
@@ -49,11 +54,12 @@ public abstract class MusicianRegistrationGraphicController {
         }
         catch (ControllerLogicException | IllegalArgumentException e){
             showError(e.getMessage());
-            start();
+            navigator.restart();
         }
+
         catch (RuntimeException e){
             showError("Internal error: "+ e.getMessage());
-            start();
+            navigator.restart();
         }
 
     }

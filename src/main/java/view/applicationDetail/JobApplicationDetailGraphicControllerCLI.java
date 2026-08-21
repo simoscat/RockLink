@@ -46,7 +46,7 @@ public class JobApplicationDetailGraphicControllerCLI extends JobApplicationDeta
         System.out.println("Available operations:");
         System.out.println("[1] Accept application");
         System.out.println("[2] Reject application");
-        System.out.println("[3] Back to job posting");
+        System.out.println("[3] Back to job applications");
         System.out.print("> ");
 
         switch(scanner.nextLine().trim()) {
@@ -58,7 +58,7 @@ public class JobApplicationDetailGraphicControllerCLI extends JobApplicationDeta
                 rejectApplication();
                 break;
             case "3":
-                backToJobPosting();
+                backToJobApplications();
                 break;
             default:
                 showError("Invalid input. Try again");

@@ -1,6 +1,7 @@
 package view.jobAnnouncementDetails;
 
 import bean.JobAnnouncementBean;
+import bean.JobApplicationBean;
 import model.Artist;
 import view.Navigator;
 
@@ -36,7 +37,7 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
 
     private void printAnnouncementDetails(JobAnnouncementBean job) {
 
-        System.out.println("────── Job Posting Details ──────");
+        System.out.println("────── Job Announcement Details ──────");
 
         System.out.println("╔══════════════════════════════════════════════════════════════╗");
         System.out.printf("  %s%n", job.getTitle());
@@ -68,15 +69,16 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
             System.out.printf("- %s: %s%n", contact.getKey(), contact.getValue());
         }
 
-        System.out.println("────── END OF JOB POSTING ──────");
+        System.out.println("────── END OF JOB ANNOUNCEMENT ──────");
         System.out.println();
 
         if (isMusician() && hasMusicianAlreadyApplied()){
 
-            String status = getMusicianApplicationStatus();
+            JobApplicationBean application = getMusicianApplication();
 
             System.out.println("───────── APPLICATION ──────────");
-            System.out.println("Application status: "+status);
+            System.out.println("Your counter offer: +"+application.getRaiseOffer());
+            System.out.println("Application status: "+application.getStatus());
 
         }
     }
@@ -91,7 +93,7 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
 
 
             System.out.println("[1] Apply for this job");
-            System.out.println("[2] Back to dashboard");
+            System.out.println("[2] Go back");
             System.out.print("> ");
 
             switch(scanner.nextLine().trim()){
@@ -102,7 +104,7 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
                     break;
 
                 case "2":
-                    backToDashboard();
+                    backToPreviousScreen();
                     done = true;
                     break;
 
@@ -161,8 +163,9 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
 
         System.out.println("Available operations: ");
 
-        System.out.println("[1] Close Job Posting");
+        System.out.println("[1] Close Job Announcement");
         System.out.println("[2] View Job Applications");
+        System.out.println("[3] Go back");
         System.out.print("> ");
 
         boolean done = false;
@@ -172,11 +175,15 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
             switch(scanner.nextLine().trim()){
 
                 case "1":
-                    closeJobPosting();
+                    closeJobAnnouncement();
                     done = true;
                     break;
                 case "2":
                     viewJobApplications();
+                    done = true;
+                    break;
+                case "3":
+                    backToPreviousScreen();
                     done = true;
                     break;
                 default:

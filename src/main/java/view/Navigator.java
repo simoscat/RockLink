@@ -9,6 +9,7 @@ public abstract class Navigator {
     
     private Screen currentScreen;
     private Context context;
+    private Screen previousScreen;
 
     // context retrieving and setting
 
@@ -118,17 +119,54 @@ public abstract class Navigator {
 
     }
 
-    public void goToOpenAnnouncementsDiscovery(){ setCurrentScreen(Screen.OPEN_ANNOUNCEMENTS_DISCOVERY);
+    private void setPreviousScreen(){ previousScreen = currentScreen; }
+
+    public void goToOpenAnnouncementsDiscovery(){ setPreviousScreen(); setCurrentScreen(Screen.OPEN_ANNOUNCEMENTS_DISCOVERY);
         viewOpenAnnouncementsDiscovery();}
-    public void goToLogin(){ setCurrentScreen(Screen.LOGIN); viewLogin();}
-    public void goToMusicianDashboard(){ setCurrentScreen(Screen.MUSICIAN_DASHBOARD); viewMusicianDashboard();}
-    public void goToPromoterDashboard(){ setCurrentScreen(Screen.PROMOTER_DASHBOARD); viewPromoterDashboard();}
-    public void goToAnnouncementDetails(){ setCurrentScreen(Screen.VIEW_ANNOUNCEMENT_DETAILS); viewAnnouncementDetails();}
-    public void goToAnnouncementApplications(){ setCurrentScreen(Screen.VIEW_ANNOUNCEMENT_APPLICATIONS); viewAnnouncementApplications();}
-    public void goToCreateAnnouncement(){ setCurrentScreen(Screen.CREATE_ANNOUNCEMENT); viewCreateAnnouncement();}
-    public void goToPromoterRegistration(){ setCurrentScreen(Screen.PROMOTER_REGISTRATION); viewPromoterRegistration();}
-    public void goToMusicianRegistration(){ setCurrentScreen(Screen.MUSICIAN_REGISTRATION); viewMusicianRegistration();}
-    public void goToApplicationDetails(){ setCurrentScreen(Screen.VIEW_APPLICATION_DETAILS); viewApplicationDetails();}
+
+    public void goToLogin(){
+        setCurrentScreen(Screen.LOGIN);
+        viewLogin();
+    }
+    public void goToMusicianDashboard(){
+        setCurrentScreen(Screen.MUSICIAN_DASHBOARD);
+        viewMusicianDashboard();
+    }
+    public void goToPromoterDashboard(){
+        setCurrentScreen(Screen.PROMOTER_DASHBOARD);
+        viewPromoterDashboard();
+    }
+    public void goToAnnouncementDetails(){
+        setPreviousScreen(); //here we need it because we can arrive here from two different points
+        setCurrentScreen(Screen.VIEW_ANNOUNCEMENT_DETAILS);
+        viewAnnouncementDetails();
+    }
+    public void goToAnnouncementApplications(){
+        setCurrentScreen(Screen.VIEW_ANNOUNCEMENT_APPLICATIONS);
+        viewAnnouncementApplications();
+    }
+    public void goToCreateAnnouncement(){
+        setCurrentScreen(Screen.CREATE_ANNOUNCEMENT);
+        viewCreateAnnouncement();
+    }
+    public void goToPromoterRegistration(){
+        setCurrentScreen(Screen.PROMOTER_REGISTRATION);
+        viewPromoterRegistration();
+    }
+    public void goToMusicianRegistration(){
+        setCurrentScreen(Screen.MUSICIAN_REGISTRATION);
+        viewMusicianRegistration();
+    }
+    public void goToApplicationDetails(){
+        setCurrentScreen(Screen.VIEW_APPLICATION_DETAILS);
+        viewApplicationDetails();
+    }
+
+    public void goBack(){
+        setCurrentScreen(previousScreen);
+        nextScreen();
+    }
+
 
     public abstract void startUp();
     public abstract void viewLogin();

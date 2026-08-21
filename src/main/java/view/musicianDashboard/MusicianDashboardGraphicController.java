@@ -47,7 +47,7 @@ public abstract class MusicianDashboardGraphicController {
 
     }
 
-    protected void goToJobPosting(){
+    protected void goToJobAnnouncement(){
 
         navigator.goToAnnouncementDetails();
 

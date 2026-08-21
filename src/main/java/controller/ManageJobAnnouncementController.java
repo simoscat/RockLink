@@ -17,10 +17,9 @@ import model.Promoter;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class ManageJobPostingController {
+public class ManageJobAnnouncementController {
 
     private final PromoterDAO promoterDAO = DAOFactory.getInstance().getPromoterDAO();
     private final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
@@ -52,7 +51,7 @@ public class ManageJobPostingController {
                     jobAnnouncementBean.getAddress()
             );
 
-            jobAnnouncement = convertAndSetDecorators(jobAnnouncement, jobAnnouncementBean.getTags());
+            jobAnnouncement = setDecorators(jobAnnouncement, jobAnnouncementBean.getTags());
 
             jobAnnouncement.publishNow();
 
@@ -81,28 +80,9 @@ public class ManageJobPostingController {
 
     }
 
-    private JobAnnouncement convertAndSetDecorators(JobAnnouncement jobAnnouncement, List<String> tags) {
+    private JobAnnouncement setDecorators(JobAnnouncement jobAnnouncement, List<JobAnnouncementTag> tags) {
 
-        List<JobAnnouncementTag> actualTags = new ArrayList<>();
-
-        for (String tag : tags) {
-
-            if (tag.equals(JobAnnouncementTag.URGENT.name())){
-                actualTags.add(JobAnnouncementTag.URGENT);
-            }
-            else if (tag.equals(JobAnnouncementTag.EXPERTS_ONLY.name())){
-                actualTags.add(JobAnnouncementTag.EXPERTS_ONLY);
-            }
-            else if (tag.equals(JobAnnouncementTag.LONG_TIME_CONTRACT.name())){
-                actualTags.add(JobAnnouncementTag.LONG_TIME_CONTRACT);
-            }
-            else if (tag.equals(JobAnnouncementTag.NEGOTIABLE_SALARY.name())){
-                actualTags.add(JobAnnouncementTag.NEGOTIABLE_SALARY);
-            }
-
-        }
-
-        return JobDecoratorManager.applyDecorators(jobAnnouncement, actualTags);
+        return JobDecoratorManager.applyDecorators(jobAnnouncement, tags);
 
     }
 

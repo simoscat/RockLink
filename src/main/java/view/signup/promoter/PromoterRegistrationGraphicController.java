@@ -31,6 +31,12 @@ public abstract class PromoterRegistrationGraphicController {
 
         try{
 
+            if (this.name.isBlank() || this.surname.isBlank() ||
+                    this.email.isBlank() || this.password.isBlank() ||
+            this.contacts.isEmpty()){
+                throw new IllegalArgumentException("Can't have blank fields");
+            }
+
             LoginController loginController = new LoginController();
 
             PromoterBean pb = new PromoterBean(name, surname, email, gender, password, contacts);

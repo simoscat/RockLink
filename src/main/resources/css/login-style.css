@@ -1,0 +1,264 @@
+/* ==========================================================
+   ROCK LINK - Login screen stylesheet
+   Palette:
+     background : #0a0a0a
+     panel      : #131313
+     border     : #2a2a2a
+     musician   : #ff4d1f (rosso/arancio)
+     promoter   : #ffd400 (giallo)
+     testo      : #f5f2ec (quasi bianco)
+     testo grig.: #8a8a8a
+   ========================================================== */
+
+.root-pane {
+    -fx-background-color: #0a0a0a;
+}
+
+/* ---------- Top bar / Logo ---------- */
+.top-bar {
+    -fx-background-color: transparent;
+}
+
+.logo-icon {
+    -fx-background-color: #ff4d1f;
+    -fx-background-radius: 6;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+}
+
+.logo-icon-text {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.logo-text {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black", "Impact", sans-serif;
+}
+
+/* ---------- Center / Welcome ---------- */
+.center-box {
+    -fx-background-color: transparent;
+}
+
+.welcome-title {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 58px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black", "Impact", sans-serif;
+}
+
+.welcome-subtitle {
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 16px;
+}
+
+/* ---------- Panels (Musician / Promoter cards) ---------- */
+.panel {
+    -fx-background-color: #131313;
+    -fx-border-color: #262626;
+    -fx-border-width: 0 1 1 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0, 0, 8);
+}
+
+.panel-top-border {
+    -fx-min-height: 4;
+    -fx-max-height: 4;
+    -fx-pref-height: 4;
+}
+
+.border-musician {
+    -fx-background-color: #ff4d1f;
+}
+
+.border-promoter {
+    -fx-background-color: #ffd400;
+}
+
+.panel-body {
+    -fx-background-color: transparent;
+}
+
+/* ---------- Icon boxes ---------- */
+.icon-box {
+    -fx-min-width: 46;
+    -fx-min-height: 46;
+    -fx-max-width: 46;
+    -fx-max-height: 46;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.icon-box-musician {
+    -fx-background-color: rgba(255, 77, 31, 0.15);
+    -fx-border-color: rgba(255, 77, 31, 0.5);
+}
+
+.icon-box-promoter {
+    -fx-background-color: rgba(255, 212, 0, 0.15);
+    -fx-border-color: rgba(255, 212, 0, 0.5);
+}
+
+.icon-box-text {
+    -fx-font-size: 18px;
+}
+
+.icon-text-musician {
+    -fx-text-fill: #ff4d1f;
+}
+
+.icon-text-promoter {
+    -fx-text-fill: #ffd400;
+}
+
+/* ---------- Panel titles ---------- */
+.panel-title {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black", "Impact", sans-serif;
+}
+
+.panel-subtitle {
+    -fx-font-size: 12px;
+}
+
+.subtitle-musician {
+    -fx-text-fill: #ff4d1f;
+}
+
+.subtitle-promoter {
+    -fx-text-fill: #ffd400;
+}
+
+/* ---------- Form fields ---------- */
+.field-label {
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-background-color: #0a0a0a;
+    -fx-text-fill: #f5f2ec;
+    -fx-prompt-text-fill: #5c5c5c;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 10 12;
+    -fx-font-size: 13px;
+}
+
+.text-field:focused {
+    -fx-border-color: #6b6b6b;
+}
+
+.forgot-link {
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-underline: false;
+}
+
+.forgot-link:hover {
+    -fx-text-fill: #cfcfcf;
+}
+
+/* ---------- Sign in buttons ---------- */
+.sign-in-btn {
+    -fx-background-radius: 4;
+    -fx-padding: 13 0;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.sign-in-btn-musician {
+    -fx-background-color: #ff4d1f;
+    -fx-text-fill: #1a0800;
+}
+
+.sign-in-btn-musician:hover {
+    -fx-background-color: #ff6a3d;
+}
+
+.sign-in-btn-musician:pressed {
+    -fx-background-color: #e0400f;
+}
+
+.sign-in-btn-promoter {
+    -fx-background-color: #ffd400;
+    -fx-text-fill: #1a1500;
+}
+
+.sign-in-btn-promoter:hover {
+    -fx-background-color: #ffe040;
+}
+
+.sign-in-btn-promoter:pressed {
+    -fx-background-color: #e0bb00;
+}
+
+/* ---------- Sign up section ---------- */
+.no-account-text {
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 14px;
+}
+
+.signup-btn {
+    -fx-background-color: transparent;
+    -fx-border-width: 1;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-padding: 10 22;
+    -fx-cursor: hand;
+}
+
+.signup-btn-musician {
+    -fx-border-color: #ff4d1f;
+}
+
+.signup-btn-musician:hover {
+    -fx-background-color: rgba(255, 77, 31, 0.12);
+}
+
+.signup-btn-promoter {
+    -fx-border-color: #ffd400;
+}
+
+.signup-btn-promoter:hover {
+    -fx-background-color: rgba(255, 212, 0, 0.12);
+}
+
+.signup-btn-icon {
+    -fx-font-size: 13px;
+}
+
+.signup-btn-text-musician {
+    -fx-text-fill: #ff4d1f;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.signup-btn-text-promoter {
+    -fx-text-fill: #ffd400;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+/* ---------- Footer ---------- */
+.footer-box {
+    -fx-background-color: transparent;
+}
+
+.footer-text {
+    -fx-text-fill: #555555;
+    -fx-font-size: 12px;
+}

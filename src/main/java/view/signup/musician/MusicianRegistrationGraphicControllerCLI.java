@@ -36,7 +36,7 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
         System.out.print("Password: ");
         this.password = scanner.nextLine();
 
-        List<InstrumentBean> instruments = new ArrayList<>();
+        this.instruments = new ArrayList<>();
 
         System.out.print("-- Add your instruments (you must have at least one) --\n");
 
@@ -91,10 +91,10 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
 
 
             if (valid) {
-                instruments.add(new InstrumentBean(instrumentName, mastery));
+                this.instruments.add(new InstrumentBean(instrumentName, mastery));
             }
 
-            System.out.println("Do you want to add another instrument? [y/N]: ");
+            System.out.print("Do you want to add another instrument? [y/N]: ");
             String answer = scanner.nextLine().trim();
 
             if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("yes")) {
@@ -130,6 +130,7 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
             System.out.println("[1] Male");
             System.out.println("[2] Female");
             System.out.println("[3] Not specified");
+            System.out.print("> ");
 
             switch(scanner.nextLine().trim()) {
 

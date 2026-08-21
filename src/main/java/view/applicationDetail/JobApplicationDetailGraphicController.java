@@ -37,7 +37,7 @@ public abstract class JobApplicationDetailGraphicController {
         try{
             manageJobApplicationsController.rejectApplication(navigator.getCurrentJobApplication());
 
-            showInfo("Application rejected, going back to the job posting.");
+            showInfo("Application rejected, going back to the job announcement.");
 
             start();
         }
@@ -52,8 +52,8 @@ public abstract class JobApplicationDetailGraphicController {
 
     }
 
-    protected void backToJobPosting(){
-        navigator.goToAnnouncementDetails();
+    protected void backToJobApplications(){
+        navigator.goToAnnouncementApplications();
     }
 
     public abstract void start();
