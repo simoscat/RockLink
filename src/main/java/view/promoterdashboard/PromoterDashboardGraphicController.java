@@ -1,11 +1,10 @@
-package view.promoterDashboard;
+package view.promoterdashboard;
 
 import bean.JobAnnouncementBean;
 import controller.ManageJobApplicationsController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class PromoterDashboardGraphicController {

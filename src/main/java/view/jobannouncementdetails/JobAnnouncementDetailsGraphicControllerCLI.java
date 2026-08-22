@@ -1,4 +1,4 @@
-package view.jobAnnouncementDetails;
+package view.jobannouncementdetails;
 
 import bean.JobAnnouncementBean;
 import bean.JobApplicationBean;

@@ -1,4 +1,4 @@
-package view.createAnnouncement;
+package view.createannouncement;
 
 import bean.JobAnnouncementBean;
 import bean.MoneyValueBean;
@@ -7,11 +7,9 @@ import engineering.enums.JobAnnouncementTag;
 import view.Navigator;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 

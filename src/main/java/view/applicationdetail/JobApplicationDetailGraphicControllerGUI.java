@@ -1,4 +1,4 @@
-package view.applicationDetail;
+package view.applicationdetail;
 
 import bean.JobApplicationBean;
 import javafx.fxml.FXML;

@@ -1,4 +1,4 @@
-package view.announcementApplications;
+package view.announcementapplications;
 
 import bean.JobApplicationBean;
 import javafx.fxml.FXML;

@@ -1,43 +1,19 @@
-package view.announcementApplications;
+package view.applicationdetail;
 
-import bean.JobApplicationBean;
 import controller.ManageJobApplicationsController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
-import java.util.List;
-
-public abstract class AnnouncementApplicationsGraphicController {
-
-    protected ManageJobApplicationsController manageJobApplicationsController = new  ManageJobApplicationsController();
+public abstract class JobApplicationDetailGraphicController {
 
     protected Navigator navigator;
+    protected final ManageJobApplicationsController manageJobApplicationsController =  new ManageJobApplicationsController();
 
-    public AnnouncementApplicationsGraphicController(Navigator navigator) {
+    public JobApplicationDetailGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 
-    protected List<JobApplicationBean> getJobApplications(){
-
-        navigator.setJobApplications(manageJobApplicationsController.findJobAnnouncementApplications(
-                navigator.getCurrentJobAnnouncement()
-        ));
-
-        return navigator.getJobApplications();
-
-    }
-
-    protected void jumpToJobApplication(){
-
-        navigator.goToApplicationDetails();
-
-    }
-
-    protected void backToJobAnnouncement(){
-        navigator.goToAnnouncementDetails();
-    }
-
-    protected void acceptJobApplication(){
+    protected void acceptApplication(){
 
         try {
             manageJobApplicationsController.acceptApplication(navigator.getCurrentJobApplication());
@@ -48,38 +24,36 @@ public abstract class AnnouncementApplicationsGraphicController {
         }
         catch(ControllerLogicException e){
             showError(e.getMessage());
-            this.start();
+            start();
         }
         catch(RuntimeException e){
             showError("Internal error: "+ e.getMessage());
-            this.start();
+            start();
         }
     }
 
-    protected void rejectJobApplication(){
+    protected void rejectApplication(){
 
         try{
             manageJobApplicationsController.rejectApplication(navigator.getCurrentJobApplication());
 
-            showInfo("Application was rejected.");
+            showInfo("Application rejected, going back to the job announcement.");
 
             start();
         }
         catch(ControllerLogicException e){
             showError(e.getMessage());
-            this.start();
+            start();
         }
         catch(RuntimeException e){
             showError("Internal error: "+ e.getMessage());
-            this.start();
+            start();
         }
 
     }
 
-    protected void refreshUI(){
-
-        this.start();
-
+    protected void backToJobApplications(){
+        navigator.goToAnnouncementApplications();
     }
 
     public abstract void start();

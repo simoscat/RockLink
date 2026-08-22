@@ -1,7 +1,6 @@
-package view.announcementApplications;
+package view.announcementapplications;
 
 import bean.JobApplicationBean;
-import controller.ManageJobApplicationsController;
 import model.Artist;
 import view.Navigator;
 
@@ -19,6 +18,8 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
     private static final int DETAILS = 1;
     private static final int ACCEPT = 2;
     private static final int REJECT = 3;
+
+    private static final String TABLE_SEP = "s | %-";
 
     private final Scanner scanner = new Scanner(System.in);
 
@@ -137,8 +138,8 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
 
     private void printApplicationsTable(List<JobApplicationBean> jobApplications) {
 
-        String rowFormat = "%-"+NUM_WIDTH+"s | %-" + EMAIL_WIDTH + "s | %-" + ARTIST_WIDTH + "s | %-" +
-                OFFER_WIDTH + "s | %-" + STATUS_WIDTH + "s%n";
+        String rowFormat = "%-"+NUM_WIDTH+TABLE_SEP + EMAIL_WIDTH + TABLE_SEP + ARTIST_WIDTH + TABLE_SEP +
+                OFFER_WIDTH + TABLE_SEP + STATUS_WIDTH + "s%n";
 
         System.out.printf(rowFormat, "#", "Email", "Artist", "Counteroffer", "Status");
         System.out.println("-".repeat(NUM_WIDTH) + "-+-" + "-".repeat(EMAIL_WIDTH) + "-+-" +

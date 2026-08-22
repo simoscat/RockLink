@@ -8,30 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/musicians.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/musicians_creds.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/musicians_instruments.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/promoters.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/promoters_creds.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/announcementApplications/AnnouncementApplicationsGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/applicationDetail/JobApplicationDetailGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/applicationDetail/JobApplicationDetailGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/createAnnouncement/CreateAnnouncementGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/createAnnouncement/CreateAnnouncementGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicControllerCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobAnnouncementDetails/JobAnnouncementDetailsGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/musicianDashboard/MusicianDashboardGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/musicianDashboard/MusicianDashboardGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/openAnnouncementsDiscovery/OpenAnnouncementsDiscoveryGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/openAnnouncementsDiscovery/OpenAnnouncementsDiscoveryGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/promoterDashboard/PromoterDashboardGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/login-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/login-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/musician-signup-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/musician-signup-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/LoginView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MusicianRegistrationView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MusicianRegistrationView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PromoterRegistrationView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PromoterRegistrationView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/ApplicationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/ApplicationBean.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +21,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="184" />
+    <option name="cachedIndexableFilesCount" value="180" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -256,6 +233,7 @@
       <workItem from="1787299786876" duration="23051000" />
       <workItem from="1787390417230" duration="13651000" />
       <workItem from="1787405991635" duration="759000" />
+      <workItem from="1787406856192" duration="194000" />
     </task>
     <servers />
   </component>

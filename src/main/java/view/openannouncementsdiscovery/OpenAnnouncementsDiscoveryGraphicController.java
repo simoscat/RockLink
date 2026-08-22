@@ -1,4 +1,4 @@
-package view.openAnnouncementsDiscovery;
+package view.openannouncementsdiscovery;
 
 import bean.JobAnnouncementBean;
 import controller.ManageJobApplicationsController;

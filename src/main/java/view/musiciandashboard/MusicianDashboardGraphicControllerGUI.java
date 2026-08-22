@@ -1,4 +1,4 @@
-package view.musicianDashboard;
+package view.musiciandashboard;
 
 import bean.JobApplicationBean;
 import javafx.fxml.FXML;

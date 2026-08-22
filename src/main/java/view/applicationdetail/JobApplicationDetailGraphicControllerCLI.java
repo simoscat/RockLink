@@ -1,8 +1,6 @@
-package view.applicationDetail;
+package view.applicationdetail;
 
 import bean.JobApplicationBean;
-import bean.MusicianBean;
-import engineering.enums.ArtistType;
 import view.Navigator;
 
 import java.util.Map;

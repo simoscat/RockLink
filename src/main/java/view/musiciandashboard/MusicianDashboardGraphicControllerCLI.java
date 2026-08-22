@@ -1,4 +1,4 @@
-package view.musicianDashboard;
+package view.musiciandashboard;
 
 import bean.JobAnnouncementBean;
 import bean.JobApplicationBean;

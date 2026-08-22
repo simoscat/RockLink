@@ -1,7 +1,6 @@
-package view.promoterDashboard;
+package view.promoterdashboard;
 
 import bean.JobAnnouncementBean;
-import model.JobAnnouncement;
 import view.Navigator;
 
 import java.time.format.DateTimeFormatter;

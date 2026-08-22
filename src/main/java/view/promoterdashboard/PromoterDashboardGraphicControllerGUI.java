@@ -1,4 +1,4 @@
-package view.promoterDashboard;
+package view.promoterdashboard;
 
 import bean.JobAnnouncementBean;
 import javafx.fxml.FXML;
