@@ -1,0 +1,146 @@
+/* ==========================================================
+   ROCKLINK - Job announcement details stylesheet
+   Schermata condivisa da Musician e Promoter (stessa navigazione della
+   CLI: da "Discover Jobs"/dashboard musicista o dalla Promoter Dashboard).
+   Riusa top-bar/logo, back-button/panel/role-badge/field-label/
+   text-field/sign-in-btn(-musician/-promoter)/status-badge(-confirmed/
+   -pending/-rejected) da musician-dashboard-style.css (che importa a
+   cascata musician-signup-style.css / login-style.css). Qui sotto solo
+   le classi NUOVE necessarie a questa schermata.
+   ==========================================================
+ */
+
+
+@import url("musician-dashboard-style.css");
+
+.page-scroll {
+    -fx-background-color: transparent;
+}
+
+.detail-title {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Anton", "Arial Black", "Impact", sans-serif;
+}
+
+.detail-icon {
+    -fx-fill: #6a6a6a;
+}
+
+.detail-text {
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 13px;
+}
+
+.detail-pay {
+    -fx-text-fill: #f0b429;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+}
+
+.detail-hint {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 12px;
+}
+
+.hired-artist-badge {
+    -fx-background-color: rgba(45, 212, 167, 0.12);
+    -fx-border-color: rgba(45, 212, 167, 0.5);
+    -fx-border-width: 1;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-padding: 4 10;
+    -fx-text-fill: #2dd4a7;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.divider {
+    -fx-background-color: #222222;
+    -fx-min-height: 1;
+    -fx-max-height: 1;
+}
+
+.detail-section-title {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+}
+
+.detail-content {
+    -fx-text-fill: #cfcfcf;
+    -fx-font-size: 13px;
+    -fx-line-spacing: 3;
+}
+
+.detail-value {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.contact-row {
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 12px;
+}
+
+/* ---------- Stato annuncio (riuso della semantica open/filled/closed) ---------- */
+.job-status-badge {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-padding: 4 10;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.job-status-open {
+    -fx-background-color: rgba(45, 212, 167, 0.12);
+    -fx-border-color: rgba(45, 212, 167, 0.5);
+    -fx-text-fill: #2dd4a7;
+}
+
+.job-status-filled {
+    -fx-background-color: rgba(240, 180, 41, 0.12);
+    -fx-border-color: rgba(240, 180, 41, 0.5);
+    -fx-text-fill: #f0b429;
+}
+
+.job-status-closed {
+    -fx-background-color: rgba(154, 154, 154, 0.12);
+    -fx-border-color: rgba(154, 154, 154, 0.4);
+    -fx-text-fill: #9a9a9a;
+}
+
+/* ---------- Riepilogo candidatura del musicista (se già candidato) ---------- */
+.application-summary-box {
+    -fx-background-color: #0f0f0f;
+    -fx-border-color: #232323;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 16;
+}
+
+/* ---------- Pulsante secondario (Close announcement) ---------- */
+.cancel-btn {
+    -fx-background-color: #ff3b30;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 13 0;
+    -fx-cursor: hand;
+}
+
+.cancel-btn:hover {
+    -fx-border-color: #555555;
+    -fx-text-fill: #cfcfcf;
+}

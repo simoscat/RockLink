@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 
 <BorderPane fx:id="rootPane" prefHeight="800.0" prefWidth="1280.0"
             styleClass="root-pane" stylesheets="@../css/musician-signup-style.css"
@@ -30,9 +31,9 @@
                 <Insets bottom="24.0" left="34.0" right="34.0" top="24.0" />
             </padding>
             <StackPane styleClass="logo-icon">
-                <Label styleClass="logo-icon-text" text="⚡" />
+                <SVGPath content="M13,1 L6,13 L11,13 L9,23 L18,9 L12,9 Z" scaleX="0.667" scaleY="0.667" styleClass="logo-icon-text" />
             </StackPane>
-            <Label styleClass="logo-text" text="ROCK LINK" />
+            <Label styleClass="logo-text" text="ROCKLINK" />
             <Region HBox.hgrow="ALWAYS" />
             <Button fx:id="backToLoginButton" mnemonicParsing="false" onAction="#handleBackToLogin"
                     styleClass="back-button" text="‹ Back to login" />
@@ -111,7 +112,7 @@
                     <!-- Password -->
                     <VBox spacing="7.0">
                         <Label styleClass="field-label" text="PASSWORD" />
-                        <PasswordField fx:id="passwordField" maxWidth="1.7976931348623157E308" promptText="••••••••" styleClass="text-field" />
+                        <TextField fx:id="passwordField" maxWidth="1.7976931348623157E308" promptText="••••••••" styleClass="text-field" />
                     </VBox>
 
                     <!-- Instruments -->

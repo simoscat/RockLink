@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane fx:id="rootPane" prefHeight="952.0" prefWidth="1576.0"
+            styleClass="root-pane" stylesheets="@../css/job-announcement-details-style.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- ===================== TOP BAR ===================== -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="24.0" left="34.0" right="34.0" top="24.0" />
+            </padding>
+            <StackPane styleClass="logo-icon">
+                <SVGPath content="M13,1 L6,13 L11,13 L9,23 L18,9 L12,9 Z" scaleX="0.667" scaleY="0.667" styleClass="logo-icon-text" />
+            </StackPane>
+            <Label styleClass="logo-text" text="ROCKLINK" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" styleClass="back-button" text="‹ Back" />
+        </HBox>
+    </top>
+
+    <!-- ===================== CENTER CONTENT ===================== -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll"
+                    vbarPolicy="AS_NEEDED" BorderPane.alignment="TOP_CENTER">
+            <VBox alignment="TOP_CENTER" spacing="0.0">
+                <VBox alignment="TOP_LEFT" maxWidth="720.0" prefWidth="720.0" spacing="0.0">
+                    <padding>
+                        <Insets bottom="40.0" top="34.0" />
+                    </padding>
+
+                    <VBox styleClass="panel">
+                        <VBox fx:id="panelTopBorder" styleClass="panel-top-border" />
+                        <VBox spacing="18.0" styleClass="panel-body">
+                            <padding>
+                                <Insets bottom="28.0" left="28.0" right="28.0" top="26.0" />
+                            </padding>
+
+                            <!-- Status + hired artist -->
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label fx:id="statusBadge" styleClass="job-status-badge" text="OPEN" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label fx:id="hiredArtistBadge" managed="false" styleClass="hired-artist-badge" text="" visible="false" />
+                            </HBox>
+
+                            <!-- Title -->
+                            <Label fx:id="titleLabel" styleClass="detail-title" text="Job title" wrapText="true" />
+
+                            <!-- Meta rows: address / event date / published / pay -->
+                            <VBox spacing="10.0">
+                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                    <SVGPath content="M6.7,8 A5.3,5.3 0 1,0 17.3,8 A5.3,5.3 0 1,0 6.7,8 Z M6.5,10 L17.5,10 L12,22 Z" scaleX="0.583" scaleY="0.583" styleClass="detail-icon" />
+                                    <Label fx:id="addressValueLabel" styleClass="detail-text" text="-" />
+                                </HBox>
+                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                    <SVGPath content="M6,1 L8,1 L8,5.3 L6,5.3 Z M16,1 L18,1 L18,5.3 L16,5.3 Z M3,5 L21,5 L21,21 L3,21 Z M6,11 L9,11 L9,14 L6,14 Z M10.5,11 L13.5,11 L13.5,14 L10.5,14 Z M15,11 L18,11 L18,14 L15,14 Z" fillRule="EVEN_ODD" scaleX="0.583" scaleY="0.583" styleClass="detail-icon" />
+                                    <Label fx:id="dateValueLabel" styleClass="detail-text" text="-" />
+                                </HBox>
+                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                    <Label styleClass="detail-hint" text="Published:" />
+                                    <Label fx:id="publishedValueLabel" styleClass="detail-text" text="-" />
+                                </HBox>
+                            </VBox>
+
+                            <Label fx:id="payValueLabel" styleClass="detail-pay" text="-" />
+
+                            <Region styleClass="divider" />
+
+                            <!-- Description -->
+                            <VBox spacing="8.0">
+                                <Label styleClass="detail-section-title" text="DESCRIPTION" />
+                                <Label fx:id="contentLabel" styleClass="detail-content" text="-" wrapText="true" />
+                            </VBox>
+
+                            <Region styleClass="divider" />
+
+                            <!-- Promoter -->
+                            <VBox spacing="8.0">
+                                <Label styleClass="detail-section-title" text="PROMOTER" />
+                                <Label fx:id="promoterNameLabel" styleClass="detail-value" text="-" />
+                                <VBox fx:id="contactsContainer" spacing="4.0" />
+                            </VBox>
+
+                            <!-- Riepilogo della candidatura del musicista (se già candidato) -->
+                            <VBox fx:id="applicationSummaryBox" managed="false" spacing="8.0" styleClass="application-summary-box" visible="false">
+                                <Label styleClass="detail-section-title" text="YOUR APPLICATION" />
+                                <Label fx:id="applicationRaiseLabel" styleClass="detail-text" text="-" />
+                                <Label fx:id="applicationStatusLabel" styleClass="status-badge, status-pending" text="PENDING" />
+                            </VBox>
+
+                            <Region fx:id="actionsDivider" styleClass="divider" />
+
+                            <!-- Candidatura del musicista (nascosto se già candidato o se promoter) -->
+                            <VBox fx:id="applyFormBox" managed="false" spacing="10.0" visible="false">
+                                <Label styleClass="field-label" text="COUNTER OFFER (optional raise, leave empty for base pay)" />
+                                <TextField fx:id="raiseOfferField" maxWidth="1.7976931348623157E308" promptText="e.g. 20" styleClass="text-field" />
+                                <Button fx:id="applyButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleApply" styleClass="sign-in-btn, sign-in-btn-musician" text="APPLY FOR THIS JOB">
+                                    <VBox.margin>
+                                        <Insets top="4.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </VBox>
+
+                            <!-- Azioni del promoter -->
+                            <HBox fx:id="promoterActionsBox" managed="false" spacing="12.0" visible="false">
+                                <Button fx:id="closeAnnouncementButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleCloseAnnouncement" styleClass="cancel-btn" text="MARK ANNOUNCEMENT AS CLOSED" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="viewApplicationsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleViewApplications" styleClass="sign-in-btn, sign-in-btn-promoter" text="VIEW APPLICATIONS" HBox.hgrow="ALWAYS" />
+                            </HBox>
+
+                        </VBox>
+                    </VBox>
+
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

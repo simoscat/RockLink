@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane fx:id="rootPane" prefHeight="952.0" prefWidth="1576.0"
+            styleClass="root-pane" stylesheets="@../css/announcement-applications-style.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- ===================== TOP BAR ===================== -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="24.0" left="34.0" right="34.0" top="24.0" />
+            </padding>
+            <StackPane styleClass="logo-icon">
+                <SVGPath content="M13,1 L6,13 L11,13 L9,23 L18,9 L12,9 Z" scaleX="0.667" scaleY="0.667" styleClass="logo-icon-text" />
+            </StackPane>
+            <Label styleClass="logo-text" text="ROCKLINK" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" styleClass="back-button" text="‹ Back to announcement" />
+        </HBox>
+    </top>
+
+    <!-- ===================== CENTER CONTENT ===================== -->
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="30.0" left="60.0" right="60.0" top="28.0" />
+            </padding>
+
+            <!-- Header (fisso) -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <VBox spacing="4.0">
+                    <Label styleClass="dashboard-title" text="JOB APPLICATIONS" />
+                    <Label styleClass="dashboard-subtitle" text="Applicants for this job announcement" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <HBox fx:id="refreshButton" alignment="CENTER" onMouseClicked="#handleRefresh" spacing="10.0" styleClass="icon-button">
+                    <SVGPath content="M3,12 A9,9 0 1,0 21,12 A9,9 0 1,0 3,12 Z M6,12 A6,6 0 1,0 18,12 A6,6 0 1,0 6,12 Z M19,5 L23,5 L21,9 Z M5,19 L1,19 L3,15 Z" fillRule="EVEN_ODD" scaleX="0.625" scaleY="0.625" styleClass="icon-button-text" />
+                    <Label styleClass="icon-button-label" text="Refresh" />
+                </HBox>
+            </HBox>
+
+            <!-- Lista candidature (scrollabile) -->
+            <ScrollPane fitToWidth="true" styleClass="instruments-scroll" VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets top="24.0" />
+                </VBox.margin>
+                <VBox fx:id="applicationsContainer" spacing="12.0" />
+            </ScrollPane>
+
+        </VBox>
+    </center>
+
+</BorderPane>

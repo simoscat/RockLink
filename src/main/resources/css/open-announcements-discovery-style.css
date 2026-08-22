@@ -1,0 +1,145 @@
+/* ==========================================================
+   ROCKLINK - Open announcements discovery (Musician) stylesheet
+   Riusa sidebar, logo-*, nav-item-*, icon-button-*, role-badge(-promoter),
+   status-badge(-confirmed/-pending/-rejected), card-title da
+   musician-dashboard-style.css (che a sua volta importa
+   musician-signup-style.css / login-style.css).
+   Qui sotto solo le classi NUOVE necessarie a questa schermata.
+   ========================================================== */
+
+@import url("musician-dashboard-style.css");
+
+/* ---------- Toolbar (filtri + refresh) ---------- */
+.filter-toggle {
+    -fx-background-color: #131313;
+    -fx-border-color: #2a2a2a;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 18;
+    -fx-cursor: hand;
+}
+
+.filter-toggle:hover {
+    -fx-border-color: #4a4a4a;
+}
+
+.filter-toggle:selected {
+    -fx-background-color: rgba(240, 180, 41, 0.12);
+    -fx-border-color: #f0b429;
+    -fx-text-fill: #f0b429;
+}
+
+/* ---------- Job cards grid ---------- */
+.jobs-grid {
+    -fx-background-color: transparent;
+}
+
+.job-card {
+    -fx-background-color: #121212;
+    -fx-border-color: #232323;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-cursor: hand;
+}
+
+.job-card:hover {
+    -fx-border-color: #3a3a3a;
+}
+
+.accent-job {
+    -fx-background-color: #f0b429;
+}
+
+.job-title {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.job-tags {
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 12px;
+}
+
+.job-meta-icon {
+    -fx-fill: #6a6a6a;
+}
+
+.job-meta-text {
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 12px;
+}
+
+.job-price {
+    -fx-text-fill: #f0b429;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+}
+
+.job-chevron {
+    -fx-fill: #5a5a5a;
+}
+
+.job-status-badge {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-padding: 4 10;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.job-status-open {
+    -fx-background-color: rgba(45, 212, 167, 0.12);
+    -fx-border-color: rgba(45, 212, 167, 0.5);
+    -fx-text-fill: #2dd4a7;
+}
+
+.job-status-filled {
+    -fx-background-color: rgba(240, 180, 41, 0.12);
+    -fx-border-color: rgba(240, 180, 41, 0.5);
+    -fx-text-fill: #f0b429;
+}
+
+.job-status-closed {
+    -fx-background-color: rgba(154, 154, 154, 0.12);
+    -fx-border-color: rgba(154, 154, 154, 0.4);
+    -fx-text-fill: #9a9a9a;
+}
+
+.jobs-empty-state {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 13px;
+}
+
+/* ---------- Floating help button ---------- */
+.help-button {
+    -fx-background-color: #181818;
+    -fx-border-color: #3a3a3a;
+    -fx-border-width: 1;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+    -fx-cursor: hand;
+}
+
+.help-button:hover {
+    -fx-background-color: #222222;
+    -fx-border-color: #4a4a4a;
+}
+
+.help-button-text {
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}

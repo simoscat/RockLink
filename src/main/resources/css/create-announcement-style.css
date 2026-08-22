@@ -1,0 +1,66 @@
+/* ==========================================================
+   ROCKLINK - Create job announcement (Promoter) stylesheet
+   Riusa sidebar/header da promoter-dashboard-style.css (giallo) e
+   panel/panel-body/field-label/text-field/gender-toggle/skill-toggle/
+   sign-in-btn(-promoter) da musician-signup-style.css / login-style.css
+   (importati a cascata da promoter-dashboard-style.css).
+   Qui sotto solo le classi NUOVE necessarie a questo form, incluso il
+   ricolore in giallo dei toggle "a bottoni" già usati altrove per le
+   scelte fisse (genere, skill strumenti) così restano coerenti anche
+   qui per valuta e tag dell'annuncio.
+   ========================================================== */
+
+@import url("promoter-dashboard-style.css");
+
+/* ---------- Toggle "a bottoni" (valuta, tag) in giallo promoter ---------- */
+.gender-toggle:selected {
+    -fx-background-color: rgba(255, 212, 0, 0.12);
+    -fx-border-color: #ffd400;
+    -fx-text-fill: #f5f2ec;
+}
+
+/* ---------- Text area (descrizione annuncio) ---------- */
+.text-area {
+    -fx-control-inner-background: #0a0a0a;
+    -fx-background-color: #0a0a0a;
+    -fx-text-fill: #f5f2ec;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-font-size: 13px;
+    -fx-font-family: "JetBrains Mono NL";
+}
+
+.text-area .content {
+    -fx-background-color: #0a0a0a;
+    -fx-background-radius: 4;
+}
+
+.text-area:focused {
+    -fx-border-color: #6b6b6b;
+}
+
+/* ---------- Pulsante secondario (Cancel) ---------- */
+.cancel-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 13 0;
+    -fx-cursor: hand;
+}
+
+.cancel-btn:hover {
+    -fx-border-color: #555555;
+    -fx-text-fill: #cfcfcf;
+}
+
+.field-hint {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 11px;
+}

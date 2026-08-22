@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane fx:id="rootPane" prefHeight="952.0" prefWidth="1576.0"
+            styleClass="root-pane" stylesheets="@../css/job-application-detail-style.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- ===================== TOP BAR ===================== -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="24.0" left="34.0" right="34.0" top="24.0" />
+            </padding>
+            <StackPane styleClass="logo-icon">
+                <SVGPath content="M13,1 L6,13 L11,13 L9,23 L18,9 L12,9 Z" scaleX="0.667" scaleY="0.667" styleClass="logo-icon-text" />
+            </StackPane>
+            <Label styleClass="logo-text" text="ROCKLINK" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" styleClass="back-button" text="‹ Back to applications" />
+        </HBox>
+    </top>
+
+    <!-- ===================== CENTER CONTENT ===================== -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll"
+                    vbarPolicy="AS_NEEDED" BorderPane.alignment="TOP_CENTER">
+            <VBox alignment="TOP_CENTER" spacing="0.0">
+                <VBox alignment="TOP_LEFT" maxWidth="640.0" prefWidth="640.0" spacing="0.0">
+                    <padding>
+                        <Insets bottom="40.0" top="34.0" />
+                    </padding>
+
+                    <VBox styleClass="panel">
+                        <VBox styleClass="panel-top-border, border-promoter" />
+                        <VBox spacing="18.0" styleClass="panel-body">
+                            <padding>
+                                <Insets bottom="28.0" left="28.0" right="28.0" top="26.0" />
+                            </padding>
+
+                            <!-- Stato candidatura -->
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label fx:id="statusBadge" styleClass="status-badge, status-pending" text="PENDING" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label fx:id="offerLabel" styleClass="application-offer" text="-" />
+                            </HBox>
+
+                            <Label styleClass="detail-title" text="Applicant Details" />
+
+                            <Region styleClass="divider" />
+
+                            <!-- Dettagli dell'artista (nome, cognome, stage name, email, genere, strumenti...) -->
+                            <VBox fx:id="detailsContainer" spacing="10.0" />
+
+                            <Region styleClass="divider" />
+
+                            <!-- Azioni -->
+                            <HBox spacing="12.0">
+                                <Button fx:id="rejectButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleReject" styleClass="reject-action-btn" text="REJECT APPLICATION" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="acceptButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAccept" styleClass="sign-in-btn, sign-in-btn-promoter" text="ACCEPT APPLICATION" HBox.hgrow="ALWAYS" />
+                            </HBox>
+
+                        </VBox>
+                    </VBox>
+
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

@@ -163,9 +163,9 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
 
         System.out.println("Available operations: ");
 
-        System.out.println("[1] Close Job Announcement");
+        System.out.println("[1] Mark Job Announcement as CLOSED");
         System.out.println("[2] View Job Applications");
-        System.out.println("[3] Go back");
+        System.out.println("[3] Go back to dashboard");
         System.out.print("> ");
 
         boolean done = false;
@@ -183,7 +183,7 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
                     done = true;
                     break;
                 case "3":
-                    backToPreviousScreen();
+                    backToPromoterDashboard();
                     done = true;
                     break;
                 default:

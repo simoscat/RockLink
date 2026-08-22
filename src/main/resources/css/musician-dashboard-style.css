@@ -1,0 +1,261 @@
+/* ==========================================================
+   ROCKLINK - Musician dashboard stylesheet
+   Riusa root-pane, logo-*, role-badge(-musician), instruments-scroll
+   da musician-signup-style.css (che a sua volta importa login-style.css).
+   Qui sotto solo le classi NUOVE necessarie a questa schermata.
+   ========================================================== */
+
+@import url("musician-signup-style.css");
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    -fx-background-color: #0a0a0a;
+    -fx-border-color: transparent #222222 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* ---------- User card ---------- */
+.avatar {
+    -fx-background-color: rgba(255, 77, 31, 0.15);
+    -fx-border-color: rgba(255, 77, 31, 0.5);
+    -fx-border-width: 1;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+}
+
+.avatar-text {
+    -fx-text-fill: #ff4d1f;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.user-name {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.user-band {
+    -fx-text-fill: #ff4d1f;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.user-email {
+    -fx-text-fill: #7a7a7a;
+    -fx-font-size: 11px;
+}
+
+/* ---------- Navigation ---------- */
+.nav-item {
+    -fx-padding: 10 12;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.nav-item:hover {
+    -fx-background-color: #141414;
+}
+
+.nav-item-active {
+    -fx-background-color: rgba(255, 77, 31, 0.12);
+}
+
+.nav-item-icon {
+    -fx-font-size: 14px;
+    -fx-text-fill: #9a9a9a;
+    -fx-fill: #9a9a9a;
+}
+
+.nav-item-text {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9a9a9a;
+}
+
+.nav-item-active .nav-item-icon,
+.nav-item-active .nav-item-text {
+    -fx-text-fill: #ff4d1f;
+    -fx-fill: #ff4d1f;
+}
+
+.nav-badge {
+    -fx-background-color: #22c55e;
+    -fx-background-radius: 50%;
+    -fx-text-fill: #0a1a0f;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+    -fx-max-width: 20;
+    -fx-max-height: 20;
+    -fx-alignment: center;
+}
+
+/* ---------- Sign out ---------- */
+.sign-out-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #222222 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 16 4 4 4;
+    -fx-cursor: hand;
+    -fx-alignment: center-left;
+}
+
+.sign-out-btn-text {
+    -fx-text-fill: #7a7a7a;
+    -fx-font-size: 13px;
+}
+
+.sign-out-icon {
+    -fx-fill: #7a7a7a;
+}
+
+.sign-out-btn:hover .sign-out-btn-text,
+.sign-out-btn:hover .sign-out-icon {
+    -fx-text-fill: #b0b0b0;
+    -fx-fill: #b0b0b0;
+}
+
+/* ---------- Header ---------- */
+.dashboard-title {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Anton", "Arial Black", "Impact", sans-serif;
+}
+
+.dashboard-subtitle {
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 13px;
+}
+
+.icon-button {
+    -fx-background-color: #181818;
+    -fx-border-color: #3a3a3a;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-min-height: 40;
+    -fx-max-height: 40;
+    -fx-padding: 0 14;
+    -fx-cursor: hand;
+}
+
+.icon-button:hover {
+    -fx-background-color: #222222;
+    -fx-border-color: #4a4a4a;
+}
+
+.icon-button-text {
+    -fx-font-size: 15px;
+    -fx-text-fill: #f5f2ec;
+    -fx-fill: #f5f2ec;
+}
+
+.icon-button-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f5f2ec;
+}
+
+.notif-dot {
+    -fx-background-color: #ff3b30;
+    -fx-background-radius: 50%;
+    -fx-min-width: 8;
+    -fx-min-height: 8;
+    -fx-max-width: 8;
+    -fx-max-height: 8;
+    -fx-translate-x: -6;
+    -fx-translate-y: 6;
+}
+
+/* ---------- Applications section ---------- */
+.section-count {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 12px;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+}
+
+.application-card {
+    -fx-background-color: #121212;
+    -fx-border-color: #232323;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.card-accent {
+    -fx-min-width: 3;
+    -fx-max-width: 3;
+    -fx-background-radius: 6 0 0 6;
+}
+
+.accent-confirmed {
+    -fx-background-color: #2dd4a7;
+}
+
+.accent-pending {
+    -fx-background-color: #f0b429;
+}
+
+.accent-rejected {
+    -fx-background-color: #ff3b30;
+}
+
+.card-body {
+    -fx-padding: 16 0 16 16;
+}
+
+.card-status {
+    -fx-padding: 16 16 16 0;
+}
+
+.card-title {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.card-subtitle {
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 12px;
+}
+
+.status-badge {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-padding: 4 10;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.status-confirmed {
+    -fx-background-color: rgba(45, 212, 167, 0.12);
+    -fx-border-color: rgba(45, 212, 167, 0.5);
+    -fx-text-fill: #2dd4a7;
+}
+
+.status-pending {
+    -fx-background-color: rgba(240, 180, 41, 0.12);
+    -fx-border-color: rgba(240, 180, 41, 0.5);
+    -fx-text-fill: #f0b429;
+}
+
+.status-rejected {
+    -fx-background-color: rgba(255, 59, 48, 0.12);
+    -fx-border-color: rgba(255, 59, 48, 0.5);
+    -fx-text-fill: #ff3b30;
+}
+
+.card-applied-date {
+    -fx-text-fill: #5a5a5a;
+    -fx-font-size: 10px;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+}

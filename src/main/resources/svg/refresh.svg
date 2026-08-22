@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RockLink icon set - refresh (Refresh dashboard) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+    <path fill="#1a1a1a" fill-rule="evenodd" d="M3,12 A9,9 0 1,0 21,12 A9,9 0 1,0 3,12 Z
+             M6,12 A6,6 0 1,0 18,12 A6,6 0 1,0 6,12 Z
+             M19,5 L23,5 L21,9 Z
+             M5,19 L1,19 L3,15 Z"/>
+</svg>

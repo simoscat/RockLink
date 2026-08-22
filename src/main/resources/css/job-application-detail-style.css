@@ -1,0 +1,70 @@
+/* ==========================================================
+   ROCKLINK - Job application detail (Promoter) stylesheet
+   Schermata promoter-only, raggiunta da "Details" nella lista delle
+   candidature di un annuncio. Riusa top-bar, logo, back-button, panel,
+   field-label, text-field, sign-in-btn (promoter), status-badge
+   (confirmed, pending, rejected) da promoter-dashboard-style.css
+   (che importa a cascata musician-dashboard-style.css,
+   musician-signup-style.css e login-style.css). Qui sotto solo le
+   classi NUOVE necessarie a questa schermata.
+   ========================================================== */
+
+@import url("promoter-dashboard-style.css");
+
+.page-scroll {
+    -fx-background-color: transparent;
+}
+
+.detail-title {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Anton", "Arial Black", "Impact", sans-serif;
+}
+
+.application-offer {
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 13px;
+}
+
+.divider {
+    -fx-background-color: #222222;
+    -fx-min-height: 1;
+    -fx-max-height: 1;
+}
+
+.detail-section-title {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+}
+
+.applicant-detail-key {
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 12px;
+}
+
+.applicant-detail-value {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* ---------- Pulsante di rifiuto (primario, tono rosso) ---------- */
+.reject-action-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #ff3b30;
+    -fx-border-width: 1;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-text-fill: #ff3b30;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 13 0;
+    -fx-cursor: hand;
+}
+
+.reject-action-btn:hover {
+    -fx-background-color: rgba(255, 59, 48, 0.1);
+}

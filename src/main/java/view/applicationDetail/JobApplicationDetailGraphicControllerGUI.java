@@ -1,11 +1,20 @@
 package view.applicationDetail;
 
+import bean.JobApplicationBean;
+import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import view.GUIGraphicController;
 import view.Navigator;
 import view.NavigatorGUI;
 
-//TODO
+import java.util.Map;
+
 public class JobApplicationDetailGraphicControllerGUI extends JobApplicationDetailGraphicController implements GUIGraphicController {
 
     private NavigatorGUI navigatorGUI;
@@ -31,17 +40,93 @@ public class JobApplicationDetailGraphicControllerGUI extends JobApplicationDeta
 
     @Override
     public void start() {
-        //TODO: build/show JavaFX scene
+        populateApplication();
+    }
+
+    @FXML
+    private BorderPane rootPane;
+    @FXML
+    private Button backButton;
+    @FXML
+    private Label statusBadge;
+    @FXML
+    private Label offerLabel;
+    @FXML
+    private VBox detailsContainer;
+    @FXML
+    private Button rejectButton;
+    @FXML
+    private Button acceptButton;
+
+    private void populateApplication() {
+        JobApplicationBean application = navigator.getCurrentJobApplication();
+
+        String status = application.getStatus();
+        statusBadge.setText(status);
+        statusBadge.getStyleClass().removeAll("status-confirmed", "status-pending", "status-rejected");
+        statusBadge.getStyleClass().add(statusClassFor(status));
+
+        offerLabel.setText("Counter offer: +" + (application.getRaiseOffer() != null ? application.getRaiseOffer() : "0"));
+
+        boolean pending = "PENDING".equals(status);
+        acceptButton.setDisable(!pending);
+        rejectButton.setDisable(!pending);
+
+        detailsContainer.getChildren().clear();
+        Map<String, String> details = application.getArtist().getArtistDetails();
+        for (Map.Entry<String, String> entry : details.entrySet()) {
+            detailsContainer.getChildren().add(buildDetailRow(entry.getKey(), entry.getValue()));
+        }
+    }
+
+    private HBox buildDetailRow(String key, String value) {
+        Label keyLabel = new Label(key + ":");
+        keyLabel.getStyleClass().add("applicant-detail-key");
+
+        Label valueLabel = new Label(value);
+        valueLabel.getStyleClass().add("applicant-detail-value");
+
+        return new HBox(8.0, keyLabel, valueLabel);
+    }
+
+    private String statusClassFor(String status) {
+        return switch (status) {
+            case "ACCEPTED" -> "status-confirmed";
+            case "REJECTED" -> "status-rejected";
+            default -> "status-pending";
+        };
+    }
+
+    @FXML
+    private void handleBack() {
+        backToJobApplications();
+    }
+
+    @FXML
+    private void handleAccept() {
+        acceptApplication();
+    }
+
+    @FXML
+    private void handleReject() {
+        rejectApplication();
     }
 
     @Override
     protected void showError(String message) {
-        //TODO
+        showAlert(Alert.AlertType.ERROR, "ERROR", message);
     }
 
     @Override
     protected void showInfo(String message) {
-        //TODO
+        showAlert(Alert.AlertType.INFORMATION, "INFO", message);
     }
 
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

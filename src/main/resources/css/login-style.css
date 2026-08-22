@@ -1,5 +1,5 @@
 /* ==========================================================
-   ROCK LINK - Login screen stylesheet
+   ROCKLINK - Login screen stylesheet
    Palette:
      background : #0a0a0a
      panel      : #131313
@@ -9,6 +9,10 @@
      testo      : #f5f2ec (quasi bianco)
      testo grig.: #8a8a8a
    ========================================================== */
+
+.root{
+    -fx-font-family: "JetBrains Mono NL";
+}
 
 .root-pane {
     -fx-background-color: #0a0a0a;
@@ -30,15 +34,16 @@
 
 .logo-icon-text {
     -fx-text-fill: white;
+    -fx-fill: white;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
 }
 
 .logo-text {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 20px;
+    -fx-font-size: 25px;
     -fx-font-weight: bold;
-    -fx-font-family: "Arial Black", "Impact", sans-serif;
+    -fx-font-family: "Rockout", "Arial Black", "Impact", sans-serif;
 }
 
 /* ---------- Center / Welcome ---------- */
@@ -50,7 +55,7 @@
     -fx-text-fill: #f5f2ec;
     -fx-font-size: 58px;
     -fx-font-weight: bold;
-    -fx-font-family: "Arial Black", "Impact", sans-serif;
+    -fx-font-family: "Anton";
 }
 
 .welcome-subtitle {
@@ -111,10 +116,12 @@
 
 .icon-text-musician {
     -fx-text-fill: #ff4d1f;
+    -fx-fill: #ff4d1f;
 }
 
 .icon-text-promoter {
     -fx-text-fill: #ffd400;
+    -fx-fill: #ffd400;
 }
 
 /* ---------- Panel titles ---------- */
@@ -122,7 +129,7 @@
     -fx-text-fill: #f5f2ec;
     -fx-font-size: 19px;
     -fx-font-weight: bold;
-    -fx-font-family: "Arial Black", "Impact", sans-serif;
+    -fx-font-family: "JetBrains Mono NL", "Arial Black", "Impact", sans-serif;
 }
 
 .panel-subtitle {

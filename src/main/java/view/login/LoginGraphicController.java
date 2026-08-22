@@ -51,8 +51,6 @@ public abstract class LoginGraphicController {
                 navigator.setMusician(mb);
                 navigator.setSession(session);
 
-                showInfo("Login successful! Welcome " + session.getMusician().getName());
-
                 navigator.goToMusicianDashboard();
 
             } catch (WrongCredentialsException | ControllerLogicException | IllegalArgumentException e) {
@@ -74,8 +72,6 @@ public abstract class LoginGraphicController {
 
                 navigator.setPromoter(pb);
                 navigator.setSession(session);
-
-                showInfo("Login successful! Welcome " + session.getPromoter().getName());
 
                 navigator.goToPromoterDashboard();
 

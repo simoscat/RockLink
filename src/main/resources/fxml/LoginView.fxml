@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 
 <BorderPane fx:id="rootPane" prefHeight="952.0" prefWidth="1576.0"
             styleClass="root-pane" stylesheets="@../css/login-style.css"
@@ -21,9 +22,9 @@
                 <Insets bottom="24.0" left="34.0" right="34.0" top="24.0" />
             </padding>
             <StackPane styleClass="logo-icon">
-                <Label styleClass="logo-icon-text" text="⚡" />
+                <SVGPath content="M13,1 L6,13 L11,13 L9,23 L18,9 L12,9 Z" scaleX="0.667" scaleY="0.667" styleClass="logo-icon-text" />
             </StackPane>
-            <Label styleClass="logo-text" text="ROCK LINK" />
+            <Label styleClass="logo-text" text="ROCKLINK" />
         </HBox>
     </top>
 
@@ -53,7 +54,7 @@
 
                         <HBox alignment="CENTER_LEFT" spacing="12.0">
                             <StackPane styleClass="icon-box, icon-box-musician">
-                                <Label styleClass="icon-box-text, icon-text-musician" text="🎸" />
+                                <SVGPath content="M9,10 L15,10 L19,13 L19,19 L15,23 L9,23 L5,19 L5,13 Z M11,1 L13,1 L13,10 L11,10 Z M9,0.2 L15,0.2 L13.2,2.2 L10.8,2.2 Z M7,15 L17,15 L17,15.8 L7,15.8 Z M7,17.2 L17,17.2 L17,18 L7,18 Z M7,19.5 L17,19.5 L17,20.1 L7,20.1 Z" scaleX="0.75" scaleY="0.75" styleClass="icon-box-text, icon-text-musician" />
                             </StackPane>
                             <VBox spacing="3.0">
                                 <Label styleClass="panel-title" text="MUSICIAN" />
@@ -93,7 +94,7 @@
 
                         <HBox alignment="CENTER_LEFT" spacing="12.0">
                             <StackPane styleClass="icon-box, icon-box-promoter">
-                                <Label styleClass="icon-box-text, icon-text-promoter" text="💼" />
+                                <SVGPath content="M2,7 L22,7 L22,20 L2,20 Z M8,2 L9.4,2 L9.4,7.5 L8,7.5 Z M14.6,2 L16,2 L16,7.5 L14.6,7.5 Z M8,2 L16,2 L16,3.4 L8,3.4 Z M2,12.5 L22,12.5 L22,13.5 L2,13.5 Z" scaleX="0.75" scaleY="0.75" styleClass="icon-box-text, icon-text-promoter" />
                             </StackPane>
                             <VBox spacing="3.0">
                                 <Label styleClass="panel-title" text="PROMOTER" />
@@ -135,7 +136,7 @@
                 <Button fx:id="signUpMusicianButton" mnemonicParsing="false" onAction="#handleSignUpMusician" styleClass="signup-btn, signup-btn-musician">
                     <graphic>
                         <HBox alignment="CENTER" spacing="8.0">
-                            <Label styleClass="signup-btn-icon, icon-text-musician" text="🎸" />
+                            <SVGPath content="M9,10 L15,10 L19,13 L19,19 L15,23 L9,23 L5,19 L5,13 Z M11,1 L13,1 L13,10 L11,10 Z M9,0.2 L15,0.2 L13.2,2.2 L10.8,2.2 Z M7,15 L17,15 L17,15.8 L7,15.8 Z M7,17.2 L17,17.2 L17,18 L7,18 Z M7,19.5 L17,19.5 L17,20.1 L7,20.1 Z" scaleX="0.542" scaleY="0.542" styleClass="signup-btn-icon, icon-text-musician" />
                             <Label styleClass="signup-btn-text-musician" text="Sign up as Musician" />
                         </HBox>
                     </graphic>
@@ -143,7 +144,7 @@
                 <Button fx:id="signUpPromoterButton" mnemonicParsing="false" onAction="#handleSignUpPromoter" styleClass="signup-btn, signup-btn-promoter">
                     <graphic>
                         <HBox alignment="CENTER" spacing="8.0">
-                            <Label styleClass="signup-btn-icon, icon-text-promoter" text="💼" />
+                            <SVGPath content="M2,7 L22,7 L22,20 L2,20 Z M8,2 L9.4,2 L9.4,7.5 L8,7.5 Z M14.6,2 L16,2 L16,7.5 L14.6,7.5 Z M8,2 L16,2 L16,3.4 L8,3.4 Z M2,12.5 L22,12.5 L22,13.5 L2,13.5 Z" scaleX="0.542" scaleY="0.542" styleClass="signup-btn-icon, icon-text-promoter" />
                             <Label styleClass="signup-btn-text-promoter" text="Sign up as Promoter" />
                         </HBox>
                     </graphic>

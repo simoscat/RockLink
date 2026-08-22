@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane fx:id="rootPane" prefHeight="952.0" prefWidth="1576.0"
+            styleClass="root-pane" stylesheets="@../css/promoter-dashboard-style.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <left>
+        <VBox prefWidth="240.0" styleClass="sidebar" BorderPane.alignment="CENTER"> <!--prefWidth was 221-->
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="24.0" />
+            </padding>
+
+            <!-- Logo -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <StackPane styleClass="logo-icon">
+                    <SVGPath content="M13,1 L6,13 L11,13 L9,23 L18,9 L12,9 Z" scaleX="0.667" scaleY="0.667" styleClass="logo-icon-text" />
+                </StackPane>
+                <Label styleClass="logo-text" text="ROCKLINK" />
+            </HBox>
+
+            <!-- User profile -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <VBox.margin>
+                    <Insets bottom="30.0" top="34.0" />
+                </VBox.margin>
+                <StackPane styleClass="avatar">
+                    <Label fx:id="userAvatarLabel" styleClass="avatar-text" text="MR" />
+                </StackPane>
+                <VBox spacing="2.0">
+                    <Label fx:id="userNameLabel" styleClass="user-name" text="Marco Rossi" />
+                    <Label styleClass="user-band" text="PROMOTER" />
+                    <Label fx:id="userEmailLabel" styleClass="user-email" text="booking@venue.com" />
+                </VBox>
+            </HBox>
+
+            <!-- Navigation: solo le funzionalità del promoter (dashboard, pubblica annuncio, logout) -->
+            <VBox spacing="4.0">
+                <HBox fx:id="dashboardNavItem" alignment="CENTER_LEFT" spacing="10.0" styleClass="nav-item, nav-item-active">
+                    <SVGPath content="M2,12 A10,10 0 1,0 22,12 A10,10 0 1,0 2,12 Z M5,12 A7,7 0 1,0 19,12 A7,7 0 1,0 5,12 Z M8,12 A4,4 0 1,0 16,12 A4,4 0 1,0 8,12 Z" fillRule="EVEN_ODD" scaleX="0.583" scaleY="0.583" styleClass="nav-item-icon" />
+                    <Label styleClass="nav-item-text" text="Dashboard" />
+                </HBox>
+
+                <HBox fx:id="createAnnouncementNavItem" alignment="CENTER_LEFT" onMouseClicked="#handleCreateAnnouncement" spacing="10.0" styleClass="nav-item">
+                    <SVGPath content="M10,4 L14,4 L14,10 L20,10 L20,14 L14,14 L14,20 L10,20 L10,14 L4,14 L4,10 L10,10 Z" scaleX="0.583" scaleY="0.583" styleClass="nav-item-icon" />
+                    <Label styleClass="nav-item-text" text="Create Announcement" />
+                </HBox>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Button fx:id="signOutButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleSignOut" styleClass="sign-out-btn">
+                <graphic>
+                    <HBox alignment="CENTER_LEFT" spacing="8.0">
+                        <SVGPath content="M16.24,4.93 L19.07,7.76 L14.83,12 L19.07,16.24 L16.24,19.07 L12,14.83 L7.76,19.07 L4.93,16.24 L9.17,12 L4.93,7.76 L7.76,4.93 L12,9.17 Z" scaleX="0.542" scaleY="0.542" styleClass="sign-out-icon" />
+                        <Label styleClass="sign-out-btn-text" text="Sign out" />
+                    </HBox>
+                </graphic>
+            </Button>
+
+        </VBox>
+    </left>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="30.0" left="40.0" right="40.0" top="28.0" />
+            </padding>
+
+            <!-- Header (fisso) -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <VBox spacing="4.0">
+                    <Label styleClass="dashboard-title" text="PROMOTER DASHBOARD" />
+                    <Label styleClass="dashboard-subtitle" text="Your published job announcements" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <HBox fx:id="refreshButton" alignment="CENTER" onMouseClicked="#handleRefresh" spacing="10.0" styleClass="icon-button">
+                    <SVGPath content="M3,12 A9,9 0 1,0 21,12 A9,9 0 1,0 3,12 Z M6,12 A6,6 0 1,0 18,12 A6,6 0 1,0 6,12 Z M19,5 L23,5 L21,9 Z M5,19 L1,19 L3,15 Z" fillRule="EVEN_ODD" scaleX="0.625" scaleY="0.625" styleClass="icon-button-text" />
+                    <Label styleClass="icon-button-label" text="Refresh" />
+                </HBox>
+                <HBox fx:id="notificationsButton" alignment="CENTER" onMouseClicked="#handleNotifications" spacing="10.0" styleClass="icon-button">
+                    <StackPane>
+                        <SVGPath content="M9,11 L9,6 A3,3 0 0,1 15,6 L15,11 L18,17 L6,17 Z M10.7,19 A1.3,1.3 0 1,0 13.3,19 A1.3,1.3 0 1,0 10.7,19 Z M11,4.5 A1,1 0 1,0 13,4.5 A1,1 0 1,0 11,4.5 Z" scaleX="0.625" scaleY="0.625" styleClass="icon-button-text" />
+                        <Region fx:id="notificationsDot" managed="false" styleClass="notif-dot" visible="false" StackPane.alignment="TOP_RIGHT" />
+                    </StackPane>
+                    <Label styleClass="icon-button-label" text="Notifications" />
+                </HBox>
+            </HBox>
+
+            <!-- Annunci pubblicati: intestazione fissa + lista scrollabile -->
+            <VBox spacing="16.0" VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets top="34.0" />
+                </VBox.margin>
+
+                <HBox alignment="CENTER_LEFT" spacing="12.0">
+                    <Label styleClass="role-badge, role-badge-promoter" text="ANNOUNCEMENTS" />
+                    <Label fx:id="announcementsCountLabel" styleClass="section-count" text="0 published" />
+                </HBox>
+
+                <ScrollPane fitToWidth="true" styleClass="instruments-scroll" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="announcementsContainer" spacing="12.0" />
+                </ScrollPane>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

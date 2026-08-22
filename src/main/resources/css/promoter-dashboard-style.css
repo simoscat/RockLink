@@ -1,0 +1,78 @@
+/* ==========================================================
+   ROCKLINK - Promoter dashboard stylesheet
+   Riusa sidebar, logo-*, nav-item-*, icon-button-*, role-badge(-promoter),
+   card-title/card-subtitle/card-accent da musician-dashboard-style.css
+   (che a sua volta importa musician-signup-style.css / login-style.css).
+   Qui sotto si RI-DEFINISCONO in giallo (#ffd400, palette promoter, vedi
+   login-style.css) le classi che nella dashboard musicista sono accentate
+   in arancio - questo file è agganciato solo alle viste promoter quindi
+   non altera le schermate musicista.
+   ========================================================== */
+
+@import url("musician-dashboard-style.css");
+
+/* ---------- Accento promoter (giallo) al posto dell'arancio musicista ---------- */
+.nav-item-active {
+    -fx-background-color: rgba(255, 212, 0, 0.12);
+}
+
+.nav-item-active .nav-item-icon,
+.nav-item-active .nav-item-text {
+    -fx-text-fill: #ffd400;
+    -fx-fill: #ffd400;
+}
+
+.avatar {
+    -fx-background-color: rgba(255, 212, 0, 0.15);
+    -fx-border-color: rgba(255, 212, 0, 0.5);
+}
+
+.avatar-text {
+    -fx-text-fill: #ffd400;
+}
+
+.user-band {
+    -fx-text-fill: #ffd400;
+}
+
+.accent-announcement {
+    -fx-background-color: #ffd400;
+}
+
+/* ---------- Stato annuncio (riuso della semantica open/filled/closed) ---------- */
+.job-status-badge {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-padding: 4 10;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.job-status-open {
+    -fx-background-color: rgba(45, 212, 167, 0.12);
+    -fx-border-color: rgba(45, 212, 167, 0.5);
+    -fx-text-fill: #2dd4a7;
+}
+
+.job-status-filled {
+    -fx-background-color: rgba(240, 180, 41, 0.12);
+    -fx-border-color: rgba(240, 180, 41, 0.5);
+    -fx-text-fill: #f0b429;
+}
+
+.job-status-closed {
+    -fx-background-color: rgba(154, 154, 154, 0.12);
+    -fx-border-color: rgba(154, 154, 154, 0.4);
+    -fx-text-fill: #9a9a9a;
+}
+
+.announcement-chevron {
+    -fx-fill: #5a5a5a;
+}
+
+.announcements-empty-state {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 13px;
+}

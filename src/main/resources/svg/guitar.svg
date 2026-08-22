@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RockLink icon set - electric guitar (Musician role) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+    <path fill="#1a1a1a" d="M9,10 L15,10 L19,13 L19,19 L15,23 L9,23 L5,19 L5,13 Z
+             M11,1 L13,1 L13,10 L11,10 Z
+             M9,0.2 L15,0.2 L13.2,2.2 L10.8,2.2 Z
+             M7,15 L17,15 L17,15.8 L7,15.8 Z
+             M7,17.2 L17,17.2 L17,18 L7,18 Z
+             M7,19.5 L17,19.5 L17,20.1 L7,20.1 Z"/>
+</svg>

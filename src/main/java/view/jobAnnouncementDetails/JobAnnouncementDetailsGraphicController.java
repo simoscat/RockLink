@@ -76,6 +76,10 @@ public abstract class JobAnnouncementDetailsGraphicController {
 
     }
 
+    protected void backToPromoterDashboard(){
+        navigator.goToPromoterDashboard();
+    }
+
     protected void closeJobAnnouncement(){
 
         try{

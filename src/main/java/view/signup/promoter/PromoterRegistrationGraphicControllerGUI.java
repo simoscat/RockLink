@@ -83,7 +83,7 @@ public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrati
     @FXML
     private TextField emailField;
     @FXML
-    private PasswordField passwordField;
+    private TextField passwordField;
 
     // ---- Contatti ----
     @FXML

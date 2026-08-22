@@ -86,7 +86,7 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
     @FXML
     private TextField emailField;
     @FXML
-    private PasswordField passwordField;
+    private TextField passwordField;
 
     // ---- Strumenti ----
     @FXML

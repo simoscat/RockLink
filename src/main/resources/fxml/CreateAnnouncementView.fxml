@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane fx:id="rootPane" prefHeight="952.0" prefWidth="1576.0"
+            styleClass="root-pane" stylesheets="@../css/create-announcement-style.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+
+    <fx:define>
+        <ToggleGroup fx:id="currencyToggleGroup" />
+    </fx:define>
+
+    <!-- ===================== SIDEBAR (identica alla Promoter Dashboard) ===================== -->
+    <left>
+        <VBox prefWidth="240.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="24.0" />
+            </padding>
+
+            <!-- Logo -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <StackPane styleClass="logo-icon">
+                    <SVGPath content="M13,1 L6,13 L11,13 L9,23 L18,9 L12,9 Z" scaleX="0.667" scaleY="0.667" styleClass="logo-icon-text" />
+                </StackPane>
+                <Label styleClass="logo-text" text="ROCKLINK" />
+            </HBox>
+
+            <!-- User profile -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <VBox.margin>
+                    <Insets bottom="30.0" top="34.0" />
+                </VBox.margin>
+                <StackPane styleClass="avatar">
+                    <Label fx:id="userAvatarLabel" styleClass="avatar-text" text="MR" />
+                </StackPane>
+                <VBox spacing="2.0">
+                    <Label fx:id="userNameLabel" styleClass="user-name" text="Marco Rossi" />
+                    <Label styleClass="user-band" text="PROMOTER" />
+                    <Label fx:id="userEmailLabel" styleClass="user-email" text="booking@venue.com" />
+                </VBox>
+            </HBox>
+
+            <!-- Navigation: solo le funzionalità del promoter -->
+            <VBox spacing="4.0">
+                <HBox fx:id="dashboardNavItem" alignment="CENTER_LEFT" onMouseClicked="#handleDashboard" spacing="10.0" styleClass="nav-item">
+                    <SVGPath content="M2,12 A10,10 0 1,0 22,12 A10,10 0 1,0 2,12 Z M5,12 A7,7 0 1,0 19,12 A7,7 0 1,0 5,12 Z M8,12 A4,4 0 1,0 16,12 A4,4 0 1,0 8,12 Z" fillRule="EVEN_ODD" scaleX="0.583" scaleY="0.583" styleClass="nav-item-icon" />
+                    <Label styleClass="nav-item-text" text="Dashboard" />
+                </HBox>
+
+                <HBox fx:id="createAnnouncementNavItem" alignment="CENTER_LEFT" spacing="10.0" styleClass="nav-item, nav-item-active">
+                    <SVGPath content="M10,4 L14,4 L14,10 L20,10 L20,14 L14,14 L14,20 L10,20 L10,14 L4,14 L4,10 L10,10 Z" scaleX="0.583" scaleY="0.583" styleClass="nav-item-icon" />
+                    <Label styleClass="nav-item-text" text="Create Announcement" />
+                </HBox>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Button fx:id="signOutButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleSignOut" styleClass="sign-out-btn">
+                <graphic>
+                    <HBox alignment="CENTER_LEFT" spacing="8.0">
+                        <SVGPath content="M16.24,4.93 L19.07,7.76 L14.83,12 L19.07,16.24 L16.24,19.07 L12,14.83 L7.76,19.07 L4.93,16.24 L9.17,12 L4.93,7.76 L7.76,4.93 L12,9.17 Z" scaleX="0.542" scaleY="0.542" styleClass="sign-out-icon" />
+                        <Label styleClass="sign-out-btn-text" text="Sign out" />
+                    </HBox>
+                </graphic>
+            </Button>
+
+        </VBox>
+    </left>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="30.0" left="40.0" right="40.0" top="28.0" />
+            </padding>
+
+            <!-- Header (fisso) -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <VBox spacing="4.0">
+                    <Label styleClass="dashboard-title" text="CREATE ANNOUNCEMENT" />
+                    <Label styleClass="dashboard-subtitle" text="Publish a new job listing for musicians" />
+                </VBox>
+            </HBox>
+
+            <!-- Form (scrollabile) -->
+            <ScrollPane fitToWidth="true" styleClass="instruments-scroll" VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets top="24.0" />
+                </VBox.margin>
+
+                <VBox alignment="TOP_CENTER" spacing="0.0">
+                    <VBox maxWidth="640.0" prefWidth="640.0" spacing="0.0">
+                        <padding>
+                            <Insets bottom="40.0" right="4.0" />
+                        </padding>
+
+                        <VBox styleClass="panel">
+                            <VBox styleClass="panel-top-border, border-promoter" />
+                            <VBox spacing="20.0" styleClass="panel-body">
+                                <padding>
+                                    <Insets bottom="28.0" left="28.0" right="28.0" top="26.0" />
+                                </padding>
+
+                                <!-- Title -->
+                                <VBox spacing="7.0">
+                                    <Label styleClass="field-label" text="TITLE" />
+                                    <TextField fx:id="titleField" maxWidth="1.7976931348623157E308" promptText="e.g. Live band wanted for Saturday night" styleClass="text-field" />
+                                </VBox>
+
+                                <!-- Description -->
+                                <VBox spacing="7.0">
+                                    <Label styleClass="field-label" text="DESCRIPTION" />
+                                    <TextArea fx:id="descriptionField" prefHeight="120.0" promptText="Describe the job, the venue and what you're looking for…" styleClass="text-area" wrapText="true" />
+                                </VBox>
+
+                                <!-- Event date / time -->
+                                <HBox spacing="16.0">
+                                    <VBox spacing="7.0" HBox.hgrow="ALWAYS">
+                                        <Label styleClass="field-label" text="EVENT DATE" />
+                                        <TextField fx:id="eventDateField" maxWidth="1.7976931348623157E308" promptText="yyyy-MM-dd (e.g. 2026-09-20)" styleClass="text-field" />
+                                    </VBox>
+                                    <VBox spacing="7.0" HBox.hgrow="ALWAYS">
+                                        <Label styleClass="field-label" text="EVENT TIME" />
+                                        <TextField fx:id="eventTimeField" maxWidth="1.7976931348623157E308" promptText="HH:mm (e.g. 21:00)" styleClass="text-field" />
+                                    </VBox>
+                                </HBox>
+
+                                <!-- Address -->
+                                <VBox spacing="7.0">
+                                    <Label styleClass="field-label" text="EVENT ADDRESS" />
+                                    <TextField fx:id="addressField" maxWidth="1.7976931348623157E308" promptText="e.g. Via Roma 10, Milan" styleClass="text-field" />
+                                </VBox>
+
+                                <!-- Pay amount / currency -->
+                                <HBox spacing="16.0">
+                                    <VBox spacing="7.0" HBox.hgrow="ALWAYS">
+                                        <Label styleClass="field-label" text="PAY AMOUNT" />
+                                        <TextField fx:id="payAmountField" maxWidth="1.7976931348623157E308" promptText="e.g. 300" styleClass="text-field" />
+                                    </VBox>
+                                    <VBox spacing="7.0" HBox.hgrow="ALWAYS">
+                                        <Label styleClass="field-label" text="CURRENCY" />
+                                        <HBox spacing="12.0">
+                                            <ToggleButton fx:id="currencyEurToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" selected="true" styleClass="gender-toggle" text="EUR" toggleGroup="$currencyToggleGroup" HBox.hgrow="ALWAYS" />
+                                            <ToggleButton fx:id="currencyUsdToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="gender-toggle" text="USD" toggleGroup="$currencyToggleGroup" HBox.hgrow="ALWAYS" />
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+
+                                <!-- Tags -->
+                                <VBox spacing="10.0">
+                                    <Label styleClass="field-label" text="TAGS" />
+                                    <Label styleClass="field-hint" text="Optional, select as many as you like" />
+                                    <HBox spacing="10.0">
+                                        <ToggleButton fx:id="tagLongTimeContractToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="gender-toggle" text="Long Time Contract" HBox.hgrow="ALWAYS" />
+                                        <ToggleButton fx:id="tagNegotiableSalaryToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="gender-toggle" text="Negotiable Salary" HBox.hgrow="ALWAYS" />
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                        <ToggleButton fx:id="tagUrgentToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="gender-toggle" text="Urgent" HBox.hgrow="ALWAYS" />
+                                        <ToggleButton fx:id="tagExpertsOnlyToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="gender-toggle" text="Experts Only" HBox.hgrow="ALWAYS" />
+                                    </HBox>
+                                </VBox>
+
+                                <!-- Azioni -->
+                                <HBox spacing="12.0">
+                                    <VBox.margin>
+                                        <Insets top="6.0" />
+                                    </VBox.margin>
+                                    <Button fx:id="cancelButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleCancel" styleClass="cancel-btn" text="CANCEL" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="publishButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlePublish" styleClass="sign-in-btn, sign-in-btn-promoter" text="PUBLISH ANNOUNCEMENT" HBox.hgrow="ALWAYS" />
+                                </HBox>
+
+                            </VBox>
+                        </VBox>
+
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+
+        </VBox>
+    </center>
+
+</BorderPane>
