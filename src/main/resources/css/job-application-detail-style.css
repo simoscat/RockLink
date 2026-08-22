@@ -17,14 +17,14 @@
 
 .detail-title {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 24px;
+    -fx-font-size: 28px;
     -fx-font-weight: bold;
     -fx-font-family: "Anton", "Arial Black", "Impact", sans-serif;
 }
 
 .application-offer {
     -fx-text-fill: #9a9a9a;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 .divider {
@@ -35,19 +35,19 @@
 
 .detail-section-title {
     -fx-text-fill: #6a6a6a;
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-font-family: "Consolas", "Monaco", monospace;
 }
 
 .applicant-detail-key {
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 
 .applicant-detail-value {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
 
@@ -59,7 +59,7 @@
     -fx-background-radius: 4;
     -fx-border-radius: 4;
     -fx-text-fill: #ff3b30;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-font-weight: bold;
     -fx-padding: 13 0;
     -fx-cursor: hand;

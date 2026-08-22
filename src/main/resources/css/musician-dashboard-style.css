@@ -29,25 +29,25 @@
 
 .avatar-text {
     -fx-text-fill: #ff4d1f;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
 
 .user-name {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-font-weight: bold;
 }
 
 .user-band {
     -fx-text-fill: #ff4d1f;
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
 }
 
 .user-email {
     -fx-text-fill: #7a7a7a;
-    -fx-font-size: 11px;
+    -fx-font-size: 12px;
 }
 
 /* ---------- Navigation ---------- */
@@ -66,13 +66,13 @@
 }
 
 .nav-item-icon {
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-text-fill: #9a9a9a;
     -fx-fill: #9a9a9a;
 }
 
 .nav-item-text {
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-text-fill: #9a9a9a;
 }
@@ -87,7 +87,7 @@
     -fx-background-color: #22c55e;
     -fx-background-radius: 50%;
     -fx-text-fill: #0a1a0f;
-    -fx-font-size: 10px;
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-min-width: 20;
     -fx-min-height: 20;
@@ -108,7 +108,7 @@
 
 .sign-out-btn-text {
     -fx-text-fill: #7a7a7a;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 .sign-out-icon {
@@ -124,14 +124,14 @@
 /* ---------- Header ---------- */
 .dashboard-title {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 26px;
+    -fx-font-size: 30px;
     -fx-font-weight: bold;
     -fx-font-family: "Anton", "Arial Black", "Impact", sans-serif;
 }
 
 .dashboard-subtitle {
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 .icon-button {
@@ -152,13 +152,13 @@
 }
 
 .icon-button-text {
-    -fx-font-size: 15px;
+    -fx-font-size: 18px;
     -fx-text-fill: #f5f2ec;
     -fx-fill: #f5f2ec;
 }
 
 .icon-button-label {
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #f5f2ec;
 }
@@ -177,7 +177,7 @@
 /* ---------- Applications section ---------- */
 .section-count {
     -fx-text-fill: #6a6a6a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-font-family: "Consolas", "Monaco", monospace;
 }
 
@@ -217,17 +217,17 @@
 
 .card-title {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 15px;
+    -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
 
 .card-subtitle {
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 
 .status-badge {
-    -fx-font-size: 10px;
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-font-family: "Consolas", "Monaco", monospace;
     -fx-padding: 4 10;
@@ -256,6 +256,6 @@
 
 .card-applied-date {
     -fx-text-fill: #5a5a5a;
-    -fx-font-size: 10px;
+    -fx-font-size: 12px;
     -fx-font-family: "Consolas", "Monaco", monospace;
 }

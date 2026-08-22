@@ -41,7 +41,7 @@
 
 /* ---------- Stato annuncio (riuso della semantica open/filled/closed) ---------- */
 .job-status-badge {
-    -fx-font-size: 10px;
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-font-family: "Consolas", "Monaco", monospace;
     -fx-padding: 4 10;
@@ -74,5 +74,5 @@
 
 .announcements-empty-state {
     -fx-text-fill: #6a6a6a;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }

@@ -28,6 +28,9 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
         System.out.print("Password: ");
         this.password = scanner.nextLine();
 
+        System.out.print("Stage name: ");
+        this.stageName = scanner.nextLine();
+
         this.instruments = new ArrayList<>();
 
         System.out.print("-- Add your instruments (you must have at least one) --\n");
@@ -95,10 +98,6 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
 
 
         } while (!done);
-
-        System.out.print("Stage name: ");
-        this.stageName = scanner.nextLine().trim();
-
 
         System.out.print("Is this okay? [Y/n]: ");
 

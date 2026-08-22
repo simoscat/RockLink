@@ -16,7 +16,7 @@
     -fx-border-radius: 6;
     -fx-background-radius: 6;
     -fx-text-fill: #cfcfcf;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-padding: 8 14;
     -fx-cursor: hand;
 }
@@ -28,7 +28,7 @@
 
 /* ---------- Role badge (MUSICIAN / PROMOTER pill) ---------- */
 .role-badge {
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-padding: 5 12;
     -fx-background-radius: 4;
@@ -51,7 +51,7 @@
 /* ---------- Page title (es. "SIGN UP") ---------- */
 .page-title {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 44px;
+    -fx-font-size: 51px;
     -fx-font-weight: bold;
     -fx-font-family: "Anton", "Arial Black", "Impact", sans-serif;
 }
@@ -64,7 +64,7 @@
     -fx-border-radius: 4;
     -fx-background-radius: 4;
     -fx-text-fill: #9a9a9a;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-padding: 10 0;
     -fx-cursor: hand;
@@ -155,7 +155,7 @@
     -fx-border-radius: 4;
     -fx-background-radius: 4;
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-padding: 7 0;
     -fx-cursor: hand;
@@ -180,7 +180,7 @@
     -fx-border-radius: 6;
     -fx-background-radius: 6;
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-padding: 10 0;
     -fx-cursor: hand;

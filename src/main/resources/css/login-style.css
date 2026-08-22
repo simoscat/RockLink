@@ -35,13 +35,13 @@
 .logo-icon-text {
     -fx-text-fill: white;
     -fx-fill: white;
-    -fx-font-size: 16px;
+    -fx-font-size: 19px;
     -fx-font-weight: bold;
 }
 
 .logo-text {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 25px;
+    -fx-font-size: 29px;
     -fx-font-weight: bold;
     -fx-font-family: "Rockout", "Arial Black", "Impact", sans-serif;
 }
@@ -53,14 +53,14 @@
 
 .welcome-title {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 58px;
+    -fx-font-size: 67px;
     -fx-font-weight: bold;
     -fx-font-family: "Anton";
 }
 
 .welcome-subtitle {
     -fx-text-fill: #9a9a9a;
-    -fx-font-size: 16px;
+    -fx-font-size: 19px;
 }
 
 /* ---------- Panels (Musician / Promoter cards) ---------- */
@@ -111,7 +111,7 @@
 }
 
 .icon-box-text {
-    -fx-font-size: 18px;
+    -fx-font-size: 21px;
 }
 
 .icon-text-musician {
@@ -127,13 +127,13 @@
 /* ---------- Panel titles ---------- */
 .panel-title {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 19px;
+    -fx-font-size: 22px;
     -fx-font-weight: bold;
     -fx-font-family: "JetBrains Mono NL", "Arial Black", "Impact", sans-serif;
 }
 
 .panel-subtitle {
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 
 .subtitle-musician {
@@ -147,7 +147,7 @@
 /* ---------- Form fields ---------- */
 .field-label {
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
 }
 
@@ -160,7 +160,7 @@
     -fx-border-radius: 4;
     -fx-background-radius: 4;
     -fx-padding: 10 12;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 .text-field:focused {
@@ -169,7 +169,7 @@
 
 .forgot-link {
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-cursor: hand;
     -fx-underline: false;
 }
@@ -182,7 +182,7 @@
 .sign-in-btn {
     -fx-background-radius: 4;
     -fx-padding: 13 0;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-font-weight: bold;
     -fx-cursor: hand;
 }
@@ -216,7 +216,7 @@
 /* ---------- Sign up section ---------- */
 .no-account-text {
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
 }
 
 .signup-btn {
@@ -245,19 +245,19 @@
 }
 
 .signup-btn-icon {
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 .signup-btn-text-musician {
     -fx-text-fill: #ff4d1f;
     -fx-font-weight: bold;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 .signup-btn-text-promoter {
     -fx-text-fill: #ffd400;
     -fx-font-weight: bold;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 /* ---------- Footer ---------- */
@@ -267,5 +267,5 @@
 
 .footer-text {
     -fx-text-fill: #555555;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }

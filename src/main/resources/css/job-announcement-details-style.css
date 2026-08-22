@@ -19,7 +19,7 @@
 
 .detail-title {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 28px;
+    -fx-font-size: 33px;
     -fx-font-weight: bold;
     -fx-font-family: "Anton", "Arial Black", "Impact", sans-serif;
 }
@@ -30,19 +30,19 @@
 
 .detail-text {
     -fx-text-fill: #9a9a9a;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 .detail-pay {
     -fx-text-fill: #f0b429;
-    -fx-font-size: 20px;
+    -fx-font-size: 23px;
     -fx-font-weight: bold;
     -fx-font-family: "Consolas", "Monaco", monospace;
 }
 
 .detail-hint {
     -fx-text-fill: #6a6a6a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 
 .hired-artist-badge {
@@ -53,7 +53,7 @@
     -fx-border-radius: 4;
     -fx-padding: 4 10;
     -fx-text-fill: #2dd4a7;
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
 }
 
@@ -65,31 +65,31 @@
 
 .detail-section-title {
     -fx-text-fill: #6a6a6a;
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-font-family: "Consolas", "Monaco", monospace;
 }
 
 .detail-content {
     -fx-text-fill: #cfcfcf;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-line-spacing: 3;
 }
 
 .detail-value {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-font-weight: bold;
 }
 
 .contact-row {
     -fx-text-fill: #9a9a9a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 
 /* ---------- Stato annuncio (riuso della semantica open/filled/closed) ---------- */
 .job-status-badge {
-    -fx-font-size: 10px;
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-font-family: "Consolas", "Monaco", monospace;
     -fx-padding: 4 10;
@@ -134,7 +134,7 @@
     -fx-border-radius: 4;
     -fx-background-radius: 4;
     -fx-text-fill: #ffffff;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-font-weight: bold;
     -fx-padding: 13 0;
     -fx-cursor: hand;

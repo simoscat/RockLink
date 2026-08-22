@@ -14,7 +14,7 @@
 
 .applications-empty-state {
     -fx-text-fill: #6a6a6a;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 .accent-announcement {
@@ -23,18 +23,18 @@
 
 .applicant-name {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 15px;
+    -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
 
 .applicant-email {
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 
 .applicant-offer {
     -fx-text-fill: #f0b429;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-font-family: "Consolas", "Monaco", monospace;
 }
 
@@ -46,7 +46,7 @@
     -fx-border-radius: 4;
     -fx-background-radius: 4;
     -fx-text-fill: #9a9a9a;
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-padding: 7 12;
     -fx-cursor: hand;

@@ -17,7 +17,7 @@
     -fx-border-radius: 6;
     -fx-background-radius: 6;
     -fx-text-fill: #9a9a9a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-padding: 8 18;
     -fx-cursor: hand;
@@ -57,13 +57,13 @@
 
 .job-title {
     -fx-text-fill: #f5f2ec;
-    -fx-font-size: 17px;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
 }
 
 .job-tags {
     -fx-text-fill: #8a8a8a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 
 .job-meta-icon {
@@ -72,12 +72,12 @@
 
 .job-meta-text {
     -fx-text-fill: #9a9a9a;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 
 .job-price {
     -fx-text-fill: #f0b429;
-    -fx-font-size: 17px;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-font-family: "Consolas", "Monaco", monospace;
 }
@@ -87,7 +87,7 @@
 }
 
 .job-status-badge {
-    -fx-font-size: 10px;
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-font-family: "Consolas", "Monaco", monospace;
     -fx-padding: 4 10;
@@ -116,7 +116,7 @@
 
 .jobs-empty-state {
     -fx-text-fill: #6a6a6a;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 /* ---------- Floating help button ---------- */
@@ -140,6 +140,6 @@
 
 .help-button-text {
     -fx-text-fill: #9a9a9a;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-font-weight: bold;
 }
