@@ -1,0 +1,17 @@
+[{
+    "instruments": [
+        {
+            "name": "Electric guitar",
+            "mastery": "MASTER"
+        },
+        {
+            "name": "Piano",
+            "mastery": "BEGINNER"
+        },
+        {
+            "name": "Battery",
+            "mastery": "EXPERIENCED"
+        }
+    ],
+    "email": "john@doe.com"
+}]

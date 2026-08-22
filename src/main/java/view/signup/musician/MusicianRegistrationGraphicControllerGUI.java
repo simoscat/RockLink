@@ -25,7 +25,6 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
         super(n);
     }
 
-    @Override
     public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
         this.navigatorGUI = navigatorGUI;
     }

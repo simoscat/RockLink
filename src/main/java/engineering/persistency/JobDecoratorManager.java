@@ -2,12 +2,14 @@ package engineering.persistency;
 
 import engineering.enums.JobAnnouncementTag;
 import model.JobAnnouncement;
-import model.jobAnnouncementDecorators.*;
+import model.jobannouncementdecorators.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public final class JobDecoratorManager {
+
+    private JobDecoratorManager() {}
 
     public static JobAnnouncement applyDecorators(JobAnnouncement a, List<JobAnnouncementTag> tags){
         if (tags == null || tags.isEmpty()) return a;

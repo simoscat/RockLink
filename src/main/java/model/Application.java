@@ -9,12 +9,12 @@ public abstract class Application {
     //when application is instantiated for the first time it's considered pending
     //this removes the controller responsibility to initialize the value of the status
 
-    public Application(Artist artist, ApplicationStatus s) {
+    protected Application(Artist artist, ApplicationStatus s) {
         this.artist = artist;
         this.status = s;
     }
 
-    public Application(Artist artist){
+    protected Application(Artist artist){
         this.artist = artist;
     }
 

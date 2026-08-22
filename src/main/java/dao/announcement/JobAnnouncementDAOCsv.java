@@ -12,11 +12,10 @@ import model.ConcreteJobAnnouncement;
 import model.JobAnnouncement;
 import model.MoneyValue;
 import model.Promoter;
-import model.jobAnnouncementDecorators.*;
+import model.jobannouncementdecorators.*;
 
 import java.io.*;
 import java.math.BigDecimal;
-import java.nio.Buffer;
 import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
     private static final String CSV_SEPARATOR = ",";
     private static final String LIST_SEPARATOR = ";";
-    private final String PATH;
+    private final String path;
 
     private static final String URGENT = "URGENT";
     private static final String EXPERTS_ONLY = "EXPERTS_ONLY";
@@ -41,7 +40,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
         try(InputStream is = new FileInputStream("config.properties")){
             Properties prop = new Properties();
             prop.load(is);
-            PATH = prop.getProperty("csv.path") + "job_announcements.csv";
+            path = prop.getProperty("csv.path") + "job_announcements.csv";
         } catch (FileNotFoundException e) {
             throw new DAOException("Couldn't find properties file", e);
         } catch (IOException e) {
@@ -49,16 +48,16 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
         }
 
         try {
-            CsvManager.initCsvFile(this.PATH);
+            CsvManager.initCsvFile(this.path);
         } catch (IOException e) {
-            throw new DAOException("Can't initialize csv file " + this.PATH, e);
+            throw new DAOException("Can't initialize csv file " + this.path, e);
         }
     }
 
     @Override
     protected List<JobAnnouncement> retrieveAllPromoterAnnouncementsFromEmail(String email) {
 
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         List<JobAnnouncement> jobAnnouncements = new ArrayList<>();
 
         try(BufferedReader reader = Files.newBufferedReader(file.toPath())){
@@ -86,7 +85,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
     @Override
     public JobAnnouncement retrieveJobAnnouncementById(String id) {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -104,17 +103,13 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
     @Override
     public String getUniqueId(JobAnnouncement job) {
-//        return job.getPublisher().getEmail() + "~" +
-//                job.getTitle().replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9_]", "") + "~" +
-//                job.getAnnouncementPublishDate().toString();
-
         return job.getPublisher().getEmail() + "~" + job.getAnnouncementPublishDate().toString();
     }
 
     @Override
     protected List<JobAnnouncement> retrieveAllJobAnnouncements() {
         List<JobAnnouncement> announcements = new ArrayList<>();
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -136,7 +131,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
         boolean found = false;
         String id = getUniqueId(obj);
 
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -150,7 +145,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
                 }
             }
         } catch (IOException e) {
-            throw new DAOException("Couldn't read csv file " + this.PATH, e);
+            throw new DAOException("Couldn't read csv file " + this.path, e);
         }
 
         if (!found) {
@@ -189,9 +184,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
 
 
-        JobAnnouncement decoratedJob = JobDecoratorManager.applyDecorators(job, getTagList(decorators));
-
-        return decoratedJob;
+        return JobDecoratorManager.applyDecorators(job, getTagList(decorators));
 
     }
 
@@ -264,6 +257,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
                 case LONG_TIME_CONTRACT -> tags.add(JobAnnouncementTag.LONG_TIME_CONTRACT);
                 case NEGOTIABLE_SALARY ->  tags.add(JobAnnouncementTag.NEGOTIABLE_SALARY);
                 case URGENT ->  tags.add(JobAnnouncementTag.URGENT);
+                default -> { }
 
             }
 

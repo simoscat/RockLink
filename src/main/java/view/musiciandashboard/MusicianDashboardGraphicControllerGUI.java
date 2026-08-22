@@ -24,6 +24,7 @@ import java.util.Locale;
 public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGraphicController implements GUIGraphicController {
 
     private static final DateTimeFormatter EVENT_DATE_FORMAT = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
+    private static final String NOT_IMPLEMENTED_YET_MESSAGE = "Not implemented yet";
 
     private NavigatorGUI navigatorGUI;
 
@@ -215,27 +216,27 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
 
     @FXML
     private void handleDiscoverBands(){
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleMyBands(){
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleProfile(){
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleSettings(){
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleNotifications(){
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML

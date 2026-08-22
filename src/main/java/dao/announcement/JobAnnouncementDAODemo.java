@@ -8,8 +8,8 @@ import exception.DAOException;
 import model.ConcreteJobAnnouncement;
 import model.JobAnnouncement;
 import model.MoneyValue;
-import model.jobAnnouncementDecorators.ExpertsOnlyDecoratorJob;
-import model.jobAnnouncementDecorators.UrgentJobAnnouncementDecorator;
+import model.jobannouncementdecorators.ExpertsOnlyDecoratorJob;
+import model.jobannouncementdecorators.UrgentJobAnnouncementDecorator;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -93,9 +93,6 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
 
     @Override
     public String getUniqueId(JobAnnouncement job) {
-//        return job.getPublisher().getEmail() + "~" +
-//                job.getTitle().replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9_]", "") + "~" +
-//                job.getAnnouncementPublishDate().toString();
 
         return job.getPublisher().getEmail() + "~" + job.getAnnouncementPublishDate().toString();
 
@@ -129,11 +126,5 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
             jobAnnouncements.add(obj);
         }
 
-    }
-
-
-
-    private String uniformTitle(String title){
-        return title.replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9]", "");
     }
 }

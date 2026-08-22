@@ -1,6 +1,5 @@
 package dao.auth;
 
-import dao.factories.DAOFactory;
 import engineering.EmailChecker;
 import exception.DAOException;
 import model.Credential;

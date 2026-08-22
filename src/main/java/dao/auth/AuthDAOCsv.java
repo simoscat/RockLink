@@ -12,8 +12,8 @@ import java.util.Properties;
 
 public class AuthDAOCsv extends AuthDAO {
 
-    private final String MUSICIANS_PATH;
-    private final String PROMOTERS_PATH;
+    private final String musiciansPath;
+    private final String promotersPath;
     private static final String CSV_SEPARATOR = ",";
     private static final int NUM_FIELDS = 2;
 
@@ -30,8 +30,8 @@ public class AuthDAOCsv extends AuthDAO {
 
             prop.load(is);
 
-            MUSICIANS_PATH = prop.getProperty("csv.path") + "musicians_creds.csv";
-            PROMOTERS_PATH = prop.getProperty("csv.path") + "promoters_creds.csv";
+            musiciansPath = prop.getProperty("csv.path") + "musicians_creds.csv";
+            promotersPath = prop.getProperty("csv.path") + "promoters_creds.csv";
 
         } catch (FileNotFoundException e) {
             throw new DAOException("Couldn't find properties file", e);
@@ -40,23 +40,23 @@ public class AuthDAOCsv extends AuthDAO {
         }
 
         try {
-            CsvManager.initCsvFile(MUSICIANS_PATH);
+            CsvManager.initCsvFile(musiciansPath);
         } catch (IOException e) {
-            throw new DAOException("Can't initialize csv file " + MUSICIANS_PATH, e);
+            throw new DAOException("Can't initialize csv file " + musiciansPath, e);
         }
 
         try {
-            CsvManager.initCsvFile(PROMOTERS_PATH);
+            CsvManager.initCsvFile(promotersPath);
         } catch (IOException e) {
-            throw new DAOException("Can't initialize csv file " + PROMOTERS_PATH, e);
+            throw new DAOException("Can't initialize csv file " + promotersPath, e);
         }
 
     }
     @Override
     public Credential getMusicianCredential(String email) throws DAOException {
 
-        if (getUserCredential(email, MUSICIANS_PATH) != null) {
-            return getUserCredential(email, MUSICIANS_PATH);
+        if (getUserCredential(email, musiciansPath) != null) {
+            return getUserCredential(email, musiciansPath);
         }
 
         throw new DAOException("Couldn't find musician credentials: " + email);
@@ -65,8 +65,8 @@ public class AuthDAOCsv extends AuthDAO {
 
     @Override
     public Credential getPromoterCredential(String email) throws DAOException {
-        if (getUserCredential(email, PROMOTERS_PATH) != null) {
-            return getUserCredential(email, PROMOTERS_PATH);
+        if (getUserCredential(email, promotersPath) != null) {
+            return getUserCredential(email, promotersPath);
         }
 
         throw new DAOException("Couldn't find promoter credentials: " + email);
@@ -116,25 +116,25 @@ public class AuthDAOCsv extends AuthDAO {
 
     @Override
     public void registerMusician(Credential credential) throws DAOException {
-        registerUser(credential, MUSICIANS_PATH);
+        registerUser(credential, musiciansPath);
     }
 
     @Override
     public void registerPromoter(Credential credential) throws DAOException {
-        registerUser(credential, PROMOTERS_PATH);
+        registerUser(credential, promotersPath);
     }
 
     @Override
     public boolean isMusicianAlreadyRegistered(String email) {
 
-        return getUserCredential(email, MUSICIANS_PATH) != null;
+        return getUserCredential(email, musiciansPath) != null;
 
     }
 
     @Override
     public boolean isPromoterAlreadyRegistered(String email) {
 
-        return getUserCredential(email, PROMOTERS_PATH) != null;
+        return getUserCredential(email, promotersPath) != null;
 
     }
 

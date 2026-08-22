@@ -5,6 +5,7 @@ import controller.ManageJobApplicationsController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class MusicianDashboardGraphicController {
@@ -13,7 +14,7 @@ public abstract class MusicianDashboardGraphicController {
 
     protected Navigator navigator;
 
-    public MusicianDashboardGraphicController(Navigator navigator) {
+    protected MusicianDashboardGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 
@@ -24,16 +25,16 @@ public abstract class MusicianDashboardGraphicController {
                     navigator.getSession())
             );
 
-            return navigator.getJobApplications();
-
         } catch (ControllerLogicException e) {
             showError(e.getMessage());
+            navigator.setJobApplications(new ArrayList<>());
         }
         catch (RuntimeException e) {
             showError("Internal error: "+e.getMessage());
+            navigator.setJobApplications(new ArrayList<>());
         }
 
-        return null;
+        return navigator.getJobApplications();
 
     }
 

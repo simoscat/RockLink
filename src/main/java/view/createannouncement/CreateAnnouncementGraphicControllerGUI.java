@@ -22,6 +22,7 @@ import view.NavigatorGUI;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +30,6 @@ import java.util.Locale;
 
 public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGraphicController implements GUIGraphicController {
 
-    private NavigatorGUI navigatorGUI;
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
-    }
 
     private Parent view;
     @Override
@@ -226,14 +222,14 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
         try {
             LocalDateTime eventDateTime = LocalDateTime.parse(date + "T" + time);
 
-            if (eventDateTime.isBefore(LocalDateTime.now())) {
+            if (eventDateTime.isBefore(LocalDateTime.now(ZoneId.systemDefault()))) {
                 showError("The date and time cannot be in the past.");
                 return null;
             }
 
             return eventDateTime;
 
-        } catch (DateTimeParseException e) {
+        } catch (DateTimeParseException _) {
             showError("Invalid date/time. Use yyyy-MM-dd for the date and HH:mm for the time.");
             return null;
         }
@@ -244,7 +240,7 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
 
         try {
             amount = new BigDecimal(payAmountField.getText().trim());
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException _) {
             showError("Please enter a valid pay amount.");
             return null;
         }

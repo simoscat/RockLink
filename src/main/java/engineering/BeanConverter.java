@@ -5,11 +5,12 @@ import engineering.enums.*;
 import engineering.persistency.JobDecoratorManager;
 import model.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public final class BeanConverter {
+
+    private BeanConverter() {}
 
     public static JobApplication fromBeanToJobApplication(JobApplicationBean jobApplicationBean) {
 

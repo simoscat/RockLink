@@ -1,17 +1,18 @@
 package engineering;
 
-import java.util.Objects;
 
 public final class PasswordEncrypter {
 
+    private PasswordEncrypter() {}
+
     public static String encryptPassword(String password){
-        String encryptedPassword = "";
+        StringBuilder encryptedPassword = new StringBuilder();
 
         for (int i = 0; i < password.length(); i++) {
-            encryptedPassword = encryptedPassword + password.charAt(password.length() -i -1);
+            encryptedPassword.append(password.charAt(password.length() -i -1));
         }
 
-        return encryptedPassword;
+        return encryptedPassword.toString();
     }
 
     public static boolean checkPassword(String currentPassword, String encryptedPassword){

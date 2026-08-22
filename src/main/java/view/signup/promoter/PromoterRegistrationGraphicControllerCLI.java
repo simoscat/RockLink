@@ -1,13 +1,8 @@
 package view.signup.promoter;
 
-import bean.PromoterBean;
-import bean.SessionBean;
-import engineering.enums.Screen;
-import exception.ControllerLogicException;
 import view.Navigator;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class PromoterRegistrationGraphicControllerCLI extends PromoterRegistrationGraphicController {

@@ -1,9 +1,7 @@
 package bean;
 
-import engineering.enums.JobAnnouncementStatus;
 import engineering.enums.JobAnnouncementTag;
 import model.Artist;
-import model.MoneyValue;
 
 import java.time.LocalDateTime;
 import java.util.List;

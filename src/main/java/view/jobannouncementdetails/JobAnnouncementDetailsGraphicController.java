@@ -10,11 +10,13 @@ import java.math.BigDecimal;
 //TODO
 public abstract class JobAnnouncementDetailsGraphicController {
 
+    private static final String INTERNAL_ERROR_PREFIX = "Internal error: ";
+
     protected Navigator navigator;
 
     protected ManageJobApplicationsController jobAppController = new ManageJobApplicationsController();
 
-    public JobAnnouncementDetailsGraphicController(Navigator navigator) {
+    protected JobAnnouncementDetailsGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 
@@ -65,7 +67,7 @@ public abstract class JobAnnouncementDetailsGraphicController {
             start();
         }
         catch (RuntimeException e){
-            showError("Internal error: "+e.getMessage());
+            showError(INTERNAL_ERROR_PREFIX+e.getMessage());
             start();
         }
     }
@@ -93,7 +95,7 @@ public abstract class JobAnnouncementDetailsGraphicController {
             start();
         }
         catch(RuntimeException e){
-            showError("Internal error: "+e.getMessage());
+            showError(INTERNAL_ERROR_PREFIX+e.getMessage());
             start();
         }
 
@@ -127,7 +129,7 @@ public abstract class JobAnnouncementDetailsGraphicController {
             showError(e.getMessage());
         }
         catch (RuntimeException e){
-            showError("Internal error: "+e.getMessage());
+            showError(INTERNAL_ERROR_PREFIX+e.getMessage());
         }
 
         start();

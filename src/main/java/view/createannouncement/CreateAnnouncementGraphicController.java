@@ -9,7 +9,7 @@ public abstract class CreateAnnouncementGraphicController {
 
     protected Navigator navigator;
 
-    public CreateAnnouncementGraphicController(Navigator navigator) {
+    protected CreateAnnouncementGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 

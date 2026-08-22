@@ -1,14 +1,6 @@
 package view.signup.musician;
 
 import bean.InstrumentBean;
-import bean.MusicianBean;
-import bean.PromoterBean;
-import bean.SessionBean;
-import controller.LoginController;
-import engineering.EmailChecker;
-import engineering.PasswordChecker;
-import engineering.enums.Screen;
-import exception.ControllerLogicException;
 import view.Navigator;
 
 import java.util.*;
@@ -105,7 +97,7 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
         } while (!done);
 
         System.out.print("Stage name: ");
-        String stageName = scanner.nextLine().trim();
+        this.stageName = scanner.nextLine().trim();
 
 
         System.out.print("Is this okay? [Y/n]: ");

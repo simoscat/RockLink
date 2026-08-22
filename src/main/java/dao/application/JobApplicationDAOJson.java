@@ -21,13 +21,15 @@ import java.util.Properties;
 
 public class JobApplicationDAOJson extends JobApplicationDAO {
 
-    private final String PATH;
+    private final String path;
+    private static final String ANNOUNCEMENT_ID_FIELD = "announcementId";
+    private static final String CANDIDATE_EMAIL_FIELD = "candidateEmail";
 
     public JobApplicationDAOJson() {
         try(InputStream is = new FileInputStream("config.properties")){
             Properties prop = new Properties();
             prop.load(is);
-            PATH = prop.getProperty("json.path") + "job_applications.json";
+            path = prop.getProperty("json.path") + "job_applications.json";
         } catch (FileNotFoundException e) {
             throw new DAOException("Couldn't find properties file", e);
         } catch (IOException e) {
@@ -44,7 +46,7 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
 
             JSONObject obj = applications.getJSONObject(i);
             if (obj.getString("email").equals(candidateEmail) &&
-            obj.getString("announcementId").equals(jobAnnouncementDAO.getUniqueId(jobAnnouncement))) {
+            obj.getString(ANNOUNCEMENT_ID_FIELD).equals(jobAnnouncementDAO.getUniqueId(jobAnnouncement))) {
                 return parseJson(obj);
             }
 
@@ -59,7 +61,7 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
 
         for (int i = 0; i < applications.length(); i++) {
             JSONObject obj = applications.getJSONObject(i);
-            if (obj.getString("candidateEmail").equals(email)) {
+            if (obj.getString(CANDIDATE_EMAIL_FIELD).equals(email)) {
                 result.add(parseJson(obj));
             }
         }
@@ -79,7 +81,7 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
 
             JSONObject json = applications.getJSONObject(i);
 
-            if (json.getString("announcementId").equals(announcementId)) {
+            if (json.getString(ANNOUNCEMENT_ID_FIELD).equals(announcementId)) {
                 result.add(parseJson(json));
             }
         }
@@ -99,8 +101,8 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
 
         for (int i = 0; i < applications.length(); i++) {
             JSONObject json = applications.getJSONObject(i);
-            if (json.getString("announcementId").equals(announcementId) &&
-            json.getString("candidateEmail").equals(candidateEmail)) {
+            if (json.getString(ANNOUNCEMENT_ID_FIELD).equals(announcementId) &&
+            json.getString(CANDIDATE_EMAIL_FIELD).equals(candidateEmail)) {
                 applications.put(i, toJson(obj));
                 found = true;
                 break;
@@ -115,8 +117,8 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
     }
 
     private JobApplication parseJson(JSONObject obj) {
-        String announcementId = obj.getString("announcementId");
-        String candidateEmail = obj.getString("candidateEmail");
+        String announcementId = obj.getString(ANNOUNCEMENT_ID_FIELD);
+        String candidateEmail = obj.getString(CANDIDATE_EMAIL_FIELD);
         ApplicationStatus status = ApplicationStatus.valueOf(obj.getString("status"));
         BigDecimal raiseOffer = obj.getBigDecimal("raiseOffer");
 
@@ -135,15 +137,15 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
 
     private JSONObject toJson(JobApplication jobApp) {
         JSONObject obj = new JSONObject();
-        obj.put("announcementId", jobAnnouncementDAO.getUniqueId(jobApp.whichJobAnnouncement()));
-        obj.put("candidateEmail", jobApp.whoIsCandidate().getEmail());
+        obj.put(ANNOUNCEMENT_ID_FIELD, jobAnnouncementDAO.getUniqueId(jobApp.whichJobAnnouncement()));
+        obj.put(CANDIDATE_EMAIL_FIELD, jobApp.whoIsCandidate().getEmail());
         obj.put("status", jobApp.currentApplicationStatus().name());
         obj.put("raiseOffer", jobApp.currentRaiseAmount() != null ? jobApp.currentRaiseAmount() : BigDecimal.ZERO);
         return obj;
     }
 
     private JSONArray readJsonFile() {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         if (!file.exists()) {
             return new JSONArray();
         }
@@ -153,24 +155,21 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
             if (content.isBlank()) return new JSONArray();
             return new JSONArray(content);
         } catch (IOException e) {
-            throw new DAOException("Error reading json file " + this.PATH, e);
+            throw new DAOException("Error reading json file " + this.path, e);
         }
     }
 
     private void writeJsonFile(JSONArray array) {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         File parentDir = file.getParentFile();
-        if (parentDir != null && !parentDir.exists()) {
-
-            if (!parentDir.mkdirs()){
-                throw new DAOException("Couldn't create parent directory " + parentDir.getAbsolutePath());
-            }
+        if (parentDir != null && !parentDir.exists() && !parentDir.mkdirs()) {
+            throw new DAOException("Couldn't create parent directory " + parentDir.getAbsolutePath());
         }
 
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(array.toString(4));
         } catch (IOException e) {
-            throw new DAOException("Error writing json file " + this.PATH, e);
+            throw new DAOException("Error writing json file " + this.path, e);
         }
     }
 

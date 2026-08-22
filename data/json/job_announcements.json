@@ -1,13 +1,44 @@
-[{
-    "date": "2026-08-22T18:00",
-    "address": "Via San Biagio Platani 36, Roma RM",
-    "promoterEmail": "ele@gmail.com",
-    "salaryAmount": 1,
-    "publishDate": "2026-08-22T15:44:26.506102074",
-    "currency": "EUR",
-    "id": "ele@gmail.com~2026-08-22T15:44:26.506102074",
-    "title": "[Long Time Contract] [Urgent] cerco una persona che mi accompagni a fare la spesa",
-    "content": "cerco una persona che mi accompagni a fare la spesa alla lidl\n- automunita\n- possibilmente gratuita",
-    "status": "CLOSED",
-    "tags": []
-}]
+[
+    {
+        "date": "2026-08-22T18:00",
+        "address": "Via San Biagio Platani 36, Roma RM",
+        "promoterEmail": "ele@gmail.com",
+        "salaryAmount": 1,
+        "publishDate": "2026-08-22T15:44:26.506102074",
+        "currency": "EUR",
+        "id": "ele@gmail.com~2026-08-22T15:44:26.506102074",
+        "title": "[Long Time Contract] [Urgent] cerco una persona che mi accompagni a fare la spesa",
+        "content": "cerco una persona che mi accompagni a fare la spesa alla lidl\n- automunita\n- possibilmente gratuita",
+        "status": "CLOSED",
+        "tags": []
+    },
+    {
+        "date": "2026-12-10T20:45",
+        "address": "Via Mario Rossi 12, Roma RM",
+        "promoterEmail": "promoter@libero.it",
+        "salaryAmount": 100,
+        "publishDate": "2026-08-22T17:48:42.153359067",
+        "currency": "EUR",
+        "id": "promoter@libero.it~2026-08-22T17:48:42.153359067",
+        "title": "Looking for guitarist for live performance in Capannelle",
+        "content": "Hello",
+        "status": "OPEN",
+        "tags": [
+            "NEGOTIABLE_SALARY",
+            "URGENT"
+        ]
+    },
+    {
+        "date": "2026-12-10T20:45",
+        "address": "Via Mario Rossi 12, Roma RM",
+        "promoterEmail": "promoter@libero.it",
+        "salaryAmount": 100,
+        "publishDate": "2026-08-22T17:54:00.580295361",
+        "currency": "EUR",
+        "id": "promoter@libero.it~2026-08-22T17:54:00.580295361",
+        "title": "[Negotiable Salary] [Urgent] Looking for guitarist for live performance in Capannelle",
+        "content": "Hello",
+        "status": "OPEN",
+        "tags": []
+    }
+]

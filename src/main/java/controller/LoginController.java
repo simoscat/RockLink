@@ -6,7 +6,6 @@ import bean.PromoterBean;
 import bean.SessionBean;
 import dao.auth.AuthDAO;
 import dao.factories.DAOFactory;
-import dao.instrument.InstrumentDAO;
 import dao.musician.MusicianDAO;
 import dao.promoter.PromoterDAO;
 import engineering.PasswordChecker;
@@ -66,7 +65,7 @@ public class LoginController {
                 throw new ControllerLogicException("Login failed");
             }
         }
-        catch (DAOException e){
+        catch (DAOException _) {
             throw new WrongCredentialsException("Invalid musician credentials");
         }
 
@@ -96,7 +95,7 @@ public class LoginController {
                 throw new ControllerLogicException("Login failed");
             }
         }
-        catch (DAOException e){
+        catch (DAOException _) {
             throw new WrongCredentialsException("Invalid promoter credentials");
         }
 
@@ -131,7 +130,7 @@ public class LoginController {
 
         }
 
-        catch (DAOException e){
+        catch (DAOException _) {
             throw new ControllerLogicException("Registration failed");
         }
 
@@ -162,7 +161,7 @@ public class LoginController {
             return this.promoterLogin(promoter);
 
         }
-        catch (DAOException e){
+        catch (DAOException _) {
 
             throw new ControllerLogicException("Registration failed");
 
@@ -196,7 +195,7 @@ public class LoginController {
         try {
             musicianDAO.save(m);
         }
-        catch(DAOException e){
+        catch (DAOException _) {
             throw new ControllerLogicException("Musician saving failed. Please contact support.");
         }
 
@@ -215,7 +214,7 @@ public class LoginController {
         try {
             promoterDAO.save(p);
         }
-        catch(DAOException e){
+        catch (DAOException _) {
             throw new ControllerLogicException("Promoter saving failed. Please contact support.");
         }
 

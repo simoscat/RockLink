@@ -5,13 +5,10 @@ import bean.PromoterBean;
 import bean.SessionBean;
 import controller.LoginController;
 import engineering.enums.Role;
-import engineering.enums.Screen;
 import exception.ControllerLogicException;
-import exception.DAOException;
 import exception.WrongCredentialsException;
 import view.Navigator;
 
-import java.util.Scanner;
 
 public abstract class LoginGraphicController {
 

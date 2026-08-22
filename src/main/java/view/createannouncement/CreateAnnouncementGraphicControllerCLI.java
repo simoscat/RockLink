@@ -8,12 +8,16 @@ import view.Navigator;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGraphicController{
+
+    private static final Pattern WHITESPACE_PATTERN = Pattern.compile("\\s+");
 
     Scanner scanner = new Scanner(System.in);
 
@@ -86,43 +90,46 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
 
             System.out.print("> ");
 
-            String[] choices = scanner.nextLine().trim().split("\\s+");
-
-            List<JobAnnouncementTag> tags = new ArrayList<>();
+            String[] choices = WHITESPACE_PATTERN.split(scanner.nextLine().trim());
 
             if (choices.length == 0 || (choices.length == 1 && choices[0].isEmpty())) {
-                return tags;
+                return new ArrayList<>();
             }
 
-            boolean valid = true;
+            List<JobAnnouncementTag> tags = parseTagsChoices(choices, availableTags);
 
-            for (String choice : choices) {
-
-                try {
-                    int index = Integer.parseInt(choice) - 1;
-
-                    if (index < 0 || index >= availableTags.length) {
-                        showError("Invalid tag: " + choice);
-                        valid = false;
-                        break;
-                    }
-
-                    tags.add(availableTags[index]);
-
-                } catch (NumberFormatException ignored) {
-                    showError("Invalid tag: " + choice);
-                    valid = false;
-                    break;
-                }
-
-            }
-
-            if (valid) {
+            if (tags != null) {
                 return tags;
             }
 
         }
 
+    }
+
+    private List<JobAnnouncementTag> parseTagsChoices(String[] choices, JobAnnouncementTag[] availableTags) {
+
+        List<JobAnnouncementTag> tags = new ArrayList<>();
+
+        for (String choice : choices) {
+
+            try {
+                int index = Integer.parseInt(choice) - 1;
+
+                if (index < 0 || index >= availableTags.length) {
+                    showError("Invalid tag: " + choice);
+                    return null;
+                }
+
+                tags.add(availableTags[index]);
+
+            } catch (NumberFormatException _) {
+                showError("Invalid tag: " + choice);
+                return null;
+            }
+
+        }
+
+        return tags;
     }
 
     private MoneyValueBean readMoneyValue() {
@@ -175,13 +182,13 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
 
                 LocalDateTime dateTime = LocalDateTime.parse(date + "T" + time);
 
-                if (dateTime.isBefore(LocalDateTime.now())) {
+                if (dateTime.isBefore(LocalDateTime.now(ZoneId.systemDefault()))) {
                     showError("The date and time cannot be in the past");
                 } else {
                     return dateTime;
                 }
 
-            } catch (DateTimeParseException e) {
+            } catch (DateTimeParseException _) {
                 showError("Invalid date and time format");
             }
         }

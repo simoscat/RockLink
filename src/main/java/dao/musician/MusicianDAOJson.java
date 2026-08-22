@@ -19,14 +19,15 @@ import java.util.Properties;
 
 public class MusicianDAOJson extends MusicianDAO {
 
-    private final String PATH;
+    private final String path;
     private final InstrumentDAO instrumentDAO;
+    private static final String EMAIL_FIELD = "email";
 
     public MusicianDAOJson() {
         try(InputStream is = new FileInputStream("config.properties")){
             Properties prop = new Properties();
             prop.load(is);
-            PATH = prop.getProperty("json.path") + "musicians.json";
+            path = prop.getProperty("json.path") + "musicians.json";
         } catch (FileNotFoundException e) {
             throw new DAOException("Couldn't find properties file", e);
         } catch (IOException e) {
@@ -41,7 +42,7 @@ public class MusicianDAOJson extends MusicianDAO {
         JSONArray allRecords = readJsonFile();
         for (int i = 0; i < allRecords.length(); i++) {
             JSONObject obj = allRecords.getJSONObject(i);
-            if (obj.getString("email").equals(email)) {
+            if (obj.getString(EMAIL_FIELD).equals(email)) {
                 return parseJson(obj);
             }
         }
@@ -55,7 +56,7 @@ public class MusicianDAOJson extends MusicianDAO {
 
         for (int i = 0; i < allRecords.length(); i++) {
             JSONObject obj = allRecords.getJSONObject(i);
-            if (obj.getString("email").equals(m.getEmail())) {
+            if (obj.getString(EMAIL_FIELD).equals(m.getEmail())) {
                 allRecords.put(i, toJson(m));
                 found = true;
                 break;
@@ -73,7 +74,7 @@ public class MusicianDAOJson extends MusicianDAO {
     }
 
     private Musician parseJson(JSONObject obj) {
-        String email = obj.getString("email");
+        String email = obj.getString(EMAIL_FIELD);
         String name = obj.getString("name");
         String surname = obj.getString("surname");
         String stageName = obj.getString("stageName");
@@ -82,7 +83,7 @@ public class MusicianDAOJson extends MusicianDAO {
         List<Instrument> instruments;
         try {
             instruments = this.instrumentDAO.getMusicianInstruments(email);
-        } catch (DAOException e) {
+        } catch (DAOException _) {
             instruments = List.of();
         }
 
@@ -91,7 +92,7 @@ public class MusicianDAOJson extends MusicianDAO {
 
     private JSONObject toJson(Musician m) {
         JSONObject obj = new JSONObject();
-        obj.put("email", m.getEmail());
+        obj.put(EMAIL_FIELD, m.getEmail());
         obj.put("name", m.getName());
         obj.put("surname", m.getSurname());
         obj.put("stageName", m.getArtistName());
@@ -100,7 +101,7 @@ public class MusicianDAOJson extends MusicianDAO {
     }
 
     private JSONArray readJsonFile() {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         if (!file.exists()) {
             return new JSONArray();
         }
@@ -110,12 +111,12 @@ public class MusicianDAOJson extends MusicianDAO {
             if (content.isBlank()) return new JSONArray();
             return new JSONArray(content);
         } catch (IOException e) {
-            throw new DAOException("Error reading json file " + this.PATH, e);
+            throw new DAOException("Error reading json file " + this.path, e);
         }
     }
 
     private void writeJsonFile(JSONArray array) {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         File parentDir = file.getParentFile();
         if (parentDir != null && !parentDir.exists()) {
             parentDir.mkdirs();
@@ -124,7 +125,7 @@ public class MusicianDAOJson extends MusicianDAO {
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(array.toString(4));
         } catch (IOException e) {
-            throw new DAOException("Error writing json file " + this.PATH, e);
+            throw new DAOException("Error writing json file " + this.path, e);
         }
     }
 }

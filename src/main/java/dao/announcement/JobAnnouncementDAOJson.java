@@ -10,7 +10,7 @@ import model.ConcreteJobAnnouncement;
 import model.JobAnnouncement;
 import model.MoneyValue;
 import model.Promoter;
-import model.jobAnnouncementDecorators.*;
+import model.jobannouncementdecorators.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -26,17 +26,18 @@ import java.util.Properties;
 
 public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
-    private final String PATH;
+    private final String path;
     private static final String URGENT = "URGENT";
     private static final String EXPERTS_ONLY = "EXPERTS_ONLY";
     private static final String LONG_TIME_CONTRACT = "LONG_TIME_CONTRACT";
     private static final String NEGOTIABLE_SALARY = "NEGOTIABLE_SALARY";
+    private static final String PROMOTER_EMAIL_FIELD = "promoterEmail";
 
     public JobAnnouncementDAOJson() {
         try(InputStream is = new FileInputStream("config.properties")){
             Properties prop = new Properties();
             prop.load(is);
-            PATH = prop.getProperty("json.path") + "job_announcements.json";
+            path = prop.getProperty("json.path") + "job_announcements.json";
         } catch (FileNotFoundException e) {
             throw new DAOException("Couldn't find properties file", e);
         } catch (IOException e) {
@@ -52,7 +53,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
         for (int i = 0; i < jobs.length(); i++) {
             JSONObject obj = jobs.getJSONObject(i);
-            if (obj.getString("promoterEmail").equals(email)) {
+            if (obj.getString(PROMOTER_EMAIL_FIELD).equals(email)) {
                 promoterJobs.add(parseJson(obj));
             }
         }
@@ -74,12 +75,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     @Override
     public String getUniqueId(JobAnnouncement job) {
-//        return job.getPublisher().getEmail() + "~" +
-//                job.getTitle().replaceAll(" ", "_").replaceAll("[^a-zA-Z0-9_]", "") + "~" +
-//                job.getAnnouncementPublishDate().toString();
-
         return job.getPublisher().getEmail() + "~" + job.getAnnouncementPublishDate().toString();
-
     }
 
     @Override
@@ -120,7 +116,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
         LocalDateTime date = LocalDateTime.parse(obj.getString("date"));
         JobAnnouncementStatus status = JobAnnouncementStatus.valueOf(obj.getString("status"));
         LocalDateTime publishDate = LocalDateTime.parse(obj.getString("publishDate"));
-        String promoterEmail = obj.getString("promoterEmail");
+        String promoterEmail = obj.getString(PROMOTER_EMAIL_FIELD);
         BigDecimal salaryAmount = obj.getBigDecimal("salaryAmount");
         CurrencyType currency = CurrencyType.valueOf(obj.getString("currency"));
         String address = obj.getString("address");
@@ -162,7 +158,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
         obj.put("date", cja.getAnnouncementDate().toString());
         obj.put("status", cja.getStatus().name());
         obj.put("publishDate", cja.getAnnouncementPublishDate().toString());
-        obj.put("promoterEmail", cja.getPublisher().getEmail());
+        obj.put(PROMOTER_EMAIL_FIELD, cja.getPublisher().getEmail());
         obj.put("salaryAmount", cja.getJobPay().moneyAmount());
         obj.put("currency", cja.getJobPay().whichCurrency().name());
         obj.put("address", cja.getEventAddress());
@@ -199,7 +195,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
     }
 
     private JSONArray readJsonFile() {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         if (!file.exists()) {
             return new JSONArray();
         }
@@ -209,12 +205,12 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
             if (content.isBlank()) return new JSONArray();
             return new JSONArray(content);
         } catch (IOException e) {
-            throw new DAOException("Error reading json file " + this.PATH, e);
+            throw new DAOException("Error reading json file " + this.path, e);
         }
     }
 
     private void writeJsonFile(JSONArray array) {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         File parentDir = file.getParentFile();
         if (parentDir != null && !parentDir.exists()) {
             parentDir.mkdirs();
@@ -223,7 +219,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(array.toString(4));
         } catch (IOException e) {
-            throw new DAOException("Error writing json file " + this.PATH, e);
+            throw new DAOException("Error writing json file " + this.path, e);
         }
     }
 }

@@ -1,4 +1,4 @@
-package model.jobAnnouncementDecorators;
+package model.jobannouncementdecorators;
 
 import engineering.enums.JobAnnouncementStatus;
 import model.*;

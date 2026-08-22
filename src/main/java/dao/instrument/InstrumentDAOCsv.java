@@ -19,7 +19,7 @@ public class InstrumentDAOCsv extends InstrumentDAO {
 
      */
 
-    private final String PATH;
+    private final String path;
     private static final String CSV_SEPARATOR = ",";
     private static final String MASTERY_SEPARATOR = ";";
 
@@ -31,7 +31,7 @@ public class InstrumentDAOCsv extends InstrumentDAO {
 
             prop.load(is);
 
-            PATH = prop.getProperty("csv.path") + "musicians_instruments.csv";
+            path = prop.getProperty("csv.path") + "musicians_instruments.csv";
 
         } catch (FileNotFoundException e) {
             throw new DAOException("Couldn't find properties file", e);
@@ -40,9 +40,9 @@ public class InstrumentDAOCsv extends InstrumentDAO {
         }
 
         try {
-            CsvManager.initCsvFile(PATH);
+            CsvManager.initCsvFile(path);
         } catch (IOException e) {
-            throw new DAOException("Can't initialize csv file " + PATH, e);
+            throw new DAOException("Can't initialize csv file " + path, e);
         }
 
     }
@@ -51,7 +51,7 @@ public class InstrumentDAOCsv extends InstrumentDAO {
     @Override
     public List<Instrument> getMusicianInstruments(String musicianEmail) {
 
-        File file = new File(PATH);
+        File file = new File(path);
 
         try(BufferedReader reader = Files.newBufferedReader(file.toPath())) {
 
@@ -63,10 +63,10 @@ public class InstrumentDAOCsv extends InstrumentDAO {
                     continue;
                 }
 
-                List<Instrument> instruments = parseRowIfMatches(line, musicianEmail);
+                String[] fields = line.split(CSV_SEPARATOR, -1);
 
-                if (instruments != null){
-                    return instruments;
+                if (fields[0].equals(musicianEmail)) {
+                    return parseInstruments(fields, line);
                 }
 
             }
@@ -80,13 +80,7 @@ public class InstrumentDAOCsv extends InstrumentDAO {
 
     }
 
-    private List<Instrument> parseRowIfMatches(String line, String musicianEmail) {
-
-        String[] fields = line.split(CSV_SEPARATOR, -1);
-
-        if (!fields[0].equals(musicianEmail)){
-            return null;
-        }
+    private List<Instrument> parseInstruments(String[] fields, String line) {
 
         try {
             List<Instrument> instruments = new ArrayList<>();
@@ -116,7 +110,7 @@ public class InstrumentDAOCsv extends InstrumentDAO {
     public void saveMusicianInstruments(String musicianEmail, List<Instrument> instruments) {
         List<String> lines = readAllAndReplace(musicianEmail, instruments);
 
-        File file = new File(PATH);
+        File file = new File(path);
 
         try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())){
 
@@ -136,7 +130,7 @@ public class InstrumentDAOCsv extends InstrumentDAO {
         List<String> lines = new ArrayList<>();
         boolean found = false;
 
-        File file = new File(PATH);
+        File file = new File(path);
 
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())){
 

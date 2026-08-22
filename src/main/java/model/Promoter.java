@@ -2,7 +2,6 @@ package model;
 
 import engineering.enums.Gender;
 
-import java.util.List;
 import java.util.Map;
 
 public class Promoter extends User {

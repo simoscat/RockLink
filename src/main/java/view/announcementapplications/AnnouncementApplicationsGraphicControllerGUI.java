@@ -21,6 +21,8 @@ import java.util.List;
 
 public class AnnouncementApplicationsGraphicControllerGUI extends AnnouncementApplicationsGraphicController implements GUIGraphicController {
 
+    private static final String ROW_ACTION_BTN_CLASS = "row-action-btn";
+
     private NavigatorGUI navigatorGUI;
 
     public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
@@ -95,14 +97,14 @@ public class AnnouncementApplicationsGraphicControllerGUI extends AnnouncementAp
         statusBadge.getStyleClass().addAll("status-badge", statusClassFor(status));
 
         Button detailsButton = new Button("DETAILS");
-        detailsButton.getStyleClass().add("row-action-btn");
+        detailsButton.getStyleClass().add(ROW_ACTION_BTN_CLASS);
         detailsButton.setOnAction(_ -> {
             navigator.setCurrentJobApplication(application);
             jumpToJobApplication();
         });
 
         Button acceptButton = new Button("ACCEPT");
-        acceptButton.getStyleClass().addAll("row-action-btn", "accept-btn");
+        acceptButton.getStyleClass().addAll(ROW_ACTION_BTN_CLASS, "accept-btn");
         acceptButton.setDisable(!"PENDING".equals(status));
         acceptButton.setOnAction(_ -> {
             navigator.setCurrentJobApplication(application);
@@ -110,7 +112,7 @@ public class AnnouncementApplicationsGraphicControllerGUI extends AnnouncementAp
         });
 
         Button rejectButton = new Button("REJECT");
-        rejectButton.getStyleClass().addAll("row-action-btn", "reject-btn");
+        rejectButton.getStyleClass().addAll(ROW_ACTION_BTN_CLASS, "reject-btn");
         rejectButton.setDisable(!"PENDING".equals(status));
         rejectButton.setOnAction(_ -> {
             navigator.setCurrentJobApplication(application);

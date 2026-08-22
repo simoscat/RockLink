@@ -7,8 +7,8 @@ import model.ConcreteJobAnnouncement;
 import model.JobAnnouncement;
 import model.MoneyValue;
 import model.Promoter;
-import model.jobAnnouncementDecorators.NegotiableSalaryDecoratorJob;
-import model.jobAnnouncementDecorators.UrgentJobAnnouncementDecorator;
+import model.jobannouncementdecorators.NegotiableSalaryDecoratorJob;
+import model.jobannouncementdecorators.UrgentJobAnnouncementDecorator;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

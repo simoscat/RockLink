@@ -2,9 +2,7 @@ package dao.announcement;
 
 import engineering.enums.JobAnnouncementStatus;
 import engineering.persistency.DAOWithCache;
-import exception.DAOException;
 import model.JobAnnouncement;
-import model.Promoter;
 
 import java.util.ArrayList;
 import java.util.List;

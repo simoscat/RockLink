@@ -8,7 +8,6 @@ import exception.ControllerLogicException;
 import view.Navigator;
 
 import java.util.List;
-import java.util.Map;
 
 public abstract class MusicianRegistrationGraphicController {
 
@@ -23,7 +22,7 @@ public abstract class MusicianRegistrationGraphicController {
 
     protected Navigator navigator;
 
-    public MusicianRegistrationGraphicController(Navigator n) {
+    protected MusicianRegistrationGraphicController(Navigator n) {
         this.navigator = n;
     }
 

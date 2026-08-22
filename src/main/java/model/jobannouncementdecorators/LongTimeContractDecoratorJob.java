@@ -1,10 +1,10 @@
-package model.jobAnnouncementDecorators;
+package model.jobannouncementdecorators;
 
 import model.JobAnnouncement;
 
-public class UrgentJobAnnouncementDecorator extends JobAnnouncementDecorator {
+public class LongTimeContractDecoratorJob extends JobAnnouncementDecorator {
 
-    public UrgentJobAnnouncementDecorator(JobAnnouncement wrappedJobAnnouncement) {
+    public LongTimeContractDecoratorJob(JobAnnouncement wrappedJobAnnouncement) {
         super(wrappedJobAnnouncement);
     }
 
@@ -16,6 +16,6 @@ public class UrgentJobAnnouncementDecorator extends JobAnnouncementDecorator {
     }
 
     private String applyUrgentDecorator(String old){
-        return "[Urgent] " + old;
+        return "[Long Time Contract] " + old;
     }
 }

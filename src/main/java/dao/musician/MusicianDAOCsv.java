@@ -23,7 +23,7 @@ public class MusicianDAOCsv extends MusicianDAO {
 
     private static final String CSV_SEPARATOR = ",";
 
-    private final String PATH;
+    private final String path;
     private final InstrumentDAO instrumentDAO;
     private static final int NUM_FIELDS = 5;
 
@@ -36,7 +36,7 @@ public class MusicianDAOCsv extends MusicianDAO {
 
             prop.load(is);
 
-            PATH = prop.getProperty("csv.path") + "musicians.csv";
+            path = prop.getProperty("csv.path") + "musicians.csv";
 
         } catch (FileNotFoundException e) {
             throw new DAOException("Couldn't find properties file", e);
@@ -47,9 +47,9 @@ public class MusicianDAOCsv extends MusicianDAO {
         this.instrumentDAO = new InstrumentDAOCsv();
 
         try {
-            CsvManager.initCsvFile(this.PATH);
+            CsvManager.initCsvFile(this.path);
         } catch (IOException e) {
-            throw new DAOException("Can't initialize csv file " + this.PATH, e);
+            throw new DAOException("Can't initialize csv file " + this.path, e);
         }
 
     }
@@ -57,7 +57,7 @@ public class MusicianDAOCsv extends MusicianDAO {
 
     @Override
     public Musician retrieveMusicianByEmail(String email) {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -81,7 +81,7 @@ public class MusicianDAOCsv extends MusicianDAO {
     protected void saveToPersistency(Musician m) {
         List<String> lines = readAllLinesReplacingMusician(m);
 
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())) {
             for (String line : lines) {
                 writer.write(line);
@@ -123,7 +123,7 @@ public class MusicianDAOCsv extends MusicianDAO {
         List<String> lines = new ArrayList<>();
         boolean found = false;
 
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
 
             String line;
@@ -144,7 +144,7 @@ public class MusicianDAOCsv extends MusicianDAO {
                 }
             }
         } catch (IOException e) {
-            throw new DAOException("Couldn't read csv file " + this.PATH, e);
+            throw new DAOException("Couldn't read csv file " + this.path, e);
         }
 
         if (!found) {

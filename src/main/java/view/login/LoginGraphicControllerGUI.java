@@ -46,8 +46,6 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
     @FXML
     private Button signUpPromoterButton;
 
-    private NavigatorGUI navigatorGUI;
-
     private Parent view;
     @Override
     public void setView(Parent view) {
@@ -62,11 +60,6 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
 
     public LoginGraphicControllerGUI(Navigator navigator) {
         super(navigator);
-    }
-
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
     }
 
     //Automatically called by FXMLLoader

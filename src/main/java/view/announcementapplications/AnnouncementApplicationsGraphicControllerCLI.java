@@ -112,12 +112,15 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
 
                     case DETAILS:
                         jumpToJobApplication();
+                        break;
 
                     case ACCEPT:
                         acceptJobApplication();
+                        break;
 
                     case REJECT:
                         rejectJobApplication();
+                        break;
 
                     default:
                         throw new IllegalStateException("Unexpected value: " + in);
@@ -127,7 +130,7 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
             }
 
         }
-        catch (NumberFormatException e){
+        catch (NumberFormatException _){
 
             showError("Invalid input. Try again.");
             start();

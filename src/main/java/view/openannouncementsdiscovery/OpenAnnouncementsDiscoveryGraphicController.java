@@ -11,7 +11,7 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
     protected Navigator navigator;
     protected ManageJobApplicationsController manageJobApplicationsController =  new ManageJobApplicationsController();
 
-    public OpenAnnouncementsDiscoveryGraphicController(Navigator navigator) {
+    protected OpenAnnouncementsDiscoveryGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 

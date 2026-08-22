@@ -17,7 +17,7 @@ public class PromoterDAOCsv extends PromoterDAO {
     email,name,surname,gender,contactname1:contact1;contactname2:contact2;...;contactnameN:contactN
      */
 
-    private final String PATH;
+    private final String path;
     private static final String CSV_SEPARATOR = ",";
     private static final String CONTACT_PAIR_SEPARATOR = ":"; // key:value
     private static final String CONTACTS_SEPARATOR = ";";
@@ -28,7 +28,7 @@ public class PromoterDAOCsv extends PromoterDAO {
 
             Properties prop = new Properties();
             prop.load(is);
-            PATH = prop.getProperty("csv.path") + "promoters.csv";
+            path = prop.getProperty("csv.path") + "promoters.csv";
 
         } catch (FileNotFoundException e) {
 
@@ -41,15 +41,15 @@ public class PromoterDAOCsv extends PromoterDAO {
         }
 
         try {
-            CsvManager.initCsvFile(PATH);
+            CsvManager.initCsvFile(path);
         } catch (IOException e) {
-            throw new DAOException("Can't initialize csv file " + PATH, e);
+            throw new DAOException("Can't initialize csv file " + path, e);
         }
     }
 
     @Override
     protected Promoter retrievePromoterByEmail(String email) {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
 
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
 
@@ -70,7 +70,7 @@ public class PromoterDAOCsv extends PromoterDAO {
             throw new DAOException("No promoter found with email: " + email);
 
         } catch (IOException e) {
-            throw new DAOException("Couldn't read promoter file: " + PATH, e);
+            throw new DAOException("Couldn't read promoter file: " + path, e);
         }
     }
 
@@ -78,7 +78,7 @@ public class PromoterDAOCsv extends PromoterDAO {
     protected void saveToPersistency(Promoter promoter) {
         List<String> lines = readAllLinesReplacingPromoter(promoter);
 
-        File file = new File(this.PATH);
+        File file = new File(this.path);
 
         try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())) {
             for (String line : lines) {
@@ -86,7 +86,7 @@ public class PromoterDAOCsv extends PromoterDAO {
                 writer.newLine();
             }
         } catch (IOException e) {
-            throw new DAOException("Couldn't write to file " + this.PATH, e);
+            throw new DAOException("Couldn't write to file " + this.path, e);
         }
     }
 
@@ -140,7 +140,7 @@ public class PromoterDAOCsv extends PromoterDAO {
         List<String> lines = new ArrayList<>();
         boolean found = false;
 
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -155,7 +155,7 @@ public class PromoterDAOCsv extends PromoterDAO {
                 }
             }
         } catch (IOException e) {
-            throw new DAOException("Couldn't read csv file " + this.PATH, e);
+            throw new DAOException("Couldn't read csv file " + this.path, e);
         }
 
         if (!found) lines.add(toCsvRow(p));

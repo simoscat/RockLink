@@ -7,8 +7,6 @@ public abstract class ApplicationBean {
     private Artist artist;
     private String status;
 
-    protected ApplicationBean() {
-    }
 
     protected ApplicationBean(Artist artist, String status) {
         this.artist = artist;

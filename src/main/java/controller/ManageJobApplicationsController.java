@@ -4,8 +4,6 @@ import bean.*;
 import dao.announcement.JobAnnouncementDAO;
 import dao.application.JobApplicationDAO;
 import dao.factories.DAOFactory;
-import dao.musician.MusicianDAO;
-import dao.promoter.PromoterDAO;
 import engineering.BeanConverter;
 import engineering.enums.*;
 import exception.ControllerLogicException;
@@ -13,15 +11,12 @@ import exception.DAOException;
 import model.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ManageJobApplicationsController {
 
-    private final MusicianDAO musicianDAO = DAOFactory.getInstance().getMusicianDAO();
-    private final PromoterDAO promoterDAO = DAOFactory.getInstance().getPromoterDAO();
     private final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
     private final JobApplicationDAO jobApplicationDAO = DAOFactory.getInstance().getJobApplicationDAO();
 
@@ -33,7 +28,7 @@ public class ManageJobApplicationsController {
 
 
         }
-        catch (DAOException e) {
+        catch (DAOException _) {
 
             throw new ControllerLogicException("Could not retrieve open job announcements");
 
@@ -48,7 +43,7 @@ public class ManageJobApplicationsController {
             return BeanConverter.fromJobAnnouncementsToBeans(jobAnnouncementDAO.getAllJobAnnouncements());
 
         }
-        catch (DAOException e) {
+        catch (DAOException _) {
             throw new ControllerLogicException("Could not retrieve job announcements");
         }
     }
@@ -70,7 +65,7 @@ public class ManageJobApplicationsController {
             return beans;
 
         }
-        catch (DAOException e) {
+        catch (DAOException _) {
             throw new ControllerLogicException("Could not retrieve job applications for this musician");
         }
     }
@@ -103,7 +98,7 @@ public class ManageJobApplicationsController {
             return beans;
 
         }
-        catch (DAOException e) {
+        catch (DAOException _) {
 
             throw new ControllerLogicException("No job announcements found for this promoter");
 

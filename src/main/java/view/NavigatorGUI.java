@@ -83,7 +83,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.login);
                 Parent root = loader.load();
                 this.login.setView(root);
-                this.login.setNavigatorGUI(this);
 
             } catch (IOException _) {
                 graphicsError("LoginView.fxml");
@@ -199,8 +198,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.createAnnouncement);
                 Parent root = loader.load();
                 this.createAnnouncement.setView(root);
-                this.createAnnouncement.setNavigatorGUI(this);
-
             } catch (IOException _) {
                 graphicsError("CreateAnnouncementView.fxml");
             }

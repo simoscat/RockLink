@@ -26,7 +26,6 @@ public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrati
         super(n);
     }
 
-    @Override
     public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
         this.navigatorGUI = navigatorGUI;
     }

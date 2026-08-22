@@ -48,64 +48,68 @@ public class NavigatorCLI extends Navigator {
 
     @Override
     public void viewLogin() {
-        if (this.login == null) { login = new LoginGraphicControllerCLI(this);}
+        if (this.login == null) { this.login = new LoginGraphicControllerCLI(this);}
         this.login.start();
     }
 
     @Override
     public void viewMusicianDashboard() {
         if (this.musicianDashboard == null) {
-            musicianDashboard = new MusicianDashboardGraphicControllerCLI(this);
+            this.musicianDashboard = new MusicianDashboardGraphicControllerCLI(this);
         }
         this.musicianDashboard.start();
     }
 
     @Override
     public void viewPromoterDashboard() {
-        if (this.promoterDashboard == null) { promoterDashboard = new PromoterDashboardGraphicControllerCLI(this); }
+        if (this.promoterDashboard == null) { this.promoterDashboard = new PromoterDashboardGraphicControllerCLI(this); }
         this.promoterDashboard.start();
     }
 
 
     @Override
     public void viewAnnouncementDetails() {
-        if (this.announcementDetails == null) { announcementDetails = new JobAnnouncementDetailsGraphicControllerCLI(this); }
+        if (this.announcementDetails == null) { this.announcementDetails = new JobAnnouncementDetailsGraphicControllerCLI(this); }
         this.announcementDetails.start();
     }
 
     @Override
     public void viewAnnouncementApplications() {
-        if (this.announcementApplications == null) { announcementApplications = new AnnouncementApplicationsGraphicControllerCLI(this); }
+        if (this.announcementApplications == null) { this.announcementApplications = new AnnouncementApplicationsGraphicControllerCLI(this); }
         this.announcementApplications.start();
     }
 
     @Override
     public void viewCreateAnnouncement() {
-        if (this.createAnnouncement == null) { createAnnouncement = new CreateAnnouncementGraphicControllerCLI(this); }
+        if (this.createAnnouncement == null) { this.createAnnouncement = new CreateAnnouncementGraphicControllerCLI(this); }
         this.createAnnouncement.start();
     }
 
     @Override
     public void viewPromoterRegistration() {
-        if (this.promoterRegistration == null) { promoterRegistration = new PromoterRegistrationGraphicControllerCLI(this); }
-        this.promoterRegistration.start();
+        PromoterRegistrationGraphicControllerCLI controller = this.promoterRegistration;
+        if (controller == null) {
+            controller = new PromoterRegistrationGraphicControllerCLI(this);
+            this.promoterRegistration = controller;
+        }
+        controller.start();
     }
 
     @Override
     public void viewMusicianRegistration() {
-        if (this.musicianRegistration == null) { musicianRegistration = new MusicianRegistrationGraphicControllerCLI(this); }
+        if (this.musicianRegistration == null) { this.musicianRegistration = new MusicianRegistrationGraphicControllerCLI(this); }
         this.musicianRegistration.start();
     }
 
     @Override
     public void viewApplicationDetails() {
-        if (this.applicationDetails == null) { applicationDetails = new JobApplicationDetailGraphicControllerCLI(this); }
+        if (this.applicationDetails == null) { this.applicationDetails = new JobApplicationDetailGraphicControllerCLI(this); }
         this.applicationDetails.start();
     }
 
     @Override
     public void viewOpenAnnouncementsDiscovery() {
-        if (this.announcementDiscovery == null) { announcementDiscovery = new OpenAnnouncementsDiscoveryGraphicControllerCLI(this); }
+        if (this.announcementDiscovery == null) { this.announcementDiscovery = new OpenAnnouncementsDiscoveryGraphicControllerCLI(this); }
         this.announcementDiscovery.start();
     }
 }

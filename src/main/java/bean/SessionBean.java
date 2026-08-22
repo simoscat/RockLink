@@ -1,7 +1,5 @@
 package bean;
 
-import model.Musician;
-import model.Promoter;
 
 public class SessionBean {
 

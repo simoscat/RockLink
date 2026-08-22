@@ -38,6 +38,8 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
     private static final String CALENDAR = "M6,1 L8,1 L8,5.3 L6,5.3 Z M16,1 L18,1 L18,5.3 L16,5.3 Z M3,5 L21,5 L21,21 L3,21 Z "
             + "M6,11 L9,11 L9,14 L6,14 Z M10.5,11 L13.5,11 L13.5,14 L10.5,14 Z M15,11 L18,11 L18,14 L15,14 Z";
     private static final String CLOCK = "M3,12 A9,9 0 1,0 21,12 A9,9 0 1,0 3,12 Z M11.4,7 L12.6,7 L12.6,12 L11.4,12 Z M12,11.4 L17,11.4 L17,12.6 L12,12.6 Z";
+    private static final String JOB_META_ICON_CLASS = "job-meta-icon";
+    private static final String NOT_IMPLEMENTED_YET_MESSAGE = "Not implemented yet";
 
     private NavigatorGUI navigatorGUI;
 
@@ -170,12 +172,12 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
         Label tags = new Label(tagsTextFor(job.getTags()));
         tags.getStyleClass().add("job-tags");
 
-        HBox locationRow = new HBox(6.0, icon(PIN, "job-meta-icon", 0.583), metaLabel(job.getAddress()));
+        HBox locationRow = new HBox(6.0, icon(PIN, JOB_META_ICON_CLASS, 0.583), metaLabel(job.getAddress()));
         locationRow.setAlignment(Pos.CENTER_LEFT);
 
-        HBox dateRow = new HBox(6.0, icon(CALENDAR, "job-meta-icon", 0.583), metaLabel(job.getDate().format(EVENT_DATE_FORMAT)));
+        HBox dateRow = new HBox(6.0, icon(CALENDAR, JOB_META_ICON_CLASS, 0.583), metaLabel(job.getDate().format(EVENT_DATE_FORMAT)));
         dateRow.setAlignment(Pos.CENTER_LEFT);
-        HBox timeRow = new HBox(6.0, icon(CLOCK, "job-meta-icon", 0.583), metaLabel(job.getDate().format(EVENT_TIME_FORMAT)));
+        HBox timeRow = new HBox(6.0, icon(CLOCK, JOB_META_ICON_CLASS, 0.583), metaLabel(job.getDate().format(EVENT_TIME_FORMAT)));
         timeRow.setAlignment(Pos.CENTER_LEFT);
         HBox dateTimeRow = new HBox(16.0, dateRow, timeRow);
         dateTimeRow.setAlignment(Pos.CENTER_LEFT);
@@ -300,22 +302,22 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
 
     @FXML
     private void handleDiscoverBands() {
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleMyBands() {
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleProfile() {
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleSettings() {
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
@@ -325,12 +327,12 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
 
     @FXML
     private void handleNotifications() {
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleHelp() {
-        showInfo("Not implemented yet");
+        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML

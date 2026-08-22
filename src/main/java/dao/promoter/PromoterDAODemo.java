@@ -2,8 +2,6 @@ package dao.promoter;
 
 import engineering.enums.Gender;
 import exception.DAOException;
-import model.BaseAnnouncement;
-import model.Musician;
 import model.Promoter;
 
 import java.io.FileInputStream;

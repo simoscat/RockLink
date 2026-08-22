@@ -10,11 +10,7 @@ import java.util.List;
 
 public abstract class JobApplicationDAO extends DAOWithCache<JobApplication> {
 
-    protected static JobAnnouncementDAO jobAnnouncementDAO;
-
-    public JobApplicationDAO() {
-        jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
-    }
+    protected static final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
 
     @Override
     public String getKey(JobApplication jobApp) {

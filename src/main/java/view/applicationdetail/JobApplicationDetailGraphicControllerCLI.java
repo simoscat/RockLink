@@ -1,6 +1,5 @@
 package view.applicationdetail;
 
-import bean.JobApplicationBean;
 import view.Navigator;
 
 import java.util.Map;
@@ -16,8 +15,6 @@ public class JobApplicationDetailGraphicControllerCLI extends JobApplicationDeta
 
     @Override
     public void start() {
-
-        JobApplicationBean jobApplication = navigator.getCurrentJobApplication();
 
         printApplication();
 

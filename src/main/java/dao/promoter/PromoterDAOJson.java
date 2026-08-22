@@ -16,13 +16,15 @@ import java.util.Properties;
 
 public class PromoterDAOJson extends PromoterDAO {
 
-    private final String PATH;
+    private final String path;
+    private static final String EMAIL_FIELD = "email";
+    private static final String CONTACTS_FIELD = "contacts";
 
     public PromoterDAOJson() {
         try(InputStream is = new FileInputStream("config.properties")){
             Properties prop = new Properties();
             prop.load(is);
-            PATH = prop.getProperty("json.path") + "promoters.json";
+            path = prop.getProperty("json.path") + "promoters.json";
         } catch (FileNotFoundException e) {
             throw new DAOException("Couldn't find properties file", e);
         } catch (IOException e) {
@@ -35,7 +37,7 @@ public class PromoterDAOJson extends PromoterDAO {
         JSONArray allRecords = readJsonFile();
         for (int i = 0; i < allRecords.length(); i++) {
             JSONObject obj = allRecords.getJSONObject(i);
-            if (obj.getString("email").equals(email)) {
+            if (obj.getString(EMAIL_FIELD).equals(email)) {
                 return parseJson(obj);
             }
         }
@@ -49,7 +51,7 @@ public class PromoterDAOJson extends PromoterDAO {
 
         for (int i = 0; i < allRecords.length(); i++) {
             JSONObject obj = allRecords.getJSONObject(i);
-            if (obj.getString("email").equals(promoter.getEmail())) {
+            if (obj.getString(EMAIL_FIELD).equals(promoter.getEmail())) {
                 allRecords.put(i, toJson(promoter));
                 found = true;
                 break;
@@ -64,14 +66,14 @@ public class PromoterDAOJson extends PromoterDAO {
     }
 
     private Promoter parseJson(JSONObject obj) {
-        String email = obj.getString("email");
+        String email = obj.getString(EMAIL_FIELD);
         String name = obj.getString("name");
         String surname = obj.getString("surname");
         Gender gender = Gender.valueOf(obj.getString("gender"));
         
         Map<String, String> contactsMap = new HashMap<>();
-        if (obj.has("contacts")) {
-            JSONObject contactsObj = obj.getJSONObject("contacts");
+        if (obj.has(CONTACTS_FIELD)) {
+            JSONObject contactsObj = obj.getJSONObject(CONTACTS_FIELD);
             for (String key : contactsObj.keySet()) {
                 contactsMap.put(key, contactsObj.getString(key));
             }
@@ -82,7 +84,7 @@ public class PromoterDAOJson extends PromoterDAO {
 
     private JSONObject toJson(Promoter p) {
         JSONObject obj = new JSONObject();
-        obj.put("email", p.getEmail());
+        obj.put(EMAIL_FIELD, p.getEmail());
         obj.put("name", p.getName());
         obj.put("surname", p.getSurname());
         obj.put("gender", p.getGender().name());
@@ -93,13 +95,13 @@ public class PromoterDAOJson extends PromoterDAO {
                 contactsObj.put(entry.getKey(), entry.getValue());
             }
         }
-        obj.put("contacts", contactsObj);
+        obj.put(CONTACTS_FIELD, contactsObj);
 
         return obj;
     }
 
     private JSONArray readJsonFile() {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         if (!file.exists()) {
             return new JSONArray();
         }
@@ -109,12 +111,12 @@ public class PromoterDAOJson extends PromoterDAO {
             if (content.isBlank()) return new JSONArray();
             return new JSONArray(content);
         } catch (IOException e) {
-            throw new DAOException("Error reading json file " + this.PATH, e);
+            throw new DAOException("Error reading json file " + this.path, e);
         }
     }
 
     private void writeJsonFile(JSONArray array) {
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         File parentDir = file.getParentFile();
         if (parentDir != null && !parentDir.exists()) {
             parentDir.mkdirs();
@@ -123,7 +125,7 @@ public class PromoterDAOJson extends PromoterDAO {
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(array.toString(4));
         } catch (IOException e) {
-            throw new DAOException("Error writing json file " + this.PATH, e);
+            throw new DAOException("Error writing json file " + this.path, e);
         }
     }
 }

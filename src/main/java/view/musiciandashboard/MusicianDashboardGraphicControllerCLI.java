@@ -101,7 +101,7 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
                 done = true;
 
             }
-            catch (NumberFormatException e){
+            catch (NumberFormatException _) {
 
                 showError("Invalid number. Please retry.");
 

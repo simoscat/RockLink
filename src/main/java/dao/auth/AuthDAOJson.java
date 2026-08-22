@@ -13,8 +13,8 @@ import model.Credential;
 
 public class AuthDAOJson extends AuthDAO {
 
-    private static String MUSICIANS_FILE;
-    private static String PROMOTERS_FILE;
+    private final String musiciansFile;
+    private final String promotersFile;
 
     private static final String EMAIL_KEY = "email";
     private static final String PASSWORD_KEY = "cryptPassword";
@@ -28,8 +28,8 @@ public class AuthDAOJson extends AuthDAO {
 
             String basepath = prop.getProperty("json.path");
 
-            MUSICIANS_FILE = basepath+"musicians_creds.json";
-            PROMOTERS_FILE = basepath+"promoters_creds.json";
+            musiciansFile = basepath+"musicians_creds.json";
+            promotersFile = basepath+"promoters_creds.json";
 
         } catch (FileNotFoundException e) {
             throw new DAOException("Property file doesn't exist", e);
@@ -41,7 +41,7 @@ public class AuthDAOJson extends AuthDAO {
 
     @Override
     public Credential getMusicianCredential(String email) throws DAOException {
-        Credential creds = getUserCredential(email, MUSICIANS_FILE);
+        Credential creds = getUserCredential(email, musiciansFile);
 
         if (creds == null){
             throw new DAOException("No musician credentials found for this email: " + email);
@@ -52,7 +52,7 @@ public class AuthDAOJson extends AuthDAO {
 
     @Override
     public Credential getPromoterCredential(String email) throws DAOException {
-        Credential creds = getUserCredential(email, PROMOTERS_FILE);
+        Credential creds = getUserCredential(email, promotersFile);
 
         if (creds == null){
             throw new DAOException("No promoter credentials found for this email: " + email);
@@ -83,7 +83,7 @@ public class AuthDAOJson extends AuthDAO {
             throw new DAOException("Invalid email: " + credential.getEmail());
         }
 
-        JSONArray credentials = readCredentialsFile(MUSICIANS_FILE);
+        JSONArray credentials = readCredentialsFile(musiciansFile);
 
         for (int i = 0; i < credentials.length(); i++) {
             JSONObject obj = credentials.getJSONObject(i);
@@ -97,7 +97,7 @@ public class AuthDAOJson extends AuthDAO {
         newCredential.put(PASSWORD_KEY, credential.getCryptPassword());
         credentials.put(newCredential);
 
-        writeCredentialsFile(MUSICIANS_FILE, credentials);
+        writeCredentialsFile(musiciansFile, credentials);
     }
 
     @Override
@@ -107,7 +107,7 @@ public class AuthDAOJson extends AuthDAO {
             throw new DAOException("Invalid email: " + credential.getEmail());
         }
 
-        JSONArray credentials = readCredentialsFile(PROMOTERS_FILE);
+        JSONArray credentials = readCredentialsFile(promotersFile);
 
         for (int i = 0; i < credentials.length(); i++) {
             JSONObject obj = credentials.getJSONObject(i);
@@ -121,17 +121,17 @@ public class AuthDAOJson extends AuthDAO {
         newCredential.put(PASSWORD_KEY, credential.getCryptPassword());
         credentials.put(newCredential);
 
-        writeCredentialsFile(PROMOTERS_FILE, credentials);
+        writeCredentialsFile(promotersFile, credentials);
     }
 
     @Override
     public boolean isMusicianAlreadyRegistered(String email) {
-        return getUserCredential(email, MUSICIANS_FILE) != null;
+        return getUserCredential(email, musiciansFile) != null;
     }
 
     @Override
     public boolean isPromoterAlreadyRegistered(String email) {
-        return getUserCredential(email, PROMOTERS_FILE) != null;
+        return getUserCredential(email, promotersFile) != null;
     }
 
     private JSONArray readCredentialsFile(String path) throws DAOException {

@@ -2,7 +2,6 @@ package engineering;
 
 import model.Musician;
 import model.Promoter;
-import model.User;
 
 import java.util.HashMap;
 import java.util.Map;

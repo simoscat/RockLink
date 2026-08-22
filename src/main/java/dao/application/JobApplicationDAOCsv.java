@@ -5,7 +5,6 @@ import dao.musician.MusicianDAO;
 import engineering.enums.ApplicationStatus;
 import engineering.persistency.CsvManager;
 import exception.DAOException;
-import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;
 import model.Musician;
@@ -23,17 +22,17 @@ import java.util.Properties;
 public class JobApplicationDAOCsv extends JobApplicationDAO {
 
     private static final String CSV_SEPARATOR = ",";
-    private final String PATH;
-    private final int EMAIL_FIELD = 0;
-    private final int ID_FIELD = 1;
-    private final int STATUS_FIELD = 2;
-    private final int RAISE_FIELD = 3;
+    private final String path;
+    private static final int EMAIL_FIELD = 0;
+    private static final int ID_FIELD = 1;
+    private static final int STATUS_FIELD = 2;
+    private static final int RAISE_FIELD = 3;
 
     public JobApplicationDAOCsv() {
         try(InputStream is = new FileInputStream("config.properties")){
             Properties prop = new Properties();
             prop.load(is);
-            PATH = prop.getProperty("csv.path") + "job_applications.csv";
+            path = prop.getProperty("csv.path") + "job_applications.csv";
         } catch (FileNotFoundException e) {
             throw new DAOException("Couldn't find properties file", e);
         } catch (IOException e) {
@@ -41,19 +40,17 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
         }
 
         try {
-            CsvManager.initCsvFile(this.PATH);
+            CsvManager.initCsvFile(this.path);
         } catch (IOException e) {
-            throw new DAOException("Can't initialize csv file " + this.PATH, e);
+            throw new DAOException("Can't initialize csv file " + this.path, e);
         }
-
-        jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
 
     }
 
     @Override
     public List<JobApplication> retrieveAllJobApplicationsFromEmail(String email) {
         List<JobApplication> applications = new ArrayList<>();
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -76,7 +73,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
         List<String> lines = new ArrayList<>();
         boolean found = false;
 
-        File file = new File(this.PATH);
+        File file = new File(this.path);
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -91,7 +88,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
                 }
             }
         } catch (IOException e) {
-            throw new DAOException("Couldn't read csv file " + this.PATH, e);
+            throw new DAOException("Couldn't read csv file " + this.path, e);
         }
 
         if (!found) {
@@ -142,7 +139,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
 
         List<JobApplication> applications = new ArrayList<>();
 
-        File file = new File(this.PATH);
+        File file = new File(this.path);
 
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
 
@@ -174,7 +171,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
 
         String jobId = jobAnnouncementDAO.getUniqueId(jobAnnouncement);
 
-        File file = new File(this.PATH);
+        File file = new File(this.path);
 
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
 

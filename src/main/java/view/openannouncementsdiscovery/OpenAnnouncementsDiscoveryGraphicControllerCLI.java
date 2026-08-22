@@ -18,6 +18,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
     private static final int STATUS_WIDTH = 10;
 
     private static final String TITLE_HEADER = "Title";
+    private static final String COLUMN_SEPARATOR = "s | %-";
 
     private final Scanner scanner = new Scanner(System.in);
 
@@ -63,8 +64,8 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
 
         int titleWidth = calculateTitleWidth(openJobAnnouncements);
 
-        String rowFormat = "%-" + NUM_WIDTH + "s | %-" + DATE_WIDTH + "s | %-" + titleWidth + "s | %-"
-                + DATE_WIDTH + "s | %-" + ADDRESS_WIDTH + "s | %-" + PAY_WIDTH + "s | %-" + STATUS_WIDTH + "s%n";
+        String rowFormat = "%-" + NUM_WIDTH + COLUMN_SEPARATOR + DATE_WIDTH + COLUMN_SEPARATOR + titleWidth + COLUMN_SEPARATOR
+                + DATE_WIDTH + COLUMN_SEPARATOR + ADDRESS_WIDTH + COLUMN_SEPARATOR + PAY_WIDTH + COLUMN_SEPARATOR + STATUS_WIDTH + "s%n";
 
         System.out.printf(rowFormat, "#", "Published", TITLE_HEADER, "Event date", "Address", "Pay", "Status");
 
@@ -180,7 +181,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
                 done = true;
 
             }
-            catch (NumberFormatException e){
+            catch (NumberFormatException _) {
 
                 showError("Invalid number.");
 
@@ -217,11 +218,11 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
 
     @Override
     protected void showError(String message) {
-
+        System.out.println("[ERROR] " + message);
     }
 
     @Override
     protected void showInfo(String message) {
-
+        System.out.println("[INFO] " + message);
     }
 }

@@ -208,7 +208,7 @@ public class JobAnnouncementDetailsGraphicControllerGUI extends JobAnnouncementD
         if (raiseText != null && !raiseText.isBlank()) {
             try {
                 raiseOffer = new BigDecimal(raiseText.trim());
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException _) {
                 showError("Invalid counter offer amount.");
                 return;
             }

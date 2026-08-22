@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementDetailsGraphicController {
 
-    private final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd, HH:mm");
+    private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd, HH:mm");
 
     private final Scanner scanner = new Scanner(System.in);
 
@@ -47,8 +47,8 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
         System.out.printf("Status:        %s%n", job.getJobAnnouncementStatus());
         System.out.printf("Address:       %s%n", job.getAddress());
         System.out.printf("Pay:           %s %s%n", job.getMoneyValue().getValue(), job.getMoneyValue().getCurrency());
-        System.out.printf("Event date:    %s%n", job.getDate().format(DTF));
-        System.out.printf("Published:     %s%n", job.getPublishDate() != null ? job.getPublishDate().format(DTF) : "-");
+        System.out.printf("Event date:    %s%n", job.getDate().format(dtf));
+        System.out.printf("Published:     %s%n", job.getPublishDate() != null ? job.getPublishDate().format(dtf) : "-");
 
 
         Artist hiredArtist = job.getHiredArtist();
@@ -147,7 +147,7 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
 
                     else done = true;
 
-                } catch (NumberFormatException e) {
+                } catch (NumberFormatException _) {
                     showError("Invalid number. Try again");
                 }
 

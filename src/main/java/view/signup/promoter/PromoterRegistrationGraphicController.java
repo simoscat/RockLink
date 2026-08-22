@@ -1,14 +1,11 @@
 package view.signup.promoter;
 
-import bean.InstrumentBean;
-import bean.MusicianBean;
 import bean.PromoterBean;
 import bean.SessionBean;
 import controller.LoginController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
-import java.util.List;
 import java.util.Map;
 
 public abstract class PromoterRegistrationGraphicController {
@@ -22,7 +19,7 @@ public abstract class PromoterRegistrationGraphicController {
 
     protected Navigator navigator;
 
-    public PromoterRegistrationGraphicController(Navigator n) {
+    protected PromoterRegistrationGraphicController(Navigator n) {
         this.navigator = n;
     }
 

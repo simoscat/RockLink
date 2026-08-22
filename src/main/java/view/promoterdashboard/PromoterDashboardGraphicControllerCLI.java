@@ -109,7 +109,7 @@ public class PromoterDashboardGraphicControllerCLI extends PromoterDashboardGrap
                     throw new NumberFormatException();
                 }
 
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException _) {
                 showError("Please enter a valid character or a valid numeric value >= 0");
                 start();
             }

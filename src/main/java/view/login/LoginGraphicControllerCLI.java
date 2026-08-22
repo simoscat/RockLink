@@ -1,16 +1,6 @@
 package view.login;
 
-import bean.InstrumentBean;
-import controller.LoginController;
-import bean.MusicianBean;
-import bean.PromoterBean;
-import bean.SessionBean;
-import engineering.EmailChecker;
-import engineering.PasswordChecker;
 import engineering.enums.Role;
-import engineering.enums.Screen;
-import exception.ControllerLogicException;
-import exception.WrongCredentialsException;
 
 import java.util.*;
 

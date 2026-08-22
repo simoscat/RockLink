@@ -9,14 +9,14 @@ public abstract class BaseAnnouncementBean {
     private LocalDateTime date;
     private LocalDateTime publishDate;
 
-    public BaseAnnouncementBean(String title, String content, LocalDateTime date, LocalDateTime publishDate) {
+    protected BaseAnnouncementBean(String title, String content, LocalDateTime date, LocalDateTime publishDate) {
         this.title = title;
         this.content = content;
         this.date = date;
         this.publishDate = publishDate;
     }
 
-    public BaseAnnouncementBean(String title, String content, LocalDateTime date) {
+    protected BaseAnnouncementBean(String title, String content, LocalDateTime date) {
         this.title = title;
         this.content = content;
         this.date = date;

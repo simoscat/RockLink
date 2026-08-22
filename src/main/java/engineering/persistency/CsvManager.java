@@ -6,6 +6,8 @@ import java.nio.file.Files;
 
 public final class CsvManager {
 
+    private CsvManager() {}
+
     public static void initCsvFile(String path) throws IOException {
         File file = new File(path);
         if (!file.exists()) {

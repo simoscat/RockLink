@@ -57,14 +57,14 @@ public class ManageJobAnnouncementController {
 
             jobAnnouncementDAO.save(jobAnnouncement);
 
-            notifyMusicians(jobAnnouncement);
+            notifyMusicians();
 
 
-        } catch (DateTimeParseException e) {
+        } catch (DateTimeParseException _) {
 
             throw new ControllerLogicException("Invalid date format for the event: " + jobAnnouncementBean.getDate());
 
-        } catch (DAOException e) {
+        } catch (DAOException _) {
 
             throw new ControllerLogicException("Could not publish job announcement");
 
@@ -74,7 +74,7 @@ public class ManageJobAnnouncementController {
 
     }
 
-    private void notifyMusicians(JobAnnouncement jobAnnouncement) {
+    private void notifyMusicians() {
 
         //TODO IMPLEMENTA NOTIFICHE ASINCRONE
 

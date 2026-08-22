@@ -11,7 +11,7 @@ public abstract class PromoterDashboardGraphicController {
 
     protected Navigator navigator;
 
-    public PromoterDashboardGraphicController(Navigator navigator) {
+    protected PromoterDashboardGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 

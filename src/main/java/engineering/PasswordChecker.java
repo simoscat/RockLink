@@ -2,7 +2,9 @@ package engineering;
 
 import java.util.List;
 
-public class PasswordChecker {
+public final class PasswordChecker {
+
+    private PasswordChecker() {}
 
     private static final List<String> INVALID_CHARACTERS =
             List.of(",", ";", ":", "|", "/");

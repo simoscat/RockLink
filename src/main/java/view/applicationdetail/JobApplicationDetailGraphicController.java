@@ -9,7 +9,7 @@ public abstract class JobApplicationDetailGraphicController {
     protected Navigator navigator;
     protected final ManageJobApplicationsController manageJobApplicationsController =  new ManageJobApplicationsController();
 
-    public JobApplicationDetailGraphicController(Navigator navigator) {
+    protected JobApplicationDetailGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 
