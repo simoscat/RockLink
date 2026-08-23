@@ -7,7 +7,6 @@ import exception.DAOException;
 import model.Promoter;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -65,18 +64,7 @@ public class PromoterDAOCsv extends PromoterDAO {
 
     @Override
     protected void saveToPersistency(Promoter promoter) {
-        List<String> lines = readAllLinesReplacingPromoter(promoter);
-
-        File file = new File(this.path);
-
-        try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())) {
-            for (String line : lines) {
-                writer.write(line);
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            throw new DAOException("Couldn't write to file " + this.path, e);
-        }
+        CsvManager.upsertRow(this.path, fields -> fields[0].equals(promoter.getEmail()), toCsvRow(promoter));
     }
 
     private Promoter parseRowIfMatches(String line, String email) {
@@ -123,33 +111,6 @@ public class PromoterDAOCsv extends PromoterDAO {
         }
 
         return map;
-    }
-
-    private List<String> readAllLinesReplacingPromoter(Promoter p) {
-        List<String> lines = new ArrayList<>();
-        boolean found = false;
-
-        File file = new File(this.path);
-        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.isBlank()) continue;
-
-                String[] fields = line.split(CSV_SEPARATOR, -1);
-                if (fields.length > 0 && fields[0].equals(p.getEmail())) {
-                    lines.add(toCsvRow(p));
-                    found = true;
-                } else {
-                    lines.add(line);
-                }
-            }
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read csv file " + this.path, e);
-        }
-
-        if (!found) lines.add(toCsvRow(p));
-
-        return lines;
     }
 
     private String toCsvRow(Promoter p) {

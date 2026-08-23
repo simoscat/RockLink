@@ -7,7 +7,6 @@ import exception.DAOException;
 import model.Instrument;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -99,62 +98,7 @@ public class InstrumentDAOCsv extends InstrumentDAO {
 
     @Override
     public void saveMusicianInstruments(String musicianEmail, List<Instrument> instruments) {
-        List<String> lines = readAllAndReplace(musicianEmail, instruments);
-
-        File file = new File(path);
-
-        try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())){
-
-            for (String line : lines) {
-                writer.write(line);
-                writer.newLine();
-            }
-
-        } catch (IOException e) {
-            throw new DAOException("Couldn't write to instrument file: ", e);
-        }
-    }
-
-
-    private List<String> readAllAndReplace(String email, List<Instrument> instruments) {
-
-        List<String> lines = new ArrayList<>();
-        boolean found = false;
-
-        File file = new File(path);
-
-        try (BufferedReader reader = Files.newBufferedReader(file.toPath())){
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-
-                if (line.isBlank()){
-                    continue;
-                }
-
-                String[] fields = line.split(CSV_SEPARATOR, -1);
-
-                if (fields.length > 0 && fields[0].equals(email)){
-                    lines.add(toCsv(email, instruments));
-                    found = true;
-                }
-                else{
-                    lines.add(line);
-                }
-
-            }
-
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read instrument file: ", e);
-        }
-
-        if (!found){
-            lines.add(toCsv(email, instruments));
-        }
-
-        return lines;
-
+        CsvManager.upsertRow(path, fields -> fields[0].equals(musicianEmail), toCsv(musicianEmail, instruments));
     }
 
     private String toCsv(String email, List<Instrument> instruments) {

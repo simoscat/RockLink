@@ -35,26 +35,11 @@ public class InstrumentDAOJson extends InstrumentDAO {
 
     @Override
     public void saveMusicianInstruments(String musicianEmail, List<Instrument> instruments) {
-        JSONArray allRecords = JsonManager.readJsonFile(this.path);
-        boolean found = false;
+        JSONObject newRecord = new JSONObject();
+        newRecord.put(EMAIL_FIELD, musicianEmail);
+        newRecord.put(INSTRUMENTS_FIELD, toJsonArray(instruments));
 
-        for (int i = 0; i < allRecords.length(); i++) {
-            JSONObject obj = allRecords.getJSONObject(i);
-            if (obj.getString(EMAIL_FIELD).equals(musicianEmail)) {
-                obj.put(INSTRUMENTS_FIELD, toJsonArray(instruments));
-                found = true;
-                break;
-            }
-        }
-
-        if (!found) {
-            JSONObject newRecord = new JSONObject();
-            newRecord.put(EMAIL_FIELD, musicianEmail);
-            newRecord.put(INSTRUMENTS_FIELD, toJsonArray(instruments));
-            allRecords.put(newRecord);
-        }
-
-        JsonManager.writeJsonFile(allRecords, this.path);
+        JsonManager.upsertFile(this.path, obj -> obj.getString(EMAIL_FIELD).equals(musicianEmail), newRecord);
     }
 
     private List<Instrument> parseInstruments(JSONArray jsonArray) {

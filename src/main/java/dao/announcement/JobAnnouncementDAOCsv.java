@@ -12,7 +12,6 @@ import exception.DAOException;
 import model.*;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -114,40 +113,8 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
     @Override
     protected void saveToPersistency(JobAnnouncement obj) {
-
-        List<String> lines = new ArrayList<>();
-        boolean found = false;
         String id = getUniqueId(obj);
-
-        File file = new File(this.path);
-        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.isBlank()) continue;
-                String[] fields = line.split(CSV_SEPARATOR, -1);
-                if (fields[0].equals(id)) {
-                    lines.add(toCsvRow(id, obj));
-                    found = true;
-                } else {
-                    lines.add(line);
-                }
-            }
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read csv file " + this.path, e);
-        }
-
-        if (!found) {
-            lines.add(toCsvRow(id, obj));
-        }
-
-        try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())) {
-            for (String line : lines) {
-                writer.write(line);
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            throw new DAOException("Couldn't save job announcement with id " + id, e);
-        }
+        CsvManager.upsertRow(this.path, fields -> fields[0].equals(id), toCsvRow(id, obj));
     }
 
     private JobAnnouncement parseRow(String[] fields) {
