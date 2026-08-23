@@ -1,13 +1,13 @@
 package dao.application;
 
+import dao.artist.ArtistDAO;
 import dao.factories.DAOFactory;
-import dao.musician.MusicianDAO;
 import engineering.enums.ApplicationStatus;
 import engineering.persistency.CsvManager;
 import exception.DAOException;
+import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;
-import model.Musician;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -112,14 +112,13 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
         ApplicationStatus status = ApplicationStatus.valueOf(fields[STATUS_FIELD]);
         BigDecimal raiseOffer = new BigDecimal(fields[RAISE_FIELD]);
 
-        //right now, musician is the only artist, so this is just a temporary fix
-        MusicianDAO musicianDAO = DAOFactory.getInstance().getMusicianDAO();
+        ArtistDAO artistDAO = DAOFactory.getInstance().getArtistDAO();
 
-        Musician m = musicianDAO.getMusicianByEmail(candidateEmail);
+        Artist a = artistDAO.getArtistByEmail(candidateEmail);
 
         return new JobApplication(
                 jobAnnouncementDAO.getAnnouncementFromId(announcementId),
-                m, status, raiseOffer
+                a, status, raiseOffer
         );
     }
 

@@ -165,7 +165,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
         Artist artist;
 
         if (!fields[5].isEmpty()) {
-            artist = DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(fields[5]);
+            artist = DAOFactory.getInstance().getArtistDAO().getArtistByEmail(fields[5]);
         }
         else{
             artist = null;

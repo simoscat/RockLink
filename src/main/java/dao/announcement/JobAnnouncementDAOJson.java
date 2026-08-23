@@ -14,7 +14,6 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.math.BigDecimal;
-import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -117,7 +116,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
         Artist artist;
 
         if (!obj.getString(HIRED_ARTIST_FIELD).isEmpty()) {
-            artist = DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(obj.getString(HIRED_ARTIST_FIELD));
+            artist = DAOFactory.getInstance().getArtistDAO().getArtistByEmail(obj.getString(HIRED_ARTIST_FIELD));
         }
         else{
             artist = null;

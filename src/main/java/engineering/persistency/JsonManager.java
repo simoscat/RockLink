@@ -9,6 +9,8 @@ import java.nio.file.Files;
 
 public final class JsonManager {
 
+    private JsonManager(){}
+
     public static JSONArray readJsonFile(String path) throws IOException {
         File file = new File(path);
         if (!file.exists()) {

@@ -1,19 +1,20 @@
 package dao.application;
 
+import dao.artist.ArtistDAO;
 import dao.factories.DAOFactory;
-import dao.musician.MusicianDAO;
+
 import engineering.enums.ApplicationStatus;
 import engineering.persistency.JsonManager;
 import exception.DAOException;
+import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;
-import model.Musician;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
 import java.math.BigDecimal;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -121,16 +122,12 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
         ApplicationStatus status = ApplicationStatus.valueOf(obj.getString("status"));
         BigDecimal raiseOffer = obj.getBigDecimal("raiseOffer");
 
-        //right now, musician is the only artist, so this is just a temporary fix TODO
-        MusicianDAO musicianDAO = DAOFactory.getInstance().getMusicianDAO();
-        Musician m = musicianDAO.getMusicianByEmail(candidateEmail);
+        ArtistDAO artistDAO = DAOFactory.getInstance().getArtistDAO();
+        Artist a = artistDAO.getArtistByEmail(candidateEmail);
 
-        // in the future the appropriate thing to do would be to add a secondary ArtistDAO that
-        // checks both the databases to find which artist has the email (assuming that a band has to have a
-        // different email address than any musician)
 
         return new JobApplication(jobAnnouncementDAO.getAnnouncementFromId(announcementId),
-                m, status, raiseOffer);
+                a, status, raiseOffer);
     }
 
     private JSONObject toJson(JobApplication jobApp) {

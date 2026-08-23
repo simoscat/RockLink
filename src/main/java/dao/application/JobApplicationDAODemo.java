@@ -3,9 +3,10 @@ package dao.application;
 import dao.announcement.JobAnnouncementDAO;
 import dao.factories.DAOFactory;
 import engineering.enums.ApplicationStatus;
+import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;
-import model.Musician;
+
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -24,11 +25,11 @@ public class JobApplicationDAODemo extends JobApplicationDAO {
         JobAnnouncement job = jobAnnouncements.getFirst();
 
 
-        Musician m = DAOFactory.getInstance().getMusicianDAO().retrieveMusicianByEmail("anna.muscatello@gmail.com");
+        Artist a = DAOFactory.getInstance().getArtistDAO().getArtistByEmail("anna.muscatello@gmail.com");
 
         JobApplication jobApp = new JobApplication(
                 job,
-                m,
+                a,
                 ApplicationStatus.PENDING,
                 new BigDecimal(50)
         );
