@@ -7,7 +7,7 @@ import dao.auth.AuthDAO;
 import dao.instrument.InstrumentDAO;
 import dao.musician.MusicianDAO;
 import dao.promoter.PromoterDAO;
-import engineering.ConfigManager;
+import engineering.persistency.ConfigManager;
 
 
 

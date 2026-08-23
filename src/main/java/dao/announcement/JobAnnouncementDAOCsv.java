@@ -2,7 +2,7 @@ package dao.announcement;
 
 import dao.factories.DAOFactory;
 import dao.promoter.PromoterDAO;
-import engineering.ConfigManager;
+import engineering.persistency.ConfigManager;
 import engineering.enums.CurrencyType;
 import engineering.enums.JobAnnouncementStatus;
 import engineering.enums.JobAnnouncementTag;

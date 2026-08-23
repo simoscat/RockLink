@@ -1,6 +1,6 @@
 package dao.musician;
 
-import engineering.persistency.DAOWithCache;
+import dao.DAOWithCache;
 import model.Musician;
 
 public abstract class MusicianDAO extends DAOWithCache<Musician> {

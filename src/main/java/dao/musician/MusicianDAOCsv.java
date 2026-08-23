@@ -2,7 +2,7 @@ package dao.musician;
 
 import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAOCsv;
-import engineering.ConfigManager;
+import engineering.persistency.ConfigManager;
 import engineering.persistency.CsvManager;
 import engineering.enums.Gender;
 import exception.DAOException;

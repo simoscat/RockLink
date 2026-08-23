@@ -1,6 +1,6 @@
 package dao.promoter;
 
-import engineering.ConfigManager;
+import engineering.persistency.ConfigManager;
 import engineering.enums.Gender;
 import exception.DAOException;
 import model.Promoter;

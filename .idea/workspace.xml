@@ -8,14 +8,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/JsonManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAODemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAODemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/DAOWithCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOWithCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/factories/NavigatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/factories/NavigatorFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +228,7 @@
       <workItem from="1787390417230" duration="13651000" />
       <workItem from="1787405991635" duration="759000" />
       <workItem from="1787406856192" duration="11351000" />
-      <workItem from="1787473451988" duration="14101000" />
+      <workItem from="1787473451988" duration="16623000" />
     </task>
     <servers />
   </component>

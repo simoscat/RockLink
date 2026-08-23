@@ -1,6 +1,6 @@
 package view.factories;
 
-import engineering.ConfigManager;
+import engineering.persistency.ConfigManager;
 import engineering.enums.SupportedUI;
 import exception.DAOException;
 import view.Navigator;

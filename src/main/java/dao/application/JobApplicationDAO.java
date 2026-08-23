@@ -2,7 +2,7 @@ package dao.application;
 
 import dao.announcement.JobAnnouncementDAO;
 import dao.factories.DAOFactory;
-import engineering.persistency.DAOWithCache;
+import dao.DAOWithCache;
 import model.JobAnnouncement;
 import model.JobApplication;
 

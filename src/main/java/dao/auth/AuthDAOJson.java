@@ -2,7 +2,7 @@ package dao.auth;
 
 import java.io.IOException;
 
-import engineering.ConfigManager;
+import engineering.persistency.ConfigManager;
 import engineering.persistency.JsonManager;
 import org.json.JSONArray;
 import org.json.JSONObject;

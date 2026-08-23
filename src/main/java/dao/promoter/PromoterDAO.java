@@ -1,6 +1,6 @@
 package dao.promoter;
 
-import engineering.persistency.DAOWithCache;
+import dao.DAOWithCache;
 import model.Promoter;
 
 public abstract class PromoterDAO extends DAOWithCache<Promoter> {

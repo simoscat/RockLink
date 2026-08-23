@@ -1,7 +1,7 @@
 package dao.announcement;
 
 import engineering.enums.JobAnnouncementStatus;
-import engineering.persistency.DAOWithCache;
+import dao.DAOWithCache;
 import model.JobAnnouncement;
 
 import java.util.ArrayList;
