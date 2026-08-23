@@ -23,14 +23,13 @@ public class InstrumentDAOJson extends InstrumentDAO {
 
     @Override
     public List<Instrument> getMusicianInstruments(String musicianEmail) {
-        JSONArray allRecords = JsonManager.readJsonFile(this.path);
-        for (int i = 0; i < allRecords.length(); i++) {
-            JSONObject obj = allRecords.getJSONObject(i);
-            if (obj.getString(EMAIL_FIELD).equals(musicianEmail)) {
-                return parseInstruments(obj.getJSONArray(INSTRUMENTS_FIELD));
-            }
+        JSONObject obj = JsonManager.findInFile(this.path, o -> o.getString(EMAIL_FIELD).equals(musicianEmail));
+
+        if (obj == null) {
+            throw new DAOException("No instruments found for musician: " + musicianEmail);
         }
-        throw new DAOException("No instruments found for musician: " + musicianEmail);
+
+        return parseInstruments(obj.getJSONArray(INSTRUMENTS_FIELD));
     }
 
     @Override

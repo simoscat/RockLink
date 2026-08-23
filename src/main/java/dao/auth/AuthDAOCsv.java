@@ -5,12 +5,7 @@ import engineering.persistency.CsvManager;
 import exception.DAOException;
 import model.Credential;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AuthDAOCsv extends AuthDAO {
@@ -64,42 +59,10 @@ public class AuthDAOCsv extends AuthDAO {
     }
     
     private Credential getUserCredential(String email, String path){
-        
-        File file = new File(path);
-        
-        try (BufferedReader reader = Files.newBufferedReader(file.toPath())){
-            
-            String line;
-            
-            while((line = reader.readLine()) != null){
-                
-                if (line.isBlank()){
-                    continue;
-                }
-                
-                Credential credential = parseRowIfMatches(line, email);
-                
-                if (credential != null){
-                    return credential;
-                }
-                
-            }
+        String[] fields = CsvManager.findRow(path, f -> f.length >= NUM_FIELDS && f[0].equals(email));
 
+        if (fields == null) {
             return null;
-            
-
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read credential file: "+path, e);
-        }
-
-    }
-
-    private Credential parseRowIfMatches(String line, String email) {
-        String[] fields = line.split(CSV_SEPARATOR, -1);
-        if (fields.length < NUM_FIELDS || !fields[0].equals(email)) {
-
-            return null;
-
         }
 
         return toCredential(fields[0], fields[1]);
@@ -130,57 +93,13 @@ public class AuthDAOCsv extends AuthDAO {
     }
 
     private void registerUser(Credential credential, String path) {
-        List<String> lines = readAllLinesAndRegister(credential, path);
-        
-        File file = new File(path);
-        
-        try(BufferedWriter writer = Files.newBufferedWriter(file.toPath())){
-            
-            for (String line : lines) {
-                writer.write(line);
-                writer.newLine();
-            }
-            
-        } catch (IOException e) {
-            throw new DAOException("Couldn't write to file " + path, e);
-        }
-    }
-
-    private List<String> readAllLinesAndRegister(Credential c, String path){
-
-        File file = new File(path);
-        List<String> lines = new ArrayList<>();
-
-        try(BufferedReader reader = Files.newBufferedReader(file.toPath())){
-
-            String line;
-            
-            while((line = reader.readLine()) != null){
-                
-                if (line.isBlank()){
-                    continue;
-                }
-                
-                String[] fields = line.split(CSV_SEPARATOR, -1);
-                
-                if (fields.length > 0 && fields[0].equals(c.getEmail())){
-                    throw new DAOException("Credential for email "+c.getEmail()+" already exists in "+path);
-                }
-                
-                lines.add(line);
-            }
-            
-
+        if (CsvManager.findRow(path, f -> f[0].equals(credential.getEmail())) != null) {
+            throw new DAOException("Credential for email " + credential.getEmail() + " already exists in " + path);
         }
 
-        catch (IOException e) {
-            throw new DAOException("Couldn't read credential file: "+path, e);
-        }
-        
-        lines.add(toCsv(c));
-        
-        return lines;
-
+        List<String> lines = CsvManager.readAllLines(path);
+        lines.add(toCsv(credential));
+        CsvManager.writeAllLines(path, lines);
     }
 
     private String toCsv(Credential credential) {

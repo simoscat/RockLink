@@ -49,17 +49,13 @@ public class AuthDAOJson extends AuthDAO {
 
     private Credential getUserCredential(String email, String path){
 
-        JSONArray credentials = JsonManager.readJsonFile(path);
+        JSONObject obj = JsonManager.findInFile(path, o -> o.getString(EMAIL_KEY).equalsIgnoreCase(email));
 
-        for (int i = 0; i < credentials.length(); i++) {
-            JSONObject obj = credentials.getJSONObject(i);
-            if (obj.getString(EMAIL_KEY).equalsIgnoreCase(email)) {
-                return new Credential(obj.getString(EMAIL_KEY), obj.getString(PASSWORD_KEY));
-            }
+        if (obj == null) {
+            return null;
         }
 
-        return null;
-
+        return new Credential(obj.getString(EMAIL_KEY), obj.getString(PASSWORD_KEY));
     }
 
     @Override
@@ -80,11 +76,8 @@ public class AuthDAOJson extends AuthDAO {
 
         JSONArray credentials = JsonManager.readJsonFile(file);
 
-        for (int i = 0; i < credentials.length(); i++) {
-            JSONObject obj = credentials.getJSONObject(i);
-            if (obj.getString(EMAIL_KEY).equalsIgnoreCase(credential.getEmail())) {
-                throw new DAOException("A " + role + " credential with this email already exists: " + credential.getEmail());
-            }
+        if (JsonManager.findFirst(credentials, o -> o.getString(EMAIL_KEY).equalsIgnoreCase(credential.getEmail())) != null) {
+            throw new DAOException("A " + role + " credential with this email already exists: " + credential.getEmail());
         }
 
         JSONObject newCredential = new JSONObject();

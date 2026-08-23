@@ -8,7 +8,6 @@ import engineering.persistency.JsonManager;
 import exception.DAOException;
 import model.Instrument;
 import model.Musician;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.List;
@@ -26,14 +25,13 @@ public class MusicianDAOJson extends MusicianDAO {
 
     @Override
     public Musician retrieveMusicianByEmail(String email) {
-        JSONArray allRecords = JsonManager.readJsonFile(this.path);
-        for (int i = 0; i < allRecords.length(); i++) {
-            JSONObject obj = allRecords.getJSONObject(i);
-            if (obj.getString(EMAIL_FIELD).equals(email)) {
-                return parseJson(obj);
-            }
+        JSONObject obj = JsonManager.findInFile(this.path, o -> o.getString(EMAIL_FIELD).equals(email));
+
+        if (obj == null) {
+            throw new DAOException("Couldn't find musician with email: " + email);
         }
-        throw new DAOException("Couldn't find musician with email: " + email);
+
+        return parseJson(obj);
     }
 
     @Override

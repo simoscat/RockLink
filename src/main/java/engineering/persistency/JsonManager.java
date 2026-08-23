@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 public final class JsonManager {
@@ -45,10 +47,10 @@ public final class JsonManager {
         }
     }
 
-    /**
-     * Replaces the first object in {@code array} matching {@code matcher} with {@code newObj},
-     * or appends {@code newObj} if no object matches.
-     */
+    //matcher is the condition to match: if the json object matches, it gets substituted.
+    //if no object matches, the new object is added at the end
+    //example: we want have a musician in memory to move in persistency: if the musician exists, we update it,
+    //if not, we add it
     public static void upsert(JSONArray array, Predicate<JSONObject> matcher, JSONObject newObj) {
         for (int i = 0; i < array.length(); i++) {
             if (matcher.test(array.getJSONObject(i))) {
@@ -59,13 +61,42 @@ public final class JsonManager {
         array.put(newObj);
     }
 
-    /**
-     * Reads the JSON file, upserts {@code newObj} per {@link #upsert}, then writes it back.
-     */
+    //this does the same thing as upsert, but also updates the file
     public static void upsertFile(String path, Predicate<JSONObject> matcher, JSONObject newObj) {
         JSONArray array = readJsonFile(path);
         upsert(array, matcher, newObj);
         writeJsonFile(array, path);
+    }
+
+    //returns the first object matching matcher, or null if none matches
+    public static JSONObject findFirst(JSONArray array, Predicate<JSONObject> matcher) {
+        for (int i = 0; i < array.length(); i++) {
+            JSONObject obj = array.getJSONObject(i);
+            if (matcher.test(obj)) {
+                return obj;
+            }
+        }
+        return null;
+    }
+
+    public static JSONObject findInFile(String path, Predicate<JSONObject> matcher) {
+        return findFirst(readJsonFile(path), matcher);
+    }
+
+    //returns every object matching matcher
+    public static List<JSONObject> filter(JSONArray array, Predicate<JSONObject> matcher) {
+        List<JSONObject> result = new ArrayList<>();
+        for (int i = 0; i < array.length(); i++) {
+            JSONObject obj = array.getJSONObject(i);
+            if (matcher.test(obj)) {
+                result.add(obj);
+            }
+        }
+        return result;
+    }
+
+    public static List<JSONObject> filterInFile(String path, Predicate<JSONObject> matcher) {
+        return filter(readJsonFile(path), matcher);
     }
 
 }

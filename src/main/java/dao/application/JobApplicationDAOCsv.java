@@ -10,11 +10,8 @@ import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,18 +41,9 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
     @Override
     public List<JobApplication> retrieveAllJobApplicationsFromEmail(String email) {
         List<JobApplication> applications = new ArrayList<>();
-        File file = new File(this.path);
-        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.isBlank()) continue;
-                String[] fields = line.split(CSV_SEPARATOR, -1);
-                if (fields[EMAIL_FIELD].equals(email)) {
-                    applications.add(parseRow(fields));
-                }
-            }
-        } catch (IOException e) {
-            throw new DAOException("Can't read job applications", e);
+
+        for (String[] fields : CsvManager.filterRows(this.path, f -> f[EMAIL_FIELD].equals(email))) {
+            applications.add(parseRow(fields));
         }
 
         return applications;
@@ -99,67 +87,28 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
 
     @Override
     protected List<JobApplication> retrieveAllJobApplicationsFromJob(JobAnnouncement jobAnnouncement) {
-
         String jobId = jobAnnouncementDAO.getUniqueId(jobAnnouncement);
-
         List<JobApplication> applications = new ArrayList<>();
 
-        File file = new File(this.path);
-
-        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-
-                if (line.isBlank()) continue;
-
-                String[] fields = line.split(CSV_SEPARATOR, -1);
-
-                if (fields[ID_FIELD].equals(jobId)) {
-                    applications.add(parseRow(fields));
-                }
-
-            }
-
-        } catch (IOException e) {
-            throw new DAOException("Can't read job applications", e);
+        for (String[] fields : CsvManager.filterRows(this.path, f -> f[ID_FIELD].equals(jobId))) {
+            applications.add(parseRow(fields));
         }
 
         return applications;
-
-
     }
 
     @Override
     protected JobApplication retrieveJobApplication(String candidateEmail, JobAnnouncement jobAnnouncement) {
-
         String jobId = jobAnnouncementDAO.getUniqueId(jobAnnouncement);
 
-        File file = new File(this.path);
+        String[] fields = CsvManager.findRow(this.path,
+                f -> f[EMAIL_FIELD].equals(candidateEmail) && f[ID_FIELD].equals(jobId));
 
-        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-
-                if (line.isBlank()) continue;
-
-                String[] fields = line.split(CSV_SEPARATOR, -1);
-
-                if (fields[EMAIL_FIELD].equals(candidateEmail) && fields[ID_FIELD].equals(jobId)) {
-                    return parseRow(fields);
-                }
-
-            }
-
-        } catch (IOException e) {
-            throw new DAOException("Can't read job applications", e);
+        if (fields == null) {
+            return null;
         }
 
-        return null;
-
+        return parseRow(fields);
     }
 
 }

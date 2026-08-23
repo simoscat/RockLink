@@ -9,10 +9,7 @@ import exception.DAOException;
 import model.Instrument;
 import model.Musician;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.List;
 
 public class MusicianDAOCsv extends MusicianDAO {
@@ -46,24 +43,13 @@ public class MusicianDAOCsv extends MusicianDAO {
 
     @Override
     public Musician retrieveMusicianByEmail(String email) {
-        File file = new File(this.path);
-        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.isBlank()) {
-                    continue;
-                }
-                Musician candidate = parseRowIfMatches(line, email);
-                if (candidate != null) {
-                    return candidate;
-                }
-            }
+        String[] fields = CsvManager.findRow(this.path, f -> f.length >= NUM_FIELDS && f[0].equals(email));
 
+        if (fields == null) {
             throw new DAOException("Couldn't find musician with email: " + email);
-
-        } catch (IOException e) {
-            throw new DAOException("Can't read musician with email: " + email, e);
         }
+
+        return parseRow(fields);
     }
 
     @Override
@@ -74,14 +60,8 @@ public class MusicianDAOCsv extends MusicianDAO {
         this.instrumentDAO.saveMusicianInstruments(m.getEmail(), m.presentInstruments());
     }
 
-    private Musician parseRowIfMatches(String line, String email) {
+    private Musician parseRow(String[] fields) {
         try {
-            String[] fields = line.split(CSV_SEPARATOR, -1);
-
-            if (fields.length < NUM_FIELDS || !fields[0].equals(email)) {
-                return null;
-            }
-
             String csvEmail = fields[0];
             String name = fields[1];
             String surname = fields[2];
@@ -94,7 +74,7 @@ public class MusicianDAOCsv extends MusicianDAO {
 
         } catch (IllegalArgumentException e) {
             // riga malformata (es. valore di Gender non valido)
-            throw new DAOException("Invalid csv line: " + line, e);
+            throw new DAOException("Invalid csv line for email " + fields[0], e);
         }
     }
 
