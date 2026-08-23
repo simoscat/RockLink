@@ -11,7 +11,6 @@ import model.Musician;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.List;
 
 public class MusicianDAOJson extends MusicianDAO {
@@ -27,7 +26,7 @@ public class MusicianDAOJson extends MusicianDAO {
 
     @Override
     public Musician retrieveMusicianByEmail(String email) {
-        JSONArray allRecords = readJsonFile();
+        JSONArray allRecords = JsonManager.readJsonFile(this.path);
         for (int i = 0; i < allRecords.length(); i++) {
             JSONObject obj = allRecords.getJSONObject(i);
             if (obj.getString(EMAIL_FIELD).equals(email)) {
@@ -39,7 +38,7 @@ public class MusicianDAOJson extends MusicianDAO {
 
     @Override
     protected void saveToPersistency(Musician m) {
-        JSONArray allRecords = readJsonFile();
+        JSONArray allRecords = JsonManager.readJsonFile(this.path);
         boolean found = false;
 
         for (int i = 0; i < allRecords.length(); i++) {
@@ -55,7 +54,7 @@ public class MusicianDAOJson extends MusicianDAO {
             allRecords.put(toJson(m));
         }
 
-        writeJsonFile(allRecords);
+        JsonManager.writeJsonFile(allRecords, this.path);
 
         // Save instruments
         this.instrumentDAO.saveMusicianInstruments(m.getEmail(), m.presentInstruments());
@@ -86,21 +85,5 @@ public class MusicianDAOJson extends MusicianDAO {
         obj.put("stageName", m.getArtistName());
         obj.put("gender", m.getGender().name());
         return obj;
-    }
-
-    private JSONArray readJsonFile() {
-        try {
-            return JsonManager.readJsonFile(this.path);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read Json file "+this.path, e);
-        }
-    }
-
-    private void writeJsonFile(JSONArray array) {
-        try{
-            JsonManager.writeJsonFile(array, this.path);
-        } catch(IOException e) {
-            throw new DAOException("Couldn't write Json file "+this.path, e);
-        }
     }
 }

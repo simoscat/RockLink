@@ -13,7 +13,6 @@ import model.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
     @Override
     protected List<JobAnnouncement> retrieveAllPromoterAnnouncementsFromEmail(String email) {
 
-        JSONArray jobs = readJsonFile();
+        JSONArray jobs = JsonManager.readJsonFile(this.path);
         List<JobAnnouncement> promoterJobs = new ArrayList<>();
 
         for (int i = 0; i < jobs.length(); i++) {
@@ -47,7 +46,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     @Override
     public JobAnnouncement retrieveJobAnnouncementById(String id) {
-        JSONArray jobs = readJsonFile();
+        JSONArray jobs = JsonManager.readJsonFile(this.path);
         for (int i = 0; i < jobs.length(); i++) {
             JSONObject obj = jobs.getJSONObject(i);
             if (obj.getString("id").equals(id)) {
@@ -64,7 +63,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     @Override
     protected List<JobAnnouncement> retrieveAllJobAnnouncements() {
-        JSONArray jobs = readJsonFile();
+        JSONArray jobs = JsonManager.readJsonFile(this.path);
         List<JobAnnouncement> announcements = new ArrayList<>();
         for (int i = 0; i < jobs.length(); i++) {
             announcements.add(parseJson(jobs.getJSONObject(i)));
@@ -74,7 +73,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     @Override
     protected void saveToPersistency(JobAnnouncement obj) {
-        JSONArray jobs = readJsonFile();
+        JSONArray jobs = JsonManager.readJsonFile(this.path);
         String id = getUniqueId(obj);
         boolean found = false;
 
@@ -91,7 +90,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
             jobs.put(toJson(id, obj));
         }
 
-        writeJsonFile(jobs);
+        JsonManager.writeJsonFile(jobs, this.path);
     }
 
     private JobAnnouncement parseJson(JSONObject obj) {
@@ -173,21 +172,5 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
         obj.put("tags", tags);
 
         return obj;
-    }
-
-    private JSONArray readJsonFile() {
-        try {
-            return JsonManager.readJsonFile(this.path);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read Json file "+this.path, e);
-        }
-    }
-
-    private void writeJsonFile(JSONArray array) {
-        try{
-            JsonManager.writeJsonFile(array, this.path);
-        } catch(IOException e) {
-            throw new DAOException("Couldn't write Json file "+this.path, e);
-        }
     }
 }

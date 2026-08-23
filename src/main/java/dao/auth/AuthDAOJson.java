@@ -1,7 +1,5 @@
 package dao.auth;
 
-import java.io.IOException;
-
 import engineering.persistency.ConfigManager;
 import engineering.persistency.JsonManager;
 import org.json.JSONArray;
@@ -51,7 +49,7 @@ public class AuthDAOJson extends AuthDAO {
 
     private Credential getUserCredential(String email, String path){
 
-        JSONArray credentials = readCredentialsFile(path);
+        JSONArray credentials = JsonManager.readJsonFile(path);
 
         for (int i = 0; i < credentials.length(); i++) {
             JSONObject obj = credentials.getJSONObject(i);
@@ -66,41 +64,26 @@ public class AuthDAOJson extends AuthDAO {
 
     @Override
     public void registerMusician(Credential credential) throws DAOException {
-
-        if (invalidEmail(credential.getEmail())) {
-            throw new DAOException("Invalid email: " + credential.getEmail());
-        }
-
-        JSONArray credentials = readCredentialsFile(musiciansFile);
-
-        for (int i = 0; i < credentials.length(); i++) {
-            JSONObject obj = credentials.getJSONObject(i);
-            if (obj.getString(EMAIL_KEY).equalsIgnoreCase(credential.getEmail())) {
-                throw new DAOException("A musician credential with this email already exists: " + credential.getEmail());
-            }
-        }
-
-        JSONObject newCredential = new JSONObject();
-        newCredential.put(EMAIL_KEY, credential.getEmail());
-        newCredential.put(PASSWORD_KEY, credential.getCryptPassword());
-        credentials.put(newCredential);
-
-        writeCredentialsFile(musiciansFile, credentials);
+        registerCredential(credential, musiciansFile, "musician");
     }
 
     @Override
     public void registerPromoter(Credential credential) throws DAOException {
+        registerCredential(credential, promotersFile, "promoter");
+    }
+
+    private void registerCredential(Credential credential, String file, String role) {
 
         if (invalidEmail(credential.getEmail())) {
             throw new DAOException("Invalid email: " + credential.getEmail());
         }
 
-        JSONArray credentials = readCredentialsFile(promotersFile);
+        JSONArray credentials = JsonManager.readJsonFile(file);
 
         for (int i = 0; i < credentials.length(); i++) {
             JSONObject obj = credentials.getJSONObject(i);
             if (obj.getString(EMAIL_KEY).equalsIgnoreCase(credential.getEmail())) {
-                throw new DAOException("A promoter credential with this email already exists: " + credential.getEmail());
+                throw new DAOException("A " + role + " credential with this email already exists: " + credential.getEmail());
             }
         }
 
@@ -109,7 +92,7 @@ public class AuthDAOJson extends AuthDAO {
         newCredential.put(PASSWORD_KEY, credential.getCryptPassword());
         credentials.put(newCredential);
 
-        writeCredentialsFile(promotersFile, credentials);
+        JsonManager.writeJsonFile(credentials, file);
     }
 
     @Override
@@ -121,22 +104,4 @@ public class AuthDAOJson extends AuthDAO {
     public boolean isPromoterAlreadyRegistered(String email) {
         return getUserCredential(email, promotersFile) != null;
     }
-
-    private JSONArray readCredentialsFile(String path) throws DAOException {
-        try {
-            return JsonManager.readJsonFile(path);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read Json file "+path, e);
-        }
-    }
-
-    private void writeCredentialsFile(String path, JSONArray credentials) throws DAOException {
-        try{
-            JsonManager.writeJsonFile(credentials, path);
-        } catch(IOException e) {
-            throw new DAOException("Couldn't write Json file "+path, e);
-        }
-    }
-
-    
 }
