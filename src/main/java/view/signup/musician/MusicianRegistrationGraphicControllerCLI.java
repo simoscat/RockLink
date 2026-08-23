@@ -85,7 +85,7 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
                         yield true;
                     }
                     default -> {
-                        showError("Invalid input. Please try again.");
+                        navigator.showError("Invalid input. Please try again.");
                         yield false;
                     }
                 };
@@ -140,7 +140,7 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
                     return "NOT_SPECIFIED";
 
                 default:
-                    showError("Invalid selection");
+                    navigator.showError("Invalid selection");
 
             }
 
@@ -150,13 +150,5 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
     }
 
 
-    @Override
-    public void showError(String message) {
-        System.out.println("[ERROR] " + message);
-    }
 
-    @Override
-    public void showInfo(String message) {
-        System.out.println("[INFO] " + message);
-    }
 }

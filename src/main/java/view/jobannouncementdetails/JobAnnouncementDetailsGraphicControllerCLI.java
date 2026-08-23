@@ -109,7 +109,7 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
                     break;
 
                 default:
-                    showError("Invalid operation");
+                    navigator.showError("Invalid operation");
 
             }
 
@@ -142,13 +142,13 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
                     raiseOffer = BigDecimal.valueOf(Float.parseFloat(scanner.nextLine().trim()));
 
                     if (raiseOffer.compareTo(BigDecimal.ZERO) < 0){
-                        showError("Invalid value. Try again");
+                        navigator.showError("Invalid value. Try again");
                     }
 
                     else done = true;
 
                 } catch (NumberFormatException _) {
-                    showError("Invalid number. Try again");
+                    navigator.showError("Invalid number. Try again");
                 }
 
             }
@@ -187,18 +187,9 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
                     done = true;
                     break;
                 default:
-                    showError("Invalid operation");
+                    navigator.showError("Invalid operation");
             }
         }
     }
 
-    @Override
-    protected void showError(String message) {
-        System.out.println("[ERROR]: " + message);
-    }
-
-    @Override
-    protected void showInfo(String message) {
-        System.out.println("[INFO]: " + message);
-    }
 }

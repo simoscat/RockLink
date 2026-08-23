@@ -53,7 +53,7 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
                     running = false;
                     break;
                 default:
-                    showError("Invalid choice.");
+                    navigator.showError("Invalid choice.");
             }
         }
     }
@@ -84,14 +84,5 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
         doLogin();
     }
 
-    @Override
-    public void showError(String message) {
-        System.out.println("[ERROR] " + message);
-    }
-
-    @Override
-    public void showInfo(String message) {
-        System.out.println("[INFO] " + message);
-    }
 
 }

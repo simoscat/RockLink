@@ -92,7 +92,7 @@ public class PromoterRegistrationGraphicControllerCLI extends PromoterRegistrati
                     return "NOT_SPECIFIED";
 
                 default:
-                    showError("Invalid selection");
+                    navigator.showError("Invalid selection");
 
             }
 
@@ -100,14 +100,5 @@ public class PromoterRegistrationGraphicControllerCLI extends PromoterRegistrati
 
     }
 
-    @Override
-    public void showError(String message) {
-        System.out.println("[ERROR] " + message);
-    }
-
-    @Override
-    public void showInfo(String message) {
-        System.out.println("[INFO] " + message);
-    }
 
 }

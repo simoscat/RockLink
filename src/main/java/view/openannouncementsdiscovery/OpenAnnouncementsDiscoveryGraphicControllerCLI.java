@@ -146,7 +146,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
                     break;
 
                 default:
-                    showError("Invalid choice.");
+                    navigator.showError("Invalid choice.");
 
             }
         }
@@ -172,7 +172,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
 
                 if (num <= 0 || num > navigator.getJobAnnouncements().size()){
 
-                    showError("Invalid choice.");
+                    navigator.showError("Invalid choice.");
 
                 }
 
@@ -183,7 +183,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
             }
             catch (NumberFormatException _) {
 
-                showError("Invalid number.");
+                navigator.showError("Invalid number.");
 
             }
 
@@ -214,15 +214,5 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
         }
 
         return value.length() > width ? value.substring(0, width - 1) + "…" : value;
-    }
-
-    @Override
-    protected void showError(String message) {
-        System.out.println("[ERROR] " + message);
-    }
-
-    @Override
-    protected void showInfo(String message) {
-        System.out.println("[INFO] " + message);
     }
 }

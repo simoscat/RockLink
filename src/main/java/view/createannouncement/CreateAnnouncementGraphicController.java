@@ -25,14 +25,14 @@ public abstract class CreateAnnouncementGraphicController {
 
             jobAnnouncementController.publishJobAnnouncement(jobAnnouncementBean);
 
-            showInfo("Announcement was successfully published! Going back to dashboard");
+            navigator.showInfo("Announcement was successfully published! Going back to dashboard");
 
         }
         catch (ControllerLogicException e){
-            showError(e.getMessage() + "\nCause: " + e.getCause().getMessage() + "\n Going back to dashboard");
+            navigator.showError(e.getMessage() + "\nCause: " + e.getCause().getMessage() + "\n Going back to dashboard");
         }
         catch (RuntimeException e){
-            showError("Internal error: " + e.getMessage()+"\nAnnouncement not published. Going back to dashboard");
+            navigator.showError("Internal error: " + e.getMessage()+"\nAnnouncement not published. Going back to dashboard");
         }
 
         navigator.goToPromoterDashboard();
@@ -41,7 +41,5 @@ public abstract class CreateAnnouncementGraphicController {
 
 
     protected abstract void start();
-    protected abstract void showError(String message);
-    protected abstract void showInfo(String message);
 
 }

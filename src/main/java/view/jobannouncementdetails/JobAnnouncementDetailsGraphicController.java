@@ -20,8 +20,6 @@ public abstract class JobAnnouncementDetailsGraphicController {
     }
 
     public abstract void start();
-    protected abstract void showError(String message);
-    protected abstract void showInfo(String message);
 
     protected boolean hasMusicianAlreadyApplied(){
 
@@ -56,17 +54,17 @@ public abstract class JobAnnouncementDetailsGraphicController {
 
             }
 
-            showInfo("Application sent! Going back to previous screen");
+            navigator.showInfo("Application sent! Going back to previous screen");
 
             backToPreviousScreen();
 
         }
         catch (ControllerLogicException e){
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
             start();
         }
         catch (RuntimeException e){
-            showError(INTERNAL_ERROR_PREFIX+e.getMessage());
+            navigator.showError(INTERNAL_ERROR_PREFIX+e.getMessage());
             start();
         }
     }
@@ -90,11 +88,11 @@ public abstract class JobAnnouncementDetailsGraphicController {
 
         }
         catch (ControllerLogicException e){
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
             start();
         }
         catch(RuntimeException e){
-            showError(INTERNAL_ERROR_PREFIX+e.getMessage());
+            navigator.showError(INTERNAL_ERROR_PREFIX+e.getMessage());
             start();
         }
 
@@ -125,10 +123,10 @@ public abstract class JobAnnouncementDetailsGraphicController {
                     jobAppController.getUpdatedAnnouncement(navigator.getCurrentJobAnnouncement())
             );
         } catch (ControllerLogicException e) {
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
         }
         catch (RuntimeException e){
-            showError(INTERNAL_ERROR_PREFIX+e.getMessage());
+            navigator.showError(INTERNAL_ERROR_PREFIX+e.getMessage());
         }
 
         start();

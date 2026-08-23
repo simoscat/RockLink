@@ -56,24 +56,11 @@ public class JobApplicationDetailGraphicControllerCLI extends JobApplicationDeta
                 backToJobApplications();
                 break;
             default:
-                showError("Invalid input. Try again");
+                navigator.showError("Invalid input. Try again");
                 start();
 
         }
 
     }
 
-    @Override
-    protected void showError(String message) {
-
-        System.out.println("[Error] " + message);
-
-    }
-
-    @Override
-    protected void showInfo(String message) {
-
-        System.out.println("[Info] " + message);
-
-    }
 }

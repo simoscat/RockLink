@@ -177,7 +177,7 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
     private void handlePublish() {
         String title = titleField.getText();
         if (title == null || title.isBlank()) {
-            showError("Please enter a title.");
+            navigator.showError("Please enter a title.");
             return;
         }
 
@@ -190,7 +190,7 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
 
         String address = addressField.getText();
         if (address == null || address.isBlank()) {
-            showError("Please enter the event address.");
+            navigator.showError("Please enter the event address.");
             return;
         }
 
@@ -222,14 +222,14 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
             LocalDateTime eventDateTime = LocalDateTime.parse(date + "T" + time);
 
             if (eventDateTime.isBefore(LocalDateTime.now(ZoneId.systemDefault()))) {
-                showError("The date and time cannot be in the past.");
+                navigator.showError("The date and time cannot be in the past.");
                 return null;
             }
 
             return eventDateTime;
 
         } catch (DateTimeParseException _) {
-            showError("Invalid date/time. Use yyyy-MM-dd for the date and HH:mm for the time.");
+            navigator.showError("Invalid date/time. Use yyyy-MM-dd for the date and HH:mm for the time.");
             return null;
         }
     }
@@ -240,18 +240,18 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
         try {
             amount = new BigDecimal(payAmountField.getText().trim());
         } catch (NumberFormatException _) {
-            showError("Please enter a valid pay amount.");
+            navigator.showError("Please enter a valid pay amount.");
             return null;
         }
 
         if (amount.signum() <= 0) {
-            showError("Pay amount must be greater than zero.");
+            navigator.showError("Pay amount must be greater than zero.");
             return null;
         }
 
         Toggle selectedCurrency = currencyToggleGroup.getSelectedToggle();
         if (selectedCurrency == null) {
-            showError("Please select a currency.");
+            navigator.showError("Please select a currency.");
             return null;
         }
 
@@ -272,21 +272,4 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
         return tags;
     }
 
-    @Override
-    protected void showError(String message) {
-        showAlert(Alert.AlertType.ERROR, "ERROR", message);
-    }
-
-    @Override
-    protected void showInfo(String message) {
-        showAlert(Alert.AlertType.INFORMATION, "INFO", message);
-    }
-
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 }

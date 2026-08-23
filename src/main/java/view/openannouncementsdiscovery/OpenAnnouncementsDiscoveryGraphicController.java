@@ -51,10 +51,10 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
             return manageJobApplicationsController.isMusicianAppliedToJob(job, navigator.getMusician());
         }
         catch(ControllerLogicException e){
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
         }
         catch(RuntimeException e){
-            showError("Internal error: "+e.getMessage());
+            navigator.showError("Internal error: "+e.getMessage());
         }
         return false;
 
@@ -71,7 +71,5 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
     }
 
     public abstract void start();
-    protected abstract void showError(String message);
-    protected abstract void showInfo(String message);
 
 }

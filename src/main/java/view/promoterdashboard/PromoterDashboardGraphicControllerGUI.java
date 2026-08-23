@@ -182,24 +182,7 @@ public class PromoterDashboardGraphicControllerGUI extends PromoterDashboardGrap
 
     @FXML
     private void handleNotifications() {
-        showInfo("Not implemented yet");
+        navigator.showInfo("Not implemented yet");
     }
 
-    @Override
-    public void showError(String message) {
-        showAlert(Alert.AlertType.ERROR, "ERROR", message);
-    }
-
-    @Override
-    public void showInfo(String message) {
-        showAlert(Alert.AlertType.INFORMATION, "INFO", message);
-    }
-
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 }

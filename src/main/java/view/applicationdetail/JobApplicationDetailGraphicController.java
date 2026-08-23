@@ -18,16 +18,16 @@ public abstract class JobApplicationDetailGraphicController {
         try {
             manageJobApplicationsController.acceptApplication(navigator.getCurrentJobApplication());
 
-            showInfo("Application was accepted! Going back to dashboard");
+            navigator.showInfo("Application was accepted! Going back to dashboard");
 
             navigator.goToPromoterDashboard();
         }
         catch(ControllerLogicException e){
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
             start();
         }
         catch(RuntimeException e){
-            showError("Internal error: "+ e.getMessage());
+            navigator.showError("Internal error: "+ e.getMessage());
             start();
         }
     }
@@ -37,16 +37,16 @@ public abstract class JobApplicationDetailGraphicController {
         try{
             manageJobApplicationsController.rejectApplication(navigator.getCurrentJobApplication());
 
-            showInfo("Application rejected, going back to the job announcement.");
+            navigator.showInfo("Application rejected, going back to the job announcement.");
 
             start();
         }
         catch(ControllerLogicException e){
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
             start();
         }
         catch(RuntimeException e){
-            showError("Internal error: "+ e.getMessage());
+            navigator.showError("Internal error: "+ e.getMessage());
             start();
         }
 
@@ -57,7 +57,6 @@ public abstract class JobApplicationDetailGraphicController {
     }
 
     public abstract void start();
-    protected abstract void showError(String message);
-    protected abstract void showInfo(String message);
+
 
 }

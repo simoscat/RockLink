@@ -112,4 +112,14 @@ public class NavigatorCLI extends Navigator {
         if (this.announcementDiscovery == null) { this.announcementDiscovery = new OpenAnnouncementsDiscoveryGraphicControllerCLI(this); }
         this.announcementDiscovery.start();
     }
+
+    @Override
+    public void showError(String message) {
+        System.out.println("[ERROR] "+message);
+    }
+
+    @Override
+    public void showInfo(String message) {
+        System.out.println("[INFO] "+message);
+    }
 }

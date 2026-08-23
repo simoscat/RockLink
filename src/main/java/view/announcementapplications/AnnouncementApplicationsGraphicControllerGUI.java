@@ -146,21 +146,4 @@ public class AnnouncementApplicationsGraphicControllerGUI extends AnnouncementAp
         refreshUI();
     }
 
-    @Override
-    protected void showError(String message) {
-        showAlert(Alert.AlertType.ERROR, "ERROR", message);
-    }
-
-    @Override
-    protected void showInfo(String message) {
-        showAlert(Alert.AlertType.INFORMATION, "INFO", message);
-    }
-
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 }

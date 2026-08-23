@@ -25,11 +25,11 @@ public abstract class PromoterDashboardGraphicController {
             navigator.setJobAnnouncements(jobAnnouncements);
 
         } catch (ControllerLogicException e) {
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
             start();
         }
         catch (RuntimeException e){
-            showError("Internal error: "+ e.getMessage());
+            navigator.showError("Internal error: "+ e.getMessage());
             start();
         }
 
@@ -57,7 +57,6 @@ public abstract class PromoterDashboardGraphicController {
     }
 
     public abstract void start();
-    public abstract void showError(String message);
-    public abstract void showInfo(String message);
+
 
 }

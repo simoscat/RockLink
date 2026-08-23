@@ -206,12 +206,12 @@ public class JobAnnouncementDetailsGraphicControllerGUI extends JobAnnouncementD
             try {
                 raiseOffer = new BigDecimal(raiseText.trim());
             } catch (NumberFormatException _) {
-                showError("Invalid counter offer amount.");
+                navigator.showError("Invalid counter offer amount.");
                 return;
             }
 
             if (raiseOffer.signum() < 0) {
-                showError("The counter offer cannot be negative.");
+                navigator.showError("The counter offer cannot be negative.");
                 return;
             }
         }
@@ -229,21 +229,4 @@ public class JobAnnouncementDetailsGraphicControllerGUI extends JobAnnouncementD
         viewJobApplications();
     }
 
-    @Override
-    protected void showError(String message) {
-        showAlert(Alert.AlertType.ERROR, "ERROR", message);
-    }
-
-    @Override
-    protected void showInfo(String message) {
-        showAlert(Alert.AlertType.INFORMATION, "INFO", message);
-    }
-
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 }

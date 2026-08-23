@@ -87,7 +87,7 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
                     break;
 
                 default:
-                    showError("Invalid input");
+                    navigator.showError("Invalid input");
             }
         }
 
@@ -101,7 +101,7 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
             int num = Integer.parseInt(scanner.nextLine().trim());
 
             if (num <= 0 || num > navigator.getJobApplications().size()){
-                showError("Number is out of range. Try again");
+                navigator.showError("Number is out of range. Try again");
                 start();
             }
             else{
@@ -132,7 +132,7 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
         }
         catch (NumberFormatException _){
 
-            showError("Invalid input. Try again.");
+            navigator.showError("Invalid input. Try again.");
             start();
 
         }
@@ -183,17 +183,4 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
         System.out.println("╚══════════════════════════════════════════════════════════════╝");
     }
 
-    @Override
-    protected void showError(String message) {
-
-        System.out.println("[Error] " + message);
-
-    }
-
-    @Override
-    protected void showInfo(String message) {
-
-        System.out.println("[Info] " + message);
-
-    }
 }

@@ -26,11 +26,11 @@ public abstract class MusicianDashboardGraphicController {
             );
 
         } catch (ControllerLogicException e) {
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
             navigator.setJobApplications(new ArrayList<>());
         }
         catch (RuntimeException e) {
-            showError("Internal error: "+e.getMessage());
+            navigator.showError("Internal error: "+e.getMessage());
             navigator.setJobApplications(new ArrayList<>());
         }
 
@@ -61,7 +61,5 @@ public abstract class MusicianDashboardGraphicController {
     }
 
     public abstract void start();
-    protected abstract void showError(String message);
-    protected abstract void showInfo(String message);
 
 }

@@ -110,20 +110,11 @@ public class PromoterDashboardGraphicControllerCLI extends PromoterDashboardGrap
                 }
 
             } catch (NumberFormatException _) {
-                showError("Please enter a valid character or a valid numeric value >= 0");
+                navigator.showError("Please enter a valid character or a valid numeric value >= 0");
                 start();
             }
         }
 
     }
 
-    @Override
-    public void showError(String message) {
-        System.out.println("[ERROR] "+message);
-    }
-
-    @Override
-    public void showInfo(String message) {
-        System.out.println("[INFO] "+message);
-    }
 }

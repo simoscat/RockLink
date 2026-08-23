@@ -111,7 +111,7 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
             try {
                 return parseTagsChoices(choices, availableTags);
             } catch (IllegalArgumentException e) {
-                showError(e.getMessage());
+                navigator.showError(e.getMessage());
             }
 
         }
@@ -151,7 +151,7 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
                 String money = scanner.nextLine();
 
                 if (Float.parseFloat(money) <= 0) {
-                    showError("Invalid pay amount");
+                    navigator.showError("Invalid pay amount");
                     continue;
                 }
 
@@ -181,7 +181,7 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
 
             }
             catch(NumberFormatException _){
-                showError("Invalid number.");
+                navigator.showError("Invalid number.");
             }
 
         }
@@ -201,13 +201,13 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
                 LocalDateTime dateTime = LocalDateTime.parse(date + "T" + time);
 
                 if (dateTime.isBefore(LocalDateTime.now(ZoneId.systemDefault()))) {
-                    showError("The date and time cannot be in the past");
+                    navigator.showError("The date and time cannot be in the past");
                 } else {
                     return dateTime;
                 }
 
             } catch (DateTimeParseException _) {
-                showError("Invalid date and time format");
+                navigator.showError("Invalid date and time format");
             }
         }
 
@@ -220,15 +220,6 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
 
     }
 
-    @Override
-    protected void showError(String message) {
-        System.out.println("[ERROR] " + message);
-    }
-
-    @Override
-    protected void showInfo(String message) {
-        System.out.println("[INFO] " + message);
-    }
 
 
 }

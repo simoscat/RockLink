@@ -68,7 +68,7 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
                     return;
 
                 default:
-                    showError("Invalid selection. Please retry.");
+                    navigator.showError("Invalid selection. Please retry.");
                     break;
 
             }
@@ -92,7 +92,7 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
 
                 if (num <= 0 || num > applications.size()){
 
-                    showError("Invalid selection. Please retry.");
+                    navigator.showError("Invalid selection. Please retry.");
                     continue;
 
                 }
@@ -103,7 +103,7 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
             }
             catch (NumberFormatException _) {
 
-                showError("Invalid number. Please retry.");
+                navigator.showError("Invalid number. Please retry.");
 
             }
 
@@ -156,15 +156,5 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
                 "────────────────────────────────────────────────────");
         System.out.println();
 
-    }
-
-    @Override
-    protected void showError(String message) {
-        System.out.println("[ERROR] "+message);
-    }
-
-    @Override
-    protected void showInfo(String message) {
-        System.out.println("[INFO] "+message);
     }
 }

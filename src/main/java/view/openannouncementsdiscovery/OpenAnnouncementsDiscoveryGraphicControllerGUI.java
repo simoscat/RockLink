@@ -284,22 +284,22 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
 
     @FXML
     private void handleDiscoverBands() {
-        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
+        navigator.showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleMyBands() {
-        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
+        navigator.showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleProfile() {
-        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
+        navigator.showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleSettings() {
-        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
+        navigator.showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
@@ -309,12 +309,12 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
 
     @FXML
     private void handleNotifications() {
-        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
+        navigator.showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
     private void handleHelp() {
-        showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
+        navigator.showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
     }
 
     @FXML
@@ -343,21 +343,4 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
         allStart();
     }
 
-    @Override
-    protected void showError(String message) {
-        showAlert(Alert.AlertType.ERROR, "ERROR", message);
-    }
-
-    @Override
-    protected void showInfo(String message) {
-        showAlert(Alert.AlertType.INFORMATION, "INFO", message);
-    }
-
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 }

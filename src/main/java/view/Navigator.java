@@ -183,4 +183,7 @@ public abstract class Navigator {
     public void close() {
         System.exit(0);
     }
+
+    public abstract void showError(String message);
+    public abstract void showInfo(String message);
 }

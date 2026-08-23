@@ -46,25 +46,23 @@ public abstract class MusicianRegistrationGraphicController {
             navigator.setMusician(mb);
             navigator.setSession(sb);
 
-            showInfo("Registration succesful, welcome "+ sb.getMusician().getName()+"! You will be automatically logged in");
+            navigator.showInfo("Registration succesful, welcome "+ sb.getMusician().getName()+"! You will be automatically logged in");
 
             navigator.goToMusicianDashboard();
 
         }
         catch (ControllerLogicException | IllegalArgumentException e){
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
             navigator.restart();
         }
 
         catch (RuntimeException e){
-            showError("Internal error: "+ e.getMessage());
+            navigator.showError("Internal error: "+ e.getMessage());
             navigator.restart();
         }
 
     }
 
-    public abstract void showError(String message);
-    public abstract void showInfo(String message);
     public abstract void start();
 
 

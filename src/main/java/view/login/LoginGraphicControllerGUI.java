@@ -131,14 +131,4 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
         alert.showAndWait();
     }
 
-    @Override
-    public void showError(String message) {
-        showAlert(AlertType.ERROR, "ERROR", message);
-    }
-
-    @Override
-    public void showInfo(String message) {
-        showAlert(AlertType.INFORMATION, "INFO", message);
-    }
-
 }

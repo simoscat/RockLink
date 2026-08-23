@@ -51,11 +51,11 @@ public abstract class LoginGraphicController {
                 navigator.goToMusicianDashboard();
 
             } catch (WrongCredentialsException | ControllerLogicException | IllegalArgumentException e) {
-                showError(e.getMessage());
+                navigator.showError(e.getMessage());
                 start();
             }
             catch (RuntimeException e){
-                showError("Internal error: "+ e.getMessage());
+                navigator.showError("Internal error: "+ e.getMessage());
                 start();
             }
         }
@@ -73,11 +73,11 @@ public abstract class LoginGraphicController {
                 navigator.goToPromoterDashboard();
 
             } catch (ControllerLogicException e) {
-                showError(e.getMessage());
+                navigator.showError(e.getMessage());
                 start();
             }
             catch (RuntimeException e){
-                showError("Internal error: "+ e.getMessage());
+                navigator.showError("Internal error: "+ e.getMessage());
                 start();
             }
         }
@@ -98,9 +98,5 @@ public abstract class LoginGraphicController {
         navigator.goToPromoterRegistration();
     }
 
-    // UI hook methods the concrete graphic controller must implement
-    // to show errors and informational messages to the user.
-    public abstract void showError(String message);
-    public abstract void showInfo(String message);
 
 }

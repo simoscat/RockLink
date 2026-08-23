@@ -43,24 +43,22 @@ public abstract class PromoterRegistrationGraphicController {
             navigator.setPromoter(pb);
             navigator.setSession(sb);
 
-            showInfo("Registration succesful, welcome "+ sb.getPromoter().getName()+"! You will be automatically logged in");
+            navigator.showInfo("Registration succesful, welcome "+ sb.getPromoter().getName()+"! You will be automatically logged in");
 
             navigator.goToPromoterDashboard();
 
         }
         catch (ControllerLogicException | IllegalArgumentException e){
-            showError(e.getMessage());
+            navigator.showError(e.getMessage());
             navigator.restart();
         }
         catch (RuntimeException e){
-            showError("Internal error: "+ e.getMessage());
+            navigator.showError("Internal error: "+ e.getMessage());
             navigator.restart();
         }
 
     }
 
-    public abstract void showError(String message);
-    public abstract void showInfo(String message);
     public abstract void start();
 
 }

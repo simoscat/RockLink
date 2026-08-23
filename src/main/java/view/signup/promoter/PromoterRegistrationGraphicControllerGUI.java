@@ -152,7 +152,7 @@ public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrati
 
         Toggle selectedGender = genderToggleGroup.getSelectedToggle();
         if (selectedGender == null) {
-            showError("Please select your gender.");
+            navigator.showError("Please select your gender.");
             return;
         }
         this.gender = (String) selectedGender.getUserData();
@@ -169,7 +169,7 @@ public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrati
                 continue;
             }
             if (typeBlank || valueBlank) {
-                showError("Please fill in both the type and the value for every contact.");
+                navigator.showError("Please fill in both the type and the value for every contact.");
                 return;
             }
 
@@ -177,31 +177,13 @@ public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrati
         }
 
         if (collectedContacts.isEmpty()) {
-            showError("Please add at least one contact.");
+            navigator.showError("Please add at least one contact.");
             return;
         }
 
         this.contacts = collectedContacts;
 
         doRegistration();
-    }
-
-    @Override
-    public void showError(String message) {
-        showAlert(Alert.AlertType.ERROR, "ERROR", message);
-    }
-
-    @Override
-    public void showInfo(String message) {
-        showAlert(Alert.AlertType.INFORMATION, "INFO", message);
-    }
-
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 
 }

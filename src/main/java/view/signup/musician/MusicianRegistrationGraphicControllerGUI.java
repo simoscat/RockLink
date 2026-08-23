@@ -197,7 +197,7 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
 
         Toggle selectedGender = genderToggleGroup.getSelectedToggle();
         if (selectedGender == null) {
-            showError("Please select your gender.");
+            navigator.showError("Please select your gender.");
             return;
         }
         this.gender = (String) selectedGender.getUserData();
@@ -211,7 +211,7 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
 
             Toggle selectedSkill = row.skillGroup().getSelectedToggle();
             if (selectedSkill == null) {
-                showError("Please select a skill level for \"" + instrumentName.trim() + "\".");
+                navigator.showError("Please select a skill level for \"" + instrumentName.trim() + "\".");
                 return;
             }
 
@@ -219,31 +219,13 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
         }
 
         if (collectedInstruments.isEmpty()) {
-            showError("Please add at least one instrument.");
+            navigator.showError("Please add at least one instrument.");
             return;
         }
 
         this.instruments = collectedInstruments;
 
         doRegistration();
-    }
-
-    @Override
-    public void showError(String message) {
-        showAlert(Alert.AlertType.ERROR, "ERROR", message);
-    }
-
-    @Override
-    public void showInfo(String message) {
-        showAlert(Alert.AlertType.INFORMATION, "INFO", message);
-    }
-
-    private void showAlert(Alert.AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 
 }
