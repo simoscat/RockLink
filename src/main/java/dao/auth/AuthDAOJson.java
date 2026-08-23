@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.util.Properties;
 
+import engineering.persistency.JsonManager;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -135,36 +136,20 @@ public class AuthDAOJson extends AuthDAO {
     }
 
     private JSONArray readCredentialsFile(String path) throws DAOException {
-        File file = new File(path);
-
-        if (!file.exists()) {
-            return new JSONArray();
-        }
-
         try {
-            String content = new String(Files.readAllBytes(file.toPath()));
-            if (content.isBlank()) {
-                return new JSONArray();
-            }
-            return new JSONArray(content);
+            return JsonManager.readJsonFile(path);
         } catch (IOException e) {
-            throw new DAOException("File reading error: " + file.getPath(), e);
+            throw new DAOException("Couldn't read Json file "+path, e);
         }
     }
 
     private void writeCredentialsFile(String path, JSONArray credentials) throws DAOException {
-        File file = new File(path);
-        File parentDir = file.getParentFile();
-
-        if (parentDir != null && !parentDir.exists()) {
-            parentDir.mkdirs();
-        }
-
-        try (FileWriter writer = new FileWriter(file)) {
-            writer.write(credentials.toString(4));
-        } catch (IOException e) {
-            throw new DAOException("File writing error: " + file.getPath(), e);
+        try{
+            JsonManager.writeJsonFile(credentials, path);
+        } catch(IOException e) {
+            throw new DAOException("Couldn't write Json file "+path, e);
         }
     }
+
     
 }

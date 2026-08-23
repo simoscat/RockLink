@@ -6,6 +6,7 @@ import engineering.enums.CurrencyType;
 import engineering.enums.JobAnnouncementStatus;
 import engineering.enums.JobAnnouncementTag;
 import engineering.persistency.JobDecoratorManager;
+import engineering.persistency.JsonManager;
 import exception.DAOException;
 import model.*;
 import org.json.JSONArray;
@@ -184,31 +185,18 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
     }
 
     private JSONArray readJsonFile() {
-        File file = new File(this.path);
-        if (!file.exists()) {
-            return new JSONArray();
-        }
-
         try {
-            String content = new String(Files.readAllBytes(file.toPath()));
-            if (content.isBlank()) return new JSONArray();
-            return new JSONArray(content);
+            return JsonManager.readJsonFile(this.path);
         } catch (IOException e) {
-            throw new DAOException("Error reading json file " + this.path, e);
+            throw new DAOException("Couldn't read Json file "+this.path, e);
         }
     }
 
     private void writeJsonFile(JSONArray array) {
-        File file = new File(this.path);
-        File parentDir = file.getParentFile();
-        if (parentDir != null && !parentDir.exists()) {
-            parentDir.mkdirs();
-        }
-
-        try (FileWriter writer = new FileWriter(file)) {
-            writer.write(array.toString(4));
-        } catch (IOException e) {
-            throw new DAOException("Error writing json file " + this.path, e);
+        try{
+            JsonManager.writeJsonFile(array, this.path);
+        } catch(IOException e) {
+            throw new DAOException("Couldn't write Json file "+this.path, e);
         }
     }
 }

@@ -7,7 +7,16 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="" />
+    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/JsonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,6 +97,10 @@
     "JUnit.TestMusicianDAO.testAddMusician.executor": "Run",
     "JUnit.TestPasswordEncrypt.testPasswordEncrypting.executor": "Run",
     "JUnit.TestPromoterDAO.executor": "Run",
+    "JUnit.dao in RockLink.executor": "Run",
+    "JUnit.decorator in RockLink.executor": "Run",
+    "JUnit.engineering in RockLink.executor": "Run",
+    "JUnit.passwordEncryption in RockLink.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -99,7 +112,7 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/luma/Documenti/Anno 3.1/ISPW/Java/JavaFX/TestJavaFX5",
+    "last_opened_file_path": "/home/luma/Documenti/Anno 3.1/ISPW-Nuovo/RockLink/src/main/java/view",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -111,7 +124,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.passwordEncryption in RockLink">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="RockLink" />
@@ -166,11 +179,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.passwordEncryption in RockLink" />
         <item itemvalue="JUnit.engineering in RockLink" />
         <item itemvalue="JUnit.decorator in RockLink" />
         <item itemvalue="JUnit.dao in RockLink" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +215,7 @@
       <workItem from="1787390417230" duration="13651000" />
       <workItem from="1787405991635" duration="759000" />
       <workItem from="1787406856192" duration="11351000" />
-      <workItem from="1787473451988" duration="11153000" />
+      <workItem from="1787473451988" duration="14101000" />
     </task>
     <servers />
   </component>
