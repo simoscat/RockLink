@@ -13,7 +13,9 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -34,11 +36,12 @@ class TestDecorator {
                 "",
                 LocalDateTime.now(),
                 JobAnnouncementStatus.OPEN,
-                LocalDateTime.now(),
                 new Promoter("Mario", "Rossi", "mariorossi@gmail.com", Gender.MALE, contacts),
                 new MoneyValue(new BigDecimal(10), CurrencyType.EUR),
                 "Via Mario Rossi 19, Roma RM"
         );
+
+        j.publishNow();
 
         JobAnnouncement uD = new UrgentJobAnnouncementDecorator(j);
 
@@ -63,11 +66,12 @@ class TestDecorator {
                 "",
                 LocalDateTime.now(),
                 JobAnnouncementStatus.OPEN,
-                LocalDateTime.now(),
                 new Promoter("Mario", "Rossi", "mariorossi@gmail.com", Gender.MALE, contacts),
                 new MoneyValue(new BigDecimal(10), CurrencyType.EUR),
                 "Via Mario Rossi 19, Roma RM"
         );
+
+        j.publishNow();
 
         JobAnnouncement uD = new UrgentJobAnnouncementDecorator(j);
         JobAnnouncement nS = new NegotiableSalaryDecoratorJob(uD);
