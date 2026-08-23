@@ -20,10 +20,10 @@ public class PromoterRegistrationGraphicControllerCLI extends PromoterRegistrati
         System.out.print("Name: ");
         this.name = scanner.nextLine();//we don't trim cause multiple names
         System.out.print("Surname: ");
-        this.surname = scanner.nextLine().trim();
+        this.surname = scanner.nextLine();
         this.gender = getGender();
         System.out.print("Email: ");
-        this.email = scanner.nextLine().trim();
+        this.email = scanner.nextLine();
         System.out.print("Password: ");
         this.password = scanner.nextLine();
 
@@ -35,18 +35,19 @@ public class PromoterRegistrationGraphicControllerCLI extends PromoterRegistrati
 
             System.out.println("-- Insert contacts (at least one) --");
             System.out.print("Contact type (e.g. phone): ");
-            String contactType = scanner.nextLine().trim();
+            String contactType = scanner.nextLine();
             System.out.print("Contact value: ");
-            String contactValue = scanner.nextLine().trim();
-            contacts.put(contactType, contactValue);
+            String contactValue = scanner.nextLine();
 
             while (contactType.isBlank() || contactValue.isBlank()) {
                 System.out.println("Invalid contact information. Please try again.");
                 System.out.print("Contact type (e.g. phone): ");
-                contactType = scanner.nextLine().trim();
+                contactType = scanner.nextLine();
                 System.out.print("Contact value: ");
-                contactValue = scanner.nextLine().trim();
+                contactValue = scanner.nextLine();
             }
+
+            contacts.put(contactType, contactValue);
 
             System.out.print("Do you want to insert another contact? [y/N]: ");
             String answer = scanner.nextLine().trim();

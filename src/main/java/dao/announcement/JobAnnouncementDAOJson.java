@@ -4,12 +4,10 @@ import dao.factories.DAOFactory;
 import dao.promoter.PromoterDAO;
 import engineering.enums.CurrencyType;
 import engineering.enums.JobAnnouncementStatus;
+import engineering.enums.JobAnnouncementTag;
 import engineering.persistency.JobDecoratorManager;
 import exception.DAOException;
-import model.ConcreteJobAnnouncement;
-import model.JobAnnouncement;
-import model.MoneyValue;
-import model.Promoter;
+import model.*;
 import model.jobannouncementdecorators.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,8 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-//TODO CONTROLLA!!!!
-
 public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     private final String path;
@@ -32,6 +28,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
     private static final String LONG_TIME_CONTRACT = "LONG_TIME_CONTRACT";
     private static final String NEGOTIABLE_SALARY = "NEGOTIABLE_SALARY";
     private static final String PROMOTER_EMAIL_FIELD = "promoterEmail";
+    private static final String HIRED_ARTIST_FIELD = "hiredArtist";
 
     public JobAnnouncementDAOJson() {
         try(InputStream is = new FileInputStream("config.properties")){
@@ -121,28 +118,35 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
         CurrencyType currency = CurrencyType.valueOf(obj.getString("currency"));
         String address = obj.getString("address");
 
+        Artist artist;
+
+        if (!obj.getString(HIRED_ARTIST_FIELD).isEmpty()) {
+            artist = DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(obj.getString(HIRED_ARTIST_FIELD));
+        }
+        else{
+            artist = null;
+        }
+
         PromoterDAO promoterDAO = DAOFactory.getInstance().getPromoterDAO();
         Promoter promoter = promoterDAO.getPromoterByEmail(promoterEmail);
 
+
         JobAnnouncement job =  new ConcreteJobAnnouncement(
-                title, content, date, status, publishDate, promoter, new MoneyValue(salaryAmount, currency), address
+                title, content, date, publishDate, promoter, new MoneyValue(salaryAmount, currency), address
         );
+
+        job.hireArtist(artist);
+        job.setStatus(status);
 
         JSONArray tags = obj.getJSONArray("tags");
 
+        List<JobAnnouncementTag> tagList = new ArrayList<>();
+
         for (int i = 0; i < tags.length(); i++) {
-
-            job = switch(tags.getString(i)) {
-
-                case EXPERTS_ONLY -> new ExpertsOnlyDecoratorJob(job);
-                case LONG_TIME_CONTRACT -> new LongTimeContractDecoratorJob(job);
-                case NEGOTIABLE_SALARY -> new NegotiableSalaryDecoratorJob(job);
-                case URGENT -> new UrgentJobAnnouncementDecorator(job);
-                default -> job;
-
-            };
-
+            tagList.add(JobAnnouncementTag.valueOf(tags.getString(i)));
         }
+
+        job = JobDecoratorManager.applyDecorators(job, tagList);
 
         return job;
     }
@@ -163,30 +167,20 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
         obj.put("currency", cja.getJobPay().whichCurrency().name());
         obj.put("address", cja.getEventAddress());
 
+        if (cja.whoWasHired() != null){
+            obj.put(HIRED_ARTIST_FIELD, cja.whoWasHired().getEmail());
+        }
+        else{
+            obj.put(HIRED_ARTIST_FIELD, "");
+        }
+
+
         JSONArray tags = new JSONArray();
 
-        JobAnnouncement current = job;
+        List<JobAnnouncementTag> tagList = JobDecoratorManager.getTagsList(job);
 
-        while (current instanceof JobAnnouncementDecorator jad){
-
-            if (current instanceof ExpertsOnlyDecoratorJob){
-                tags.put(EXPERTS_ONLY);
-            }
-
-            else if (current instanceof LongTimeContractDecoratorJob){
-                tags.put(LONG_TIME_CONTRACT);
-            }
-
-            else if (current instanceof NegotiableSalaryDecoratorJob){
-                tags.put(NEGOTIABLE_SALARY);
-            }
-
-            else if (current instanceof UrgentJobAnnouncementDecorator){
-                tags.put(URGENT);
-            }
-
-            current = jad.unwrapAnnouncement();
-
+        for (JobAnnouncementTag tag : tagList) {
+            tags.put(tag.name());
         }
 
         obj.put("tags", tags);

@@ -139,7 +139,7 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
                 try {
                     System.out.print("Insert your raise offer (how much more you want): ");
 
-                    raiseOffer = new BigDecimal(Integer.parseInt(scanner.nextLine().trim()));
+                    raiseOffer = BigDecimal.valueOf(Float.parseFloat(scanner.nextLine().trim()));
 
                     if (raiseOffer.compareTo(BigDecimal.ZERO) < 0){
                         showError("Invalid value. Try again");

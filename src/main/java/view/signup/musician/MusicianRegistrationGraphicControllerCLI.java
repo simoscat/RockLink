@@ -1,6 +1,7 @@
 package view.signup.musician;
 
 import bean.InstrumentBean;
+import engineering.enums.Mastery;
 import view.Navigator;
 
 import java.util.*;
@@ -19,12 +20,12 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
 
         System.out.println("--- Musician Registration ---");
         System.out.print("Name: ");
-        this.name = scanner.nextLine();//we don't trim cause multiple names
+        this.name = scanner.nextLine();
         System.out.print("Surname: ");
-        this.surname = scanner.nextLine().trim();
+        this.surname = scanner.nextLine();
         this.gender = getGender();
         System.out.print("Email: ");
-        this.email = scanner.nextLine().trim();
+        this.email = scanner.nextLine();
         System.out.print("Password: ");
         this.password = scanner.nextLine();
 
@@ -37,67 +38,73 @@ public class MusicianRegistrationGraphicControllerCLI extends MusicianRegistrati
 
         boolean done = false;
 
-        do {
+        while(!done) {
 
-            System.out.print("Instrument name: ");
-            String instrumentName = scanner.nextLine().trim();
+            boolean valid = false;
 
-            while (instrumentName.isBlank()) {
-                System.out.println("Please enter the name of the instrument: ");
-                instrumentName = scanner.nextLine().trim();
-            }
+            while(!valid) {
 
-            System.out.println("How good are you with " + instrumentName + "?");
-            System.out.println("[1] Amateur");
-            System.out.println("[2] Beginner");
-            System.out.println("[3] Intermediate");
-            System.out.println("[4] Experienced");
-            System.out.println("[5] Master");
-            System.out.print("> ");
-            String masteryNumber = scanner.nextLine().trim();
-            String mastery = "";
+                System.out.print("Instrument name: ");
+                String instrumentName = scanner.nextLine();
 
-            boolean valid = switch (masteryNumber) {
-                case "1" -> {
-                    mastery = "AMATEUR";
-                    yield true;
+                while (instrumentName.isBlank()) {
+                    System.out.println("Please enter the name of the instrument: ");
+                    instrumentName = scanner.nextLine();
                 }
-                case "2" -> {
-                    mastery = "BEGINNER";
-                    yield true;
-                }
-                case "3" -> {
-                    mastery = "INTERMEDIATE";
-                    yield true;
-                }
-                case "4" -> {
-                    mastery = "EXPERIENCED";
-                    yield true;
-                }
-                case "5" -> {
-                    mastery = "MASTER";
-                    yield true;
-                }
-                default -> {
-                    showError("Invalid input. Please try again.");
-                    yield false;
-                }
-            };
 
+                System.out.println("How good are you with " + instrumentName + "?");
+                System.out.println("[1] Amateur");
+                System.out.println("[2] Beginner");
+                System.out.println("[3] Intermediate");
+                System.out.println("[4] Experienced");
+                System.out.println("[5] Master");
+                System.out.print("> ");
 
-            if (valid) {
-                this.instruments.add(new InstrumentBean(instrumentName, mastery));
+                String masteryNumber = scanner.nextLine().trim();
+                String mastery = "";
+
+                valid = switch (masteryNumber) {
+                    case "1" -> {
+                        mastery = Mastery.AMATEUR.name();
+                        yield true;
+                    }
+                    case "2" -> {
+                        mastery = Mastery.BEGINNER.name();
+                        yield true;
+                    }
+                    case "3" -> {
+                        mastery = Mastery.INTERMEDIATE.name();
+                        yield true;
+                    }
+                    case "4" -> {
+                        mastery = Mastery.EXPERIENCED.name();
+                        yield true;
+                    }
+                    case "5" -> {
+                        mastery = Mastery.MASTER.name();
+                        yield true;
+                    }
+                    default -> {
+                        showError("Invalid input. Please try again.");
+                        yield false;
+                    }
+                };
+
+                if (valid) {
+                    this.instruments.add(new InstrumentBean(instrumentName, mastery));
+                }
+
             }
 
             System.out.print("Do you want to add another instrument? [y/N]: ");
+
             String answer = scanner.nextLine().trim();
 
             if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("yes")) {
                 done = true;
             }
 
-
-        } while (!done);
+        }
 
         System.out.print("Is this okay? [Y/n]: ");
 

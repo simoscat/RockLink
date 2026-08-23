@@ -12,8 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-//TODO CONTROLLA!!!!
-
 public class PromoterDAOJson extends PromoterDAO {
 
     private final String path;

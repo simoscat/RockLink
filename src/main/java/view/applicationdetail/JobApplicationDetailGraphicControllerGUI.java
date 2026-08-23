@@ -11,17 +11,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import view.GUIGraphicController;
 import view.Navigator;
-import view.NavigatorGUI;
 
 import java.util.Map;
 
 public class JobApplicationDetailGraphicControllerGUI extends JobApplicationDetailGraphicController implements GUIGraphicController {
-
-    private NavigatorGUI navigatorGUI;
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
-    }
 
     private Parent view;
     @Override

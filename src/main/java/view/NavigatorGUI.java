@@ -106,7 +106,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.musicianDashboard);
                 Parent root = loader.load();
                 this.musicianDashboard.setView(root);
-                this.musicianDashboard.setNavigatorGUI(this);
 
             } catch (IOException _) {
                 graphicsError("MusicianDashboardView.fxml");
@@ -129,7 +128,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.promoterDashboard);
                 Parent root = loader.load();
                 this.promoterDashboard.setView(root);
-                this.promoterDashboard.setNavigatorGUI(this);
 
             } catch (IOException _) {
                 graphicsError("PromoterDashboardView.fxml");
@@ -152,8 +150,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.announcementDetails);
                 Parent root = loader.load();
                 this.announcementDetails.setView(root);
-                this.announcementDetails.setNavigatorGUI(this);
-
             } catch (IOException _) {
                 graphicsError("JobAnnouncementDetailsView.fxml");
             }
@@ -175,7 +171,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.announcementApplications);
                 Parent root = loader.load();
                 this.announcementApplications.setView(root);
-                this.announcementApplications.setNavigatorGUI(this);
 
             } catch (IOException _) {
                 graphicsError("AnnouncementApplicationsView.fxml");
@@ -219,7 +214,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.promoterRegistration);
                 Parent root = loader.load();
                 this.promoterRegistration.setView(root);
-                this.promoterRegistration.setNavigatorGUI(this);
 
             } catch (IOException _) {
                 graphicsError("PromoterRegistrationView.fxml");
@@ -242,7 +236,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.musicianRegistration);
                 Parent root = loader.load();
                 this.musicianRegistration.setView(root);
-                this.musicianRegistration.setNavigatorGUI(this);
 
             } catch (IOException _) {
                 graphicsError("MusicianRegistrationView.fxml");
@@ -265,7 +258,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.applicationDetails);
                 Parent root = loader.load();
                 this.applicationDetails.setView(root);
-                this.applicationDetails.setNavigatorGUI(this);
 
             } catch (IOException _) {
                 graphicsError("JobApplicationDetailView.fxml");
@@ -288,7 +280,6 @@ public class NavigatorGUI extends Navigator {
                 loader.setController(this.announcementDiscovery);
                 Parent root = loader.load();
                 this.announcementDiscovery.setView(root);
-                this.announcementDiscovery.setNavigatorGUI(this);
 
             } catch (IOException _) {
                 graphicsError("OpenAnnouncementsDiscoveryView.fxml");

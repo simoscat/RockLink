@@ -89,7 +89,7 @@ public class InstrumentDAOCsv extends InstrumentDAO {
 
                 String[] subfields = fields[i].split(MASTERY_SEPARATOR, -1);
 
-                String name = subfields[0];
+                String name = subfields[0].replace("%2C", ",");
 
                 Mastery mastery = Mastery.valueOf(subfields[1]);
 
@@ -172,7 +172,8 @@ public class InstrumentDAOCsv extends InstrumentDAO {
 
         for  (Instrument i : instruments){
 
-            toRet.append(CSV_SEPARATOR).append(i.getName()).append(MASTERY_SEPARATOR).append(i.getMastery().name());
+            toRet.append(CSV_SEPARATOR).append(i.getName().replace(",", "%2C"))
+                    .append(MASTERY_SEPARATOR).append(i.getMastery().name());
 
 
         }

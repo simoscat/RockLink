@@ -57,8 +57,6 @@
                 <HBox fx:id="dashboardNavItem" alignment="CENTER_LEFT" onMouseClicked="#handleDashboard" spacing="10.0" styleClass="nav-item">
                     <SVGPath content="M2,12 A10,10 0 1,0 22,12 A10,10 0 1,0 2,12 Z M5,12 A7,7 0 1,0 19,12 A7,7 0 1,0 5,12 Z M8,12 A4,4 0 1,0 16,12 A4,4 0 1,0 8,12 Z" fillRule="EVEN_ODD" scaleX="0.583" scaleY="0.583" styleClass="nav-item-icon" />
                     <Label styleClass="nav-item-text" text="Dashboard" />
-                    <Region HBox.hgrow="ALWAYS" />
-                    <Label fx:id="dashboardNotificationBadge" styleClass="nav-badge" text="0" />
                 </HBox>
 
                 <HBox fx:id="discoverJobsNavItem" alignment="CENTER_LEFT" spacing="10.0" styleClass="nav-item, nav-item-active">

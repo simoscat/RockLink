@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-//TODO CONTROLLA!!!!
-
 public class JobApplicationDAOJson extends JobApplicationDAO {
 
     private final String path;
@@ -122,8 +120,7 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
         ApplicationStatus status = ApplicationStatus.valueOf(obj.getString("status"));
         BigDecimal raiseOffer = obj.getBigDecimal("raiseOffer");
 
-        //TODO!!!!
-        //right now, musician is the only artist, so this is just a temporary fix
+        //right now, musician is the only artist, so this is just a temporary fix TODO
         MusicianDAO musicianDAO = DAOFactory.getInstance().getMusicianDAO();
         Musician m = musicianDAO.getMusicianByEmail(candidateEmail);
 

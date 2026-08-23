@@ -33,7 +33,6 @@ class TestJobAnnouncementDAO {
                 "Hello",
                 LocalDateTime.of(2026, 12, 10, 20, 45),
                 JobAnnouncementStatus.OPEN,
-                LocalDateTime.now(),
                 new Promoter("Pro", "Moter", "promoter@libero.it", Gender.MALE, contacts),
                 new MoneyValue(new BigDecimal(100), CurrencyType.EUR),
                 "Via Mario Rossi 12, Roma RM"
@@ -41,6 +40,8 @@ class TestJobAnnouncementDAO {
 
         jobAnnouncement = new UrgentJobAnnouncementDecorator(jobAnnouncement);
         jobAnnouncement = new NegotiableSalaryDecoratorJob(jobAnnouncement);
+
+        jobAnnouncement.publishNow();
 
         JobAnnouncementDAO jobAnnDao = DAOFactory.getInstance().getJobAnnouncementDAO();
 

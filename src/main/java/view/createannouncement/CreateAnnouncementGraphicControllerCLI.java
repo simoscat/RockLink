@@ -33,6 +33,12 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
         System.out.print("Title: ");
         String title = scanner.nextLine();
 
+        while(title.isEmpty()){
+            System.out.println("Title can't be empty.");
+            System.out.print("Title: ");
+            title = scanner.nextLine();
+        }
+
         System.out.println("Description (type quit to finish): ");
 
         StringBuilder description = new StringBuilder();
@@ -51,6 +57,12 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
 
         System.out.print("Event address (please include the city): ");
         String address = scanner.nextLine();
+
+        while(address.isEmpty()){
+            System.out.println("Event address can't be empty.");
+            System.out.print("Event address: ");
+            address = scanner.nextLine();
+        }
 
         MoneyValueBean moneyValue = readMoneyValue();
 
@@ -135,37 +147,45 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
     private MoneyValueBean readMoneyValue() {
 
         while (true) {
-            System.out.print("Pay amount: ");
-            String money = scanner.nextLine();
 
-            if (Float.parseFloat(money) <= 0) {
-                showError("Invalid pay amount");
-                continue;
+            try{
+                System.out.print("Pay amount: ");
+                String money = scanner.nextLine();
+
+                if (Float.parseFloat(money) <= 0) {
+                    showError("Invalid pay amount");
+                    continue;
+                }
+
+                CurrencyType[] currencies = CurrencyType.values();
+
+                System.out.println("Select currency: ");
+
+                for (int i = 0; i < currencies.length; i++) {
+
+                    System.out.printf("[%d] %s%n", i + 1, currencies[i]);
+
+                }
+
+                System.out.print("> ");
+                int selection = Integer.parseInt(scanner.nextLine().trim()) - 1;
+
+                String currency = CurrencyType.EUR.name();
+
+                if (selection >= 0 && selection < currencies.length) {
+                    currency = currencies[selection].name();
+                }
+
+                return new MoneyValueBean(
+                        currency,
+                        BigDecimal.valueOf(Float.parseFloat(money))
+                );
+
+            }
+            catch(NumberFormatException _){
+                showError("Invalid number.");
             }
 
-            CurrencyType[] currencies = CurrencyType.values();
-
-            System.out.println("Select currency: ");
-
-            for (int i = 0; i < currencies.length; i++) {
-
-                System.out.printf("[%d] %s%n", i + 1, currencies[i]);
-
-            }
-
-            System.out.print("> ");
-            int selection = Integer.parseInt(scanner.nextLine().trim()) - 1;
-
-            String currency = CurrencyType.EUR.name();
-
-            if (selection > 0 && selection < currencies.length) {
-                currency = currencies[selection].name();
-            }
-
-            return new MoneyValueBean(
-                    currency,
-                    BigDecimal.valueOf(Float.parseFloat(money))
-            );
         }
 
     }

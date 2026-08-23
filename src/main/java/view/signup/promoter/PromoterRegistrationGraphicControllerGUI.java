@@ -18,16 +18,10 @@ import java.util.Map;
 
 public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrationGraphicController implements GUIGraphicController {
 
-    private NavigatorGUI navigatorGUI;
-
     private Parent view;
 
     public PromoterRegistrationGraphicControllerGUI(Navigator n) {
         super(n);
-    }
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
     }
 
     @Override

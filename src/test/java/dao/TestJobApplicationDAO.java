@@ -34,11 +34,12 @@ class TestJobApplicationDAO {
                 "Hello",
                 LocalDateTime.of(2026, 12, 10, 20, 45),
                 JobAnnouncementStatus.OPEN,
-                LocalDateTime.now(),
                 new Promoter("Pro", "Moter", "promoter@libero.it", Gender.MALE, contacts),
                 new MoneyValue(new BigDecimal(100), CurrencyType.EUR),
                 "Via Mario Rossi 12, Roma RM"
         );
+
+        jobAnnouncement.publishNow();
 
         Instrument i1 = new Instrument("Electric guitar", Mastery.MASTER);
         Instrument i2 = new Instrument("Piano", Mastery.BEGINNER);

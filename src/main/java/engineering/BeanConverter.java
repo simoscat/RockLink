@@ -10,6 +10,8 @@ import java.util.List;
 
 public final class BeanConverter {
 
+    //TODO controlla che tutti i bean sono corretti
+
     private BeanConverter() {}
 
     public static JobApplication fromBeanToJobApplication(JobApplicationBean jobApplicationBean) {
@@ -40,18 +42,21 @@ public final class BeanConverter {
 
         List<JobAnnouncementTag> taglist = JobDecoratorManager.getTagsList(ja);
 
-        return new JobAnnouncementBean(
-                ja.getTitle(),
+        JobAnnouncementBean bean = new JobAnnouncementBean(
+                JobDecoratorManager.unwrapJobAnnouncement(ja).getTitle(), //original title without tags
                 ja.getContent(),
                 ja.getAnnouncementDate(),
-                ja.getAnnouncementPublishDate(),
                 fromPromoterToBean(ja.getPublisher()),
                 fromMoneyValueToBean(ja.getJobPay()),
                 ja.getEventAddress(),
-                ja.whoWasHired(),
-                ja.getStatus().name(),
                 taglist
         );
+
+        bean.setPublishDate(ja.getAnnouncementPublishDate());
+        bean.setHiredArtist(ja.whoWasHired());
+        bean.setJobAnnouncementStatus(ja.getStatus().name());
+
+        return bean;
 
     }
 
@@ -77,16 +82,23 @@ public final class BeanConverter {
 
     public static JobAnnouncement fromBeanToJobAnnouncement(JobAnnouncementBean jobAnnouncement) {
 
-        return new ConcreteJobAnnouncement(
+        JobAnnouncement job = new ConcreteJobAnnouncement(
                 jobAnnouncement.getTitle(),
                 jobAnnouncement.getContent(),
                 jobAnnouncement.getDate(),
-                JobAnnouncementStatus.valueOf(jobAnnouncement.getJobAnnouncementStatus()),
                 jobAnnouncement.getPublishDate(),
                 fromBeanToPromoter(jobAnnouncement.getPromoter()),
                 fromBeanToMoneyValue(jobAnnouncement.getMoneyValue()),
                 jobAnnouncement.getAddress()
         );
+
+        job.setStatus(JobAnnouncementStatus.valueOf(jobAnnouncement.getJobAnnouncementStatus()));
+
+        job.hireArtist(jobAnnouncement.getHiredArtist());
+
+        List<JobAnnouncementTag> tagList = jobAnnouncement.getTags();
+
+        return JobDecoratorManager.applyDecorators(job, tagList);
 
     }
 
@@ -155,5 +167,6 @@ public final class BeanConverter {
 
     }
 
+    //TODO AGGIUNGI FROM MUSICIAN/INSTRUMENT/PROMOTER TO BEAN
 
 }

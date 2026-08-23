@@ -15,7 +15,6 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import view.GUIGraphicController;
 import view.Navigator;
-import view.NavigatorGUI;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -26,11 +25,6 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
     private static final DateTimeFormatter EVENT_DATE_FORMAT = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
     private static final String NOT_IMPLEMENTED_YET_MESSAGE = "Not implemented yet";
 
-    private NavigatorGUI navigatorGUI;
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
-    }
 
     public MusicianDashboardGraphicControllerGUI(Navigator navigator) {
         super(navigator);
@@ -70,8 +64,6 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
     // ---- Navigazione ----
     @FXML
     private HBox dashboardNavItem;
-    @FXML
-    private Label dashboardNotificationBadge;
     @FXML
     private HBox discoverJobsNavItem;
     @FXML
@@ -114,7 +106,6 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
 
         if (applications == null || applications.isEmpty()) {
             applicationsCountLabel.setText("0 submitted");
-            updateNotificationBadge(0);
 
             Label emptyLabel = new Label("You haven't submitted any job applications yet.");
             emptyLabel.getStyleClass().add("card-subtitle");
@@ -124,20 +115,9 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
 
         applicationsCountLabel.setText(applications.size() + " submitted");
 
-        long pendingCount = applications.stream()
-                .filter(application -> "PENDING".equals(application.getStatus()))
-                .count();
-        updateNotificationBadge((int) pendingCount);
-
         for (JobApplicationBean application : applications) {
             applicationsContainer.getChildren().add(buildApplicationCard(application));
         }
-    }
-
-    private void updateNotificationBadge(int pendingCount) {
-        dashboardNotificationBadge.setText(String.valueOf(pendingCount));
-        dashboardNotificationBadge.setVisible(pendingCount > 0);
-        dashboardNotificationBadge.setManaged(pendingCount > 0);
     }
 
     private HBox buildApplicationCard(JobApplicationBean application) {

@@ -17,16 +17,10 @@ import java.util.List;
 
 public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrationGraphicController implements GUIGraphicController {
 
-    private NavigatorGUI navigatorGUI;
-
     private Parent view;
 
     public MusicianRegistrationGraphicControllerGUI(Navigator n) {
         super(n);
-    }
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
     }
 
     @Override

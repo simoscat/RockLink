@@ -106,7 +106,7 @@ public class MusicianDAOCsv extends MusicianDAO {
             String csvEmail = fields[0];
             String name = fields[1];
             String surname = fields[2];
-            String stageName = fields[3];
+            String stageName = fields[3].replace("%2C", ",");
             Gender gender = Gender.valueOf(fields[4]);
 
             List<Instrument> instruments = this.instrumentDAO.getMusicianInstruments(csvEmail);
@@ -160,7 +160,7 @@ public class MusicianDAOCsv extends MusicianDAO {
                 m.getEmail(),
                 m.getName(),
                 m.getSurname(),
-                m.getArtistName(),
+                m.getArtistName().replace(",", "%2C"),
                 m.getGender().name());
     }
 

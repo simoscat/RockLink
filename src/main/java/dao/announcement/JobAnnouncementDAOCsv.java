@@ -8,10 +8,7 @@ import engineering.enums.JobAnnouncementTag;
 import engineering.persistency.CsvManager;
 import engineering.persistency.JobDecoratorManager;
 import exception.DAOException;
-import model.ConcreteJobAnnouncement;
-import model.JobAnnouncement;
-import model.MoneyValue;
-import model.Promoter;
+import model.*;
 import model.jobannouncementdecorators.*;
 
 import java.io.*;
@@ -21,9 +18,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-//TODO CONTROLLA!!!!
-
 
 public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
@@ -69,7 +63,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
                 String[] fields = line.split(CSV_SEPARATOR, -1);
 
-                if (fields[6].equals(email)){
+                if (fields[7].equals(email)){
                     jobAnnouncements.add(parseRow(fields));
                 }
 
@@ -163,26 +157,38 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
     }
 
     private JobAnnouncement parseRow(String[] fields) {
+
         String title = fields[1].replace("%2C", ",").replace("%0A", "\n");
         String content = fields[2].replace("%2C", ",").replace("%0A", "\n");
         LocalDateTime date = LocalDateTime.parse(fields[3]);
         JobAnnouncementStatus status = JobAnnouncementStatus.valueOf(fields[4]);
-        LocalDateTime publishDate = LocalDateTime.parse(fields[5]);
-        String promoterEmail = fields[6];
-        BigDecimal salaryAmount = new BigDecimal(fields[7]);
-        CurrencyType currency = CurrencyType.valueOf(fields[8]);
-        String address = fields[9].replace("%2C", ",");
 
-        String decorators = fields[10];
+        Artist artist;
+
+        if (!fields[5].isEmpty()) {
+            artist = DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(fields[5]);
+        }
+        else{
+            artist = null;
+        }
+
+        LocalDateTime publishDate = LocalDateTime.parse(fields[6]);
+        String promoterEmail = fields[7];
+        BigDecimal salaryAmount = new BigDecimal(fields[8]);
+        CurrencyType currency = CurrencyType.valueOf(fields[9]);
+        String address = fields[10].replace("%2C", ",");
+
+        String decorators = fields[11];
 
         PromoterDAO promoterDAO = DAOFactory.getInstance().getPromoterDAO();
         Promoter promoter = promoterDAO.getPromoterByEmail(promoterEmail);
 
         JobAnnouncement job = new ConcreteJobAnnouncement(
-                title, content, date, status, publishDate, promoter, new MoneyValue(salaryAmount, currency), address
+                title, content, date, publishDate, promoter, new MoneyValue(salaryAmount, currency), address
         );
 
-
+        job.hireArtist(artist);
+        job.setStatus(status);
 
         return JobDecoratorManager.applyDecorators(job, getTagList(decorators));
 
@@ -198,6 +204,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
                 cja.getContent().replace(",", "%2C").replace("\n", "%0A"),
                 cja.getAnnouncementDate().toString(),
                 cja.getStatus().name(),
+                cja.whoWasHired() != null ? cja.whoWasHired().getEmail() : "",
                 cja.getAnnouncementPublishDate().toString(),
                 cja.getPublisher().getEmail(),
                 cja.getJobPay().moneyAmount().toString(),
@@ -209,34 +216,14 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
     private String getWrappingChainCsv(JobAnnouncement job) {
 
-        JobAnnouncement current = job;
+        List<JobAnnouncementTag> tags = JobDecoratorManager.getTagsList(job);
 
         StringBuilder sb = new StringBuilder();
 
-        while (current instanceof JobAnnouncementDecorator jad){
+        for (int i = 0; i < tags.size(); i++) {
+            sb.append(tags.get(i).name());
 
-            if (current instanceof ExpertsOnlyDecoratorJob){
-                sb.append(EXPERTS_ONLY);
-            }
-
-            else if (current instanceof LongTimeContractDecoratorJob){
-                sb.append(LONG_TIME_CONTRACT);
-            }
-
-            else if (current instanceof NegotiableSalaryDecoratorJob){
-                sb.append(NEGOTIABLE_SALARY);
-            }
-
-            else if (current instanceof UrgentJobAnnouncementDecorator){
-                sb.append(URGENT);
-            }
-
-            current = jad.unwrapAnnouncement();
-
-            if (current instanceof JobAnnouncementDecorator){
-                sb.append(LIST_SEPARATOR);
-            }
-
+            if (i < tags.size() - 1) sb.append(LIST_SEPARATOR);
         }
 
         return sb.toString();
@@ -257,7 +244,8 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
                 case LONG_TIME_CONTRACT -> tags.add(JobAnnouncementTag.LONG_TIME_CONTRACT);
                 case NEGOTIABLE_SALARY ->  tags.add(JobAnnouncementTag.NEGOTIABLE_SALARY);
                 case URGENT ->  tags.add(JobAnnouncementTag.URGENT);
-                default -> { }
+                default -> {//tags are empty, nothing to do
+                    }
 
             }
 

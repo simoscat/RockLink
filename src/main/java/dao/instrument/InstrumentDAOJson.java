@@ -12,9 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-//TODO CONTROLLA!!!!
-
-
 public class InstrumentDAOJson extends InstrumentDAO {
 
     private final String path;

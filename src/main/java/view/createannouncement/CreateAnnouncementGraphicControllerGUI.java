@@ -179,10 +179,6 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
         }
 
         String content = descriptionField.getText();
-        if (content == null || content.isBlank()) {
-            showError("Please enter a description.");
-            return;
-        }
 
         LocalDateTime eventDate = readEventDateTime();
         if (eventDate == null) {

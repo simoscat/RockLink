@@ -41,4 +41,5 @@ public abstract class BaseAnnouncement {
         this.publishDate = LocalDateTime.now(ZoneId.systemDefault());
     }
 
+
 }

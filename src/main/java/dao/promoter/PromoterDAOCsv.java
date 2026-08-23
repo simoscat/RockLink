@@ -130,7 +130,7 @@ public class PromoterDAOCsv extends PromoterDAO {
 
             String value = kv.length > 1 ? kv[1] : "";
 
-            map.put(key, value);
+            map.put(key.replace("%2C", ","), value.replace("%2C", ","));
         }
 
         return map;
@@ -179,7 +179,8 @@ public class PromoterDAOCsv extends PromoterDAO {
         boolean first = true;
         for (Map.Entry<String, String> e : contacts.entrySet()) {
             if (!first) sb.append(CONTACTS_SEPARATOR);
-            sb.append(e.getKey()).append(CONTACT_PAIR_SEPARATOR).append(e.getValue());
+            sb.append(e.getKey().replace(",", "%2C"))
+                    .append(CONTACT_PAIR_SEPARATOR).append(e.getValue().replace(",", "%2C"));
             first = false;
         }
         return sb.toString();

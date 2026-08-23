@@ -15,27 +15,15 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
     private String jobAnnouncementStatus;
     private List<JobAnnouncementTag> tags;
 
-    public JobAnnouncementBean(String title, String content, LocalDateTime date, LocalDateTime publishDate,
-                               PromoterBean promoter, MoneyValueBean moneyValue, String address,
-                               Artist hiredArtist, String jobAnnouncementStatus, List<JobAnnouncementTag> tags) {
-        super(title, content, date, publishDate);
-
-        this.promoter = promoter;
-        this.moneyValue = moneyValue;
-        this.address = address;
-        this.hiredArtist = hiredArtist;
-        this.jobAnnouncementStatus = jobAnnouncementStatus;
-        this.tags = tags;
-    }
-
     public JobAnnouncementBean(String title, String content, LocalDateTime date,
                                PromoterBean promoter, MoneyValueBean moneyValue, String address,
-                               List<JobAnnouncementTag> tags) { // for brand new announcement
+                               List<JobAnnouncementTag> tags) {
         super(title, content, date);
         this.promoter = promoter;
         this.moneyValue = moneyValue;
         this.address = address;
         this.tags = tags;
+
     }
 
 

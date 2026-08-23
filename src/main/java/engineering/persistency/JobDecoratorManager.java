@@ -14,9 +14,9 @@ public final class JobDecoratorManager {
     public static JobAnnouncement applyDecorators(JobAnnouncement a, List<JobAnnouncementTag> tags){
         if (tags == null || tags.isEmpty()) return a;
 
-        for (JobAnnouncementTag tag : tags){
+        for (int i = tags.size() - 1; i >= 0; i--) {
 
-            switch (tag){
+            switch (tags.get(i)) {
                 case JobAnnouncementTag.URGENT -> a = new UrgentJobAnnouncementDecorator(a);
                 case JobAnnouncementTag.EXPERTS_ONLY -> a = new ExpertsOnlyDecoratorJob(a);
                 case JobAnnouncementTag.LONG_TIME_CONTRACT -> a = new LongTimeContractDecoratorJob(a);

@@ -15,19 +15,12 @@ import javafx.scene.layout.VBox;
 import model.Artist;
 import view.GUIGraphicController;
 import view.Navigator;
-import view.NavigatorGUI;
 
 import java.util.List;
 
 public class AnnouncementApplicationsGraphicControllerGUI extends AnnouncementApplicationsGraphicController implements GUIGraphicController {
 
     private static final String ROW_ACTION_BTN_CLASS = "row-action-btn";
-
-    private NavigatorGUI navigatorGUI;
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
-    }
 
     private Parent view;
     @Override

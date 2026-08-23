@@ -2,6 +2,7 @@ package view.openannouncementsdiscovery;
 
 import bean.JobAnnouncementBean;
 import controller.ManageJobApplicationsController;
+import exception.ControllerLogicException;
 import view.Navigator;
 
 import java.util.List;
@@ -41,6 +42,21 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
     protected void backToMusicianDashboard(){
 
         navigator.goToMusicianDashboard();
+
+    }
+
+    protected boolean checkMusicianApplication(JobAnnouncementBean job){
+
+        try{
+            return manageJobApplicationsController.isMusicianAppliedToJob(job, navigator.getMusician());
+        }
+        catch(ControllerLogicException e){
+            showError(e.getMessage());
+        }
+        catch(RuntimeException e){
+            showError("Internal error: "+e.getMessage());
+        }
+        return false;
 
     }
 

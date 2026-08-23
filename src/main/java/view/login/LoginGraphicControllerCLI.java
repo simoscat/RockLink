@@ -66,9 +66,9 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
 
     private void musicianLogin() {
         System.out.print("Email: ");
-        this.email = scanner.nextLine().trim();
+        this.email = scanner.nextLine();
         System.out.print("Password: ");
-        this.password = scanner.nextLine().trim();
+        this.password = scanner.nextLine();
 
         setRole(Role.MUSICIAN);
         doLogin();
@@ -76,9 +76,9 @@ public class LoginGraphicControllerCLI extends LoginGraphicController {
 
     private void promoterLogin() {
         System.out.print("Email: ");
-        this.email = scanner.nextLine().trim();
+        this.email = scanner.nextLine();
         System.out.print("Password: ");
-        this.password = scanner.nextLine().trim();
+        this.password = scanner.nextLine();
 
         setRole(Role.PROMOTER);
         doLogin();

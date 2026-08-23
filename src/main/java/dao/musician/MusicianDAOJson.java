@@ -11,11 +11,9 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-//TODO CONTROLLA!!!!
-
 
 public class MusicianDAOJson extends MusicianDAO {
 
@@ -84,7 +82,7 @@ public class MusicianDAOJson extends MusicianDAO {
         try {
             instruments = this.instrumentDAO.getMusicianInstruments(email);
         } catch (DAOException _) {
-            instruments = List.of();
+            throw new DAOException("Couldn't find musician with email " + email + " instruments");
         }
 
         return new Musician(name, surname, stageName, email, gender, instruments);

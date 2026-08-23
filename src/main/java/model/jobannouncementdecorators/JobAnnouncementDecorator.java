@@ -83,5 +83,10 @@ public abstract class JobAnnouncementDecorator implements JobAnnouncement {
         return this.wrappedJobAnnouncement.getEventAddress();
     }
 
+    @Override
+    public void setStatus(JobAnnouncementStatus status) {
+        this.wrappedJobAnnouncement.setStatus(status);
+    }
+
 
 }

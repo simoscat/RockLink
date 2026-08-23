@@ -33,11 +33,12 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
                         "Improvisation skills are a must. Contact us for more details.",
                 LocalDateTime.of(2026, 10, 15, 21, 0),
                 JobAnnouncementStatus.OPEN,
-                LocalDateTime.now(ZoneId.systemDefault()),
                 promoterDAO.getPromoterByEmail("marco.santodonato@libero.it"),
                 new MoneyValue(new BigDecimal(150), CurrencyType.EUR),
                 "Via Biordo Michelotti, 2, 00176 Roma RM"
         );
+
+        job1.publishNow();
 
         JobAnnouncement job2 = new ConcreteJobAnnouncement(
                 "Sound Engineer for Jazz Night at Blue Note",
@@ -45,11 +46,12 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
                         "Contact us for more information.",
                 LocalDateTime.of(2026, 9, 9, 19, 30),
                 JobAnnouncementStatus.OPEN,
-                LocalDateTime.now(ZoneId.systemDefault()),
                 promoterDAO.getPromoterByEmail("marco.santodonato@libero.it"),
                 new MoneyValue(new BigDecimal(350), CurrencyType.USD),
                 "Via Pietro Borsieri, 37, Milan, IT 20159"
         );
+
+        job2.publishNow();
 
         JobAnnouncement job2Dec = new UrgentJobAnnouncementDecorator(new ExpertsOnlyDecoratorJob(job2));
 

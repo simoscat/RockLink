@@ -6,24 +6,27 @@ import java.time.LocalDateTime;
 
 public interface JobAnnouncement {
 
-    public Promoter getPublisher();
-    public String getTitle();
-    public String getContent();
-    public LocalDateTime getAnnouncementDate();
+    Promoter getPublisher();
+    String getTitle();
+    String getContent();
+    LocalDateTime getAnnouncementDate();
 
-    public void openAnnouncement();
+    void openAnnouncement();
 
     MoneyValue getJobPay();
 
-    public void hireArtist(Artist artist);
-    public void closeAnnouncement();
+    void hireArtist(Artist artist);
 
-    public JobAnnouncementStatus getStatus();
+    void closeAnnouncement();
 
-    public Artist whoWasHired();
+    JobAnnouncementStatus getStatus();
 
-    public LocalDateTime getAnnouncementPublishDate();
-    public void publishNow();
+    Artist whoWasHired();
 
-    public String getEventAddress();
+    LocalDateTime getAnnouncementPublishDate();
+    void publishNow();
+
+    String getEventAddress();
+
+    void setStatus(JobAnnouncementStatus status);
 }

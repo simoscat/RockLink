@@ -83,19 +83,6 @@
     -fx-fill: #ff4d1f;
 }
 
-.nav-badge {
-    -fx-background-color: #22c55e;
-    -fx-background-radius: 50%;
-    -fx-text-fill: #0a1a0f;
-    -fx-font-size: 12px;
-    -fx-font-weight: bold;
-    -fx-min-width: 20;
-    -fx-min-height: 20;
-    -fx-max-width: 20;
-    -fx-max-height: 20;
-    -fx-alignment: center;
-}
-
 /* ---------- Sign out ---------- */
 .sign-out-btn {
     -fx-background-color: transparent;

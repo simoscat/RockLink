@@ -22,7 +22,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
 import view.GUIGraphicController;
 import view.Navigator;
-import view.NavigatorGUI;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -40,12 +39,6 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
     private static final String CLOCK = "M3,12 A9,9 0 1,0 21,12 A9,9 0 1,0 3,12 Z M11.4,7 L12.6,7 L12.6,12 L11.4,12 Z M12,11.4 L17,11.4 L17,12.6 L12,12.6 Z";
     private static final String JOB_META_ICON_CLASS = "job-meta-icon";
     private static final String NOT_IMPLEMENTED_YET_MESSAGE = "Not implemented yet";
-
-    private NavigatorGUI navigatorGUI;
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
-    }
 
     public OpenAnnouncementsDiscoveryGraphicControllerGUI(Navigator navigator) {
         super(navigator);
@@ -68,7 +61,6 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
     @Override
     public void start() {
         populateUserCard();
-        populateSidebarBadge();
         populateJobs();
     }
 
@@ -88,8 +80,6 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
     // ---- Navigazione ----
     @FXML
     private HBox dashboardNavItem;
-    @FXML
-    private Label dashboardNotificationBadge;
     @FXML
     private HBox discoverJobsNavItem;
     @FXML
@@ -125,18 +115,6 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
         String first = (name == null || name.isBlank()) ? "" : name.substring(0, 1);
         String second = (surname == null || surname.isBlank()) ? "" : surname.substring(0, 1);
         return (first + second).toUpperCase(Locale.ENGLISH);
-    }
-
-    private void populateSidebarBadge() {
-        List<JobApplicationBean> applications = manageJobApplicationsController.findMusicianJobApplications(navigator.getSession());
-
-        long pendingCount = applications == null ? 0 : applications.stream()
-                .filter(application -> "PENDING".equals(application.getStatus()))
-                .count();
-
-        dashboardNotificationBadge.setText(String.valueOf(pendingCount));
-        dashboardNotificationBadge.setVisible(pendingCount > 0);
-        dashboardNotificationBadge.setManaged(pendingCount > 0);
     }
 
     private void populateJobs() {
@@ -225,7 +203,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
     }
 
     private Node applicationIndicator(JobAnnouncementBean job) {
-        boolean applied = manageJobApplicationsController.isMusicianAppliedToJob(job, navigator.getMusician());
+        boolean applied = checkMusicianApplication(job);
 
         if (!applied) {
             return icon(CHEVRON_RIGHT, "job-chevron", 0.667);

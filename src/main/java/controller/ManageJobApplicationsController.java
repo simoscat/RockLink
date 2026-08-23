@@ -231,6 +231,9 @@ public class ManageJobApplicationsController {
             if (jobApplicationDAO.getJobApplication(m.getEmail(), jobAnnouncement) != null) {
                 throw new ControllerLogicException("You have already applied for this job announcement");
             }
+            else if (jobAnnouncement.getStatus().equals(JobAnnouncementStatus.FILLED)) {
+                throw new ControllerLogicException("This announcement was already filled");
+            }
 
             JobApplication application = new JobApplication(
                     jobAnnouncement,

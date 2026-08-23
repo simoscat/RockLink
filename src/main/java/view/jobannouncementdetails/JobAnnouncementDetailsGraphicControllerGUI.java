@@ -14,7 +14,6 @@ import javafx.scene.layout.VBox;
 import model.Artist;
 import view.GUIGraphicController;
 import view.Navigator;
-import view.NavigatorGUI;
 
 import java.math.BigDecimal;
 import java.time.format.DateTimeFormatter;
@@ -23,12 +22,6 @@ import java.util.Map;
 public class JobAnnouncementDetailsGraphicControllerGUI extends JobAnnouncementDetailsGraphicController implements GUIGraphicController {
 
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("MMM d, yyyy, HH:mm");
-
-    private NavigatorGUI navigatorGUI;
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
-    }
 
     private Parent view;
     @Override

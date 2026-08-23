@@ -15,7 +15,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
 import view.GUIGraphicController;
-import view.NavigatorGUI;
+import view.Navigator;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -26,12 +26,6 @@ public class PromoterDashboardGraphicControllerGUI extends PromoterDashboardGrap
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
 
     private static final String CHEVRON_RIGHT = "M8,4 L16,12 L8,20 L10.5,20 L18.5,12 L10.5,4 Z";
-
-    private NavigatorGUI navigatorGUI;
-
-    public void setNavigatorGUI(NavigatorGUI navigatorGUI) {
-        this.navigatorGUI = navigatorGUI;
-    }
 
     private Parent view;
     @Override
@@ -44,9 +38,8 @@ public class PromoterDashboardGraphicControllerGUI extends PromoterDashboardGrap
         return this.view;
     }
 
-    public PromoterDashboardGraphicControllerGUI(NavigatorGUI navigator) {
+    public PromoterDashboardGraphicControllerGUI(Navigator navigator) {
         super(navigator);
-        this.navigatorGUI = navigator;
     }
 
     @Override
