@@ -6,7 +6,10 @@ import engineering.enums.Gender;
 import exception.DAOException;
 import model.Promoter;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.*;
 
 public class PromoterDAOCsv extends PromoterDAO {
@@ -34,13 +37,29 @@ public class PromoterDAOCsv extends PromoterDAO {
 
     @Override
     protected Promoter retrievePromoterByEmail(String email) {
-        String[] fields = CsvManager.findRow(this.path, f -> f.length >= MIN_FIELDS && f[0].equals(email));
+        File file = new File(this.path);
 
-        if (fields == null) {
+        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                if (line.isBlank()) continue;
+
+                Promoter candidate = parseRowIfMatches(line, email);
+
+                if (candidate != null){
+                    return candidate;
+                }
+
+            }
+
             throw new DAOException("No promoter found with email: " + email);
-        }
 
-        return parseRow(fields);
+        } catch (IOException e) {
+            throw new DAOException("Couldn't read promoter file: " + path, e);
+        }
     }
 
     @Override
@@ -48,8 +67,12 @@ public class PromoterDAOCsv extends PromoterDAO {
         CsvManager.upsertRow(this.path, fields -> fields[0].equals(promoter.getEmail()), toCsvRow(promoter));
     }
 
-    private Promoter parseRow(String[] fields) {
+    private Promoter parseRowIfMatches(String line, String email) {
         try {
+            String[] fields = line.split(CSV_SEPARATOR, -1);
+
+            if (fields.length < MIN_FIELDS || !fields[0].equals(email)) return null;
+
             String csvEmail = fields[0];
             String name = fields[1];
             String surname = fields[2];
@@ -60,7 +83,7 @@ public class PromoterDAOCsv extends PromoterDAO {
             return new Promoter(name, surname, csvEmail, gender, contacts);
 
         } catch (IllegalArgumentException e) {
-            throw new DAOException("Invalid csv line for email " + fields[0], e);
+            throw new DAOException("Invalid csv line: " + line, e);
         }
     }
 

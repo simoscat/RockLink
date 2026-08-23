@@ -30,10 +30,15 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     @Override
     protected List<JobAnnouncement> retrieveAllPromoterAnnouncementsFromEmail(String email) {
+
+        JSONArray jobs = JsonManager.readJsonFile(this.path);
         List<JobAnnouncement> promoterJobs = new ArrayList<>();
 
-        for (JSONObject obj : JsonManager.filterInFile(this.path, o -> o.getString(PROMOTER_EMAIL_FIELD).equals(email))) {
-            promoterJobs.add(parseJson(obj));
+        for (int i = 0; i < jobs.length(); i++) {
+            JSONObject obj = jobs.getJSONObject(i);
+            if (obj.getString(PROMOTER_EMAIL_FIELD).equals(email)) {
+                promoterJobs.add(parseJson(obj));
+            }
         }
 
         return promoterJobs;
@@ -41,13 +46,14 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     @Override
     public JobAnnouncement retrieveJobAnnouncementById(String id) {
-        JSONObject obj = JsonManager.findInFile(this.path, o -> o.getString("id").equals(id));
-
-        if (obj == null) {
-            throw new DAOException("Couldn't find job with id: " + id);
+        JSONArray jobs = JsonManager.readJsonFile(this.path);
+        for (int i = 0; i < jobs.length(); i++) {
+            JSONObject obj = jobs.getJSONObject(i);
+            if (obj.getString("id").equals(id)) {
+                return parseJson(obj);
+            }
         }
-
-        return parseJson(obj);
+        throw new DAOException("Couldn't find job with id: " + id);
     }
 
     @Override
@@ -59,11 +65,9 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
     protected List<JobAnnouncement> retrieveAllJobAnnouncements() {
         JSONArray jobs = JsonManager.readJsonFile(this.path);
         List<JobAnnouncement> announcements = new ArrayList<>();
-
         for (int i = 0; i < jobs.length(); i++) {
             announcements.add(parseJson(jobs.getJSONObject(i)));
         }
-
         return announcements;
     }
 

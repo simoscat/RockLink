@@ -31,39 +31,27 @@ public final class CsvManager {
         }
     }
 
-    //matcher is the condition to match: if the row matches, it gets substituted.
-    //if no row matches, the new row is added at the end
-    //example: we want have a musician in memory to move in persistency: if the musician exists, we update it,
-    //if not, we add it
+    /**
+     * Replaces the first row whose fields match {@code matcher} with {@code newRow},
+     * or appends {@code newRow} if no row matches, then rewrites the whole file.
+     */
     public static void upsertRow(String path, Predicate<String[]> matcher, String newRow) {
-        List<String> lines = new ArrayList<>();
-        boolean found = false;
-
-        for (String line : readAllLines(path)) {
-            if (matcher.test(line.split(SEPARATOR, -1))) {
-                lines.add(newRow);
-                found = true;
-            } else {
-                lines.add(line);
-            }
-        }
-
-        if (!found) {
-            lines.add(newRow);
-        }
-
-        writeAllLines(path, lines);
-    }
-
-    //reads every non-blank line of the file
-    public static List<String> readAllLines(String path) {
         File file = new File(path);
         List<String> lines = new ArrayList<>();
+        boolean found = false;
 
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
             String line;
             while ((line = reader.readLine()) != null) {
-                if (!line.isBlank()) {
+                if (line.isBlank()) {
+                    continue;
+                }
+
+                String[] fields = line.split(SEPARATOR, -1);
+                if (matcher.test(fields)) {
+                    lines.add(newRow);
+                    found = true;
+                } else {
                     lines.add(line);
                 }
             }
@@ -71,11 +59,9 @@ public final class CsvManager {
             throw new DAOException("Couldn't read csv file " + path, e);
         }
 
-        return lines;
-    }
-
-    public static void writeAllLines(String path, List<String> lines) {
-        File file = new File(path);
+        if (!found) {
+            lines.add(newRow);
+        }
 
         try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())) {
             for (String line : lines) {
@@ -85,29 +71,6 @@ public final class CsvManager {
         } catch (IOException e) {
             throw new DAOException("Couldn't write csv file " + path, e);
         }
-    }
-
-    //returns the fields of the first row matching matcher, or null if none matches
-    public static String[] findRow(String path, Predicate<String[]> matcher) {
-        for (String line : readAllLines(path)) {
-            String[] fields = line.split(SEPARATOR, -1);
-            if (matcher.test(fields)) {
-                return fields;
-            }
-        }
-        return null;
-    }
-
-    //returns the fields of every row matching matcher
-    public static List<String[]> filterRows(String path, Predicate<String[]> matcher) {
-        List<String[]> result = new ArrayList<>();
-        for (String line : readAllLines(path)) {
-            String[] fields = line.split(SEPARATOR, -1);
-            if (matcher.test(fields)) {
-                result.add(fields);
-            }
-        }
-        return result;
     }
 
 }

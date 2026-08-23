@@ -6,7 +6,10 @@ import engineering.enums.Mastery;
 import exception.DAOException;
 import model.Instrument;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,16 +40,37 @@ public class InstrumentDAOCsv extends InstrumentDAO {
 
     @Override
     public List<Instrument> getMusicianInstruments(String musicianEmail) {
-        String[] fields = CsvManager.findRow(path, f -> f[0].equals(musicianEmail));
 
-        if (fields == null) {
-            throw new DAOException("No instruments found for musician: " + musicianEmail);
+        File file = new File(path);
+
+        try(BufferedReader reader = Files.newBufferedReader(file.toPath())) {
+
+            String line;
+
+            while((line = reader.readLine()) != null) {
+
+                if (line.isBlank()){
+                    continue;
+                }
+
+                String[] fields = line.split(CSV_SEPARATOR, -1);
+
+                if (fields[0].equals(musicianEmail)) {
+                    return parseInstruments(fields, line);
+                }
+
+            }
+
+            throw new DAOException("No instruments found for musician: "+ musicianEmail);
+
+        } catch (IOException e) {
+            throw new DAOException("Couldn't read instrument file: ", e);
         }
 
-        return parseInstruments(fields);
+
     }
 
-    private List<Instrument> parseInstruments(String[] fields) {
+    private List<Instrument> parseInstruments(String[] fields, String line) {
 
         try {
             List<Instrument> instruments = new ArrayList<>();
@@ -67,7 +91,7 @@ public class InstrumentDAOCsv extends InstrumentDAO {
 
             return instruments;
         } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
-            throw new DAOException("Invalid instrument in line for email " + fields[0], e);
+            throw new DAOException("Invalid instrument in line: " + line, e);
         }
 
     }

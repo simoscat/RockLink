@@ -11,8 +11,11 @@ import engineering.persistency.JobDecoratorManager;
 import exception.DAOException;
 import model.*;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,24 +43,49 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
     @Override
     protected List<JobAnnouncement> retrieveAllPromoterAnnouncementsFromEmail(String email) {
+
+        File file = new File(this.path);
         List<JobAnnouncement> jobAnnouncements = new ArrayList<>();
 
-        for (String[] fields : CsvManager.filterRows(this.path, f -> f[7].equals(email))) {
-            jobAnnouncements.add(parseRow(fields));
+        try(BufferedReader reader = Files.newBufferedReader(file.toPath())){
+
+            String line;
+            while ((line = reader.readLine()) != null){
+
+                if (line.isBlank()) continue;
+
+                String[] fields = line.split(CSV_SEPARATOR, -1);
+
+                if (fields[7].equals(email)){
+                    jobAnnouncements.add(parseRow(fields));
+                }
+
+            }
+
+        } catch (IOException e) {
+            throw new DAOException("Can't read promoter job announcements with email: "+email, e);
         }
 
         return jobAnnouncements;
+
     }
 
     @Override
     public JobAnnouncement retrieveJobAnnouncementById(String id) {
-        String[] fields = CsvManager.findRow(this.path, f -> f[0].equals(id));
-
-        if (fields == null) {
+        File file = new File(this.path);
+        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.isBlank()) continue;
+                String[] fields = line.split(CSV_SEPARATOR, -1);
+                if (fields[0].equals(id)) {
+                    return parseRow(fields);
+                }
+            }
             throw new DAOException("Couldn't find job with id: " + id);
+        } catch (IOException e) {
+            throw new DAOException("Can't read job announcement with id: " + id, e);
         }
-
-        return parseRow(fields);
     }
 
     @Override
@@ -68,11 +96,17 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
     @Override
     protected List<JobAnnouncement> retrieveAllJobAnnouncements() {
         List<JobAnnouncement> announcements = new ArrayList<>();
-
-        for (String line : CsvManager.readAllLines(this.path)) {
-            announcements.add(parseRow(line.split(CSV_SEPARATOR, -1)));
+        File file = new File(this.path);
+        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.isBlank()) continue;
+                String[] fields = line.split(CSV_SEPARATOR, -1);
+                announcements.add(parseRow(fields));
+            }
+        } catch (IOException e) {
+            throw new DAOException("Can't read job announcements", e);
         }
-
         return announcements;
     }
 

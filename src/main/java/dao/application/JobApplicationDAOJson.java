@@ -10,6 +10,7 @@ import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
@@ -28,25 +29,31 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
 
     @Override
     protected JobApplication retrieveJobApplication(String candidateEmail, JobAnnouncement jobAnnouncement) {
-        String announcementId = jobAnnouncementDAO.getUniqueId(jobAnnouncement);
 
-        JSONObject obj = JsonManager.findInFile(this.path,
-                o -> o.getString("email").equals(candidateEmail) &&
-                        o.getString(ANNOUNCEMENT_ID_FIELD).equals(announcementId));
+        JSONArray applications = JsonManager.readJsonFile(this.path);
 
-        if (obj == null) {
-            return null;
+        for (int i = 0; i < applications.length(); i++) {
+
+            JSONObject obj = applications.getJSONObject(i);
+            if (obj.getString("email").equals(candidateEmail) &&
+            obj.getString(ANNOUNCEMENT_ID_FIELD).equals(jobAnnouncementDAO.getUniqueId(jobAnnouncement))) {
+                return parseJson(obj);
+            }
+
         }
-
-        return parseJson(obj);
+        return null;
     }
 
     @Override
     public List<JobApplication> retrieveAllJobApplicationsFromEmail(String email) {
+        JSONArray applications = JsonManager.readJsonFile(this.path);
         List<JobApplication> result = new ArrayList<>();
 
-        for (JSONObject obj : JsonManager.filterInFile(this.path, o -> o.getString(CANDIDATE_EMAIL_FIELD).equals(email))) {
-            result.add(parseJson(obj));
+        for (int i = 0; i < applications.length(); i++) {
+            JSONObject obj = applications.getJSONObject(i);
+            if (obj.getString(CANDIDATE_EMAIL_FIELD).equals(email)) {
+                result.add(parseJson(obj));
+            }
         }
 
         return result;
@@ -54,14 +61,23 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
 
     @Override
     protected List<JobApplication> retrieveAllJobApplicationsFromJob(JobAnnouncement jobAnnouncement) {
+
         String announcementId = jobAnnouncementDAO.getUniqueId(jobAnnouncement);
+
+        JSONArray applications = JsonManager.readJsonFile(this.path);
         List<JobApplication> result = new ArrayList<>();
 
-        for (JSONObject obj : JsonManager.filterInFile(this.path, o -> o.getString(ANNOUNCEMENT_ID_FIELD).equals(announcementId))) {
-            result.add(parseJson(obj));
+        for (int i = 0; i < applications.length(); i++) {
+
+            JSONObject json = applications.getJSONObject(i);
+
+            if (json.getString(ANNOUNCEMENT_ID_FIELD).equals(announcementId)) {
+                result.add(parseJson(json));
+            }
         }
 
         return result;
+
     }
 
     @Override
