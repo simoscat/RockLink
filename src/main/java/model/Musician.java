@@ -29,6 +29,8 @@ public class Musician extends User implements Artist {
     @Override
     public LinkedHashMap<String, String> getArtistDetails() {
 
+        //TODO ATTENZIONE! NON SO SE STA COSA SI PUÒ FARE O SE DOVREBBE ESSERE DELEGATA ALLA VIEW, MA NON MI VIENE IN MENTE ALTRO MODO!!!!
+
         LinkedHashMap<String, String> artistDetails = new LinkedHashMap<>();
         //we use this to then return the values in order
 

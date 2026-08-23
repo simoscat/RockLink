@@ -11,6 +11,7 @@ import model.JobAnnouncement;
 import model.JobApplication;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -64,12 +65,40 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
 
     @Override
     protected void saveToPersistency(JobApplication obj) {
-        String candidateEmail = obj.whoIsCandidate().getEmail();
-        String announcementId = jobAnnouncementDAO.getUniqueId(obj.whichJobAnnouncement());
+        List<String> lines = new ArrayList<>();
+        boolean found = false;
 
-        CsvManager.upsertRow(this.path,
-                fields -> fields[EMAIL_FIELD].equals(candidateEmail) && fields[ID_FIELD].equals(announcementId),
-                toCsvRow(obj));
+        File file = new File(this.path);
+        try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.isBlank()) continue;
+                String[] fields = line.split(CSV_SEPARATOR, -1);
+                if (fields[EMAIL_FIELD].equals(obj.whoIsCandidate().getEmail()) &&
+                        fields[ID_FIELD].equals(jobAnnouncementDAO.getUniqueId(obj.whichJobAnnouncement()))) {
+                    lines.add(toCsvRow(obj));
+                    found = true;
+                } else {
+                    lines.add(line);
+                }
+            }
+        } catch (IOException e) {
+            throw new DAOException("Couldn't read csv file " + this.path, e);
+        }
+
+        if (!found) {
+            lines.add(toCsvRow(obj));
+        }
+
+        try (BufferedWriter writer = Files.newBufferedWriter(file.toPath())) {
+            for (String line : lines) {
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            throw new DAOException("Couldn't save job application with email " + obj.whoIsCandidate().getEmail() +
+                    " and announcement id " + jobAnnouncementDAO.getUniqueId(obj.whichJobAnnouncement()), e);
+        }
     }
 
     private JobApplication parseRow(String[] fields) {

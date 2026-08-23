@@ -73,8 +73,24 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     @Override
     protected void saveToPersistency(JobAnnouncement obj) {
+        JSONArray jobs = JsonManager.readJsonFile(this.path);
         String id = getUniqueId(obj);
-        JsonManager.upsertFile(this.path, json -> json.getString("id").equals(id), toJson(id, obj));
+        boolean found = false;
+
+        for (int i = 0; i < jobs.length(); i++) {
+            JSONObject json = jobs.getJSONObject(i);
+            if (json.getString("id").equals(id)) {
+                jobs.put(i, toJson(id, obj));
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            jobs.put(toJson(id, obj));
+        }
+
+        JsonManager.writeJsonFile(jobs, this.path);
     }
 
     private JobAnnouncement parseJson(JSONObject obj) {

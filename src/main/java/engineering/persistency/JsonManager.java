@@ -2,13 +2,11 @@ package engineering.persistency;
 
 import exception.DAOException;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.function.Predicate;
 
 public final class JsonManager {
 
@@ -43,29 +41,6 @@ public final class JsonManager {
         } catch (IOException e) {
             throw new DAOException("Couldn't write Json file " + path, e);
         }
-    }
-
-    /**
-     * Replaces the first object in {@code array} matching {@code matcher} with {@code newObj},
-     * or appends {@code newObj} if no object matches.
-     */
-    public static void upsert(JSONArray array, Predicate<JSONObject> matcher, JSONObject newObj) {
-        for (int i = 0; i < array.length(); i++) {
-            if (matcher.test(array.getJSONObject(i))) {
-                array.put(i, newObj);
-                return;
-            }
-        }
-        array.put(newObj);
-    }
-
-    /**
-     * Reads the JSON file, upserts {@code newObj} per {@link #upsert}, then writes it back.
-     */
-    public static void upsertFile(String path, Predicate<JSONObject> matcher, JSONObject newObj) {
-        JSONArray array = readJsonFile(path);
-        upsert(array, matcher, newObj);
-        writeJsonFile(array, path);
     }
 
 }

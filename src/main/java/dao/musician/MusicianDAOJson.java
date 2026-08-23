@@ -38,7 +38,23 @@ public class MusicianDAOJson extends MusicianDAO {
 
     @Override
     protected void saveToPersistency(Musician m) {
-        JsonManager.upsertFile(this.path, obj -> obj.getString(EMAIL_FIELD).equals(m.getEmail()), toJson(m));
+        JSONArray allRecords = JsonManager.readJsonFile(this.path);
+        boolean found = false;
+
+        for (int i = 0; i < allRecords.length(); i++) {
+            JSONObject obj = allRecords.getJSONObject(i);
+            if (obj.getString(EMAIL_FIELD).equals(m.getEmail())) {
+                allRecords.put(i, toJson(m));
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            allRecords.put(toJson(m));
+        }
+
+        JsonManager.writeJsonFile(allRecords, this.path);
 
         // Save instruments
         this.instrumentDAO.saveMusicianInstruments(m.getEmail(), m.presentInstruments());

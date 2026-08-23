@@ -6,6 +6,7 @@ import dao.factories.DAOFactory;
 import engineering.persistency.ConfigManager;
 import engineering.enums.ApplicationStatus;
 import engineering.persistency.JsonManager;
+import exception.DAOException;
 import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;
@@ -82,13 +83,28 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
 
     @Override
     protected void saveToPersistency(JobApplication obj) {
+        JSONArray applications = JsonManager.readJsonFile(this.path);
+
         String candidateEmail = obj.whoIsCandidate().getEmail();
         String announcementId = jobAnnouncementDAO.getUniqueId(obj.whichJobAnnouncement());
 
-        JsonManager.upsertFile(this.path,
-                json -> json.getString(ANNOUNCEMENT_ID_FIELD).equals(announcementId) &&
-                        json.getString(CANDIDATE_EMAIL_FIELD).equals(candidateEmail),
-                toJson(obj));
+        boolean found = false;
+
+        for (int i = 0; i < applications.length(); i++) {
+            JSONObject json = applications.getJSONObject(i);
+            if (json.getString(ANNOUNCEMENT_ID_FIELD).equals(announcementId) &&
+            json.getString(CANDIDATE_EMAIL_FIELD).equals(candidateEmail)) {
+                applications.put(i, toJson(obj));
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            applications.put(toJson(obj));
+        }
+
+        JsonManager.writeJsonFile(applications, this.path);
     }
 
     private JobApplication parseJson(JSONObject obj) {

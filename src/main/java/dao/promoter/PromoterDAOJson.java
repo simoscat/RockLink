@@ -35,7 +35,23 @@ public class PromoterDAOJson extends PromoterDAO {
 
     @Override
     protected void saveToPersistency(Promoter promoter) {
-        JsonManager.upsertFile(this.path, obj -> obj.getString(EMAIL_FIELD).equals(promoter.getEmail()), toJson(promoter));
+        JSONArray allRecords = JsonManager.readJsonFile(this.path);
+        boolean found = false;
+
+        for (int i = 0; i < allRecords.length(); i++) {
+            JSONObject obj = allRecords.getJSONObject(i);
+            if (obj.getString(EMAIL_FIELD).equals(promoter.getEmail())) {
+                allRecords.put(i, toJson(promoter));
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            allRecords.put(toJson(promoter));
+        }
+
+        JsonManager.writeJsonFile(allRecords, this.path);
     }
 
     private Promoter parseJson(JSONObject obj) {
