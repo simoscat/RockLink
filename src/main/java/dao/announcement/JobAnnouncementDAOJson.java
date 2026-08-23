@@ -2,6 +2,7 @@ package dao.announcement;
 
 import dao.factories.DAOFactory;
 import dao.promoter.PromoterDAO;
+import engineering.ConfigManager;
 import engineering.enums.CurrencyType;
 import engineering.enums.JobAnnouncementStatus;
 import engineering.enums.JobAnnouncementTag;
@@ -12,12 +13,11 @@ import model.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
@@ -26,15 +26,7 @@ public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
     private static final String HIRED_ARTIST_FIELD = "hiredArtist";
 
     public JobAnnouncementDAOJson() {
-        try(InputStream is = new FileInputStream("config.properties")){
-            Properties prop = new Properties();
-            prop.load(is);
-            path = prop.getProperty("json.path") + "job_announcements.json";
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Couldn't find properties file", e);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file", e);
-        }
+        path = ConfigManager.getProperty("json.path") + "job_announcements.json";
     }
 
     @Override

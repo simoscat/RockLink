@@ -1,32 +1,20 @@
 package dao.auth;
 
 
+import engineering.ConfigManager;
 import exception.DAOException;
 import model.Credential;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-
 public class AuthDAODemo extends AuthDAO{
 
-    private String musicianMail;
-    private String promoterMail;
-    private String password;
+    private final String musicianMail;
+    private final String promoterMail;
+    private final String password;
 
     public AuthDAODemo() {
-        Properties props  = new Properties();
-
-        try(FileInputStream fis = new FileInputStream("config.properties")) {
-            props.load(fis);
-        } catch (IOException e) {
-            throw new DAOException("Error reading config.properties", e);
-        }
-
-        musicianMail = props.getProperty("demo.musician");
-        promoterMail = props.getProperty("demo.promoter");
-        password = props.getProperty("demo.password");
-
+        musicianMail = ConfigManager.getProperty("demo.musician");
+        promoterMail = ConfigManager.getProperty("demo.promoter");
+        password = ConfigManager.getProperty("demo.password");
     }
 
     @Override

@@ -2,6 +2,7 @@ package dao.application;
 
 import dao.artist.ArtistDAO;
 import dao.factories.DAOFactory;
+import engineering.ConfigManager;
 import engineering.enums.ApplicationStatus;
 import engineering.persistency.CsvManager;
 import exception.DAOException;
@@ -9,12 +10,14 @@ import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 
 
@@ -29,15 +32,7 @@ public class JobApplicationDAOCsv extends JobApplicationDAO {
     private static final int RAISE_FIELD = 3;
 
     public JobApplicationDAOCsv() {
-        try(InputStream is = new FileInputStream("config.properties")){
-            Properties prop = new Properties();
-            prop.load(is);
-            path = prop.getProperty("csv.path") + "job_applications.csv";
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Couldn't find properties file", e);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file", e);
-        }
+        path = ConfigManager.getProperty("csv.path") + "job_applications.csv";
 
         try {
             CsvManager.initCsvFile(this.path);

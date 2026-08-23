@@ -1,11 +1,9 @@
 package view.factories;
 
+import engineering.ConfigManager;
 import engineering.enums.SupportedUI;
+import exception.DAOException;
 import view.Navigator;
-
-import java.io.*;
-import java.lang.module.FindException;
-import java.util.Properties;
 
 public abstract class NavigatorFactory {
 
@@ -15,16 +13,13 @@ public abstract class NavigatorFactory {
 
         if (instance == null) {
 
-            String uiType = "CLI";
+            String uiType;
 
-            try(InputStream input = new FileInputStream("config.properties")){
-
-                Properties prop = new Properties();
-                prop.load(input);
-                uiType = prop.getProperty("ui.type");
-
-            } catch (IOException _) {
+            try {
+                uiType = ConfigManager.getProperty("ui.type", "CLI");
+            } catch (DAOException e) {
                 System.err.println("NavigatorFactory could not open config.properties, falling back to default values (CLI)");
+                uiType = "CLI";
             }
 
             if (SupportedUI.valueOf(uiType).equals(SupportedUI.GUI)) {

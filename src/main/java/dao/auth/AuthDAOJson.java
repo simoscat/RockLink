@@ -1,8 +1,8 @@
 package dao.auth;
 
-import java.io.*;
-import java.util.Properties;
+import java.io.IOException;
 
+import engineering.ConfigManager;
 import engineering.persistency.JsonManager;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -21,22 +21,10 @@ public class AuthDAOJson extends AuthDAO {
 
 
     public AuthDAOJson() {
+        String basepath = ConfigManager.getProperty("json.path");
 
-        try(InputStream is = new FileInputStream("config.properties")){
-            Properties prop = new Properties();
-            prop.load(is);
-
-            String basepath = prop.getProperty("json.path");
-
-            musiciansFile = basepath+"musicians_creds.json";
-            promotersFile = basepath+"promoters_creds.json";
-
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Property file doesn't exist", e);
-        } catch (IOException e) {
-            throw new DAOException("Error reading properties file", e);
-        }
-
+        musiciansFile = basepath+"musicians_creds.json";
+        promotersFile = basepath+"promoters_creds.json";
     }
 
     @Override

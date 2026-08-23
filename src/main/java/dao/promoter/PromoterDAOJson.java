@@ -1,5 +1,6 @@
 package dao.promoter;
 
+import engineering.ConfigManager;
 import engineering.enums.Gender;
 import engineering.persistency.JsonManager;
 import exception.DAOException;
@@ -7,10 +8,9 @@ import model.Promoter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 public class PromoterDAOJson extends PromoterDAO {
 
@@ -19,15 +19,7 @@ public class PromoterDAOJson extends PromoterDAO {
     private static final String CONTACTS_FIELD = "contacts";
 
     public PromoterDAOJson() {
-        try(InputStream is = new FileInputStream("config.properties")){
-            Properties prop = new Properties();
-            prop.load(is);
-            path = prop.getProperty("json.path") + "promoters.json";
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Couldn't find properties file", e);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file", e);
-        }
+        path = ConfigManager.getProperty("json.path") + "promoters.json";
     }
 
     @Override

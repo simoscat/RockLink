@@ -1,29 +1,19 @@
 package dao.promoter;
 
+import engineering.ConfigManager;
 import engineering.enums.Gender;
 import exception.DAOException;
 import model.Promoter;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 public class PromoterDAODemo extends PromoterDAO {
 
-    private String email;
+    private final String email;
 
     public PromoterDAODemo(){
-        try(InputStream is = new FileInputStream("config.properties")){
-            Properties prop = new Properties();
-
-            prop.load(is);
-            this.email = prop.getProperty("demo.promoter");
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file: " + e.getMessage());
-        }
+        this.email = ConfigManager.getProperty("demo.promoter");
     }
 
     @Override

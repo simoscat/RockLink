@@ -2,6 +2,7 @@ package dao.announcement;
 
 import dao.factories.DAOFactory;
 import dao.promoter.PromoterDAO;
+import engineering.ConfigManager;
 import engineering.enums.CurrencyType;
 import engineering.enums.JobAnnouncementStatus;
 import engineering.enums.JobAnnouncementTag;
@@ -10,13 +11,15 @@ import engineering.persistency.JobDecoratorManager;
 import exception.DAOException;
 import model.*;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
@@ -30,15 +33,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
     private static final String NEGOTIABLE_SALARY = "NEGOTIABLE_SALARY";
 
     public JobAnnouncementDAOCsv() {
-        try(InputStream is = new FileInputStream("config.properties")){
-            Properties prop = new Properties();
-            prop.load(is);
-            path = prop.getProperty("csv.path") + "job_announcements.csv";
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Couldn't find properties file", e);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file", e);
-        }
+        path = ConfigManager.getProperty("csv.path") + "job_announcements.csv";
 
         try {
             CsvManager.initCsvFile(this.path);

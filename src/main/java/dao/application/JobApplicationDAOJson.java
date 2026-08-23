@@ -3,6 +3,7 @@ package dao.application;
 import dao.artist.ArtistDAO;
 import dao.factories.DAOFactory;
 
+import engineering.ConfigManager;
 import engineering.enums.ApplicationStatus;
 import engineering.persistency.JsonManager;
 import exception.DAOException;
@@ -13,11 +14,10 @@ import model.JobApplication;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class JobApplicationDAOJson extends JobApplicationDAO {
 
@@ -26,15 +26,7 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
     private static final String CANDIDATE_EMAIL_FIELD = "candidateEmail";
 
     public JobApplicationDAOJson() {
-        try(InputStream is = new FileInputStream("config.properties")){
-            Properties prop = new Properties();
-            prop.load(is);
-            path = prop.getProperty("json.path") + "job_applications.json";
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Couldn't find properties file", e);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file", e);
-        }
+        path = ConfigManager.getProperty("json.path") + "job_applications.json";
     }
 
     @Override

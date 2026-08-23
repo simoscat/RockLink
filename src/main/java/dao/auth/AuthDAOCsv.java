@@ -1,14 +1,17 @@
 package dao.auth;
 
+import engineering.ConfigManager;
 import engineering.persistency.CsvManager;
 import exception.DAOException;
 import model.Credential;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class AuthDAOCsv extends AuthDAO {
 
@@ -24,20 +27,8 @@ public class AuthDAOCsv extends AuthDAO {
 
     public AuthDAOCsv() {
 
-        try(InputStream is = new FileInputStream("config.properties")){
-
-            Properties prop = new Properties();
-
-            prop.load(is);
-
-            musiciansPath = prop.getProperty("csv.path") + "musicians_creds.csv";
-            promotersPath = prop.getProperty("csv.path") + "promoters_creds.csv";
-
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Couldn't find properties file", e);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file", e);
-        }
+        musiciansPath = ConfigManager.getProperty("csv.path") + "musicians_creds.csv";
+        promotersPath = ConfigManager.getProperty("csv.path") + "promoters_creds.csv";
 
         try {
             CsvManager.initCsvFile(musiciansPath);

@@ -2,17 +2,20 @@ package dao.musician;
 
 import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAOCsv;
+import engineering.ConfigManager;
 import engineering.persistency.CsvManager;
 import engineering.enums.Gender;
 import exception.DAOException;
 import model.Instrument;
 import model.Musician;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class MusicianDAOCsv extends MusicianDAO {
 
@@ -30,19 +33,7 @@ public class MusicianDAOCsv extends MusicianDAO {
 
     public MusicianDAOCsv() {
 
-        try(InputStream is = new FileInputStream("config.properties")){
-
-            Properties prop = new Properties();
-
-            prop.load(is);
-
-            path = prop.getProperty("csv.path") + "musicians.csv";
-
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Couldn't find properties file", e);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file", e);
-        }
+        path = ConfigManager.getProperty("csv.path") + "musicians.csv";
 
         this.instrumentDAO = new InstrumentDAOCsv();
 

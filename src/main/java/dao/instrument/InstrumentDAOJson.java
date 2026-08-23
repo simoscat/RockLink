@@ -1,5 +1,6 @@
 package dao.instrument;
 
+import engineering.ConfigManager;
 import engineering.enums.Mastery;
 import engineering.persistency.JsonManager;
 import exception.DAOException;
@@ -7,10 +8,9 @@ import model.Instrument;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class InstrumentDAOJson extends InstrumentDAO {
 
@@ -19,15 +19,7 @@ public class InstrumentDAOJson extends InstrumentDAO {
     private static final String INSTRUMENTS_FIELD = "instruments";
 
     public InstrumentDAOJson() {
-        try(InputStream is = new FileInputStream("config.properties")){
-            Properties prop = new Properties();
-            prop.load(is);
-            path = prop.getProperty("json.path") + "musicians_instruments.json";
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Couldn't find properties file", e);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file", e);
-        }
+        path = ConfigManager.getProperty("json.path") + "musicians_instruments.json";
     }
 
     @Override

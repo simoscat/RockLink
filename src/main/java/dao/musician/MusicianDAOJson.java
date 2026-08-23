@@ -2,6 +2,7 @@ package dao.musician;
 
 import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAOJson;
+import engineering.ConfigManager;
 import engineering.enums.Gender;
 import engineering.persistency.JsonManager;
 import exception.DAOException;
@@ -10,9 +11,8 @@ import model.Musician;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
 
 public class MusicianDAOJson extends MusicianDAO {
 
@@ -21,16 +21,7 @@ public class MusicianDAOJson extends MusicianDAO {
     private static final String EMAIL_FIELD = "email";
 
     public MusicianDAOJson() {
-        try(InputStream is = new FileInputStream("config.properties")){
-            Properties prop = new Properties();
-            prop.load(is);
-            path = prop.getProperty("json.path") + "musicians.json";
-        } catch (FileNotFoundException e) {
-            throw new DAOException("Couldn't find properties file", e);
-        } catch (IOException e) {
-            throw new DAOException("Couldn't read properties file", e);
-        }
-
+        path = ConfigManager.getProperty("json.path") + "musicians.json";
         this.instrumentDAO = new InstrumentDAOJson();
     }
 
