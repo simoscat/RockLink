@@ -52,6 +52,10 @@ public class JobApplicationDetailGraphicControllerGUI extends JobApplicationDeta
     private Button acceptButton;
 
     private void populateApplication() {
+        if (statusBadge == null) {
+            return;
+        }
+
         JobApplicationBean application = navigator.getCurrentJobApplication();
 
         String status = application.getStatus();

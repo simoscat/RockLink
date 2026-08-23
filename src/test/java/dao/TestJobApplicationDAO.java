@@ -1,6 +1,5 @@
 package dao;
 
-import dao.announcement.JobAnnouncementDAO;
 import dao.application.JobApplicationDAO;
 import dao.factories.DAOFactory;
 import engineering.enums.CurrencyType;

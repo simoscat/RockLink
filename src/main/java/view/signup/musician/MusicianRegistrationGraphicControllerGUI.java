@@ -5,7 +5,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import view.GUIGraphicController;
 import view.Navigator;
-import view.NavigatorGUI;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
@@ -36,6 +35,10 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
 
     @Override
     public void start() {
+        if (firstNameField == null) {
+            return;
+        }
+
         firstNameField.clear();
         lastNameField.clear();
         stageNameField.clear();

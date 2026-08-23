@@ -4,7 +4,7 @@ import view.Navigator;
 
 import java.util.Map;
 import java.util.Scanner;
-//TODO
+
 public class JobApplicationDetailGraphicControllerCLI extends JobApplicationDetailGraphicController {
 
     private Scanner scanner = new Scanner(System.in);

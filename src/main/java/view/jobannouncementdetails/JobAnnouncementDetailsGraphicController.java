@@ -7,7 +7,6 @@ import view.Navigator;
 
 import java.math.BigDecimal;
 
-//TODO
 public abstract class JobAnnouncementDetailsGraphicController {
 
     private static final String INTERNAL_ERROR_PREFIX = "Internal error: ";

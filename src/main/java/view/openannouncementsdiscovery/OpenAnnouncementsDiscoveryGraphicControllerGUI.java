@@ -102,6 +102,10 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
     private TilePane jobsContainer;
 
     private void populateUserCard() {
+        if (userNameLabel == null) {
+            return;
+        }
+
         String name = navigator.getMusician().getName();
         String surname = navigator.getMusician().getSurname();
 

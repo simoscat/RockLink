@@ -74,6 +74,10 @@ public class PromoterDashboardGraphicControllerGUI extends PromoterDashboardGrap
     private VBox announcementsContainer;
 
     private void populateUserCard() {
+        if (userNameLabel == null) {
+            return;
+        }
+
         String name = navigator.getPromoter().getName();
         String surname = navigator.getPromoter().getSurname();
 

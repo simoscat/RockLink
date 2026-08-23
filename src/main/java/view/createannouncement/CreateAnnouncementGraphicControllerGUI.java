@@ -18,7 +18,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import view.GUIGraphicController;
 import view.Navigator;
-import view.NavigatorGUI;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -123,6 +122,10 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
     }
 
     private void populateUserCard() {
+        if (userNameLabel == null) {
+            return;
+        }
+
         String name = navigator.getPromoter().getName();
         String surname = navigator.getPromoter().getSurname();
 

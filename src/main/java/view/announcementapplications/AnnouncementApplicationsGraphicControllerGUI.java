@@ -50,6 +50,10 @@ public class AnnouncementApplicationsGraphicControllerGUI extends AnnouncementAp
     private VBox applicationsContainer;
 
     private void populateApplications() {
+        if (applicationsContainer == null) {
+            return;
+        }
+
         applicationsContainer.getChildren().clear();
 
         List<JobApplicationBean> applications = getJobApplications();

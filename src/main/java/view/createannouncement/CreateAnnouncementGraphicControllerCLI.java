@@ -108,10 +108,10 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
                 return new ArrayList<>();
             }
 
-            List<JobAnnouncementTag> tags = parseTagsChoices(choices, availableTags);
-
-            if (tags != null) {
-                return tags;
+            try {
+                return parseTagsChoices(choices, availableTags);
+            } catch (IllegalArgumentException e) {
+                showError(e.getMessage());
             }
 
         }
@@ -128,15 +128,13 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
                 int index = Integer.parseInt(choice) - 1;
 
                 if (index < 0 || index >= availableTags.length) {
-                    showError("Invalid tag: " + choice);
-                    return null;
+                    throw new IllegalArgumentException("Invalid tag: " + choice);
                 }
 
                 tags.add(availableTags[index]);
 
             } catch (NumberFormatException _) {
-                showError("Invalid tag: " + choice);
-                return null;
+                throw new IllegalArgumentException("Invalid tag: " + choice);
             }
 
         }

@@ -10,8 +10,6 @@ import java.util.List;
 
 public final class BeanConverter {
 
-    //TODO controlla che tutti i bean sono corretti
-
     private BeanConverter() {}
 
     public static JobApplication fromBeanToJobApplication(JobApplicationBean jobApplicationBean) {

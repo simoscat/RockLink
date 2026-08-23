@@ -8,7 +8,6 @@ import engineering.enums.JobAnnouncementTag;
 import engineering.persistency.JobDecoratorManager;
 import exception.DAOException;
 import model.*;
-import model.jobannouncementdecorators.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,10 +22,6 @@ import java.util.Properties;
 public class JobAnnouncementDAOJson extends JobAnnouncementDAO {
 
     private final String path;
-    private static final String URGENT = "URGENT";
-    private static final String EXPERTS_ONLY = "EXPERTS_ONLY";
-    private static final String LONG_TIME_CONTRACT = "LONG_TIME_CONTRACT";
-    private static final String NEGOTIABLE_SALARY = "NEGOTIABLE_SALARY";
     private static final String PROMOTER_EMAIL_FIELD = "promoterEmail";
     private static final String HIRED_ARTIST_FIELD = "hiredArtist";
 

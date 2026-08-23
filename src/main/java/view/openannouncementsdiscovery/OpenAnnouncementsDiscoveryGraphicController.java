@@ -73,6 +73,5 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
     public abstract void start();
     protected abstract void showError(String message);
     protected abstract void showInfo(String message);
-    //TODO
 
 }

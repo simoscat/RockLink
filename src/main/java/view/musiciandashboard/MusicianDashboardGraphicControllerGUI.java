@@ -84,6 +84,10 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
     private VBox applicationsContainer;
 
     private void populateUserCard() {
+        if (userNameLabel == null) {
+            return;
+        }
+
         String name = navigator.getMusician().getName();
         String surname = navigator.getMusician().getSurname();
 

@@ -65,7 +65,7 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
 
                 case "4":
                     logout();
-                    break;
+                    return;
 
                 default:
                     showError("Invalid selection. Please retry.");

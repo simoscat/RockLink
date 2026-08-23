@@ -9,7 +9,6 @@ import engineering.persistency.CsvManager;
 import engineering.persistency.JobDecoratorManager;
 import exception.DAOException;
 import model.*;
-import model.jobannouncementdecorators.*;
 
 import java.io.*;
 import java.math.BigDecimal;

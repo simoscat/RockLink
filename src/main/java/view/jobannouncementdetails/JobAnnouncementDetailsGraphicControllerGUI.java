@@ -101,6 +101,10 @@ public class JobAnnouncementDetailsGraphicControllerGUI extends JobAnnouncementD
     private Button viewApplicationsButton;
 
     private void populateDetails(JobAnnouncementBean job) {
+        if (statusBadge == null) {
+            return;
+        }
+
         String status = job.getJobAnnouncementStatus();
         statusBadge.setText("● " + status);
         statusBadge.getStyleClass().removeAll("job-status-open", "job-status-filled", "job-status-closed");

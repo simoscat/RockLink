@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import view.GUIGraphicController;
 import view.Navigator;
-import view.NavigatorGUI;
 
 /**
  * Controller della schermata di login (LoginView.fxml).
@@ -70,6 +69,10 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
 
     @Override
     public void start() {
+        if (musicianEmailField == null) {
+            return;
+        }
+
         musicianEmailField.clear();
         musicianPasswordField.clear();
         promoterEmailField.clear();
