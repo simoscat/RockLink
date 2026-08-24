@@ -46,7 +46,8 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
             System.out.println("[1] View job announcement details");
             System.out.println("[2] View open job announcements");
             System.out.println("[3] Refresh dashboard");
-            System.out.println("[4] Logout");
+            System.out.println("[4] Notifications");
+            System.out.println("[5] Logout");
             System.out.print("> ");
 
             switch(scanner.nextLine().trim()){
@@ -64,6 +65,10 @@ public class MusicianDashboardGraphicControllerCLI extends MusicianDashboardGrap
                     break;
 
                 case "4":
+                    viewNotifications();
+                    break;
+
+                case "5":
                     logout();
                     return;
 

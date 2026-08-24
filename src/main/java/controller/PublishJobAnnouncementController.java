@@ -3,23 +3,24 @@ package controller;
 import bean.JobAnnouncementBean;
 import dao.announcement.JobAnnouncementDAO;
 import dao.factories.DAOFactory;
+import dao.musician.MusicianDAO;
+import dao.notification.NotificationDAO;
 import dao.promoter.PromoterDAO;
 import engineering.enums.CurrencyType;
+import engineering.enums.Event;
 import engineering.enums.JobAnnouncementStatus;
 import engineering.enums.JobAnnouncementTag;
 import engineering.persistency.JobDecoratorManager;
 import exception.ControllerLogicException;
 import exception.DAOException;
-import model.ConcreteJobAnnouncement;
-import model.JobAnnouncement;
-import model.MoneyValue;
-import model.Promoter;
+import model.*;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
-public class ManageJobAnnouncementController {
+public class PublishJobAnnouncementController {
 
     private final PromoterDAO promoterDAO = DAOFactory.getInstance().getPromoterDAO();
     private final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
@@ -57,7 +58,7 @@ public class ManageJobAnnouncementController {
 
             jobAnnouncementDAO.save(jobAnnouncement);
 
-            notifyMusicians();
+            notifyMusicians(jobAnnouncement);
 
 
         } catch (DateTimeParseException _) {
@@ -74,9 +75,34 @@ public class ManageJobAnnouncementController {
 
     }
 
-    private void notifyMusicians() {
+    private void notifyMusicians(JobAnnouncement jobAnnouncement) {
 
-        //TODO IMPLEMENTA NOTIFICHE ASINCRONE
+        try {
+            MusicianDAO musicianDAO = DAOFactory.getInstance().getMusicianDAO();
+            NotificationDAO notificationDAO = DAOFactory.getInstance().getNotificationDAO();
+
+            List<String> emails = DAOFactory.getInstance().getMusicianDAO().getAllMusicianEmails();
+            //right now, this sends the notification to all musicians, but it could be modified to
+            // send to specific musicians based on their interests or location
+
+            LocalDateTime now = LocalDateTime.now(ZoneId.systemDefault());
+
+            for (String email : emails) {
+
+                Notification n =  new Notification(
+                        jobAnnouncement.getPublisher(),
+                        musicianDAO.getMusicianByEmail(email),
+                        Event.NEW_JOB_ANNOUNCEMENT,
+                        now,
+                        jobAnnouncement
+                );
+
+                notificationDAO.save(n);
+
+            }
+        } catch (DAOException _) {
+            throw new ControllerLogicException("Couldn't send notifications to musicians");
+        }
 
     }
 

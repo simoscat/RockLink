@@ -10,6 +10,7 @@ import view.announcementapplications.AnnouncementApplicationsGraphicControllerCL
 import view.createannouncement.CreateAnnouncementGraphicControllerCLI;
 import view.signup.musician.MusicianRegistrationGraphicControllerCLI;
 import view.signup.promoter.PromoterRegistrationGraphicControllerCLI;
+import view.notifications.NotificationsGraphicControllerCLI;
 
 public class NavigatorCLI extends Navigator {
 
@@ -27,6 +28,7 @@ public class NavigatorCLI extends Navigator {
 
     private JobApplicationDetailGraphicControllerCLI applicationDetails;
     private OpenAnnouncementsDiscoveryGraphicControllerCLI announcementDiscovery;
+    private NotificationsGraphicControllerCLI notifications;
 
 
     @Override
@@ -111,6 +113,15 @@ public class NavigatorCLI extends Navigator {
     public void viewOpenAnnouncementsDiscovery() {
         if (this.announcementDiscovery == null) { this.announcementDiscovery = new OpenAnnouncementsDiscoveryGraphicControllerCLI(this); }
         this.announcementDiscovery.start();
+    }
+
+    @Override
+    public void viewNotifications() {
+        if (this.notifications == null){
+            this.notifications = new NotificationsGraphicControllerCLI(this);
+        }
+
+        this.notifications.start();
     }
 
     @Override

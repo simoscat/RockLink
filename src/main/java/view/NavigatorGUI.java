@@ -15,6 +15,7 @@ import view.announcementapplications.AnnouncementApplicationsGraphicControllerGU
 import view.createannouncement.CreateAnnouncementGraphicControllerGUI;
 import view.signup.musician.MusicianRegistrationGraphicControllerGUI;
 import view.signup.promoter.PromoterRegistrationGraphicControllerGUI;
+import view.notifications.NotificationsGraphicControllerGUI;
 
 import java.io.IOException;
 
@@ -37,6 +38,7 @@ public class NavigatorGUI extends Navigator {
 
     private JobApplicationDetailGraphicControllerGUI applicationDetails;
     private OpenAnnouncementsDiscoveryGraphicControllerGUI announcementDiscovery;
+    private NotificationsGraphicControllerGUI notifications;
 
     private final Stage stage;
 
@@ -288,6 +290,28 @@ public class NavigatorGUI extends Navigator {
 
         this.announcementDiscovery.start();
         this.showScreen(this.announcementDiscovery.getView());
+
+    }
+
+    @Override
+    public void viewNotifications() {
+
+        if (this.notifications == null) {
+            try {
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_DIR + "NotificationsView.fxml"));
+                this.notifications = new NotificationsGraphicControllerGUI(this);
+                loader.setController(this.notifications);
+                Parent root = loader.load();
+                this.notifications.setView(root);
+
+            } catch (IOException _) {
+                graphicsError("NotificationsView.fxml");
+            }
+        }
+
+        this.notifications.start();
+        this.showScreen(this.notifications.getView());
 
     }
 

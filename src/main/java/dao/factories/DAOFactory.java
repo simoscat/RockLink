@@ -6,6 +6,7 @@ import dao.artist.ArtistDAO;
 import dao.auth.AuthDAO;
 import dao.instrument.InstrumentDAO;
 import dao.musician.MusicianDAO;
+import dao.notification.NotificationDAO;
 import dao.promoter.PromoterDAO;
 import engineering.persistency.ConfigManager;
 
@@ -22,6 +23,7 @@ public abstract class DAOFactory {
     protected JobAnnouncementDAO jobAnnouncementDAO = null;
     protected InstrumentDAO instrumentDAO = null;
     protected ArtistDAO artistDAO = null;
+    protected NotificationDAO notificationDAO = null;
 
     public static synchronized DAOFactory getInstance() {
         if (instance == null) {
@@ -43,5 +45,5 @@ public abstract class DAOFactory {
     public abstract MusicianDAO getMusicianDAO();
     public abstract PromoterDAO getPromoterDAO();
     public abstract ArtistDAO getArtistDAO();
-
+    public abstract NotificationDAO getNotificationDAO();
 }

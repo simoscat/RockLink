@@ -76,42 +76,49 @@ public class PromoterDashboardGraphicControllerCLI extends PromoterDashboardGrap
 
     private void showMenu(List<JobAnnouncementBean> jobAnnouncements) {
 
-        System.out.println("Choose an option: ");
-        System.out.println("[0] Publish a new job announcement");
-        System.out.println("[N] Open Job Announcement (type announcement number) ");
-        System.out.println("[X] Logout");
-        System.out.print("> ");
+        while(true) {
 
-        String operation = scanner.nextLine().trim();
+            System.out.println("Choose an option: ");
+            System.out.println("[0] Publish a new job announcement");
+            System.out.println("[N] Open Job Announcement (type announcement number) ");
+            System.out.println("[V] View notifications");
+            System.out.println("[X] Logout");
+            System.out.print("> ");
 
-        int announcementNumber = jobAnnouncements.toArray().length;
+            String operation = scanner.nextLine().trim();
 
-        if (operation.equalsIgnoreCase("X")) {
-            doLogout();
-        }
-        else if (operation.equalsIgnoreCase("R")) {
-            reloadDashboard();
-        }
+            int announcementNumber = jobAnnouncements.toArray().length;
 
-        else {
-            try {
-                int opNumber = Integer.parseInt(operation);
+            if (operation.equalsIgnoreCase("X")) {
+                doLogout();
+                return;
+            }
+            else if (operation.equalsIgnoreCase("R")) {
+                reloadDashboard();
+            }
+            else if (operation.equalsIgnoreCase("V")) {
+                viewNotifications();
+            }
 
-                if (opNumber == 0) {
+            else {
+                try {
+                    int opNumber = Integer.parseInt(operation);
 
-                    goToCreateAnnouncement();
+                    if (opNumber == 0) {
 
-                } else if (opNumber > 0 && opNumber <= announcementNumber) {
+                        goToCreateAnnouncement();
 
-                    goToJobAnnouncement(jobAnnouncements.get(opNumber - 1));
+                    } else if (opNumber > 0 && opNumber <= announcementNumber) {
 
-                } else {
-                    throw new NumberFormatException();
+                        goToJobAnnouncement(jobAnnouncements.get(opNumber - 1));
+
+                    } else {
+                        throw new NumberFormatException();
+                    }
+
+                } catch (NumberFormatException _) {
+                    navigator.showError("Please enter a valid character or a valid numeric value >= 0");
                 }
-
-            } catch (NumberFormatException _) {
-                navigator.showError("Please enter a valid character or a valid numeric value >= 0");
-                start();
             }
         }
 

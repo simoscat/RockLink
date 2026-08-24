@@ -8,6 +8,8 @@ import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAOJson;
 import dao.musician.MusicianDAO;
 import dao.musician.MusicianDAOJson;
+import dao.notification.NotificationDAO;
+import dao.notification.NotificationDAOJson;
 import dao.promoter.PromoterDAO;
 import dao.announcement.JobAnnouncementDAO;
 import dao.announcement.JobAnnouncementDAOJson;
@@ -75,5 +77,13 @@ public class DAOFactoryJson extends DAOFactory {
             this.artistDAO = new ArtistDAOJson();
         }
         return this.artistDAO;
+    }
+
+    @Override
+    public NotificationDAO getNotificationDAO() {
+        if (this.notificationDAO == null){
+            this.notificationDAO = new NotificationDAOJson();
+        }
+        return this.notificationDAO;
     }
 }

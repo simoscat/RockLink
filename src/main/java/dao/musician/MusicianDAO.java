@@ -3,6 +3,8 @@ package dao.musician;
 import dao.DAOWithCache;
 import model.Musician;
 
+import java.util.List;
+
 public abstract class MusicianDAO extends DAOWithCache<Musician> {
 
     @Override
@@ -20,5 +22,12 @@ public abstract class MusicianDAO extends DAOWithCache<Musician> {
         }
     }
 
+    public List<String> getAllMusicianEmails(){
+
+        return retrieveAllEmails();
+
+    }
+
     public abstract Musician retrieveMusicianByEmail(String email);
+    public abstract List<String> retrieveAllEmails();
 }

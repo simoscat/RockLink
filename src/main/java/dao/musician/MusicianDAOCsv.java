@@ -69,6 +69,37 @@ public class MusicianDAOCsv extends MusicianDAO {
     }
 
     @Override
+    public List<String> retrieveAllEmails() {
+
+        File file = new File(this.path);
+
+        List<String> emails = new ArrayList<>();
+
+        try(BufferedReader br = Files.newBufferedReader(file.toPath())){
+
+            String line;
+
+            while ((line = br.readLine()) != null) {
+
+                if (line.isBlank()) {
+                    continue;
+                }
+
+                String[] fields = line.split(CSV_SEPARATOR);
+
+                emails.add(fields[0]);
+
+            }
+
+        } catch (IOException e) {
+            throw new DAOException("Couldn't retrieve emails", e);
+        }
+
+        return emails;
+
+    }
+
+    @Override
     protected void saveToPersistency(Musician m) {
         List<String> lines = readAllLinesReplacingMusician(m);
 

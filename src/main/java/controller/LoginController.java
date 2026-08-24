@@ -17,10 +17,7 @@ import engineering.enums.Mastery;
 import exception.ControllerLogicException;
 import exception.DAOException;
 import exception.WrongCredentialsException;
-import model.Credential;
-import model.Instrument;
-import model.Musician;
-import model.Promoter;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,7 +104,7 @@ public class LoginController {
 
             String email = musician.getEmail();
 
-            if (authDAO.isMusicianAlreadyRegistered(email)){
+            if (authDAO.isMusicianAlreadyRegistered(email) || authDAO.isPromoterAlreadyRegistered(email)){
 
                 throw new ControllerLogicException("Email is already in use");
 
@@ -130,8 +127,8 @@ public class LoginController {
 
         }
 
-        catch (DAOException _) {
-            throw new ControllerLogicException("Registration failed");
+        catch (DAOException e) {
+            throw new ControllerLogicException("Registration failed: "+e.getMessage());
         }
 
     }
@@ -141,7 +138,7 @@ public class LoginController {
         try{
             String email = promoter.getEmail();
 
-            if (authDAO.isPromoterAlreadyRegistered(email)){
+            if (authDAO.isPromoterAlreadyRegistered(email) ||  authDAO.isMusicianAlreadyRegistered(email)){
                 throw new ControllerLogicException("Email is already in use");
             }
 
@@ -161,9 +158,9 @@ public class LoginController {
             return this.promoterLogin(promoter);
 
         }
-        catch (DAOException _) {
+        catch (DAOException e) {
 
-            throw new ControllerLogicException("Registration failed");
+            throw new ControllerLogicException("Registration failed: "+e.getMessage());
 
         }
 

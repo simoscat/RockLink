@@ -181,7 +181,7 @@ public class PromoterDashboardGraphicControllerGUI extends PromoterDashboardGrap
 
     @FXML
     private void handleNotifications() {
-        navigator.showInfo("Not implemented yet");
+        viewNotifications();
     }
 
 }

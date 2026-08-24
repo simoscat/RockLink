@@ -34,6 +34,11 @@ public class MusicianDAODemo extends MusicianDAO{
         return this.musician;
     }
 
+    @Override
+    public List<String> retrieveAllEmails() {
+        return List.of(MUSICIAN_EMAIL);
+    }
+
 
     @Override
     protected void saveToPersistency(Musician m) {

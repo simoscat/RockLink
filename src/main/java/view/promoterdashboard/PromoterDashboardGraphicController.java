@@ -56,6 +56,12 @@ public abstract class PromoterDashboardGraphicController {
         start();
     }
 
+    protected void viewNotifications(){
+
+        navigator.goToNotifications();
+
+    }
+
     public abstract void start();
 
 

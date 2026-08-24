@@ -219,7 +219,7 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
 
     @FXML
     private void handleNotifications(){
-        navigator.showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
+        viewNotifications();
     }
 
     @FXML

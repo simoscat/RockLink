@@ -187,12 +187,7 @@ public class JobAnnouncementDetailsGraphicControllerGUI extends JobAnnouncementD
     @FXML
     private void handleBack() {
 
-        if (isMusician()) {
-            backToPreviousScreen();
-        }
-        else{
-            backToPromoterDashboard();
-        }
+        backToPreviousScreen();
 
     }
 

@@ -165,6 +165,17 @@ public final class BeanConverter {
 
     }
 
-    //TODO AGGIUNGI FROM MUSICIAN/INSTRUMENT/PROMOTER TO BEAN
+
+    public static NotificationBean fromNotificationToBean(Notification notification) {
+
+        return new NotificationBean(
+                notification.getSender().getEmail(),
+                notification.getReceiver().getEmail(),
+                notification.getEvent(),
+                notification.getTimeStamp(),
+                fromJobAnnouncementToBean(notification.getJobAnnouncement())
+        );
+
+    }
 
 }

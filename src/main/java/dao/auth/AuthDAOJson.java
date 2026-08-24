@@ -80,12 +80,13 @@ public class AuthDAOJson extends AuthDAO {
 
         JSONArray credentials = JsonManager.readJsonFile(file);
 
-        for (int i = 0; i < credentials.length(); i++) {
-            JSONObject obj = credentials.getJSONObject(i);
-            if (obj.getString(EMAIL_KEY).equalsIgnoreCase(credential.getEmail())) {
-                throw new DAOException("A " + role + " credential with this email already exists: " + credential.getEmail());
-            }
+        if (isMusicianAlreadyRegistered(credential.getEmail()) ||
+        isPromoterAlreadyRegistered(credential.getEmail())) {
+
+            throw new DAOException("Already registered email: " + credential.getEmail() + "(role: "+role+")");
+
         }
+        //you can only have one account: musician or promoter
 
         JSONObject newCredential = new JSONObject();
         newCredential.put(EMAIL_KEY, credential.getEmail());

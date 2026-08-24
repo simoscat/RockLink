@@ -6,17 +6,20 @@ import engineering.enums.Event;
 import java.time.LocalDateTime;
 
 public class NotificationBean {
-    
+
     private String sender;
     private String receiver;
     private Event event;
     private LocalDateTime time;
-    
-    public NotificationBean(String sender, String receiver, Event event, LocalDateTime time) {
+    private JobAnnouncementBean jobAnnouncement;
+
+    public NotificationBean(String sender, String receiver, Event event, LocalDateTime time,
+                            JobAnnouncementBean jobAnnouncement) {
         this.sender = sender;
         this.receiver = receiver;
         this.event = event;
         this.time = time;
+        this.jobAnnouncement = jobAnnouncement;
     }
 
     public String getSender() {
@@ -49,6 +52,14 @@ public class NotificationBean {
 
     public void setTime(LocalDateTime time) {
         this.time = time;
+    }
+
+    public JobAnnouncementBean getJobAnnouncement() {
+        return jobAnnouncement;
+    }
+
+    public void setJobAnnouncement(JobAnnouncementBean jobAnnouncement) {
+        this.jobAnnouncement = jobAnnouncement;
     }
 
 }

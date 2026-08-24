@@ -17,6 +17,8 @@ public class Context {
     private JobApplicationBean currentJobApplication;
     private List<JobApplicationBean> jobApplications;
 
+    private List<NotificationBean> notifications;
+
     public Context(){}
 
     public Context(MusicianBean musician){
@@ -91,5 +93,13 @@ public class Context {
         this.jobApplications.add(jobApplication);
     }
 
+
+    public void setNotifications(List<NotificationBean> notifications){
+        this.notifications = notifications;
+    }
+
+    public List<NotificationBean> getNotifications(){
+        return notifications;
+    }
 
 }

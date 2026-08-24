@@ -6,7 +6,6 @@ import dao.factories.DAOFactory;
 import engineering.persistency.ConfigManager;
 import engineering.enums.ApplicationStatus;
 import engineering.persistency.JsonManager;
-import exception.DAOException;
 import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;

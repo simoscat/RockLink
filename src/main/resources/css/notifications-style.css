@@ -1,0 +1,59 @@
+/* ==========================================================
+   ROCKLINK - Notifications stylesheet
+   Schermata condivisa da Musician e Promoter (stessa navigazione della
+   CLI: raggiunta dal bottone/voce "Notifications" in entrambe le
+   dashboard). Riusa top-bar/logo/back-button, dashboard-title/subtitle,
+   icon-button-*, application-card, card-accent, card-body, card-status
+   da musician-dashboard-style.css (che importa a cascata
+   musician-signup-style.css / login-style.css). Qui sotto solo le
+   classi NUOVE necessarie a questa schermata, incluso row-action-btn
+   (non ereditata dalla cascata sopra: vive solo in
+   announcement-applications-style.css).
+   ========================================================== */
+
+@import url("musician-dashboard-style.css");
+
+.notifications-empty-state {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 15px;
+}
+
+.accent-notification {
+    -fx-background-color: #4da3ff;
+}
+
+.notification-sender {
+    -fx-text-fill: #f5f2ec;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.notification-time {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 12px;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+}
+
+.notification-body {
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 14px;
+}
+
+/* ---------- Pulsante azione riga notifica ("VIEW JOB") ---------- */
+.row-action-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #9a9a9a;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 12;
+    -fx-cursor: hand;
+}
+
+.row-action-btn:hover {
+    -fx-border-color: #555555;
+    -fx-text-fill: #cfcfcf;
+}

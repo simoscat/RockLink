@@ -8,6 +8,8 @@ import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAOCsv;
 import dao.musician.MusicianDAO;
 import dao.musician.MusicianDAOCsv;
+import dao.notification.NotificationDAO;
+import dao.notification.NotificationDAOCsv;
 import dao.promoter.PromoterDAO;
 import dao.promoter.PromoterDAOCsv;
 import dao.announcement.JobAnnouncementDAO;
@@ -76,5 +78,13 @@ public class DAOFactoryCsv extends DAOFactory {
             this.artistDAO = new ArtistDAOCsv();
         }
         return this.artistDAO;
+    }
+
+    @Override
+    public NotificationDAO getNotificationDAO() {
+        if (this.notificationDAO == null){
+            this.notificationDAO = new NotificationDAOCsv();
+        }
+        return this.notificationDAO;
     }
 }

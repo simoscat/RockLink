@@ -75,10 +75,6 @@ public abstract class JobAnnouncementDetailsGraphicController {
 
     }
 
-    protected void backToPromoterDashboard(){
-        navigator.goToPromoterDashboard();
-    }
-
     protected void closeJobAnnouncement(){
 
         try{
@@ -107,12 +103,6 @@ public abstract class JobAnnouncementDetailsGraphicController {
     protected boolean isMusician(){
 
         return navigator.getMusician() != null;
-
-    }
-
-    protected boolean isPromoter(){
-
-        return navigator.getPromoter() != null;
 
     }
 

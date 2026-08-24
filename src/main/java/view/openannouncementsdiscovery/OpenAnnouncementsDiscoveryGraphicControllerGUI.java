@@ -308,7 +308,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
 
     @FXML
     private void handleNotifications() {
-        navigator.showInfo(NOT_IMPLEMENTED_YET_MESSAGE);
+        navigator.goToNotifications();
     }
 
     @FXML

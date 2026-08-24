@@ -12,6 +12,8 @@ import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAODemo;
 import dao.musician.MusicianDAO;
 import dao.musician.MusicianDAODemo;
+import dao.notification.NotificationDAO;
+import dao.notification.NotificationDAODemo;
 import dao.promoter.PromoterDAO;
 import dao.promoter.PromoterDAODemo;
 
@@ -70,5 +72,13 @@ public class DAOFactoryDemo extends DAOFactory{
             this.artistDAO = new ArtistDAODemo();
         }
         return this.artistDAO;
+    }
+
+    @Override
+    public NotificationDAO getNotificationDAO() {
+        if (this.notificationDAO == null){
+            this.notificationDAO = new NotificationDAODemo();
+        }
+        return this.notificationDAO;
     }
 }

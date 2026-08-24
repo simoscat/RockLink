@@ -60,6 +60,12 @@ public abstract class MusicianDashboardGraphicController {
 
     }
 
+    protected void viewNotifications(){
+
+        navigator.goToNotifications();
+
+    }
+
     public abstract void start();
 
 }

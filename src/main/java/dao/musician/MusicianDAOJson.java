@@ -11,6 +11,7 @@ import model.Musician;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MusicianDAOJson extends MusicianDAO {
@@ -34,6 +35,20 @@ public class MusicianDAOJson extends MusicianDAO {
             }
         }
         throw new DAOException("Couldn't find musician with email: " + email);
+    }
+
+    @Override
+    public List<String> retrieveAllEmails() {
+
+        JSONArray allRecords = JsonManager.readJsonFile(this.path);
+        List<String> emails = new ArrayList<>();
+
+        for (int i = 0; i < allRecords.length(); i++) {
+            emails.add(allRecords.getJSONObject(i).getString(EMAIL_FIELD));
+        }
+
+        return emails;
+
     }
 
     @Override

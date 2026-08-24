@@ -17,7 +17,7 @@ public abstract class NavigatorFactory {
 
             try {
                 uiType = ConfigManager.getProperty("ui.type", "CLI");
-            } catch (DAOException e) {
+            } catch (DAOException _) {
                 System.err.println("NavigatorFactory could not open config.properties, falling back to default values (CLI)");
                 uiType = "CLI";
             }

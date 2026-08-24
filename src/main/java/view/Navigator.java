@@ -37,6 +37,14 @@ public abstract class Navigator {
         this.context.setPromoter(promoter);
     }
 
+    public List<NotificationBean> getNotifications(){
+        return this.context.getNotifications();
+    }
+
+    public void setNotifications(List<NotificationBean> notifications){
+        this.context.setNotifications(notifications);
+    }
+
     public void setCurrentJobAnnouncement(JobAnnouncementBean currentJobAnnouncement) {
         this.context.setCurrentJobAnnouncement(currentJobAnnouncement);
     }
@@ -114,6 +122,7 @@ public abstract class Navigator {
             case VIEW_APPLICATION_DETAILS -> viewApplicationDetails();
             case CREATE_ANNOUNCEMENT -> viewCreateAnnouncement();
             case OPEN_ANNOUNCEMENTS_DISCOVERY -> viewOpenAnnouncementsDiscovery();
+            case NOTIFICATIONS -> viewNotifications();
             
         }
 
@@ -137,7 +146,12 @@ public abstract class Navigator {
         viewPromoterDashboard();
     }
     public void goToAnnouncementDetails(){
-        setPreviousScreen(); //here we need it because we can arrive here from two different points
+
+        if (this.currentScreen == Screen.NOTIFICATIONS || this.currentScreen == Screen.MUSICIAN_DASHBOARD
+        || this.currentScreen == Screen.PROMOTER_DASHBOARD || this.currentScreen == Screen.OPEN_ANNOUNCEMENTS_DISCOVERY){
+            setPreviousScreen();
+        }
+
         setCurrentScreen(Screen.VIEW_ANNOUNCEMENT_DETAILS);
         viewAnnouncementDetails();
     }
@@ -162,6 +176,11 @@ public abstract class Navigator {
         viewApplicationDetails();
     }
 
+    public void goToNotifications(){
+        setCurrentScreen(Screen.NOTIFICATIONS);
+        viewNotifications();
+    }
+
     public void goBack(){
         setCurrentScreen(previousScreen);
         nextScreen();
@@ -179,6 +198,7 @@ public abstract class Navigator {
     public abstract void viewMusicianRegistration();
     public abstract void viewApplicationDetails();
     public abstract void viewOpenAnnouncementsDiscovery();
+    public abstract void viewNotifications();
 
     public void close() {
         System.exit(0);
