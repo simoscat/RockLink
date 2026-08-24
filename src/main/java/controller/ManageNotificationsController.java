@@ -12,6 +12,8 @@ import model.Notification;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO NON È UN CASO D'USO MA HO IL CONTROLLER, NON SO SE VA BENE
+
 public class ManageNotificationsController {
 
     public List<NotificationBean> getNotifications(UserBean u){

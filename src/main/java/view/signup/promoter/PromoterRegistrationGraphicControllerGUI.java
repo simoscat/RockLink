@@ -127,7 +127,7 @@ public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrati
     @FXML
     private void handleAddContact() {
         TextField typeField = new TextField();
-        typeField.setPrefWidth(130.0);
+        typeField.setPrefWidth(160.0);
         typeField.setPromptText("Type (e.g. Phone)");
         typeField.getStyleClass().add("text-field");
 

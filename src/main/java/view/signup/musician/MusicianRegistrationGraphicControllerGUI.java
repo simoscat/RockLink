@@ -164,15 +164,15 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
 
         ToggleGroup skillGroup = new ToggleGroup();
 
-        ToggleButton amateur = new ToggleButton("AMT");
-        ToggleButton beginner = new ToggleButton("BEG");
-        ToggleButton intermediate = new ToggleButton("INT");
-        ToggleButton expert = new ToggleButton("EXP");
-        ToggleButton master = new ToggleButton("MAS");
+        ToggleButton amateur = new ToggleButton("AMATEUR");
+        ToggleButton beginner = new ToggleButton("BEGINNER");
+        ToggleButton intermediate = new ToggleButton("INTERMEDIATE");
+        ToggleButton expert = new ToggleButton("EXPERT");
+        ToggleButton master = new ToggleButton("MASTER");
 
         setSkillUserData(amateur, beginner, intermediate, expert, master);
 
-        HBox skillRow = new HBox(8.0, amateur, beginner, intermediate, expert, master);
+        HBox skillRow = new HBox(10.0, amateur, beginner, intermediate, expert, master);
         for (ToggleButton skillToggle : List.of(amateur, beginner, intermediate, expert, master)) {
             skillToggle.setToggleGroup(skillGroup);
             skillToggle.setMaxWidth(Double.MAX_VALUE);

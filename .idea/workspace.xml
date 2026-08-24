@@ -8,7 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageNotificationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageNotificationsController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +214,7 @@
       <workItem from="1787405991635" duration="759000" />
       <workItem from="1787406856192" duration="11351000" />
       <workItem from="1787473451988" duration="22975000" />
-      <workItem from="1787561117261" duration="9971000" />
+      <workItem from="1787561117261" duration="10777000" />
     </task>
     <servers />
   </component>
