@@ -24,6 +24,7 @@ public class PublishJobAnnouncementController {
 
     private final PromoterDAO promoterDAO = DAOFactory.getInstance().getPromoterDAO();
     private final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
+    private final ManageNotificationsController notificationsController = new ManageNotificationsController();
 
     public void publishJobAnnouncement(JobAnnouncementBean jobAnnouncementBean) {
 
@@ -58,7 +59,7 @@ public class PublishJobAnnouncementController {
 
             jobAnnouncementDAO.save(jobAnnouncement);
 
-            notifyMusicians(jobAnnouncement);
+            notificationsController.notifyMusicians(jobAnnouncement);
 
 
         } catch (DateTimeParseException _) {
@@ -71,37 +72,6 @@ public class PublishJobAnnouncementController {
 
         } catch (IllegalArgumentException | NullPointerException e) {
             throw new ControllerLogicException("Something went wrong. Please fill all the fields correctly", e);
-        }
-
-    }
-
-    private void notifyMusicians(JobAnnouncement jobAnnouncement) {
-
-        try {
-            MusicianDAO musicianDAO = DAOFactory.getInstance().getMusicianDAO();
-            NotificationDAO notificationDAO = DAOFactory.getInstance().getNotificationDAO();
-
-            List<String> emails = DAOFactory.getInstance().getMusicianDAO().getAllMusicianEmails();
-            //right now, this sends the notification to all musicians, but it could be modified to
-            // send to specific musicians based on their interests or location
-
-            LocalDateTime now = LocalDateTime.now(ZoneId.systemDefault());
-
-            for (String email : emails) {
-
-                Notification n =  new Notification(
-                        jobAnnouncement.getPublisher(),
-                        musicianDAO.getMusicianByEmail(email),
-                        Event.NEW_JOB_ANNOUNCEMENT,
-                        now,
-                        jobAnnouncement
-                );
-
-                notificationDAO.save(n);
-
-            }
-        } catch (DAOException _) {
-            throw new ControllerLogicException("Couldn't send notifications to musicians");
         }
 
     }

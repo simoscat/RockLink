@@ -11,8 +11,6 @@ import exception.DAOException;
 import model.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +19,7 @@ public class ManageJobApplicationsController {
 
     private final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
     private final JobApplicationDAO jobApplicationDAO = DAOFactory.getInstance().getJobApplicationDAO();
+    private final ManageNotificationsController notificationsController = new ManageNotificationsController();
 
     public List<JobAnnouncementBean> findOpenJobAnnouncements() {
 
@@ -166,7 +165,7 @@ public class ManageJobApplicationsController {
 
             }
 
-            notifyMusician(jobApplication, Event.APPLICATION_ACCEPTED);
+            notificationsController.notifyMusician(jobApplication, Event.APPLICATION_ACCEPTED);
 
         } catch (DAOException _) {
             throw new ControllerLogicException("Could not accept job application");
@@ -184,8 +183,7 @@ public class ManageJobApplicationsController {
                 jobApplication.rejectApplication();
                 jobApplicationDAO.save(jobApplication);
 
-                notifyMusician(jobApplication, Event.APPLICATION_REJECTED);
-
+                notificationsController.notifyMusician(jobApplication, Event.APPLICATION_REJECTED);
 
             }
             else throw new ControllerLogicException("This application is already "
@@ -194,23 +192,6 @@ public class ManageJobApplicationsController {
         } catch (DAOException _) {
             throw new ControllerLogicException("Could not reject job application");
         }
-
-    }
-
-    private void notifyMusician(JobApplication jobApplication, Event event) {
-
-
-        Notification n = new Notification(
-                jobApplication.whichJobAnnouncement().getPublisher(),
-                DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(jobApplication.whoIsCandidate().getEmail()),
-                event,
-                LocalDateTime.now(ZoneId.systemDefault()),
-                jobApplication.whichJobAnnouncement()
-        );
-
-        DAOFactory.getInstance().getNotificationDAO().save(n);
-
-        //note: the sender will always be the musician or the band leader, so we retrieve the specific user from the DAO
 
     }
 
@@ -267,26 +248,12 @@ public class ManageJobApplicationsController {
 
             jobApplicationDAO.save(application);
 
-            notifyPromoter(jobAnnouncement, application, Event.NEW_APPLICATION);
+            notificationsController.notifyPromoter(jobAnnouncement, application, Event.NEW_APPLICATION);
 
 
         } catch (DAOException _) {
             throw new ControllerLogicException("Could not apply for job announcement");
         }
-
-    }
-
-    private void notifyPromoter(JobAnnouncement jobAnnouncement, JobApplication application, Event event) {
-
-        Notification n = new Notification(
-                DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(application.whoIsCandidate().getEmail()),
-                jobAnnouncement.getPublisher(),
-                event,
-                LocalDateTime.now(ZoneId.systemDefault()),
-                jobAnnouncement
-        );
-
-        DAOFactory.getInstance().getNotificationDAO().save(n);
 
     }
 
