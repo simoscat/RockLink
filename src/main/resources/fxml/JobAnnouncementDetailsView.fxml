@@ -104,8 +104,8 @@
 
                             <!-- Candidatura del musicista (nascosto se già candidato o se promoter) -->
                             <VBox fx:id="applyFormBox" managed="false" spacing="10.0" visible="false">
-                                <Label styleClass="field-label" text="COUNTER OFFER (optional raise, leave empty for base pay)" />
-                                <TextField fx:id="raiseOfferField" maxWidth="1.7976931348623157E308" promptText="e.g. 20" styleClass="text-field" />
+                                <Label styleClass="field-label" text="RAISE OFFER (leave empty for base pay)" />
+                                <TextField fx:id="raiseOfferField" maxWidth="1.7976931348623157E308" promptText="e.g. 50 (means you want 50 more)" styleClass="text-field" />
                                 <Button fx:id="applyButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleApply" styleClass="sign-in-btn, sign-in-btn-musician" text="APPLY FOR THIS JOB">
                                     <VBox.margin>
                                         <Insets top="4.0" />
@@ -115,7 +115,7 @@
 
                             <!-- Azioni del promoter -->
                             <HBox fx:id="promoterActionsBox" managed="false" spacing="12.0" visible="false">
-                                <Button fx:id="closeAnnouncementButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleCloseAnnouncement" styleClass="cancel-btn" text="MARK ANNOUNCEMENT AS CLOSED" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="closeAnnouncementButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleCloseAnnouncement" styleClass="cancel-btn" text="MARK AS CLOSED" HBox.hgrow="ALWAYS" />
                                 <Button fx:id="viewApplicationsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleViewApplications" styleClass="sign-in-btn, sign-in-btn-promoter" text="VIEW APPLICATIONS" HBox.hgrow="ALWAYS" />
                             </HBox>
 

@@ -43,7 +43,7 @@
 .job-status-badge {
     -fx-font-size: 12px;
     -fx-font-weight: bold;
-    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-font-family: "JetBrains Mono NL", monospace;
     -fx-padding: 4 10;
     -fx-background-radius: 4;
     -fx-border-radius: 4;

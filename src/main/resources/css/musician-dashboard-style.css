@@ -165,7 +165,7 @@
 .section-count {
     -fx-text-fill: #6a6a6a;
     -fx-font-size: 14px;
-    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-font-family: "JetBrains Mono NL", monospace;
 }
 
 .application-card {
@@ -216,7 +216,7 @@
 .status-badge {
     -fx-font-size: 12px;
     -fx-font-weight: bold;
-    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-font-family: "JetBrains Mono NL", monospace;
     -fx-padding: 4 10;
     -fx-background-radius: 4;
     -fx-border-radius: 4;
@@ -244,5 +244,5 @@
 .card-applied-date {
     -fx-text-fill: #5a5a5a;
     -fx-font-size: 12px;
-    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-font-family: "JetBrains Mono NL", monospace;
 }

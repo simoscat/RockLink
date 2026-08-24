@@ -31,7 +31,7 @@
 .notification-time {
     -fx-text-fill: #6a6a6a;
     -fx-font-size: 12px;
-    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-font-family: "JetBrains Mono NL", monospace;
 }
 
 .notification-body {

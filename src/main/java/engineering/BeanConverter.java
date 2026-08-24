@@ -41,7 +41,7 @@ public final class BeanConverter {
         List<JobAnnouncementTag> taglist = JobDecoratorManager.getTagsList(ja);
 
         JobAnnouncementBean bean = new JobAnnouncementBean(
-                JobDecoratorManager.unwrapJobAnnouncement(ja).getTitle(), //original title without tags
+                ja.getTitle(), //original title without tags
                 ja.getContent(),
                 ja.getAnnouncementDate(),
                 fromPromoterToBean(ja.getPublisher()),

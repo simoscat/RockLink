@@ -37,7 +37,7 @@
     -fx-text-fill: #6a6a6a;
     -fx-font-size: 13px;
     -fx-font-weight: bold;
-    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-font-family: "JetBrains Mono NL", monospace;
 }
 
 .applicant-detail-key {
