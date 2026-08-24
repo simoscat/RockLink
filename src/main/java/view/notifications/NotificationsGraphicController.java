@@ -2,7 +2,6 @@ package view.notifications;
 
 import bean.NotificationBean;
 import engineering.NotificationsManager;
-import exception.ControllerLogicException;
 import exception.NotificationException;
 import view.Navigator;
 

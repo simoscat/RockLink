@@ -6,4 +6,4 @@ RockLink è una piattaforma di networking orientata a musicisti e promoter di se
 l'obiettivo di consentire ai musicisti di unirsi a delle band o esibirsi a delle serate in cambio di compenso,
 consentendo contemporaneamente ai promoter di trovare nuovi talenti per gli eventi live.
 
-[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=simoscat_Progetto-ISPW)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=simoscat_Progetto-ISPW)](https://sonarcloud.io/summary/new_code?id=simoscat_Progetto-ISPW)
