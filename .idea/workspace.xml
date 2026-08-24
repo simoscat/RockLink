@@ -8,51 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ManageNotificationsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOCsv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAODemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Notification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/notifications/NotificationsGraphicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/notifications/NotificationsGraphicControllerCLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/notifications/NotificationsGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/NotificationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/NotificationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageJobAnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PublishJobAnnouncementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/auth/AuthDAOJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/enums/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/enums/Screen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Musician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Musician.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/factories/NavigatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/factories/NavigatorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/jobannouncementdetails/JobAnnouncementDetailsGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobannouncementdetails/JobAnnouncementDetailsGraphicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/jobannouncementdetails/JobAnnouncementDetailsGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobannouncementdetails/JobAnnouncementDetailsGraphicControllerCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/jobannouncementdetails/JobAnnouncementDetailsGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/jobannouncementdetails/JobAnnouncementDetailsGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/musiciandashboard/MusicianDashboardGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/musiciandashboard/MusicianDashboardGraphicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/musiciandashboard/MusicianDashboardGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/musiciandashboard/MusicianDashboardGraphicControllerCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/musiciandashboard/MusicianDashboardGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/musiciandashboard/MusicianDashboardGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/openannouncementsdiscovery/OpenAnnouncementsDiscoveryGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/openannouncementsdiscovery/OpenAnnouncementsDiscoveryGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/promoterdashboard/PromoterDashboardGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/promoterdashboard/PromoterDashboardGraphicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/promoterdashboard/PromoterDashboardGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/promoterdashboard/PromoterDashboardGraphicControllerCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/promoterdashboard/PromoterDashboardGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/promoterdashboard/PromoterDashboardGraphicControllerGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +214,7 @@
       <workItem from="1787405991635" duration="759000" />
       <workItem from="1787406856192" duration="11351000" />
       <workItem from="1787473451988" duration="22975000" />
-      <workItem from="1787561117261" duration="9646000" />
+      <workItem from="1787561117261" duration="9971000" />
     </task>
     <servers />
   </component>

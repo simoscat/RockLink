@@ -4,6 +4,7 @@ import dao.factories.DAOFactory;
 import engineering.enums.Event;
 
 import engineering.persistency.ConfigManager;
+import engineering.persistency.CsvManager;
 import exception.DAOException;
 import model.Notification;
 import model.User;
@@ -23,6 +24,12 @@ public class NotificationDAOCsv extends NotificationDAO {
 
     public NotificationDAOCsv() {
         path = ConfigManager.getProperty("csv.path") + "notifications.csv";
+
+        try {
+            CsvManager.initCsvFile(this.path);
+        } catch (IOException e) {
+            throw new DAOException("Can't initialize csv file " + this.path, e);
+        }
     }
 
     @Override
@@ -84,7 +91,7 @@ public class NotificationDAOCsv extends NotificationDAO {
 
         File file = new File(path);
 
-        try(BufferedWriter bw = Files.newBufferedWriter(file.toPath())) {
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
             bw.write(toCsv(obj));
             bw.newLine();
         }
