@@ -1,14 +1,13 @@
-package controller;
+package engineering;
 
 import bean.NotificationBean;
 import bean.UserBean;
 import dao.factories.DAOFactory;
 import dao.musician.MusicianDAO;
 import dao.notification.NotificationDAO;
-import engineering.BeanConverter;
 import engineering.enums.Event;
-import exception.ControllerLogicException;
 import exception.DAOException;
+import exception.NotificationException;
 import model.JobAnnouncement;
 import model.JobApplication;
 import model.Notification;
@@ -18,7 +17,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ManageNotificationsController {
+public class NotificationsManager {
 
     public List<NotificationBean> getNotifications(UserBean u){
 
@@ -46,7 +45,7 @@ public class ManageNotificationsController {
 
         }
         catch(DAOException _){
-            throw new ControllerLogicException("Couldn't retrieve user notifications");
+            throw new NotificationException("Couldn't retrieve user notifications");
         }
 
     }
@@ -108,7 +107,7 @@ public class ManageNotificationsController {
 
             }
         } catch (DAOException _) {
-            throw new ControllerLogicException("Couldn't send notifications to musicians");
+            throw new NotificationException("Couldn't send notifications to musicians");
         }
 
     }

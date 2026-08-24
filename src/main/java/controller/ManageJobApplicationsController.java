@@ -5,6 +5,7 @@ import dao.announcement.JobAnnouncementDAO;
 import dao.application.JobApplicationDAO;
 import dao.factories.DAOFactory;
 import engineering.BeanConverter;
+import engineering.NotificationsManager;
 import engineering.enums.*;
 import exception.ControllerLogicException;
 import exception.DAOException;
@@ -19,7 +20,7 @@ public class ManageJobApplicationsController {
 
     private final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
     private final JobApplicationDAO jobApplicationDAO = DAOFactory.getInstance().getJobApplicationDAO();
-    private final ManageNotificationsController notificationsController = new ManageNotificationsController();
+    private final NotificationsManager notificationsManager = new NotificationsManager();
 
     public List<JobAnnouncementBean> findOpenJobAnnouncements() {
 
@@ -165,7 +166,7 @@ public class ManageJobApplicationsController {
 
             }
 
-            notificationsController.notifyMusician(jobApplication, Event.APPLICATION_ACCEPTED);
+            notificationsManager.notifyMusician(jobApplication, Event.APPLICATION_ACCEPTED);
 
         } catch (DAOException _) {
             throw new ControllerLogicException("Could not accept job application");
@@ -183,7 +184,7 @@ public class ManageJobApplicationsController {
                 jobApplication.rejectApplication();
                 jobApplicationDAO.save(jobApplication);
 
-                notificationsController.notifyMusician(jobApplication, Event.APPLICATION_REJECTED);
+                notificationsManager.notifyMusician(jobApplication, Event.APPLICATION_REJECTED);
 
             }
             else throw new ControllerLogicException("This application is already "
@@ -248,7 +249,7 @@ public class ManageJobApplicationsController {
 
             jobApplicationDAO.save(application);
 
-            notificationsController.notifyPromoter(jobAnnouncement, application, Event.NEW_APPLICATION);
+            notificationsManager.notifyPromoter(jobAnnouncement, application, Event.NEW_APPLICATION);
 
 
         } catch (DAOException _) {

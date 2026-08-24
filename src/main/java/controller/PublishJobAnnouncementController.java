@@ -3,11 +3,9 @@ package controller;
 import bean.JobAnnouncementBean;
 import dao.announcement.JobAnnouncementDAO;
 import dao.factories.DAOFactory;
-import dao.musician.MusicianDAO;
-import dao.notification.NotificationDAO;
 import dao.promoter.PromoterDAO;
+import engineering.NotificationsManager;
 import engineering.enums.CurrencyType;
-import engineering.enums.Event;
 import engineering.enums.JobAnnouncementStatus;
 import engineering.enums.JobAnnouncementTag;
 import engineering.persistency.JobDecoratorManager;
@@ -16,7 +14,6 @@ import exception.DAOException;
 import model.*;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
@@ -24,7 +21,7 @@ public class PublishJobAnnouncementController {
 
     private final PromoterDAO promoterDAO = DAOFactory.getInstance().getPromoterDAO();
     private final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
-    private final ManageNotificationsController notificationsController = new ManageNotificationsController();
+    private final NotificationsManager notificationsManager = new NotificationsManager();
 
     public void publishJobAnnouncement(JobAnnouncementBean jobAnnouncementBean) {
 
@@ -59,7 +56,7 @@ public class PublishJobAnnouncementController {
 
             jobAnnouncementDAO.save(jobAnnouncement);
 
-            notificationsController.notifyMusicians(jobAnnouncement);
+            notificationsManager.notifyMusicians(jobAnnouncement);
 
 
         } catch (DateTimeParseException _) {

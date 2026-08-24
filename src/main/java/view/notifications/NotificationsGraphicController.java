@@ -1,8 +1,9 @@
 package view.notifications;
 
 import bean.NotificationBean;
-import controller.ManageNotificationsController;
+import engineering.NotificationsManager;
 import exception.ControllerLogicException;
+import exception.NotificationException;
 import view.Navigator;
 
 import java.time.format.DateTimeFormatter;
@@ -18,7 +19,7 @@ public abstract class NotificationsGraphicController {
     protected static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd, HH:mm");
 
     protected Navigator navigator;
-    protected ManageNotificationsController manageNotificationsController = new ManageNotificationsController();
+    protected NotificationsManager notificationsManager = new NotificationsManager();
 
     protected NotificationsGraphicController(Navigator navigator) {
         this.navigator = navigator;
@@ -38,14 +39,15 @@ public abstract class NotificationsGraphicController {
     protected List<NotificationBean> getNotifications(){
 
         try {
-            navigator.setNotifications(manageNotificationsController.getNotifications(
+
+            navigator.setNotifications(notificationsManager.getNotifications(
                     navigator.getMusician() != null ? navigator.getMusician() :
                             navigator.getPromoter()
             ));
 
             return navigator.getNotifications();
         }
-        catch (ControllerLogicException e){
+        catch (NotificationException e){
             navigator.showError(e.getMessage());
         }
         catch (RuntimeException e){
