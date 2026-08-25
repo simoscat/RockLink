@@ -4,8 +4,6 @@ import engineering.enums.Role;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -44,6 +42,12 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
     private Button signUpMusicianButton;
     @FXML
     private Button signUpPromoterButton;
+
+    // ---- Social login ----
+    @FXML
+    private Button googleLoginButton;
+    @FXML
+    private Button spotifyLoginButton;
 
     private Parent view;
     @Override
@@ -87,7 +91,7 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
         this.password = musicianPasswordField.getText();
 
         if (!areFieldsValid(email, password)) {
-            showAlert(AlertType.WARNING, "Campi mancanti", "Inserisci email e password.");
+            navigator.showError("Insert email and password.");
             return;
         }
 
@@ -101,7 +105,7 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
         this.password = promoterPasswordField.getText();
 
         if (!areFieldsValid(email, password)) {
-            showAlert(AlertType.WARNING, "Campi mancanti", "Inserisci email e password.");
+            navigator.showError("Insert email and password.");
             return;
         }
 
@@ -118,17 +122,19 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
         promoterSignUp();
     }
 
+    @FXML
+    private void handleGoogleLogin(ActionEvent event) {
+        navigator.showInfo("Not implemented yet");
+    }
+
+    @FXML
+    private void handleSpotifyLogin(ActionEvent event) {
+        navigator.showInfo("Not implemented yet");
+    }
+
 
     private boolean areFieldsValid(String email, String password) {
         return email != null && !email.isBlank() && password != null && !password.isBlank();
-    }
-
-    private void showAlert(AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 
 }

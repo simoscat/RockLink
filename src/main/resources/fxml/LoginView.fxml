@@ -126,6 +126,17 @@
 
             </HBox>
 
+            <Label styleClass="or-divider-text" text="OR CONTINUE WITH">
+                <VBox.margin>
+                    <Insets bottom="18.0" top="34.0" />
+                </VBox.margin>
+            </Label>
+
+            <HBox alignment="CENTER" spacing="18.0">
+                <Button fx:id="googleLoginButton" mnemonicParsing="false" onAction="#handleGoogleLogin" styleClass="social-btn, google-btn" text="Login with Google" />
+                <Button fx:id="spotifyLoginButton" mnemonicParsing="false" onAction="#handleSpotifyLogin" styleClass="social-btn, spotify-btn" text="Login with Spotify" />
+            </HBox>
+
             <Label styleClass="no-account-text" text="You don't have an account?">
                 <VBox.margin>
                     <Insets bottom="18.0" top="44.0" />

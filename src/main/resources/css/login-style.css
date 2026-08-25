@@ -213,6 +213,36 @@
     -fx-background-color: #e0bb00;
 }
 
+/* ---------- Social login ---------- */
+.or-divider-text {
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.social-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f5f2ec;
+    -fx-border-color: #333333;
+    -fx-border-width: 1;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-padding: 10 22;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.google-btn:hover {
+    -fx-border-color: #4285f4;
+    -fx-background-color: rgba(66, 133, 244, 0.12);
+}
+
+.spotify-btn:hover {
+    -fx-border-color: #1db954;
+    -fx-background-color: rgba(29, 185, 84, 0.12);
+}
+
 /* ---------- Sign up section ---------- */
 .no-account-text {
     -fx-text-fill: #8a8a8a;
