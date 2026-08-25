@@ -2,7 +2,7 @@ package engineering;
 
 import model.Musician;
 import model.Promoter;
-
+//TODO VEDI SE RIMUOVERE IL CONCETTO DI SESSIONE
 public class Session {
     private final int id;
     private Musician musician;

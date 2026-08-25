@@ -2,8 +2,8 @@ package model.jobannouncementdecorators;
 
 import model.JobAnnouncement;
 
-public class NegotiableSalaryDecoratorJob extends JobAnnouncementDecorator {
-    public NegotiableSalaryDecoratorJob(JobAnnouncement wrappedJobAnnouncement) {
+public class NegotiableSalaryDecorator extends JobAnnouncementDecorator {
+    public NegotiableSalaryDecorator(JobAnnouncement wrappedJobAnnouncement) {
         super(wrappedJobAnnouncement);
     }
 

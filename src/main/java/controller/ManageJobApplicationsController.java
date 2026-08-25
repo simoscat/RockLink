@@ -144,7 +144,7 @@ public class ManageJobApplicationsController {
                         jobApplication.currentApplicationStatus());
             }
 
-            jobApplication.acceptApplication();
+            jobApplication.accept();
 
             jobAnnouncement.hireArtist(jobApplication.whoIsCandidate());
 
@@ -159,7 +159,7 @@ public class ManageJobApplicationsController {
                 if (!jobApplicationToReject.whoIsCandidate().getEmail().
                         equals(jobApplication.whoIsCandidate().getEmail())){
 
-                    jobApplicationToReject.rejectApplication();
+                    jobApplicationToReject.reject();
                     jobApplicationDAO.save(jobApplicationToReject);
 
                 }
@@ -181,7 +181,7 @@ public class ManageJobApplicationsController {
 
             if (jobApplication.currentApplicationStatus().equals(ApplicationStatus.PENDING)) {
 
-                jobApplication.rejectApplication();
+                jobApplication.reject();
                 jobApplicationDAO.save(jobApplication);
 
                 notificationsManager.notifyMusician(jobApplication, Event.APPLICATION_REJECTED);
@@ -214,7 +214,7 @@ public class ManageJobApplicationsController {
 
             for (JobApplication jobApplication : applicationsToReject) {
 
-                jobApplication.rejectApplication();
+                jobApplication.reject();
                 jobApplicationDAO.save(jobApplication);
 
             }
@@ -227,14 +227,17 @@ public class ManageJobApplicationsController {
 
     public void applyForJobAnnouncement(JobAnnouncementBean jobAnnouncementBean, MusicianBean applicant,
                                         BigDecimal raiseOffer){
+        applyForJobAnnouncement(jobAnnouncementBean, BeanConverter.fromBeanToMusician(applicant), raiseOffer);
+    }
+
+    public void applyForJobAnnouncement(JobAnnouncementBean jobAnnouncementBean, Artist applicant,
+                                        BigDecimal raiseOffer){
 
         try {
 
-            Musician m = BeanConverter.fromBeanToMusician(applicant);
-
             JobAnnouncement jobAnnouncement = BeanConverter.fromBeanToJobAnnouncement(jobAnnouncementBean);
 
-            if (jobApplicationDAO.getJobApplication(m.getEmail(), jobAnnouncement) != null) {
+            if (jobApplicationDAO.getJobApplication(applicant.getEmail(), jobAnnouncement) != null) {
                 throw new ControllerLogicException("You have already applied for this job announcement");
             }
             else if (jobAnnouncement.getStatus().equals(JobAnnouncementStatus.FILLED)) {
@@ -243,7 +246,7 @@ public class ManageJobApplicationsController {
 
             JobApplication application = new JobApplication(
                     jobAnnouncement,
-                    m,
+                    applicant,
                     raiseOffer
             );
 
@@ -276,4 +279,5 @@ public class ManageJobApplicationsController {
         return BeanConverter.fromJobAnnouncementToBean(job);
 
     }
+
 }

@@ -2,9 +2,9 @@ package model.jobannouncementdecorators;
 
 import model.JobAnnouncement;
 
-public class ExpertsOnlyDecoratorJob extends JobAnnouncementDecorator {
+public class ExpertsOnlyDecorator extends JobAnnouncementDecorator {
 
-    public ExpertsOnlyDecoratorJob(JobAnnouncement wrappedJobAnnouncement) {
+    public ExpertsOnlyDecorator(JobAnnouncement wrappedJobAnnouncement) {
         super(wrappedJobAnnouncement);
     }
 

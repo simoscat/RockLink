@@ -17,10 +17,10 @@ public final class JobDecoratorManager {
         for (int i = tags.size() - 1; i >= 0; i--) {
 
             switch (tags.get(i)) {
-                case JobAnnouncementTag.URGENT -> a = new UrgentJobAnnouncementDecorator(a);
-                case JobAnnouncementTag.EXPERTS_ONLY -> a = new ExpertsOnlyDecoratorJob(a);
-                case JobAnnouncementTag.LONG_TIME_CONTRACT -> a = new LongTimeContractDecoratorJob(a);
-                case JobAnnouncementTag.NEGOTIABLE_SALARY -> a = new NegotiableSalaryDecoratorJob(a);
+                case JobAnnouncementTag.URGENT -> a = new UrgentDecorator(a);
+                case JobAnnouncementTag.EXPERTS_ONLY -> a = new ExpertsOnlyDecorator(a);
+                case JobAnnouncementTag.LONG_TIME_CONTRACT -> a = new LongTimeContractDecorator(a);
+                case JobAnnouncementTag.NEGOTIABLE_SALARY -> a = new NegotiableSalaryDecorator(a);
             }
 
         }
@@ -46,19 +46,19 @@ public final class JobDecoratorManager {
 
         while (job instanceof JobAnnouncementDecorator jad){
 
-            if (job instanceof UrgentJobAnnouncementDecorator){
+            if (job instanceof UrgentDecorator){
                 tags.add(JobAnnouncementTag.URGENT);
             }
 
-            else if (job instanceof ExpertsOnlyDecoratorJob){
+            else if (job instanceof ExpertsOnlyDecorator){
                 tags.add(JobAnnouncementTag.EXPERTS_ONLY);
             }
 
-            else if (job instanceof LongTimeContractDecoratorJob){
+            else if (job instanceof LongTimeContractDecorator){
                 tags.add(JobAnnouncementTag.LONG_TIME_CONTRACT);
             }
 
-            else if (job instanceof NegotiableSalaryDecoratorJob){
+            else if (job instanceof NegotiableSalaryDecorator){
                 tags.add(JobAnnouncementTag.NEGOTIABLE_SALARY);
             }
 

@@ -1,7 +1,6 @@
 package dao.factories;
 
 import dao.artist.ArtistDAO;
-import dao.artist.ArtistDAOCsv;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAOCsv;
 import dao.musician.MusicianDAO;
@@ -65,7 +64,7 @@ public class DAOFactoryCsv extends DAOFactory {
     @Override
     public ArtistDAO getArtistDAO() {
         if (this.artistDAO == null){
-            this.artistDAO = new ArtistDAOCsv();
+            this.artistDAO = new ArtistDAO();
         }
         return this.artistDAO;
     }

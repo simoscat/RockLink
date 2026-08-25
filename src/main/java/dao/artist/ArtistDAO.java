@@ -1,12 +1,27 @@
 package dao.artist;
 
+import dao.factories.DAOFactory;
+import engineering.enums.ArtistType;
 import model.Artist;
+import model.Musician;
 
-public abstract class ArtistDAO {
+//this DAO works as a facade for musicianDAO and the future bandDAO, and it is meant
+//to be used by announcements and applications
 
-    public abstract Artist getArtistByEmail(String email);
-    //the implementation is the same everywhere because bands aren't implemented yet
+public class ArtistDAO {
 
-    public abstract void save(Artist a);
+    public Artist getArtistByEmail(String email) {
+        return DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(email);
+    }
+
+    public void save(Artist a) {
+
+        if (a.getType().equals(ArtistType.MUSICIAN)){
+            DAOFactory.getInstance().getMusicianDAO().save((Musician) a);
+        }
+
+        //here will be the code for bands
+
+    }
 
 }

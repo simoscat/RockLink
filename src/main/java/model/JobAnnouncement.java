@@ -24,6 +24,7 @@ public interface JobAnnouncement {
     Artist whoWasHired();
 
     LocalDateTime getAnnouncementPublishDate();
+
     void publishNow();
 
     String getEventAddress();

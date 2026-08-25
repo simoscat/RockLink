@@ -7,8 +7,8 @@ import model.ConcreteJobAnnouncement;
 import model.JobAnnouncement;
 import model.MoneyValue;
 import model.Promoter;
-import model.jobannouncementdecorators.NegotiableSalaryDecoratorJob;
-import model.jobannouncementdecorators.UrgentJobAnnouncementDecorator;
+import model.jobannouncementdecorators.NegotiableSalaryDecorator;
+import model.jobannouncementdecorators.UrgentDecorator;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -41,7 +41,7 @@ class TestDecorator {
 
         j.publishNow();
 
-        JobAnnouncement uD = new UrgentJobAnnouncementDecorator(j);
+        JobAnnouncement uD = new UrgentDecorator(j);
 
         String output = uD.getTitle();
         String expected = "[Urgent] "+ title;
@@ -71,8 +71,8 @@ class TestDecorator {
 
         j.publishNow();
 
-        JobAnnouncement uD = new UrgentJobAnnouncementDecorator(j);
-        JobAnnouncement nS = new NegotiableSalaryDecoratorJob(uD);
+        JobAnnouncement uD = new UrgentDecorator(j);
+        JobAnnouncement nS = new NegotiableSalaryDecorator(uD);
 
         String output = nS.getTitle();
         String expected = "[Negotiable Salary] [Urgent] "+ title;

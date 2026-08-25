@@ -1,7 +1,6 @@
 package dao.factories;
 
 import dao.artist.ArtistDAO;
-import dao.artist.ArtistDAOJson;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAOJson;
 import dao.musician.MusicianDAO;
@@ -64,7 +63,7 @@ public class DAOFactoryJson extends DAOFactory {
     @Override
     public ArtistDAO getArtistDAO() {
         if (this.artistDAO == null){
-            this.artistDAO = new ArtistDAOJson();
+            this.artistDAO = new ArtistDAO();
         }
         return this.artistDAO;
     }

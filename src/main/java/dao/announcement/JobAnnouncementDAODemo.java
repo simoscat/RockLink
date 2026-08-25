@@ -8,8 +8,8 @@ import exception.DAOException;
 import model.ConcreteJobAnnouncement;
 import model.JobAnnouncement;
 import model.MoneyValue;
-import model.jobannouncementdecorators.ExpertsOnlyDecoratorJob;
-import model.jobannouncementdecorators.UrgentJobAnnouncementDecorator;
+import model.jobannouncementdecorators.ExpertsOnlyDecorator;
+import model.jobannouncementdecorators.UrgentDecorator;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -52,7 +52,7 @@ public class JobAnnouncementDAODemo extends JobAnnouncementDAO{
 
         job2.publishNow();
 
-        JobAnnouncement job2Dec = new UrgentJobAnnouncementDecorator(new ExpertsOnlyDecoratorJob(job2));
+        JobAnnouncement job2Dec = new UrgentDecorator(new ExpertsOnlyDecorator(job2));
 
         jobAnnouncements.add(job1);
         jobAnnouncements.add(job2Dec);

@@ -26,11 +26,11 @@ public abstract class Application {
         return status;
     }
 
-    public void acceptApplication(){
+    public void accept(){
         this.status = ApplicationStatus.ACCEPTED;
     }
 
-    public void rejectApplication(){
+    public void reject(){
         this.status = ApplicationStatus.REJECTED;
     }
 

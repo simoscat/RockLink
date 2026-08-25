@@ -24,9 +24,4 @@ public class Instrument {
         this.mastery = mastery;
     }
 
-    public void upMastery() {
-        int currentNum = this.mastery.ordinal();
-
-        this.mastery = Mastery.values()[(currentNum + 1) %  Mastery.values().length];
-    }
 }

@@ -5,7 +5,6 @@ import dao.announcement.JobAnnouncementDAODemo;
 import dao.application.JobApplicationDAO;
 import dao.application.JobApplicationDAODemo;
 import dao.artist.ArtistDAO;
-import dao.artist.ArtistDAODemo;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAODemo;
 import dao.musician.MusicianDAO;
@@ -59,7 +58,7 @@ public class DAOFactoryDemo extends DAOFactory{
     @Override
     public ArtistDAO getArtistDAO() {
         if (this.artistDAO == null){
-            this.artistDAO = new ArtistDAODemo();
+            this.artistDAO = new ArtistDAO();
         }
         return this.artistDAO;
     }

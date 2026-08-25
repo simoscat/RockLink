@@ -9,18 +9,26 @@
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/artist/ArtistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/artist/ArtistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/artist/ArtistDAOCsv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/artist/ArtistDAODemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/artist/ArtistDAOJson.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Musician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Musician.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Promoter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Promoter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dao/TestPromoterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/TestPromoterDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Instrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Instrument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/ExpertsOnlyDecoratorJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/ExpertsOnlyDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/LongTimeContractDecoratorJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/LongTimeContractDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/NegotiableSalaryDecoratorJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/NegotiableSalaryDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/UrgentJobAnnouncementDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/UrgentDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/TestJobAnnouncementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/TestJobAnnouncementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/decorator/TestDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/decorator/TestDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,6 +239,9 @@
       <workItem from="1787583102414" duration="1392000" />
       <workItem from="1787584528838" duration="67000" />
       <workItem from="1787649431687" duration="1171000" />
+      <workItem from="1787652441923" duration="10372000" />
+      <workItem from="1787667620823" duration="2194000" />
+      <workItem from="1787669877260" duration="2556000" />
     </task>
     <servers />
   </component>
@@ -263,18 +274,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java</url>
-          <line>186</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java</url>
           <line>247</line>
           <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
