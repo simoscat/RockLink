@@ -1,7 +1,7 @@
 package dao.musician;
 
-import dao.factories.DAOFactory;
 import dao.instrument.InstrumentDAO;
+import dao.instrument.InstrumentDAODemo;
 import engineering.enums.Gender;
 import exception.DAOException;
 import model.*;
@@ -11,7 +11,12 @@ import java.util.List;
 public class MusicianDAODemo extends MusicianDAO{
 
     private Musician musician;
+    private final InstrumentDAO instrumentDAO;
     private static final String MUSICIAN_EMAIL = "anna.muscatello@gmail.com";
+
+    public MusicianDAODemo() {
+        this.instrumentDAO = new InstrumentDAODemo();
+    }
 
     @Override
     public Musician retrieveMusicianByEmail(String email) {
@@ -23,9 +28,7 @@ public class MusicianDAODemo extends MusicianDAO{
 
         if (this.musician == null) {
 
-            InstrumentDAO instrumentDAO = DAOFactory.getInstance().getInstrumentDAO();
-
-            List<Instrument> iL = instrumentDAO.getMusicianInstruments(MUSICIAN_EMAIL);
+            List<Instrument> iL = this.instrumentDAO.getMusicianInstruments(MUSICIAN_EMAIL);
 
             this.musician = new Musician("Anna", "Muscatello", "Muschio", MUSICIAN_EMAIL,
                     Gender.FEMALE, iL);

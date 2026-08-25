@@ -4,8 +4,6 @@ import dao.artist.ArtistDAO;
 import dao.artist.ArtistDAOCsv;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAOCsv;
-import dao.instrument.InstrumentDAO;
-import dao.instrument.InstrumentDAOCsv;
 import dao.musician.MusicianDAO;
 import dao.musician.MusicianDAOCsv;
 import dao.notification.NotificationDAO;
@@ -44,14 +42,6 @@ public class DAOFactoryCsv extends DAOFactory {
         }
 
         return this.authDAO;
-    }
-
-    @Override
-    public InstrumentDAO getInstrumentDAO() {
-        if (this.instrumentDAO == null){
-            this.instrumentDAO = new InstrumentDAOCsv();
-        }
-        return this.instrumentDAO;
     }
 
     @Override

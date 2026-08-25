@@ -8,8 +8,6 @@ import dao.artist.ArtistDAO;
 import dao.artist.ArtistDAODemo;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAODemo;
-import dao.instrument.InstrumentDAO;
-import dao.instrument.InstrumentDAODemo;
 import dao.musician.MusicianDAO;
 import dao.musician.MusicianDAODemo;
 import dao.notification.NotificationDAO;
@@ -40,14 +38,6 @@ public class DAOFactoryDemo extends DAOFactory{
             this.authDAO = new AuthDAODemo();
         }
         return this.authDAO;
-    }
-
-    @Override
-    public InstrumentDAO getInstrumentDAO() {
-        if (this.instrumentDAO == null){
-            this.instrumentDAO = new InstrumentDAODemo();
-        }
-        return this.instrumentDAO;
     }
 
     @Override

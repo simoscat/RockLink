@@ -8,11 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/exception/NotificationException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageNotificationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/NotificationsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PublishJobAnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PublishJobAnnouncementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/notifications/NotificationsGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/notifications/NotificationsGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/factories/DAOFactoryJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Musician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Musician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Promoter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Promoter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/TestPromoterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/TestPromoterDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +33,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="208" />
+    <option name="cachedIndexableFilesCount" value="209" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -220,7 +228,9 @@
       <workItem from="1787406856192" duration="11351000" />
       <workItem from="1787473451988" duration="22975000" />
       <workItem from="1787561117261" duration="15898000" />
-      <workItem from="1787583102414" duration="615000" />
+      <workItem from="1787583102414" duration="1392000" />
+      <workItem from="1787584528838" duration="67000" />
+      <workItem from="1787649431687" duration="1171000" />
     </task>
     <servers />
   </component>

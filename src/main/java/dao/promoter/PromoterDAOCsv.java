@@ -153,7 +153,7 @@ public class PromoterDAOCsv extends PromoterDAO {
     }
 
     private String toCsvRow(Promoter p) {
-        String contactsCsv = contactsToCsv(p.promoterContacts());
+        String contactsCsv = contactsToCsv(p.howToContact());
         return String.join(CSV_SEPARATOR,
                 p.getEmail(),
                 p.getName(),

@@ -33,7 +33,7 @@ class TestPromoterDAO {
         assertEquals(p.getEmail(), output.getEmail());
         assertEquals(p.getSurname(), output.getSurname());
         assertEquals(p.getGender(), output.getGender());
-        assertEquals(p.promoterContacts().get("phone"), output.promoterContacts().get("phone"));
+        assertEquals(p.howToContact().get("phone"), output.howToContact().get("phone"));
 
     }
 

@@ -4,7 +4,6 @@ import dao.announcement.JobAnnouncementDAO;
 import dao.application.JobApplicationDAO;
 import dao.artist.ArtistDAO;
 import dao.auth.AuthDAO;
-import dao.instrument.InstrumentDAO;
 import dao.musician.MusicianDAO;
 import dao.notification.NotificationDAO;
 import dao.promoter.PromoterDAO;
@@ -21,7 +20,6 @@ public abstract class DAOFactory {
     protected AuthDAO authDAO = null;
     protected JobApplicationDAO jobApplicationDAO = null;
     protected JobAnnouncementDAO jobAnnouncementDAO = null;
-    protected InstrumentDAO instrumentDAO = null;
     protected ArtistDAO artistDAO = null;
     protected NotificationDAO notificationDAO = null;
 
@@ -41,7 +39,6 @@ public abstract class DAOFactory {
     public abstract JobAnnouncementDAO getJobAnnouncementDAO();
     public abstract JobApplicationDAO getJobApplicationDAO();
     public abstract AuthDAO getAuthDAO();
-    public abstract InstrumentDAO getInstrumentDAO();
     public abstract MusicianDAO getMusicianDAO();
     public abstract PromoterDAO getPromoterDAO();
     public abstract ArtistDAO getArtistDAO();

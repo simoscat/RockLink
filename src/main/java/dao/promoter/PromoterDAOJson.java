@@ -79,8 +79,8 @@ public class PromoterDAOJson extends PromoterDAO {
         obj.put("gender", p.getGender().name());
 
         JSONObject contactsObj = new JSONObject();
-        if (p.promoterContacts() != null) {
-            for (Map.Entry<String, String> entry : p.promoterContacts().entrySet()) {
+        if (p.howToContact() != null) {
+            for (Map.Entry<String, String> entry : p.howToContact().entrySet()) {
                 contactsObj.put(entry.getKey(), entry.getValue());
             }
         }

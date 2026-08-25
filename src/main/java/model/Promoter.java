@@ -14,8 +14,7 @@ public class Promoter extends User {
         this.contacts = contacts;
     }
 
-
-    public Map<String, String> promoterContacts() {
+    public Map<String, String> howToContact() {
         return contacts;
     }
 }

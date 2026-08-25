@@ -79,7 +79,7 @@ public class LoginController {
 
                 promoter.setName(p.getName());
                 promoter.setSurname(p.getSurname());
-                promoter.setContacts(p.promoterContacts());
+                promoter.setContacts(p.howToContact());
                 promoter.setEmail(p.getEmail());
                 promoter.setGender(p.getGender().name());
                 promoter.clearPassword();

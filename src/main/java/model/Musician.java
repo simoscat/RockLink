@@ -13,7 +13,19 @@ public class Musician extends User implements Artist {
                     List<Instrument> instruments) {
         super(name, surname, email, gender);
         this.stageName = stageName;
-        this.instruments = instruments;
+
+        this.instruments = new ArrayList<>();
+
+        for (Instrument old : instruments) {
+
+            Instrument instrument = new Instrument(
+                    old.getName(),
+                    old.getMastery()
+            );
+
+            this.instruments.add(instrument);
+
+        }
     }
 
     @Override
@@ -48,11 +60,33 @@ public class Musician extends User implements Artist {
     }
 
     public List<Instrument> presentInstruments() {
-        return Collections.unmodifiableList(instruments);
+
+        List<Instrument> toRet = new ArrayList<>();
+
+        for (Instrument instrument : this.instruments) {
+
+            Instrument i = new Instrument(
+                    instrument.getName(),
+                    instrument.getMastery()
+            );
+
+            toRet.add(i);
+
+        }
+
+        return toRet;
+
     }
 
     public void addInstrument(Instrument instrument) {
-        this.instruments.add(instrument);
+
+        Instrument i = new Instrument(
+                instrument.getName(),
+                instrument.getMastery()
+        );
+
+        this.instruments.add(i);
+
     }
 
 }

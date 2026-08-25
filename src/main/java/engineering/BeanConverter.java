@@ -31,7 +31,7 @@ public final class BeanConverter {
                 p.getEmail(),
                 p.getGender().name(),
                 "", //password is only used in login
-                p.promoterContacts()
+                p.howToContact()
         );
 
     }

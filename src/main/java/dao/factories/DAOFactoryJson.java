@@ -4,8 +4,6 @@ import dao.artist.ArtistDAO;
 import dao.artist.ArtistDAOJson;
 import dao.auth.AuthDAO;
 import dao.auth.AuthDAOJson;
-import dao.instrument.InstrumentDAO;
-import dao.instrument.InstrumentDAOJson;
 import dao.musician.MusicianDAO;
 import dao.musician.MusicianDAOJson;
 import dao.notification.NotificationDAO;
@@ -43,14 +41,6 @@ public class DAOFactoryJson extends DAOFactory {
         }
 
         return this.authDAO;
-    }
-
-    @Override
-    public InstrumentDAO getInstrumentDAO() {
-        if (this.instrumentDAO == null) {
-            this.instrumentDAO = new InstrumentDAOJson();
-        }
-        return this.instrumentDAO;
     }
 
     @Override
