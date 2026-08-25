@@ -1,6 +1,6 @@
 package app;
 
-import engineering.FontManager;
+import view.FontManager;
 import javafx.application.Platform;
 import view.Navigator;
 import view.factories.NavigatorFactory;

@@ -12,17 +12,6 @@ public final class BeanConverter {
 
     private BeanConverter() {}
 
-    public static JobApplication fromBeanToJobApplication(JobApplicationBean jobApplicationBean) {
-
-        return new JobApplication(
-                fromBeanToJobAnnouncement(jobApplicationBean.getJobAnnouncementReference()),
-                jobApplicationBean.getArtist(),
-                ApplicationStatus.valueOf(jobApplicationBean.getStatus()),
-                jobApplicationBean.getRaiseOffer()
-        );
-
-    }
-
     public static PromoterBean fromPromoterToBean(Promoter p){
 
         return new PromoterBean(
@@ -51,7 +40,7 @@ public final class BeanConverter {
         );
 
         bean.setPublishDate(ja.getAnnouncementPublishDate());
-        bean.setHiredArtist(ja.whoWasHired());
+        bean.setHiredArtist(fromArtistToBean(ja.whoWasHired()));
         bean.setJobAnnouncementStatus(ja.getStatus().name());
 
         return bean;
@@ -70,12 +59,24 @@ public final class BeanConverter {
     public static JobApplicationBean fromJobApplicationToBean(JobApplication ja){
 
         return new JobApplicationBean(
-                ja.whoIsCandidate(),
+                fromArtistToBean(ja.whoIsCandidate()),
                 ja.currentApplicationStatus().name(),
                 ja.currentRaiseAmount(),
                 fromJobAnnouncementToBean(ja.whichJobAnnouncement())
         );
 
+    }
+
+    private static ArtistBean fromArtistToBean(Artist artist) {
+        if (artist != null){
+            return new ArtistBean(
+                    artist.getArtistName(),
+                    artist.getType(),
+                    artist.getEmail(),
+                    artist.getArtistDetails()
+            );
+        }
+        return null;
     }
 
     public static JobAnnouncement fromBeanToJobAnnouncement(JobAnnouncementBean jobAnnouncement) {
@@ -91,8 +92,6 @@ public final class BeanConverter {
         );
 
         job.setStatus(JobAnnouncementStatus.valueOf(jobAnnouncement.getJobAnnouncementStatus()));
-
-        job.hireArtist(jobAnnouncement.getHiredArtist());
 
         List<JobAnnouncementTag> tagList = jobAnnouncement.getTags();
 

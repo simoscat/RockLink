@@ -1,5 +1,6 @@
 package view.announcementapplications;
 
+import bean.ArtistBean;
 import bean.JobApplicationBean;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -70,7 +71,7 @@ public class AnnouncementApplicationsGraphicControllerGUI extends AnnouncementAp
     }
 
     private HBox buildApplicationRow(JobApplicationBean application) {
-        Artist artist = application.getArtist();
+        ArtistBean artist = application.getArtist();
 
         Region accent = new Region();
         accent.getStyleClass().addAll("card-accent", "accent-announcement");

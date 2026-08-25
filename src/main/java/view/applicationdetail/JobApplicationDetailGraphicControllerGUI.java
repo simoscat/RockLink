@@ -69,7 +69,7 @@ public class JobApplicationDetailGraphicControllerGUI extends JobApplicationDeta
         rejectButton.setDisable(!pending);
 
         detailsContainer.getChildren().clear();
-        Map<String, String> details = application.getArtist().getArtistDetails();
+        Map<String, String> details = application.getArtist().getDetails();
         for (Map.Entry<String, String> entry : details.entrySet()) {
             detailsContainer.getChildren().add(buildDetailRow(entry.getKey(), entry.getValue()));
         }

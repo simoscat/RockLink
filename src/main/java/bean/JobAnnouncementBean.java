@@ -1,7 +1,6 @@
 package bean;
 
 import engineering.enums.JobAnnouncementTag;
-import model.Artist;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,7 +10,7 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
     private PromoterBean promoter;
     private MoneyValueBean moneyValue;
     private String address;
-    private Artist hiredArtist;
+    private ArtistBean hiredArtist;
     private String jobAnnouncementStatus;
     private List<JobAnnouncementTag> tags;
 
@@ -25,8 +24,6 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
         this.tags = tags;
 
     }
-
-
 
     public PromoterBean getPromoter() {
         return promoter;
@@ -52,11 +49,11 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
         this.address = address;
     }
 
-    public Artist getHiredArtist() {
+    public ArtistBean getHiredArtist() {
         return hiredArtist;
     }
 
-    public void setHiredArtist(Artist hiredArtist) {
+    public void setHiredArtist(ArtistBean hiredArtist) {
         this.hiredArtist = hiredArtist;
     }
 

@@ -1,24 +1,22 @@
 package bean;
 
-import model.Artist;
-
 public abstract class ApplicationBean {
     
-    private Artist artist;
+    private ArtistBean artist;
     private String status;
 
 
-    protected ApplicationBean(Artist artist, String status) {
+    protected ApplicationBean(ArtistBean artist, String status) {
         this.artist = artist;
         this.status = status;
     }
 
 
-    public Artist getArtist() {
+    public ArtistBean getArtist() {
         return artist;
     }
 
-    public void setArtist(Artist artist) {
+    public void setArtist(ArtistBean artist) {
         this.artist = artist;
     }
 

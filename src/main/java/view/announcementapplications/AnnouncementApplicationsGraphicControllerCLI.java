@@ -1,5 +1,6 @@
 package view.announcementapplications;
 
+import bean.ArtistBean;
 import bean.JobApplicationBean;
 import model.Artist;
 import view.Navigator;
@@ -151,7 +152,7 @@ public class AnnouncementApplicationsGraphicControllerCLI extends AnnouncementAp
         for (int i = 0; i < jobApplications.size(); i++) {
 
             JobApplicationBean jobApplication = jobApplications.get(i);
-            Artist artist = jobApplication.getArtist();
+            ArtistBean artist = jobApplication.getArtist();
 
             String email = truncate(artist.getEmail(), EMAIL_WIDTH);
             String artistName = truncate(artist.getArtistName(), ARTIST_WIDTH);

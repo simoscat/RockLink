@@ -1,4 +1,4 @@
-package engineering;
+package view;
 
 import javafx.scene.text.Font;
 

@@ -1,6 +1,4 @@
-package bean;
-
-import engineering.EmailChecker;
+package bean;;
 
 public abstract class UserBean {
     private String name;
@@ -12,13 +10,13 @@ public abstract class UserBean {
     protected UserBean(String name, String surname, String email, String gender, String password) {
         this.name = name;
         this.surname = surname;
-        setEmail(email);
+        this.email = email;
         this.gender = gender;
         this.password = password;
     }
 
     protected UserBean(String email, String password) {
-        setEmail(email);
+        this.email = email;
         this.password = password;
     }
 
@@ -43,9 +41,6 @@ public abstract class UserBean {
     }
 
     public void setEmail(String email) {
-        if (!EmailChecker.isValidEmail(email)) {
-            throw new IllegalArgumentException("Invalid email: " + email);
-        }
         this.email = email;
     }
 

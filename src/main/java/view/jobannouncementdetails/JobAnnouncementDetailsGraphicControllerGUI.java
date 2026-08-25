@@ -1,5 +1,6 @@
 package view.jobannouncementdetails;
 
+import bean.ArtistBean;
 import bean.JobAnnouncementBean;
 import bean.JobApplicationBean;
 import javafx.fxml.FXML;
@@ -124,7 +125,7 @@ public class JobAnnouncementDetailsGraphicControllerGUI extends JobAnnouncementD
             contactsContainer.getChildren().add(contactLabel);
         }
 
-        Artist hiredArtist = job.getHiredArtist();
+        ArtistBean hiredArtist = job.getHiredArtist();
         boolean hasHiredArtist = hiredArtist != null;
         hiredArtistBadge.setVisible(hasHiredArtist);
         hiredArtistBadge.setManaged(hasHiredArtist);

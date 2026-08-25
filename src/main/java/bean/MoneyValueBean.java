@@ -9,7 +9,7 @@ public class MoneyValueBean {
 
     public MoneyValueBean(String currency, BigDecimal value) {
         this.currency = currency;
-        setValue(value);
+        this.value = value;
     }
 
     public String getCurrency() {
@@ -25,10 +25,6 @@ public class MoneyValueBean {
     }
 
     public void setValue(BigDecimal value) {
-        if  (value.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException("Amount cannot be negative");
-        }
-
         this.value = value;
     }
 

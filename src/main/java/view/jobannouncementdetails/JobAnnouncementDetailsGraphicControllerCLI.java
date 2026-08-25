@@ -1,5 +1,6 @@
 package view.jobannouncementdetails;
 
+import bean.ArtistBean;
 import bean.JobAnnouncementBean;
 import bean.JobApplicationBean;
 import model.Artist;
@@ -51,7 +52,7 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
         System.out.printf("Published:     %s%n", job.getPublishDate() != null ? job.getPublishDate().format(dtf) : "-");
 
 
-        Artist hiredArtist = job.getHiredArtist();
+        ArtistBean hiredArtist = job.getHiredArtist();
         if (hiredArtist != null) {
             System.out.printf("Hired artist:  %s (%s)%n", hiredArtist.getArtistName(), hiredArtist.getType());
         }
