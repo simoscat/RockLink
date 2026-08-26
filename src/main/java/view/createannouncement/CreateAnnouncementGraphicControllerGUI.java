@@ -53,7 +53,6 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
     @FXML
     private BorderPane rootPane;
 
-    // ---- User card ----
     @FXML
     private Label userAvatarLabel;
     @FXML
@@ -61,7 +60,6 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
     @FXML
     private Label userEmailLabel;
 
-    // ---- Navigazione ----
     @FXML
     private HBox dashboardNavItem;
     @FXML
@@ -69,7 +67,6 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
     @FXML
     private Button signOutButton;
 
-    // ---- Form ----
     @FXML
     private TextField titleField;
     @FXML
@@ -104,11 +101,7 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
     @FXML
     private Button publishButton;
 
-    /**
-     * Chiamato in automatico da FXMLLoader subito dopo l'iniezione dei campi @FXML.
-     * Associa a ogni ToggleButton "a scelta fissa" il valore enum che rappresenta,
-     * seguendo lo stesso schema di MusicianRegistrationGraphicControllerGUI.
-     */
+    //this is called automatically by fxml loader
     @FXML
     private void initialize() {
         currencyEurToggle.setUserData(CurrencyType.EUR.name());

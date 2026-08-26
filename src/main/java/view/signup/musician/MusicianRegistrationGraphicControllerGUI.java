@@ -60,7 +60,6 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
     @FXML
     private Button backToLoginButton;
 
-    // ---- Dati anagrafici ----
     @FXML
     private TextField firstNameField;
     @FXML
@@ -68,7 +67,6 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
     @FXML
     private TextField stageNameField;
 
-    // ---- Genere ----
     @FXML
     private ToggleGroup genderToggleGroup;
     @FXML
@@ -78,13 +76,11 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
     @FXML
     private ToggleButton genderNotSpecifiedToggle;
 
-    // ---- Credenziali ----
     @FXML
     private TextField emailField;
     @FXML
     private TextField passwordField;
 
-    // ---- Strumenti ----
     @FXML
     private ScrollPane instrumentsScrollPane;
     @FXML
@@ -110,23 +106,15 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
     @FXML
     private Button addInstrumentButton;
 
-    // ---- Azione principale ----
     @FXML
     private Button createAccountButton;
 
-    // Righe strumento correnti (la prima è quella dichiarata nell'FXML,
-    // le altre vengono aggiunte a runtime da handleAddInstrument).
     private final List<InstrumentRow> instrumentRows = new ArrayList<>();
 
     private record InstrumentRow(TextField nameField, ToggleGroup skillGroup) {
     }
-
-
-    /**
-     * Chiamato in automatico da FXMLLoader subito dopo l'iniezione dei campi @FXML.
-     * Essendo l'FXML ricaricato da zero a ogni navigazione, questo metodo viene
-     * rieseguito ogni volta che si arriva su questa schermata.
-     */
+    
+    
     @FXML
     private void initialize() {
         genderMaleToggle.setUserData("MALE");

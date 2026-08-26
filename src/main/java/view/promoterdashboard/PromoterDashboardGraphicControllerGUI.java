@@ -50,7 +50,6 @@ public class PromoterDashboardGraphicControllerGUI extends PromoterDashboardGrap
     @FXML
     private BorderPane rootPane;
 
-    // ---- User card ----
     @FXML
     private Label userAvatarLabel;
     @FXML
@@ -58,7 +57,6 @@ public class PromoterDashboardGraphicControllerGUI extends PromoterDashboardGrap
     @FXML
     private Label userEmailLabel;
 
-    // ---- Navigazione ----
     @FXML
     private HBox dashboardNavItem;
     @FXML
@@ -66,7 +64,6 @@ public class PromoterDashboardGraphicControllerGUI extends PromoterDashboardGrap
     @FXML
     private Button signOutButton;
 
-    // ---- Annunci ----
     @FXML
     private Label announcementsCountLabel;
     @FXML

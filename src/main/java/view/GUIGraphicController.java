@@ -4,7 +4,7 @@ import javafx.scene.Parent;
 
 public interface GUIGraphicController {
 
-    public void setView(Parent view);
-    public Parent getView();
+    void setView(Parent view);
+    Parent getView();
 
 }

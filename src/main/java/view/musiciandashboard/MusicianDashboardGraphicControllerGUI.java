@@ -50,7 +50,6 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
     @FXML
     private BorderPane rootPane;
 
-    // ---- User card ----
     @FXML
     private Label userAvatarLabel;
     @FXML
@@ -60,7 +59,6 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
     @FXML
     private Label userEmailLabel;
 
-    // ---- Navigazione ----
     @FXML
     private HBox dashboardNavItem;
     @FXML
@@ -76,7 +74,6 @@ public class MusicianDashboardGraphicControllerGUI extends MusicianDashboardGrap
     @FXML
     private Button signOutButton;
 
-    // ---- Applicazioni ----
     @FXML
     private Label applicationsCountLabel;
     @FXML

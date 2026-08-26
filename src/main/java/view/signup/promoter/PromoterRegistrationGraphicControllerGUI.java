@@ -59,13 +59,11 @@ public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrati
     @FXML
     private Button backToLoginButton;
 
-    // ---- Dati anagrafici ----
     @FXML
     private TextField firstNameField;
     @FXML
     private TextField lastNameField;
 
-    // ---- Genere ----
     @FXML
     private ToggleGroup genderToggleGroup;
     @FXML
@@ -75,20 +73,17 @@ public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrati
     @FXML
     private ToggleButton genderNotSpecifiedToggle;
 
-    // ---- Credenziali ----
     @FXML
     private TextField emailField;
     @FXML
     private TextField passwordField;
 
-    // ---- Contatti ----
     @FXML
     private ScrollPane contactsScrollPane;
     @FXML
     private VBox contactsContainer;
 
-    // Campi della prima riga contatto (presente di default nell'FXML,
-    // funge anche da template per le righe aggiunte a runtime).
+    // first contact line fields
     @FXML
     private TextField contactTypeField;
     @FXML
@@ -97,12 +92,10 @@ public class PromoterRegistrationGraphicControllerGUI extends PromoterRegistrati
     @FXML
     private Button addContactButton;
 
-    // ---- Azione principale ----
     @FXML
     private Button createAccountButton;
 
-    // Righe contatto correnti (la prima è quella dichiarata nell'FXML,
-    // le altre vengono aggiunte a runtime da handleAddContact).
+    // current contact rows
     private final List<ContactRow> contactRows = new ArrayList<>();
 
     private record ContactRow(TextField typeField, TextField valueField) {

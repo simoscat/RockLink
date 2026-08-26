@@ -11,17 +11,12 @@ import javafx.scene.layout.BorderPane;
 import view.GUIGraphicController;
 import view.Navigator;
 
-/**
- * Controller della schermata di login (LoginView.fxml).
- * Ogni campo @FXML corrisponde a un fx:id definito nell'FXML;
- * ogni metodo @FXML corrisponde a un onAction="#nomeMetodo".
- */
+
 public class LoginGraphicControllerGUI extends LoginGraphicController implements GUIGraphicController {
 
     @FXML
     private BorderPane rootPane;
 
-    // ---- Pannello Musician ----
     @FXML
     private TextField musicianEmailField;
     @FXML
@@ -29,7 +24,6 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
     @FXML
     private Button musicianSignInButton;
 
-    // ---- Pannello Promoter ----
     @FXML
     private TextField promoterEmailField;
     @FXML
@@ -37,13 +31,11 @@ public class LoginGraphicControllerGUI extends LoginGraphicController implements
     @FXML
     private Button promoterSignInButton;
 
-    // ---- Sign up ----
     @FXML
     private Button signUpMusicianButton;
     @FXML
     private Button signUpPromoterButton;
 
-    // ---- Social login ----
     @FXML
     private Button googleLoginButton;
     @FXML

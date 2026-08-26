@@ -66,7 +66,6 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
     @FXML
     private BorderPane rootPane;
 
-    // ---- User card ----
     @FXML
     private Label userAvatarLabel;
     @FXML
@@ -76,7 +75,6 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
     @FXML
     private Label userEmailLabel;
 
-    // ---- Navigazione ----
     @FXML
     private HBox dashboardNavItem;
     @FXML
@@ -92,7 +90,6 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
     @FXML
     private Button signOutButton;
 
-    // ---- Toolbar / griglia annunci ----
     @FXML
     private ToggleButton openFilterToggle;
     @FXML
@@ -150,9 +147,6 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
         Label title = new Label(job.getTitle());
         title.getStyleClass().add("job-title");
 
-        Label tags = new Label(tagsTextFor(job.getTags()));
-        tags.getStyleClass().add("job-tags");
-
         HBox locationRow = new HBox(6.0, icon(PIN, JOB_META_ICON_CLASS, 0.583), metaLabel(job.getAddress()));
         locationRow.setAlignment(Pos.CENTER_LEFT);
 
@@ -169,7 +163,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
         HBox bottomRow = new HBox(8.0, price, spacer(), applicationIndicator(job));
         bottomRow.setAlignment(Pos.CENTER_LEFT);
 
-        VBox body = new VBox(8.0, topRow, title, tags, locationRow, dateTimeRow, spacer(), bottomRow);
+        VBox body = new VBox(8.0, topRow, title, locationRow, dateTimeRow, spacer(), bottomRow);
         body.setPadding(new Insets(16.0));
         HBox.setHgrow(body, Priority.ALWAYS);
 

@@ -25,7 +25,7 @@ public class NotificationsManager {
 
     }
 
-    public List<NotificationBean> getUserNotifications(String email){
+    private List<NotificationBean> getUserNotifications(String email){
 
         try{
 

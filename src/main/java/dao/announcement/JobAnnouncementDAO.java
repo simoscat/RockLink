@@ -87,7 +87,7 @@ public abstract class JobAnnouncementDAO extends DAOWithCache<JobAnnouncement> {
         return openJobAnnouncements;
     }
 
-    //Important: retrieveAllOpenJobAnnouncements is implemented like this to avoid code duplication.
+    // Important: retrieveAllOpenJobAnnouncements is implemented like this to avoid code duplication.
     // if we were using different persistency mechanisms that implement this differently and (probably) more
     // efficiently, we should override this method
 

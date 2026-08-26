@@ -142,7 +142,7 @@
                     <VBox.margin>
                         <Insets top="16.0" />
                     </VBox.margin>
-                    <TilePane fx:id="jobsContainer" hgap="20.0" prefTileHeight="232.0" prefTileWidth="300.0" styleClass="jobs-grid" vgap="20.0" />
+                    <TilePane fx:id="jobsContainer" hgap="20.0" prefTileHeight="232.0" prefTileWidth="600.0" styleClass="jobs-grid" vgap="20.0" />
                 </ScrollPane>
 
             </VBox>

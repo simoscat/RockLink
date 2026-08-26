@@ -21,7 +21,6 @@ import java.io.IOException;
 
 public class NavigatorGUI extends Navigator {
 
-    /** Tutti i file FXML vivono in src/main/resources/fxml/ */
     private static final String FXML_DIR = "/fxml/";
 
     private LoginGraphicControllerGUI login;

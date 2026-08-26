@@ -7,7 +7,22 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="" />
+    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/job_announcements.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_announcements.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/job_applications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_applications.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/notifications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/notifications.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/promoters.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/promoters.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/NotificationsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/NotificationsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicControllerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/login/LoginGraphicControllerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/musiciandashboard/MusicianDashboardGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/musiciandashboard/MusicianDashboardGraphicControllerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/openannouncementsdiscovery/OpenAnnouncementsDiscoveryGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/openannouncementsdiscovery/OpenAnnouncementsDiscoveryGraphicControllerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/promoterdashboard/PromoterDashboardGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/promoterdashboard/PromoterDashboardGraphicControllerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicControllerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/OpenAnnouncementsDiscoveryView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/OpenAnnouncementsDiscoveryView.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +34,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="209" />
+    <option name="cachedIndexableFilesCount" value="207" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -219,7 +234,10 @@
       <workItem from="1787649431687" duration="1171000" />
       <workItem from="1787652441923" duration="10372000" />
       <workItem from="1787667620823" duration="2194000" />
-      <workItem from="1787669877260" duration="13534000" />
+      <workItem from="1787669877260" duration="15846000" />
+      <workItem from="1787746276354" duration="3257000" />
+      <workItem from="1787752562289" duration="10000" />
+      <workItem from="1787768775950" duration="4993000" />
     </task>
     <servers />
   </component>
@@ -242,12 +260,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/view/announcementapplications/AnnouncementApplicationsGraphicControllerCLI.java</url>
-          <line>33</line>
+          <line>32</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/view/announcementapplications/AnnouncementApplicationsGraphicControllerCLI.java</url>
-          <line>140</line>
+          <line>139</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
