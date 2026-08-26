@@ -2,7 +2,6 @@ package view.announcementapplications;
 
 import bean.ArtistBean;
 import bean.JobApplicationBean;
-import model.Artist;
 import view.Navigator;
 
 import java.util.List;

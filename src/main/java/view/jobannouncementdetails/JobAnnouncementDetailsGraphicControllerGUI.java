@@ -11,7 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import model.Artist;
 import view.GUIGraphicController;
 import view.Navigator;
 
