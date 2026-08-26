@@ -3,7 +3,6 @@ package view.jobannouncementdetails;
 import bean.ArtistBean;
 import bean.JobAnnouncementBean;
 import bean.JobApplicationBean;
-import model.Artist;
 import view.Navigator;
 
 import java.math.BigDecimal;
