@@ -1,6 +1,7 @@
 package view;
 
 import bean.*;
+import engineering.SessionManager;
 import engineering.enums.Screen;
 
 import java.util.List;
@@ -201,6 +202,7 @@ public abstract class Navigator {
     public abstract void viewNotifications();
 
     public void close() {
+        SessionManager.getInstance().deleteSession(this.getSession().getId());
         System.exit(0);
     }
 

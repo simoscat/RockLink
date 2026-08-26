@@ -30,7 +30,6 @@ public class ManageJobApplicationsController {
 
             return BeanConverter.fromJobAnnouncementsToBeans(jobAnnouncementDAO.getAllOpenJobAnnouncements());
 
-
         }
         catch (DAOException _) {
 

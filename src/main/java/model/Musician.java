@@ -48,7 +48,7 @@ public class Musician extends User implements Artist {
         artistDetails.put("Surname", this.getSurname());
         artistDetails.put("Stage name", this.stageName);
         artistDetails.put("Email", this.getEmail());
-        artistDetails.put("Gender", this.getGender().toString());
+        artistDetails.put("Gender", this.getGender().toString().replace("_", " "));
 
         for (int i = 0; i < this.instruments.size(); i++) {
             artistDetails.put("Instrument " + (i + 1), this.instruments.get(i).getName());
