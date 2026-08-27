@@ -2,7 +2,6 @@ package view.openannouncementsdiscovery;
 
 import bean.JobAnnouncementBean;
 import bean.JobApplicationBean;
-import engineering.enums.JobAnnouncementTag;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -219,33 +218,6 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
             case "REJECTED" -> "status-rejected";
             default -> "status-pending";
         };
-    }
-
-    private String tagsTextFor(List<JobAnnouncementTag> tags) {
-        if (tags == null || tags.isEmpty()) {
-            return "Open format";
-        }
-
-        StringBuilder sb = new StringBuilder();
-        for (JobAnnouncementTag tag : tags) {
-            if (!sb.isEmpty()) {
-                sb.append(" / ");
-            }
-            sb.append(formatTag(tag));
-        }
-        return sb.toString();
-    }
-
-    private String formatTag(JobAnnouncementTag tag) {
-        String[] words = tag.name().split("_");
-        StringBuilder sb = new StringBuilder();
-        for (String word : words) {
-            if (!sb.isEmpty()) {
-                sb.append(' ');
-            }
-            sb.append(word.charAt(0)).append(word.substring(1).toLowerCase(Locale.ENGLISH));
-        }
-        return sb.toString();
     }
 
     private Label metaLabel(String text) {
