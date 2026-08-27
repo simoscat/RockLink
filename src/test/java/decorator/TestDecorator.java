@@ -46,7 +46,7 @@ class TestDecorator {
         String output = uD.getTitle();
         String expected = "[Urgent] "+ title;
 
-        assertEquals(output, expected);
+        assertEquals(expected, output);
 
     }
 
@@ -77,7 +77,7 @@ class TestDecorator {
         String output = nS.getTitle();
         String expected = "[Negotiable Salary] [Urgent] "+ title;
 
-        assertEquals(output, expected);
+        assertEquals(expected, output);
 
     }
 }
