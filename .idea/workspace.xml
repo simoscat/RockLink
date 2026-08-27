@@ -121,7 +121,7 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.java in RockLink">
     <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="RockLink" />
@@ -131,14 +131,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="dao in RockLink" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RockLink" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/dao" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,6 +151,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="java in RockLink" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RockLink" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="passwordEncryption in RockLink" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RockLink" />
       <option name="TEST_OBJECT" value="directory" />
@@ -169,18 +169,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.dao in RockLink" />
+      <item itemvalue="JUnit.java in RockLink" />
       <item itemvalue="JUnit.decorator in RockLink" />
       <item itemvalue="JUnit.engineering in RockLink" />
       <item itemvalue="JUnit.passwordEncryption in RockLink" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in RockLink" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.passwordEncryption in RockLink" />
         <item itemvalue="JUnit.engineering in RockLink" />
         <item itemvalue="JUnit.decorator in RockLink" />
-        <item itemvalue="JUnit.dao in RockLink" />
       </list>
     </recent_temporary>
   </component>
