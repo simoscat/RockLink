@@ -1,7 +1,7 @@
 package view.announcementapplications;
 
 import bean.JobApplicationBean;
-import controller.ManageJobApplicationsController;
+import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class AnnouncementApplicationsGraphicController {
 
-    protected ManageJobApplicationsController manageJobApplicationsController = new  ManageJobApplicationsController();
+    protected ManageJobApplicationController manageJobApplicationController = new ManageJobApplicationController();
 
     protected Navigator navigator;
 
@@ -19,7 +19,7 @@ public abstract class AnnouncementApplicationsGraphicController {
 
     protected List<JobApplicationBean> getJobApplications(){
 
-        navigator.setJobApplications(manageJobApplicationsController.findJobAnnouncementApplications(
+        navigator.setJobApplications(manageJobApplicationController.findJobAnnouncementApplications(
                 navigator.getCurrentJobAnnouncement()
         ));
 
@@ -40,7 +40,7 @@ public abstract class AnnouncementApplicationsGraphicController {
     protected void acceptJobApplication(){
 
         try {
-            manageJobApplicationsController.acceptApplication(navigator.getCurrentJobApplication());
+            manageJobApplicationController.acceptApplication(navigator.getCurrentJobApplication());
 
             navigator.showInfo("Application was accepted! Going back to dashboard");
 
@@ -59,7 +59,7 @@ public abstract class AnnouncementApplicationsGraphicController {
     protected void rejectJobApplication(){
 
         try{
-            manageJobApplicationsController.rejectApplication(navigator.getCurrentJobApplication());
+            manageJobApplicationController.rejectApplication(navigator.getCurrentJobApplication());
 
             navigator.showInfo("Application was rejected.");
 

@@ -1,7 +1,7 @@
 package view.openannouncementsdiscovery;
 
 import bean.JobAnnouncementBean;
-import controller.ManageJobApplicationsController;
+import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class OpenAnnouncementsDiscoveryGraphicController {
 
     protected Navigator navigator;
-    protected ManageJobApplicationsController manageJobApplicationsController =  new ManageJobApplicationsController();
+    protected ManageJobApplicationController manageJobApplicationController =  new ManageJobApplicationController();
 
     protected OpenAnnouncementsDiscoveryGraphicController(Navigator navigator) {
         this.navigator = navigator;
@@ -20,7 +20,7 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
 
         if (navigator.getJobAnnouncements() == null){
             navigator.setJobAnnouncements(
-                    manageJobApplicationsController.findOpenJobAnnouncements()
+                    manageJobApplicationController.findOpenJobAnnouncements()
             );
 
         }
@@ -48,7 +48,7 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
     protected boolean checkMusicianApplication(JobAnnouncementBean job){
 
         try{
-            return manageJobApplicationsController.isMusicianAppliedToJob(job, navigator.getMusician());
+            return manageJobApplicationController.isMusicianAppliedToJob(job, navigator.getMusician());
         }
         catch(ControllerLogicException e){
             navigator.showError(e.getMessage());
@@ -61,12 +61,12 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
     }
 
     protected void allStart(){
-        navigator.setJobAnnouncements(manageJobApplicationsController.findAllJobAnnouncements());
+        navigator.setJobAnnouncements(manageJobApplicationController.findAllJobAnnouncements());
         this.start();
     }
 
     protected void openStart(){
-        navigator.setJobAnnouncements(manageJobApplicationsController.findOpenJobAnnouncements());
+        navigator.setJobAnnouncements(manageJobApplicationController.findOpenJobAnnouncements());
         this.start();
     }
 

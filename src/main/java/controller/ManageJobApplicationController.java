@@ -18,7 +18,7 @@ import java.util.List;
 import static engineering.BeanConverter.fromBeanToNewJobAnnouncement;
 
 
-public class ManageJobApplicationsController {
+public class ManageJobApplicationController {
 
     private final JobAnnouncementDAO jobAnnouncementDAO = DAOFactory.getInstance().getJobAnnouncementDAO();
     private final JobApplicationDAO jobApplicationDAO = DAOFactory.getInstance().getJobApplicationDAO();

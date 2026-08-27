@@ -1,7 +1,7 @@
 package view.musiciandashboard;
 
 import bean.JobApplicationBean;
-import controller.ManageJobApplicationsController;
+import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 public abstract class MusicianDashboardGraphicController {
 
-    private final ManageJobApplicationsController manageJobApplicationsController = new  ManageJobApplicationsController();
+    private final ManageJobApplicationController manageJobApplicationController = new ManageJobApplicationController();
 
     protected Navigator navigator;
 
@@ -21,7 +21,7 @@ public abstract class MusicianDashboardGraphicController {
     protected List<JobApplicationBean> getApplications() {
 
         try {
-            navigator.setJobApplications(manageJobApplicationsController.findMusicianJobApplications(
+            navigator.setJobApplications(manageJobApplicationController.findMusicianJobApplications(
                     navigator.getSession())
             );
 

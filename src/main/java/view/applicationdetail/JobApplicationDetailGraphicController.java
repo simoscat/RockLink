@@ -1,13 +1,13 @@
 package view.applicationdetail;
 
-import controller.ManageJobApplicationsController;
+import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
 public abstract class JobApplicationDetailGraphicController {
 
     protected Navigator navigator;
-    protected final ManageJobApplicationsController manageJobApplicationsController =  new ManageJobApplicationsController();
+    protected final ManageJobApplicationController manageJobApplicationController =  new ManageJobApplicationController();
 
     protected JobApplicationDetailGraphicController(Navigator navigator) {
         this.navigator = navigator;
@@ -16,7 +16,7 @@ public abstract class JobApplicationDetailGraphicController {
     protected void acceptApplication(){
 
         try {
-            manageJobApplicationsController.acceptApplication(navigator.getCurrentJobApplication());
+            manageJobApplicationController.acceptApplication(navigator.getCurrentJobApplication());
 
             navigator.showInfo("Application was accepted! Going back to dashboard");
 
@@ -35,7 +35,7 @@ public abstract class JobApplicationDetailGraphicController {
     protected void rejectApplication(){
 
         try{
-            manageJobApplicationsController.rejectApplication(navigator.getCurrentJobApplication());
+            manageJobApplicationController.rejectApplication(navigator.getCurrentJobApplication());
 
             navigator.showInfo("Application rejected, going back to the job announcement.");
 

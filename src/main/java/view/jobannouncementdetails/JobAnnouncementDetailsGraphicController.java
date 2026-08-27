@@ -1,7 +1,7 @@
 package view.jobannouncementdetails;
 
 import bean.JobApplicationBean;
-import controller.ManageJobApplicationsController;
+import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
@@ -13,7 +13,7 @@ public abstract class JobAnnouncementDetailsGraphicController {
 
     protected Navigator navigator;
 
-    protected ManageJobApplicationsController jobAppController = new ManageJobApplicationsController();
+    protected ManageJobApplicationController jobAppController = new ManageJobApplicationController();
 
     protected JobAnnouncementDetailsGraphicController(Navigator navigator) {
         this.navigator = navigator;

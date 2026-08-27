@@ -1,7 +1,7 @@
 package view.promoterdashboard;
 
 import bean.JobAnnouncementBean;
-import controller.ManageJobApplicationsController;
+import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
@@ -19,7 +19,7 @@ public abstract class PromoterDashboardGraphicController {
 
         try {
 
-            List<JobAnnouncementBean> jobAnnouncements = new ManageJobApplicationsController().
+            List<JobAnnouncementBean> jobAnnouncements = new ManageJobApplicationController().
                     findPromoterPublishedJobAnnouncements(navigator.getSession());
 
             navigator.setJobAnnouncements(jobAnnouncements);

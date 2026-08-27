@@ -205,7 +205,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
             return icon(CHEVRON_RIGHT, "job-chevron", 0.667);
         }
 
-        JobApplicationBean myApplication = manageJobApplicationsController.findMusicianJobApplication(navigator.getMusician(), job);
+        JobApplicationBean myApplication = manageJobApplicationController.findMusicianJobApplication(navigator.getMusician(), job);
 
         Label badge = new Label(myApplication.getStatus());
         badge.getStyleClass().addAll("status-badge", applicationStatusClassFor(myApplication.getStatus()));
