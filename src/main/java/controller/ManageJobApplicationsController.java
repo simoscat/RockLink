@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static engineering.BeanConverter.fromBeanToJobAnnouncement;
+import static engineering.BeanConverter.fromBeanToNewJobAnnouncement;
 
 
 public class ManageJobApplicationsController {
@@ -78,7 +78,7 @@ public class ManageJobApplicationsController {
 
         return BeanConverter.fromJobApplicationToBean(
                 jobApplicationDAO.getJobApplication(musicianBean.getEmail(),
-                        fromBeanToJobAnnouncement(jobAnnouncement))
+                        fromBeanToNewJobAnnouncement(jobAnnouncement))
         );
 
     }
@@ -111,7 +111,7 @@ public class ManageJobApplicationsController {
 
     public List<JobApplicationBean> findJobAnnouncementApplications(JobAnnouncementBean jobAnnouncement){
 
-        JobAnnouncement job = fromBeanToJobAnnouncement(jobAnnouncement);
+        JobAnnouncement job = fromBeanToNewJobAnnouncement(jobAnnouncement);
 
         List<JobApplication> applications = jobApplicationDAO.getAllJobAnnouncementApplications(job);
 
@@ -131,7 +131,7 @@ public class ManageJobApplicationsController {
 
             JobApplication jobApplication = jobApplicationDAO.getJobApplication(
                     jobApplicationBean.getArtist().getEmail(),
-                    fromBeanToJobAnnouncement(jobApplicationBean.getJobAnnouncementReference())
+                    fromBeanToNewJobAnnouncement(jobApplicationBean.getJobAnnouncementReference())
             );
 
             JobAnnouncement jobAnnouncement = jobApplication.whichJobAnnouncement();
@@ -185,7 +185,7 @@ public class ManageJobApplicationsController {
 
             JobApplication jobApplication = jobApplicationDAO.getJobApplication(
                     jobApplicationBean.getArtist().getEmail(),
-                    fromBeanToJobAnnouncement(jobApplicationBean.getJobAnnouncementReference())
+                    fromBeanToNewJobAnnouncement(jobApplicationBean.getJobAnnouncementReference())
             );
 
             if (jobApplication.currentApplicationStatus().equals(ApplicationStatus.PENDING)) {
@@ -208,7 +208,7 @@ public class ManageJobApplicationsController {
     public void closeJobAnnouncement(JobAnnouncementBean jobAnnouncementBean){
 
         try {
-            JobAnnouncement job = fromBeanToJobAnnouncement(jobAnnouncementBean);
+            JobAnnouncement job = fromBeanToNewJobAnnouncement(jobAnnouncementBean);
 
             if (job.getStatus().equals(JobAnnouncementStatus.FILLED)) {
                 throw new ControllerLogicException("Can't close job announcement because someone" +
@@ -251,7 +251,7 @@ public class ManageJobApplicationsController {
                 throw new ControllerLogicException("Raise offer can't be negative");
             }
 
-            JobAnnouncement jobAnnouncement = fromBeanToJobAnnouncement(jobAnnouncementBean);
+            JobAnnouncement jobAnnouncement = fromBeanToNewJobAnnouncement(jobAnnouncementBean);
 
             if (jobApplicationDAO.getJobApplication(applicant.getEmail(), jobAnnouncement) != null) {
                 throw new ControllerLogicException("You have already applied for this job announcement");
@@ -279,7 +279,7 @@ public class ManageJobApplicationsController {
 
     public boolean isMusicianAppliedToJob(JobAnnouncementBean jobAnnouncementBean, MusicianBean musician){
 
-        JobAnnouncement job = fromBeanToJobAnnouncement(jobAnnouncementBean);
+        JobAnnouncement job = fromBeanToNewJobAnnouncement(jobAnnouncementBean);
 
         return jobApplicationDAO.getJobApplication(musician.getEmail(), job) != null;
 
@@ -288,7 +288,7 @@ public class ManageJobApplicationsController {
 
     public JobAnnouncementBean getUpdatedAnnouncement(JobAnnouncementBean currentJobAnnouncement) {
 
-        JobAnnouncement job = fromBeanToJobAnnouncement(currentJobAnnouncement);
+        JobAnnouncement job = fromBeanToNewJobAnnouncement(currentJobAnnouncement);
 
         job = jobAnnouncementDAO.getFromCache(jobAnnouncementDAO.getUniqueId(job));
 

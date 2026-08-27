@@ -43,6 +43,10 @@ public final class BeanConverter {
         bean.setHiredArtist(fromArtistToBean(ja.whoWasHired()));
         bean.setJobAnnouncementStatus(ja.getStatus().name());
 
+        JobAnnouncement baseJa = JobDecoratorManager.unwrapJobAnnouncement(ja);
+        bean.setBaseTitle(baseJa.getTitle());
+        bean.setBaseContent(baseJa.getContent());
+
         return bean;
 
     }
@@ -79,11 +83,11 @@ public final class BeanConverter {
         return null;
     }
 
-    public static JobAnnouncement fromBeanToJobAnnouncement(JobAnnouncementBean jobAnnouncement) {
+    public static JobAnnouncement fromBeanToNewJobAnnouncement(JobAnnouncementBean jobAnnouncement) {
 
         JobAnnouncement job = new ConcreteJobAnnouncement(
-                jobAnnouncement.getTitle(),
-                jobAnnouncement.getContent(),
+                jobAnnouncement.getBaseTitle(),
+                jobAnnouncement.getBaseContent(),
                 jobAnnouncement.getDate(),
                 jobAnnouncement.getPublishDate(),
                 fromBeanToPromoter(jobAnnouncement.getPromoter()),

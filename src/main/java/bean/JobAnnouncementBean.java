@@ -13,6 +13,8 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
     private ArtistBean hiredArtist;
     private String jobAnnouncementStatus;
     private List<JobAnnouncementTag> tags;
+    private String baseTitle;
+    private String baseContent;
 
     public JobAnnouncementBean(String title, String content, LocalDateTime date,
                                PromoterBean promoter, MoneyValueBean moneyValue, String address,
@@ -71,6 +73,22 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
 
     public List<JobAnnouncementTag> getTags() {
         return tags;
+    }
+
+    public void setBaseTitle(String baseTitle) {
+        this.baseTitle = baseTitle;
+    }
+
+    public String getBaseTitle() {
+        return baseTitle != null ? baseTitle : getTitle();
+    }
+
+    public void setBaseContent(String baseContent) {
+        this.baseContent = baseContent;
+    }
+
+    public String getBaseContent() {
+        return baseContent != null ? baseContent : getContent();
     }
 
 }
