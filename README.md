@@ -1,10 +1,11 @@
 # Progetto ISPW: RockLink
+
+![rocklink](logo.svg)
+
 ## Di che si tratta?
 Questo repository è dedicato al progetto di Ingegneria del software e Progettazione Web dell'Università di Tor Vergata.
 
 ## Il progetto
-
-![[logo.svg]]
 
 RockLink è una piattaforma di networking orientata a musicisti e promoter di serate musicali. Il sistema ha
 l'obiettivo di consentire ai musicisti di unirsi a delle band o esibirsi a delle serate in cambio di compenso,
