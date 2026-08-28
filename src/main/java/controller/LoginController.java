@@ -115,6 +115,10 @@ public class LoginController {
                         PasswordChecker.getInvalidCharacters());
             }
 
+            if (musician.getInstruments().isEmpty()){
+                throw new ControllerLogicException("Can't have empty instrument list");
+            }
+
             String cryptPassword = PasswordEncrypter.encryptPassword(musician.getPassword());
 
             Credential creds = new Credential(email, cryptPassword);
@@ -145,6 +149,10 @@ public class LoginController {
             if (!PasswordChecker.isPasswordValid(promoter.getPassword())){
                 throw new ControllerLogicException("Invalid password. You can't use these characters: "+
                         PasswordChecker.getInvalidCharacters());
+            }
+
+            if (promoter.getContacts().isEmpty()){
+                throw new ControllerLogicException("Can't have empty contact list");
             }
 
             String cryptPassword = PasswordEncrypter.encryptPassword(promoter.getPassword());

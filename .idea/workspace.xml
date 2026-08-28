@@ -7,9 +7,7 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/decorator/TestDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/decorator/TestDecorator.java" afterDir="false" />
-    </list>
+    <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +19,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="207" />
+    <option name="cachedIndexableFilesCount" value="206" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -77,54 +75,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "JUnit.TestDecorator.executor": "Run",
-    "JUnit.TestEmailChecker.executor": "Run",
-    "JUnit.TestEmailChecker.testNoAtEmail.executor": "Run",
-    "JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement.executor": "Run",
-    "JUnit.TestJobApplicationDAO.testJobApplicationAndJobAnnouncementDAO.executor": "Run",
-    "JUnit.TestMusicianDAO.cacheTest.executor": "Run",
-    "JUnit.TestMusicianDAO.executor": "Run",
-    "JUnit.TestMusicianDAO.testAddMusician.executor": "Run",
-    "JUnit.TestPasswordEncrypt.testPasswordEncrypting.executor": "Run",
-    "JUnit.TestPromoterDAO.executor": "Run",
-    "JUnit.dao in RockLink.executor": "Run",
-    "JUnit.decorator in RockLink.executor": "Run",
-    "JUnit.engineering in RockLink.executor": "Run",
-    "JUnit.java in RockLink.executor": "Run",
-    "JUnit.passwordEncryption in RockLink.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/luma/Documenti/Anno 3.1/ISPW-Nuovo/RockLink/src/main/java/view",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDecorator.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestEmailChecker.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestEmailChecker.testNoAtEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestJobAnnouncementDAO.testAddDecoratedJobAnnouncement.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestJobApplicationDAO.testJobApplicationAndJobAnnouncementDAO.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestMusicianDAO.cacheTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestMusicianDAO.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestMusicianDAO.testAddMusician.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestPasswordEncrypt.testPasswordEncrypting.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestPromoterDAO.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.dao in RockLink.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.decorator in RockLink.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.engineering in RockLink.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in RockLink.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.passwordEncryption in RockLink.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/luma/Documenti/Anno 3.1/ISPW-Nuovo/RockLink/src/main/java/view&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="engineering" />
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in RockLink">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="RockLink" />
@@ -179,8 +177,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in RockLink" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.java in RockLink" />
         <item itemvalue="JUnit.passwordEncryption in RockLink" />
         <item itemvalue="JUnit.engineering in RockLink" />
         <item itemvalue="JUnit.decorator in RockLink" />
@@ -229,7 +227,9 @@
       <workItem from="1787777350955" duration="519000" />
       <workItem from="1787778858926" duration="53000" />
       <workItem from="1787823112961" duration="4045000" />
-      <workItem from="1787829785141" duration="558000" />
+      <workItem from="1787829785141" duration="7678000" />
+      <workItem from="1787906480179" duration="1135000" />
+      <workItem from="1787913878279" duration="1717000" />
     </task>
     <servers />
   </component>
