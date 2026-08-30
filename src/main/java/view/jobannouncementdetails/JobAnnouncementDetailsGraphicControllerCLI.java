@@ -161,16 +161,18 @@ public class JobAnnouncementDetailsGraphicControllerCLI extends JobAnnouncementD
 
     private void promoterMenu(){
 
-        System.out.println("Available operations: ");
 
-        System.out.println("[1] Mark Job Announcement as CLOSED");
-        System.out.println("[2] View Job Applications");
-        System.out.println("[3] Go back");
-        System.out.print("> ");
 
         boolean done = false;
 
         while (!done){
+            
+            System.out.println("Available operations: ");
+
+            System.out.println("[1] Mark Job Announcement as CLOSED");
+            System.out.println("[2] View Job Applications");
+            System.out.println("[3] Go back");
+            System.out.print("> ");
 
             switch(scanner.nextLine().trim()){
 

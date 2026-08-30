@@ -35,7 +35,7 @@ public class JobApplicationDAOJson extends JobApplicationDAO {
         for (int i = 0; i < applications.length(); i++) {
 
             JSONObject obj = applications.getJSONObject(i);
-            if (obj.getString("email").equals(candidateEmail) &&
+            if (obj.getString(CANDIDATE_EMAIL_FIELD).equals(candidateEmail) &&
             obj.getString(ANNOUNCEMENT_ID_FIELD).equals(jobAnnouncementDAO.getUniqueId(jobAnnouncement))) {
                 return parseJson(obj);
             }

@@ -202,7 +202,9 @@ public abstract class Navigator {
     public abstract void viewNotifications();
 
     public void close() {
-        SessionManager.getInstance().deleteSession(this.getSession().getId());
+        if (this.getSession() != null){
+            SessionManager.getInstance().deleteSession(this.getSession().getId());
+        }
         System.exit(0);
     }
 
