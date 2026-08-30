@@ -16,7 +16,6 @@ import engineering.enums.Gender;
 import engineering.enums.Mastery;
 import exception.ControllerLogicException;
 import exception.DAOException;
-import exception.WrongCredentialsException;
 import model.*;
 
 import java.util.ArrayList;
@@ -63,12 +62,12 @@ public class LoginController {
             }
         }
         catch (DAOException _) {
-            throw new WrongCredentialsException("Invalid musician credentials");
+            throw new ControllerLogicException("Invalid musician credentials");
         }
 
     }
 
-    public SessionBean promoterLogin(PromoterBean promoter) throws WrongCredentialsException {
+    public SessionBean promoterLogin(PromoterBean promoter) {
 
         try {
             Credential creds = authDAO.getPromoterCredential(promoter.getEmail());
@@ -93,7 +92,7 @@ public class LoginController {
             }
         }
         catch (DAOException _) {
-            throw new WrongCredentialsException("Invalid promoter credentials");
+            throw new ControllerLogicException("Invalid promoter credentials");
         }
 
     }

@@ -144,8 +144,8 @@ public final class BeanConverter {
     public static NotificationBean fromNotificationToBean(Notification notification) {
 
         if (notification != null) return new NotificationBean(
-                notification.getSender().getEmail(),
-                notification.getReceiver().getEmail(),
+                notification.getSender().getName() + " " + notification.getSender().getSurname(),
+                notification.getReceiver().getName() + " " + notification.getReceiver().getSurname(),
                 notification.getEvent(),
                 notification.getTimeStamp(),
                 fromJobAnnouncementToBean(notification.getJobAnnouncement())

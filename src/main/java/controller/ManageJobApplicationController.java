@@ -218,7 +218,7 @@ public class ManageJobApplicationController {
             JobAnnouncement job = resolveJobAnnouncementBean(jobAnnouncementBean);
 
             if (job.getStatus().equals(JobAnnouncementStatus.FILLED)) {
-                throw new ControllerLogicException("Can't close job announcement because someone" +
+                throw new ControllerLogicException("Can't close job announcement because someone " +
                         "was already hired");
             }
             else if (job.getStatus().equals(JobAnnouncementStatus.CLOSED)) {
@@ -286,20 +286,28 @@ public class ManageJobApplicationController {
 
     public boolean isMusicianAppliedToJob(JobAnnouncementBean jobAnnouncementBean, MusicianBean musician){
 
-        JobAnnouncement job = resolveJobAnnouncementBean(jobAnnouncementBean);
+        try {
+            JobAnnouncement job = resolveJobAnnouncementBean(jobAnnouncementBean);
 
-        return jobApplicationDAO.getJobApplication(musician.getEmail(), job) != null;
+            return jobApplicationDAO.getJobApplication(musician.getEmail(), job) != null;
+        } catch (DAOException _) {
+            throw new ControllerLogicException("Couldn't access applications");
+        }
 
     }
 
 
     public JobAnnouncementBean getUpdatedAnnouncement(JobAnnouncementBean currentJobAnnouncement) {
 
-        JobAnnouncement job = resolveJobAnnouncementBean(currentJobAnnouncement);
+        try {
+            JobAnnouncement job = resolveJobAnnouncementBean(currentJobAnnouncement);
 
-        if (job != null) return BeanConverter.fromJobAnnouncementToBean(job);
+            if (job != null) return BeanConverter.fromJobAnnouncementToBean(job);
 
-        return null;
+            return null;
+        } catch (DAOException _) {
+            throw new ControllerLogicException("Couldn't access job announcement");
+        }
 
     }
 

@@ -1,4 +1,4 @@
-package bean;;
+package bean;
 
 public abstract class UserBean {
     private String name;

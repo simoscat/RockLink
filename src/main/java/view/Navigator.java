@@ -93,6 +93,9 @@ public abstract class Navigator {
     }
 
     public void restart(){
+        if (this.context.getSession() != null){
+            SessionManager.getInstance().deleteSession(context.getSession().getId());
+        }
         this.context = new Context();
         this.currentScreen = null;
         logout();
@@ -178,6 +181,10 @@ public abstract class Navigator {
     }
 
     public void goToNotifications(){
+        if (this.currentScreen == Screen.MUSICIAN_DASHBOARD || this.currentScreen == Screen.PROMOTER_DASHBOARD
+        || this.currentScreen == Screen.OPEN_ANNOUNCEMENTS_DISCOVERY){
+            setPreviousScreen();
+        }
         setCurrentScreen(Screen.NOTIFICATIONS);
         viewNotifications();
     }

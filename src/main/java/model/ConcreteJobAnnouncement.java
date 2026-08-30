@@ -46,7 +46,9 @@ public class ConcreteJobAnnouncement extends BaseAnnouncement implements JobAnno
 
     @Override
     public void setStatus(JobAnnouncementStatus status) {
-        this.jobAnnouncementStatus = status;
+        if (this.hiredArtist == null) {
+            this.jobAnnouncementStatus = status;
+        }
     }
 
     @Override

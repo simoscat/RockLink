@@ -139,7 +139,7 @@
                                             <ToggleButton fx:id="skillAmateurToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="skill-toggle" text="AMATEUR" toggleGroup="$skillToggleGroup" HBox.hgrow="ALWAYS" />
                                             <ToggleButton fx:id="skillBeginnerToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" selected="true" styleClass="skill-toggle" text="BEGINNER" toggleGroup="$skillToggleGroup" HBox.hgrow="ALWAYS" />
                                             <ToggleButton fx:id="skillIntermediateToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="skill-toggle" text="INTERMEDIATE" toggleGroup="$skillToggleGroup" HBox.hgrow="ALWAYS" />
-                                            <ToggleButton fx:id="skillExpertToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="skill-toggle" text="EXPERT" toggleGroup="$skillToggleGroup" HBox.hgrow="ALWAYS" />
+                                            <ToggleButton fx:id="skillExpertToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="skill-toggle" text="EXPERIENCED" toggleGroup="$skillToggleGroup" HBox.hgrow="ALWAYS" />
                                             <ToggleButton fx:id="skillMasterToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="skill-toggle" text="MASTER" toggleGroup="$skillToggleGroup" HBox.hgrow="ALWAYS" />
                                         </HBox>
                                     </VBox>

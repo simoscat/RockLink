@@ -6,7 +6,6 @@ import bean.SessionBean;
 import controller.LoginController;
 import engineering.enums.Role;
 import exception.ControllerLogicException;
-import exception.WrongCredentialsException;
 import view.Navigator;
 
 
@@ -50,7 +49,7 @@ public abstract class LoginGraphicController {
 
                 navigator.goToMusicianDashboard();
 
-            } catch (WrongCredentialsException | ControllerLogicException | IllegalArgumentException e) {
+            } catch (ControllerLogicException | IllegalArgumentException e) {
                 navigator.showError(e.getMessage());
                 start();
             }

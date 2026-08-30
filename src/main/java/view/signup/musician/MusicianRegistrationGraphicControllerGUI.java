@@ -155,7 +155,7 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
         ToggleButton amateur = new ToggleButton("AMATEUR");
         ToggleButton beginner = new ToggleButton("BEGINNER");
         ToggleButton intermediate = new ToggleButton("INTERMEDIATE");
-        ToggleButton expert = new ToggleButton("EXPERT");
+        ToggleButton expert = new ToggleButton("EXPERIENCED");
         ToggleButton master = new ToggleButton("MASTER");
 
         setSkillUserData(amateur, beginner, intermediate, expert, master);
