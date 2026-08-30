@@ -9,16 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/musicians.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/musicians.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/musicians_creds.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/musicians_creds.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/musicians_instruments.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/musicians_instruments.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/promoters.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/promoters.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/promoters_creds.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/promoters_creds.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageJobApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MusicianRegistrationView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MusicianRegistrationView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/job_announcements.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_announcements.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/job_applications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_applications.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/notifications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/notifications.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/notifications/NotificationsGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/notifications/NotificationsGraphicController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

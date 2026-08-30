@@ -44,6 +44,8 @@ public abstract class NotificationsGraphicController {
                             navigator.getPromoter()
             ));
 
+            navigator.getNotifications().sort((n1, n2) -> n2.getTime().compareTo(n1.getTime()));
+
             return navigator.getNotifications();
         }
         catch (NotificationException e){
