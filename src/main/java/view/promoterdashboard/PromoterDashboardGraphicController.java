@@ -5,6 +5,7 @@ import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class PromoterDashboardGraphicController {
@@ -26,11 +27,11 @@ public abstract class PromoterDashboardGraphicController {
 
         } catch (ControllerLogicException e) {
             navigator.showError(e.getMessage());
-            start();
+            navigator.setJobAnnouncements(new ArrayList<>());
         }
         catch (RuntimeException e){
             navigator.showError("Internal error: "+ e.getMessage());
-            start();
+            navigator.setJobAnnouncements(new ArrayList<>());
         }
 
         return navigator.getJobAnnouncements();

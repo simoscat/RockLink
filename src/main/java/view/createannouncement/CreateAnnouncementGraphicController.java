@@ -29,7 +29,7 @@ public abstract class CreateAnnouncementGraphicController {
 
         }
         catch (ControllerLogicException e){
-            navigator.showError(e.getMessage() + "\nCause: " + e.getCause().getMessage() + "\n Going back to dashboard");
+            navigator.showError(e.getMessage()+"\nAnnouncement not published. Going back to dashboard.");
         }
         catch (RuntimeException e){
             navigator.showError("Internal error: " + e.getMessage()+"\nAnnouncement not published. Going back to dashboard");

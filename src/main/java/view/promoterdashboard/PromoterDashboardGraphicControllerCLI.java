@@ -82,6 +82,7 @@ public class PromoterDashboardGraphicControllerCLI extends PromoterDashboardGrap
             System.out.println("[0] Publish a new job announcement");
             System.out.println("[N] Open Job Announcement (type announcement number) ");
             System.out.println("[V] View notifications");
+            System.out.println("[R] Reload dashboard");
             System.out.println("[X] Logout");
             System.out.print("> ");
 
@@ -95,9 +96,11 @@ public class PromoterDashboardGraphicControllerCLI extends PromoterDashboardGrap
             }
             else if (operation.equalsIgnoreCase("R")) {
                 reloadDashboard();
+                return;
             }
             else if (operation.equalsIgnoreCase("V")) {
                 viewNotifications();
+                return;
             }
 
             else {

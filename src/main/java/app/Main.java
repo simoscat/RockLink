@@ -3,7 +3,7 @@ package app;
 import view.FontManager;
 import javafx.application.Platform;
 import view.Navigator;
-import view.factories.NavigatorFactory;
+import view.NavigatorFactory;
 
 public class Main {
     static void main() {

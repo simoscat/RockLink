@@ -53,7 +53,7 @@ public class AuthDAOJson extends AuthDAO {
 
         for (int i = 0; i < credentials.length(); i++) {
             JSONObject obj = credentials.getJSONObject(i);
-            if (obj.getString(EMAIL_KEY).equalsIgnoreCase(email)) {
+            if (obj.getString(EMAIL_KEY).equals(email)) {
                 return new Credential(obj.getString(EMAIL_KEY), obj.getString(PASSWORD_KEY));
             }
         }

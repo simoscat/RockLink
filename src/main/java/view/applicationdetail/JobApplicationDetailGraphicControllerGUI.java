@@ -55,7 +55,7 @@ public class JobApplicationDetailGraphicControllerGUI extends JobApplicationDeta
             return;
         }
 
-        JobApplicationBean application = navigator.getCurrentJobApplication();
+        JobApplicationBean application = getCurrentJobApplication();
 
         String status = application.getStatus();
         statusBadge.setText(status);

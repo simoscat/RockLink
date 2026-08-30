@@ -9,6 +9,9 @@ public final class EmailChecker {
                     + "(?:[a-zA-Z0-9-]++\\.)++[a-zA-Z]{2,7}$";
 
     public static boolean isValidEmail(String email){
+
+        if (email == null) return false;
+
         return email.matches(EMAIL_REGEX);
     }
 

@@ -12,10 +12,10 @@ public class LongTimeContractDecorator extends JobAnnouncementDecorator {
     public String getTitle(){
         String old = super.getTitle();
 
-        return applyUrgentDecorator(old);
+        return applyLTCDecorator(old);
     }
 
-    private String applyUrgentDecorator(String old){
+    private String applyLTCDecorator(String old){
         return "[Long Time Contract] " + old;
     }
 }

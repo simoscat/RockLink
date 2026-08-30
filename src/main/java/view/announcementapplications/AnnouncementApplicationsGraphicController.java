@@ -5,9 +5,12 @@ import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AnnouncementApplicationsGraphicController {
+
+    private static final String INTERNAL_ERROR_MSG = "Internal error: ";
 
     protected ManageJobApplicationController manageJobApplicationController = new ManageJobApplicationController();
 
@@ -19,11 +22,19 @@ public abstract class AnnouncementApplicationsGraphicController {
 
     protected List<JobApplicationBean> getJobApplications(){
 
-        navigator.setJobApplications(manageJobApplicationController.findJobAnnouncementApplications(
-                navigator.getCurrentJobAnnouncement()
-        ));
+        try {
+            navigator.setJobApplications(manageJobApplicationController.findJobAnnouncementApplications(
+                    navigator.getCurrentJobAnnouncement()
+            ));
 
-        return navigator.getJobApplications();
+            return navigator.getJobApplications();
+        } catch (ControllerLogicException e) {
+            navigator.showError(e.getMessage());
+        } catch (RuntimeException e){
+            navigator.showError(INTERNAL_ERROR_MSG + e.getMessage());
+        }
+
+        return new ArrayList<>();
 
     }
 
@@ -51,7 +62,7 @@ public abstract class AnnouncementApplicationsGraphicController {
             this.start();
         }
         catch(RuntimeException e){
-            navigator.showError("Internal error: "+ e.getMessage());
+            navigator.showError(INTERNAL_ERROR_MSG + e.getMessage());
             this.start();
         }
     }
@@ -70,7 +81,7 @@ public abstract class AnnouncementApplicationsGraphicController {
             this.start();
         }
         catch(RuntimeException e){
-            navigator.showError("Internal error: "+ e.getMessage());
+            navigator.showError(INTERNAL_ERROR_MSG + e.getMessage());
             this.start();
         }
 

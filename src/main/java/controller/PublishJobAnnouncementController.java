@@ -33,6 +33,10 @@ public class PublishJobAnnouncementController {
 
             eventDate = jobAnnouncementBean.getDate();
 
+            if (eventDate == null){
+                throw new ControllerLogicException("Date can't be empty");
+            }
+
             CurrencyType currency;
 
             currency = CurrencyType.valueOf(jobAnnouncementBean.getMoneyValue().getCurrency().toUpperCase());

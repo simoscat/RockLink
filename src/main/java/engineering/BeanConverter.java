@@ -1,6 +1,7 @@
 package engineering;
 
 import bean.*;
+import dao.factories.DAOFactory;
 import engineering.enums.*;
 import engineering.persistency.JobDecoratorManager;
 import model.*;
@@ -14,7 +15,7 @@ public final class BeanConverter {
 
     public static PromoterBean fromPromoterToBean(Promoter p){
 
-        return new PromoterBean(
+        if (p != null) return new PromoterBean(
                 p.getName(),
                 p.getSurname(),
                 p.getEmail(),
@@ -22,10 +23,13 @@ public final class BeanConverter {
                 "", //password is only used in login
                 p.howToContact()
         );
+        return null;
 
     }
 
     public static JobAnnouncementBean fromJobAnnouncementToBean(JobAnnouncement ja){
+
+        if (ja == null) return null;
 
         List<JobAnnouncementTag> taglist = JobDecoratorManager.getTagsList(ja);
 
@@ -47,27 +51,31 @@ public final class BeanConverter {
         bean.setBaseTitle(baseJa.getTitle());
         bean.setBaseContent(baseJa.getContent());
 
+        bean.setId(DAOFactory.getInstance().getJobAnnouncementDAO().getUniqueId(ja));
+
         return bean;
 
     }
 
     public static MoneyValueBean fromMoneyValueToBean(MoneyValue mv){
 
-        return new MoneyValueBean(
+        if (mv != null) return new MoneyValueBean(
                 mv.whichCurrency().name(),
                 mv.moneyAmount()
         );
+        return null;
 
     }
 
     public static JobApplicationBean fromJobApplicationToBean(JobApplication ja){
 
-        return new JobApplicationBean(
+        if (ja != null) return new JobApplicationBean(
                 fromArtistToBean(ja.whoIsCandidate()),
                 ja.currentApplicationStatus().name(),
                 ja.currentRaiseAmount(),
                 fromJobAnnouncementToBean(ja.whichJobAnnouncement())
         );
+        return null;
 
     }
 
@@ -83,48 +91,9 @@ public final class BeanConverter {
         return null;
     }
 
-    public static JobAnnouncement fromBeanToNewJobAnnouncement(JobAnnouncementBean jobAnnouncement) {
-
-        JobAnnouncement job = new ConcreteJobAnnouncement(
-                jobAnnouncement.getBaseTitle(),
-                jobAnnouncement.getBaseContent(),
-                jobAnnouncement.getDate(),
-                jobAnnouncement.getPublishDate(),
-                fromBeanToPromoter(jobAnnouncement.getPromoter()),
-                fromBeanToMoneyValue(jobAnnouncement.getMoneyValue()),
-                jobAnnouncement.getAddress()
-        );
-
-        job.setStatus(JobAnnouncementStatus.valueOf(jobAnnouncement.getJobAnnouncementStatus()));
-
-        List<JobAnnouncementTag> tagList = jobAnnouncement.getTags();
-
-        return JobDecoratorManager.applyDecorators(job, tagList);
-
-    }
-
-    public static MoneyValue fromBeanToMoneyValue(MoneyValueBean moneyValue) {
-
-        return new MoneyValue(
-                moneyValue.getValue(),
-                CurrencyType.valueOf(moneyValue.getCurrency())
-        );
-
-    }
-
-    public static Promoter fromBeanToPromoter(PromoterBean promoter) {
-
-        return new Promoter(
-                promoter.getName(),
-                promoter.getSurname(),
-                promoter.getEmail(),
-                Gender.valueOf(promoter.getGender()),
-                promoter.getContacts()
-        );
-
-    }
-
     public static Musician fromBeanToMusician(MusicianBean musician) {
+
+        if (musician == null) return null;
 
         List<Instrument> instruments = new ArrayList<>();
 
@@ -145,14 +114,17 @@ public final class BeanConverter {
 
     public static Instrument fromBeanToInstrument(InstrumentBean instrument) {
 
-        return new Instrument(
+        if (instrument != null) return new Instrument(
                 instrument.getName(),
                 Mastery.valueOf(instrument.getMastery())
         );
+        return null;
 
     }
 
     public static List<JobAnnouncementBean> fromJobAnnouncementsToBeans(List<JobAnnouncement> jobAnnouncements) {
+
+        if (jobAnnouncements == null) return new ArrayList<>();
 
         List<JobAnnouncementBean> beans = new ArrayList<>();
 
@@ -171,13 +143,15 @@ public final class BeanConverter {
 
     public static NotificationBean fromNotificationToBean(Notification notification) {
 
-        return new NotificationBean(
+        if (notification != null) return new NotificationBean(
                 notification.getSender().getEmail(),
                 notification.getReceiver().getEmail(),
                 notification.getEvent(),
                 notification.getTimeStamp(),
                 fromJobAnnouncementToBean(notification.getJobAnnouncement())
         );
+
+        return null;
 
     }
 

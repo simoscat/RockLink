@@ -64,6 +64,7 @@ public class NavigatorGUI extends Navigator {
         this.announcementDetails = null;
         this.announcementApplications = null;
         this.createAnnouncement = null;
+        this.notifications = null;
         this.applicationDetails = null;
         this.announcementDiscovery = null;
     }

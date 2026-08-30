@@ -122,10 +122,9 @@ public class LoginController {
             String cryptPassword = PasswordEncrypter.encryptPassword(musician.getPassword());
 
             Credential creds = new Credential(email, cryptPassword);
+            Musician m = this.createMusician(musician);
 
-            authDAO.registerMusician(creds);
-
-            this.createAndSaveMusician(musician);
+            saveNewMusician(creds, m);
 
             return this.musicianLogIn(musician); // we log in after registration
 
@@ -135,6 +134,16 @@ public class LoginController {
             throw new ControllerLogicException("Registration failed: "+e.getMessage());
         }
 
+    }
+
+    private void saveNewMusician(Credential creds, Musician m) {
+        try {
+            musicianDAO.save(m);
+            authDAO.registerMusician(creds);
+        }
+        catch (DAOException _) {
+            throw new ControllerLogicException("Musician saving failed. Please contact support.");
+        }
     }
 
     public SessionBean promoterRegistration(PromoterBean promoter) {
@@ -159,9 +168,9 @@ public class LoginController {
 
             Credential creds = new Credential(email, cryptPassword);
 
-            authDAO.registerPromoter(creds);
+            Promoter p = createPromoter(promoter);
 
-            this.createAndSavePromoter(promoter);
+            saveNewPromoter(creds, p);
 
             return this.promoterLogin(promoter);
 
@@ -175,7 +184,17 @@ public class LoginController {
 
     }
 
-    private void createAndSaveMusician(MusicianBean musician) {
+    private void saveNewPromoter(Credential creds, Promoter p) {
+        try {
+            promoterDAO.save(p);
+            authDAO.registerPromoter(creds);
+        }
+        catch (DAOException _) {
+            throw new ControllerLogicException("Promoter saving failed. Please contact support.");
+        }
+    }
+
+    private Musician createMusician(MusicianBean musician) {
 
         List<Instrument> instruments = new ArrayList<>();
 
@@ -188,7 +207,7 @@ public class LoginController {
             instruments.add(i);
         }
 
-        Musician m = new Musician(
+        return new Musician(
                 musician.getName(),
                 musician.getSurname(),
                 musician.getStageName(),
@@ -197,31 +216,17 @@ public class LoginController {
                 instruments
         );
 
-        try {
-            musicianDAO.save(m);
-        }
-        catch (DAOException _) {
-            throw new ControllerLogicException("Musician saving failed. Please contact support.");
-        }
-
     }
 
-    private void createAndSavePromoter(PromoterBean promoter) {
+    private Promoter createPromoter(PromoterBean promoter) {
 
-        Promoter p = new Promoter(
+        return new Promoter(
                 promoter.getName(),
                 promoter.getSurname(),
                 promoter.getEmail(),
                 Gender.valueOf(promoter.getGender()),
                 promoter.getContacts()
         );
-
-        try {
-            promoterDAO.save(p);
-        }
-        catch (DAOException _) {
-            throw new ControllerLogicException("Promoter saving failed. Please contact support.");
-        }
 
     }
 

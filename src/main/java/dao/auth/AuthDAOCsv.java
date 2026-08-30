@@ -130,6 +130,11 @@ public class AuthDAOCsv extends AuthDAO {
     }
 
     private void registerUser(Credential credential, String path) {
+
+        if (invalidEmail(credential.getEmail())) {
+            throw new DAOException("Invalid email: " + credential.getEmail());
+        }
+
         List<String> lines = readAllLinesAndRegister(credential, path);
         
         File file = new File(path);

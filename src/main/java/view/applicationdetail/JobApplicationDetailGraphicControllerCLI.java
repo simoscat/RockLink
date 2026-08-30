@@ -26,7 +26,7 @@ public class JobApplicationDetailGraphicControllerCLI extends JobApplicationDeta
 
         System.out.println("Applicant Details");
 
-        Map<String, String> details = navigator.getCurrentJobApplication().getArtist().getDetails();
+        Map<String, String> details = getCurrentJobApplication().getArtist().getDetails();
 
         for (Map.Entry<String, String> entry : details.entrySet()) {
 

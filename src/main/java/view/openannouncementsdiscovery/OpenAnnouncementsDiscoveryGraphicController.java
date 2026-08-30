@@ -1,10 +1,12 @@
 package view.openannouncementsdiscovery;
 
 import bean.JobAnnouncementBean;
+import bean.JobApplicationBean;
 import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class OpenAnnouncementsDiscoveryGraphicController {
@@ -12,19 +14,31 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
     protected Navigator navigator;
     protected ManageJobApplicationController manageJobApplicationController =  new ManageJobApplicationController();
 
+    private static final String INTERNAL_ERROR_MSG = "Internal error: ";
+
     protected OpenAnnouncementsDiscoveryGraphicController(Navigator navigator) {
         this.navigator = navigator;
     }
 
     protected List<JobAnnouncementBean> findOpenJobAnnouncements(){
 
-        if (navigator.getJobAnnouncements() == null){
-            navigator.setJobAnnouncements(
-                    manageJobApplicationController.findOpenJobAnnouncements()
-            );
+        try {
 
+            if (navigator.getJobAnnouncements() == null){
+                navigator.setJobAnnouncements(
+                        manageJobApplicationController.findOpenJobAnnouncements()
+                );
+            }
+
+            return navigator.getJobAnnouncements();
+
+        } catch (ControllerLogicException e) {
+            navigator.showError(e.getMessage());
+        } catch (RuntimeException e) {
+            navigator.showError(INTERNAL_ERROR_MSG + e.getMessage());
         }
-        return navigator.getJobAnnouncements();
+
+        return new ArrayList<>();
 
     }
 
@@ -54,7 +68,7 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
             navigator.showError(e.getMessage());
         }
         catch(RuntimeException e){
-            navigator.showError("Internal error: "+e.getMessage());
+            navigator.showError(INTERNAL_ERROR_MSG + e.getMessage());
         }
         return false;
 
@@ -68,6 +82,18 @@ public abstract class OpenAnnouncementsDiscoveryGraphicController {
     protected void openStart(){
         navigator.setJobAnnouncements(manageJobApplicationController.findOpenJobAnnouncements());
         this.start();
+
+    }
+
+    protected JobApplicationBean findMusicianJobApplication(JobAnnouncementBean job){
+        try{
+            return manageJobApplicationController.findMusicianJobApplication(navigator.getMusician(), job);
+        } catch(ControllerLogicException e){
+            navigator.showError(e.getMessage());
+        } catch (RuntimeException e){
+            navigator.showError(INTERNAL_ERROR_MSG + e.getMessage());
+        }
+        return null;
     }
 
     public abstract void start();

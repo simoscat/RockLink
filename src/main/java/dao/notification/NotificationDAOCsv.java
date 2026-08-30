@@ -44,11 +44,11 @@ public class NotificationDAOCsv extends NotificationDAO {
 
             while ((line = br.readLine()) != null) {
 
-                if (line.isEmpty()) {
+                if (line.isBlank()) {
                     continue;
                 }
 
-                String[] fields = line.split(CSV_SEPARATOR);
+                String[] fields = line.split(CSV_SEPARATOR, -1);
 
                 if (fields[RECEIVER_FIELD].equals(email)){
                     notifications.add(parseFields(fields));

@@ -13,6 +13,7 @@ public class ConcreteJobAnnouncement extends BaseAnnouncement implements JobAnno
     private Artist hiredArtist = null;
     private JobAnnouncementStatus jobAnnouncementStatus;
 
+    //7 args constructor to avoid sonar smell (status is not initialized)
     public ConcreteJobAnnouncement(String title, String content, LocalDateTime date, LocalDateTime publishDate,
                                    Promoter promoter, MoneyValue salary, String address) {
         super(title, content, date, publishDate);

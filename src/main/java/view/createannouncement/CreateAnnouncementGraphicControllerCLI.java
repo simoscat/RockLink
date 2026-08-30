@@ -148,9 +148,10 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
 
             try{
                 System.out.print("Pay amount: ");
-                String money = scanner.nextLine();
+                String money = scanner.nextLine().trim();
+                BigDecimal amount = new BigDecimal(money);
 
-                if (Float.parseFloat(money) <= 0) {
+                if (amount.compareTo(BigDecimal.ZERO) <= 0) {
                     navigator.showError("Invalid pay amount");
                     continue;
                 }
@@ -176,7 +177,7 @@ public class CreateAnnouncementGraphicControllerCLI extends CreateAnnouncementGr
 
                 return new MoneyValueBean(
                         currency,
-                        BigDecimal.valueOf(Float.parseFloat(money))
+                        amount
                 );
 
             }

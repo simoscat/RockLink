@@ -86,8 +86,8 @@ public class PromoterDAOCsv extends PromoterDAO {
             if (fields.length < MIN_FIELDS || !fields[0].equals(email)) return null;
 
             String csvEmail = fields[0];
-            String name = fields[1];
-            String surname = fields[2];
+            String name = CsvManager.unescape(fields[1]);
+            String surname = CsvManager.unescape(fields[2]);
             Gender gender = Gender.valueOf(fields[3]);
 
             Map<String, String> contacts = parseContacts(fields.length > MIN_FIELDS ? fields[MIN_FIELDS] : "");
@@ -119,7 +119,7 @@ public class PromoterDAOCsv extends PromoterDAO {
 
             String value = kv.length > 1 ? kv[1] : "";
 
-            map.put(key.replace("%2C", ","), value.replace("%2C", ","));
+            map.put(CsvManager.unescape(key), CsvManager.unescape(value));
         }
 
         return map;
@@ -156,8 +156,8 @@ public class PromoterDAOCsv extends PromoterDAO {
         String contactsCsv = contactsToCsv(p.howToContact());
         return String.join(CSV_SEPARATOR,
                 p.getEmail(),
-                p.getName(),
-                p.getSurname(),
+                CsvManager.escape(p.getName()),
+                CsvManager.escape(p.getSurname()),
                 p.getGender().name(),
                 contactsCsv);
     }
@@ -168,8 +168,8 @@ public class PromoterDAOCsv extends PromoterDAO {
         boolean first = true;
         for (Map.Entry<String, String> e : contacts.entrySet()) {
             if (!first) sb.append(CONTACTS_SEPARATOR);
-            sb.append(e.getKey().replace(",", "%2C"))
-                    .append(CONTACT_PAIR_SEPARATOR).append(e.getValue().replace(",", "%2C"));
+            sb.append(CsvManager.escape(e.getKey()))
+                    .append(CONTACT_PAIR_SEPARATOR).append(CsvManager.escape(e.getValue()));
             first = false;
         }
         return sb.toString();

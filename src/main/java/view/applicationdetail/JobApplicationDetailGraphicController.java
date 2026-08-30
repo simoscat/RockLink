@@ -1,5 +1,6 @@
 package view.applicationdetail;
 
+import bean.JobApplicationBean;
 import controller.ManageJobApplicationController;
 import exception.ControllerLogicException;
 import view.Navigator;
@@ -39,7 +40,7 @@ public abstract class JobApplicationDetailGraphicController {
 
             navigator.showInfo("Application rejected, going back to the job announcement.");
 
-            start();
+            navigator.goToAnnouncementDetails();
         }
         catch(ControllerLogicException e){
             navigator.showError(e.getMessage());
@@ -54,6 +55,12 @@ public abstract class JobApplicationDetailGraphicController {
 
     protected void backToJobApplications(){
         navigator.goToAnnouncementApplications();
+    }
+
+    protected JobApplicationBean getCurrentJobApplication(){
+
+        return navigator.getCurrentJobApplication();
+
     }
 
     public abstract void start();

@@ -85,7 +85,7 @@ public class MusicianDAOCsv extends MusicianDAO {
                     continue;
                 }
 
-                String[] fields = line.split(CSV_SEPARATOR);
+                String[] fields = line.split(CSV_SEPARATOR, -1);
 
                 emails.add(fields[0]);
 
@@ -101,6 +101,9 @@ public class MusicianDAOCsv extends MusicianDAO {
 
     @Override
     protected void saveToPersistency(Musician m) {
+
+        this.instrumentDAO.saveMusicianInstruments(m.getEmail(), m.presentInstruments());
+
         List<String> lines = readAllLinesReplacingMusician(m);
 
         File file = new File(this.path);
@@ -112,9 +115,6 @@ public class MusicianDAOCsv extends MusicianDAO {
         } catch (IOException e) {
             throw new DAOException("Couldn't save musician with email " + m.getEmail(), e);
         }
-
-        // gli strumenti sono gestiti dall'InstrumentDAO, non da questa classe
-        this.instrumentDAO.saveMusicianInstruments(m.getEmail(), m.presentInstruments());
     }
 
     private Musician parseRowIfMatches(String line, String email) {
@@ -126,9 +126,9 @@ public class MusicianDAOCsv extends MusicianDAO {
             }
 
             String csvEmail = fields[0];
-            String name = fields[1];
-            String surname = fields[2];
-            String stageName = fields[3].replace("%2C", ",");
+            String name = CsvManager.unescape(fields[1]);
+            String surname = CsvManager.unescape(fields[2]);
+            String stageName = CsvManager.unescape(fields[3]);
             Gender gender = Gender.valueOf(fields[4]);
 
             List<Instrument> instruments = this.instrumentDAO.getMusicianInstruments(csvEmail);
@@ -180,9 +180,9 @@ public class MusicianDAOCsv extends MusicianDAO {
     private String toCsvRow(Musician m) {
         return String.join(CSV_SEPARATOR,
                 m.getEmail(),
-                m.getName(),
-                m.getSurname(),
-                m.getArtistName().replace(",", "%2C"),
+                CsvManager.escape(m.getName()),
+                CsvManager.escape(m.getSurname()),
+                CsvManager.escape(m.getArtistName()),
                 m.getGender().name());
     }
 

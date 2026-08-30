@@ -9,7 +9,7 @@ public class MoneyValue {
     private CurrencyType currency;
 
     public MoneyValue(BigDecimal value, CurrencyType currency) {
-        if (value.compareTo(BigDecimal.ZERO) < 0){
+        if (value != null && value.compareTo(BigDecimal.ZERO) < 0){
             throw new IllegalArgumentException("Money value cannot be negative");
         }
 

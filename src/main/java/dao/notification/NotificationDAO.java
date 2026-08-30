@@ -26,7 +26,7 @@ public abstract class NotificationDAO extends DAOWithCache<Notification> {
 
     @Override
     public String getKey(Notification obj) {
-        return obj.getSender().getEmail() + "_" + obj.getTimeStamp().toString();
+        return obj.getSender().getEmail() + "_" + obj.getReceiver().getEmail() + "_" + obj.getTimeStamp().toString();
     }
 
     protected abstract List<Notification> retrieveUserNotifications(String email);

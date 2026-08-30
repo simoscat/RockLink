@@ -159,6 +159,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
         if (navigator.getJobAnnouncements().isEmpty()){
             System.out.println("No job announcements to open.");
             start();
+            return;
         }
 
         boolean done = false;
@@ -173,6 +174,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerCLI extends OpenAnnounce
                 if (num <= 0 || num > navigator.getJobAnnouncements().size()){
 
                     navigator.showError("Invalid choice.");
+                    continue;
 
                 }
 

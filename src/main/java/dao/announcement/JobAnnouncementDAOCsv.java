@@ -152,8 +152,8 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
     private JobAnnouncement parseRow(String[] fields) {
 
-        String title = fields[1].replace("%2C", ",").replace("%0A", "\n");
-        String content = fields[2].replace("%2C", ",").replace("%0A", "\n");
+        String title = CsvManager.unescape(fields[1]);
+        String content = CsvManager.unescape(fields[2]);
         LocalDateTime date = LocalDateTime.parse(fields[3]);
         JobAnnouncementStatus status = JobAnnouncementStatus.valueOf(fields[4]);
 
@@ -170,7 +170,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
         String promoterEmail = fields[7];
         BigDecimal salaryAmount = new BigDecimal(fields[8]);
         CurrencyType currency = CurrencyType.valueOf(fields[9]);
-        String address = fields[10].replace("%2C", ",");
+        String address = CsvManager.unescape(fields[10]);
 
         String decorators = fields[11];
 
@@ -194,8 +194,8 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
 
         return String.join(CSV_SEPARATOR,
                 id,
-                cja.getTitle().replace(",", "%2C").replace("\n", "%0A"),
-                cja.getContent().replace(",", "%2C").replace("\n", "%0A"),
+                CsvManager.escape(cja.getTitle()),
+                CsvManager.escape(cja.getContent()),
                 cja.getAnnouncementDate().toString(),
                 cja.getStatus().name(),
                 cja.whoWasHired() != null ? cja.whoWasHired().getEmail() : "",
@@ -203,7 +203,7 @@ public class JobAnnouncementDAOCsv extends JobAnnouncementDAO {
                 cja.getPublisher().getEmail(),
                 cja.getJobPay().moneyAmount().toString(),
                 cja.getJobPay().whichCurrency().name(),
-                cja.getEventAddress().replace(",", "%2C"),
+                CsvManager.escape(cja.getEventAddress()),
                 getWrappingChainCsv(job)
         );
     }

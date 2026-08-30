@@ -15,6 +15,7 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
     private List<JobAnnouncementTag> tags;
     private String baseTitle;
     private String baseContent;
+    private String id;
 
     public JobAnnouncementBean(String title, String content, LocalDateTime date,
                                PromoterBean promoter, MoneyValueBean moneyValue, String address,
@@ -89,6 +90,14 @@ public class JobAnnouncementBean extends BaseAnnouncementBean {
 
     public String getBaseContent() {
         return baseContent != null ? baseContent : getContent();
+    }
+
+    public String getId(){
+        return this.id;
+    }
+
+    public void setId(String id){
+        this.id = id;
     }
 
 }

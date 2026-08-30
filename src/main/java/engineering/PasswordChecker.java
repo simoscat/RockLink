@@ -10,6 +10,8 @@ public final class PasswordChecker {
             List.of(",", ";", ":", "|", "/");
 
     public static boolean isPasswordValid(String password){
+        if (password == null || password.isEmpty()) return false;
+
         for (String invalidCharacter : INVALID_CHARACTERS){
 
             if (password.contains(invalidCharacter)){
