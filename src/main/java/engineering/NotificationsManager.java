@@ -53,31 +53,39 @@ public class NotificationsManager {
     public void notifyMusician(JobApplication jobApplication, Event event) {
 
 
-        Notification n = new Notification(
-                jobApplication.whichJobAnnouncement().getPublisher(),
-                DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(jobApplication.whoIsCandidate().getEmail()),
-                event,
-                LocalDateTime.now(ZoneId.systemDefault()),
-                jobApplication.whichJobAnnouncement()
-        );
+        try {
+            Notification n = new Notification(
+                    jobApplication.whichJobAnnouncement().getPublisher(),
+                    DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(jobApplication.whoIsCandidate().getEmail()),
+                    event,
+                    LocalDateTime.now(ZoneId.systemDefault()),
+                    jobApplication.whichJobAnnouncement()
+            );
 
-        DAOFactory.getInstance().getNotificationDAO().save(n);
+            DAOFactory.getInstance().getNotificationDAO().save(n);
 
-        //note: the sender will always be the musician or the band leader, so we retrieve the specific user from the DAO
+            //note: the sender will always be the musician or the band leader, so we retrieve the specific user from the DAO
+        } catch (DAOException e) {
+            throw new NotificationException("Could not notify musician");
+        }
 
     }
 
     public void notifyPromoter(JobAnnouncement jobAnnouncement, JobApplication application, Event event) {
 
-        Notification n = new Notification(
-                DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(application.whoIsCandidate().getEmail()),
-                jobAnnouncement.getPublisher(),
-                event,
-                LocalDateTime.now(ZoneId.systemDefault()),
-                jobAnnouncement
-        );
+        try {
+            Notification n = new Notification(
+                    DAOFactory.getInstance().getMusicianDAO().getMusicianByEmail(application.whoIsCandidate().getEmail()),
+                    jobAnnouncement.getPublisher(),
+                    event,
+                    LocalDateTime.now(ZoneId.systemDefault()),
+                    jobAnnouncement
+            );
 
-        DAOFactory.getInstance().getNotificationDAO().save(n);
+            DAOFactory.getInstance().getNotificationDAO().save(n);
+        } catch (DAOException e) {
+            throw new NotificationException("Could not notify promoter");
+        }
 
     }
 
