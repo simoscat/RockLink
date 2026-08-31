@@ -9,7 +9,15 @@
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/job_announcements.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_announcements.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/job_applications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_applications.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/musicians_creds.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/musicians_creds.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/notifications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/notifications.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/csv/promoters_creds.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/promoters_creds.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOJson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +30,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="202" />
+    <option name="cachedIndexableFilesCount" value="203" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -237,7 +245,9 @@
       <workItem from="1788124496802" duration="120000" />
       <workItem from="1788166604095" duration="3951000" />
       <workItem from="1788171978127" duration="274000" />
-      <workItem from="1788172407444" duration="305000" />
+      <workItem from="1788172407444" duration="446000" />
+      <workItem from="1788181807294" duration="1355000" />
+      <workItem from="1788185799776" duration="438000" />
     </task>
     <servers />
   </component>

@@ -1,34 +1,13 @@
 package dao.notification;
 
-import dao.DAOWithCache;
 import model.Notification;
 
 import java.util.List;
 
-public abstract class NotificationDAO extends DAOWithCache<Notification> {
+public abstract class NotificationDAO {
 
-    public List<Notification> getUserNotificationsByEmail(String email){
+    public abstract void save(Notification n);
 
-        List<Notification> notifications = retrieveUserNotifications(email);
-
-        for(Notification n : notifications){
-
-            if (!isCached(n)){
-                addToCache(n);
-            }
-
-        }
-
-        return notifications;
-
-    }
-
-
-    @Override
-    public String getKey(Notification obj) {
-        return obj.getSender().getEmail() + "_" + obj.getReceiver().getEmail() + "_" + obj.getTimeStamp().toString();
-    }
-
-    protected abstract List<Notification> retrieveUserNotifications(String email);
+    public abstract List<Notification> getUserNotificationsByEmail(String email);
 
 }

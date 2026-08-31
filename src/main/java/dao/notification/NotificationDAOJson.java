@@ -28,7 +28,7 @@ public class NotificationDAOJson extends NotificationDAO {
     }
 
     @Override
-    protected List<Notification> retrieveUserNotifications(String email) {
+    public List<Notification> getUserNotificationsByEmail(String email) {
 
         JSONArray array = JsonManager.readJsonFile(path);
 
@@ -49,7 +49,7 @@ public class NotificationDAOJson extends NotificationDAO {
     }
 
     @Override
-    protected void saveToPersistency(Notification obj) {
+    public void save(Notification obj) {
 
         JSONObject jsonObj = toJson(obj);
 

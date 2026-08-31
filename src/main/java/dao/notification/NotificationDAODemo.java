@@ -33,7 +33,7 @@ public class NotificationDAODemo extends NotificationDAO {
     }
 
     @Override
-    protected List<Notification> retrieveUserNotifications(String email) {
+    public List<Notification> getUserNotificationsByEmail(String email) {
 
         List<Notification> toRet = new ArrayList<>();
 
@@ -50,7 +50,7 @@ public class NotificationDAODemo extends NotificationDAO {
     }
 
     @Override
-    protected void saveToPersistency(Notification obj) {
+    public void save(Notification obj) {
 
         notifications.add(obj);
 

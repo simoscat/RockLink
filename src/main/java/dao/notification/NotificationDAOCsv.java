@@ -33,7 +33,7 @@ public class NotificationDAOCsv extends NotificationDAO {
     }
 
     @Override
-    protected List<Notification> retrieveUserNotifications(String email) {
+    public List<Notification> getUserNotificationsByEmail(String email) {
 
         File file = new File(path);
         List<Notification> notifications = new ArrayList<>();
@@ -87,7 +87,7 @@ public class NotificationDAOCsv extends NotificationDAO {
     }
 
     @Override
-    protected void saveToPersistency(Notification obj) {
+    public void save(Notification obj) {
 
         File file = new File(path);
 
