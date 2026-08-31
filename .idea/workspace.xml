@@ -8,16 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/csv/job_announcements.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_announcements.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/csv/job_applications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_applications.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/musicians_creds.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/musicians_creds.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/csv/notifications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/notifications.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/promoters_creds.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/promoters_creds.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAODemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/notification/NotificationDAOJson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -65,7 +65,7 @@ public class NotificationsManager {
             DAOFactory.getInstance().getNotificationDAO().save(n);
 
             //note: the sender will always be the musician or the band leader, so we retrieve the specific user from the DAO
-        } catch (DAOException e) {
+        } catch (DAOException _) {
             throw new NotificationException("Could not notify musician");
         }
 
@@ -83,7 +83,7 @@ public class NotificationsManager {
             );
 
             DAOFactory.getInstance().getNotificationDAO().save(n);
-        } catch (DAOException e) {
+        } catch (DAOException _) {
             throw new NotificationException("Could not notify promoter");
         }
 
