@@ -7,6 +7,7 @@ import engineering.enums.JobAnnouncementTag;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
@@ -19,6 +20,7 @@ import view.GUIGraphicController;
 import view.Navigator;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeParseException;
@@ -72,7 +74,7 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
     @FXML
     private TextArea descriptionField;
     @FXML
-    private TextField eventDateField;
+    private DatePicker eventDatePicker;
     @FXML
     private TextField eventTimeField;
     @FXML
@@ -135,7 +137,7 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
     private void resetForm() {
         titleField.clear();
         descriptionField.clear();
-        eventDateField.clear();
+        eventDatePicker.setValue(null);
         eventTimeField.clear();
         addressField.clear();
         payAmountField.clear();
@@ -207,7 +209,12 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
     }
 
     private LocalDateTime readEventDateTime() {
-        String date = eventDateField.getText() == null ? "" : eventDateField.getText().trim();
+        LocalDate date = eventDatePicker.getValue();
+        if (date == null) {
+            navigator.showError("Please pick the event date.");
+            return null;
+        }
+
         String time = eventTimeField.getText() == null ? "" : eventTimeField.getText().trim();
 
         try {
@@ -221,7 +228,7 @@ public class CreateAnnouncementGraphicControllerGUI extends CreateAnnouncementGr
             return eventDateTime;
 
         } catch (DateTimeParseException _) {
-            navigator.showError("Invalid date/time. Use yyyy-MM-dd for the date and HH:mm for the time.");
+            navigator.showError("Invalid time. Use HH:mm for the time (e.g. 21:00).");
             return null;
         }
     }
