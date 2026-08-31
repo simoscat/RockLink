@@ -9,10 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/create-announcement-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/create-announcement-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/CreateAnnouncementView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/CreateAnnouncementView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +235,9 @@
       <workItem from="1787906480179" duration="1135000" />
       <workItem from="1787913878279" duration="1717000" />
       <workItem from="1788124496802" duration="120000" />
-      <workItem from="1788166604095" duration="3700000" />
+      <workItem from="1788166604095" duration="3951000" />
+      <workItem from="1788171978127" duration="274000" />
+      <workItem from="1788172407444" duration="305000" />
     </task>
     <servers />
   </component>

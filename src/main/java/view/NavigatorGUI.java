@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.stage.Stage;
 import view.applicationdetail.JobApplicationDetailGraphicControllerGUI;
 import view.login.LoginGraphicControllerGUI;
@@ -22,6 +23,7 @@ import java.io.IOException;
 public class NavigatorGUI extends Navigator {
 
     private static final String FXML_DIR = "/fxml/";
+    private static final String DIALOG_CSS = "/css/dialog-style.css";
 
     private LoginGraphicControllerGUI login;
 
@@ -320,6 +322,7 @@ public class NavigatorGUI extends Navigator {
         alert.setTitle("GRAPHICS ERROR");
         alert.setHeaderText(null);
         alert.setContentText("Can't find the setup file " + file);
+        styleDialog(alert, "error-dialog");
         alert.showAndWait();
     }
 
@@ -336,19 +339,30 @@ public class NavigatorGUI extends Navigator {
 
     @Override
     public void showError(String message) {
-        showAlert(Alert.AlertType.ERROR, "ERROR", message);
+        showAlert(Alert.AlertType.ERROR, "ERROR", message, "error-dialog");
     }
 
     @Override
     public void showInfo(String message) {
-        showAlert(Alert.AlertType.INFORMATION, "INFO", message);
+        showAlert(Alert.AlertType.INFORMATION, "INFO", message, "info-dialog");
     }
 
-    private void showAlert(Alert.AlertType type, String title, String message) {
+    private void showAlert(Alert.AlertType type, String title, String message, String styleClass) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
+        styleDialog(alert, styleClass);
         alert.showAndWait();
+    }
+
+    private void styleDialog(Alert alert, String styleClass) {
+        DialogPane pane = alert.getDialogPane();
+        pane.setGraphic(null);
+        String stylesheet = getClass().getResource(DIALOG_CSS).toExternalForm();
+        if (!pane.getStylesheets().contains(stylesheet)) {
+            pane.getStylesheets().add(stylesheet);
+        }
+        pane.getStyleClass().add(styleClass);
     }
 }
