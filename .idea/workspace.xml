@@ -9,10 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/job_announcements.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_announcements.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/job_applications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_applications.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/notifications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/notifications.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/notifications/NotificationsGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/notifications/NotificationsGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Musician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Musician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/promoter/PromoterRegistrationGraphicController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +26,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="206" />
+    <option name="cachedIndexableFilesCount" value="202" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -195,8 +196,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-34e2839f716b-intellij.indexing.shared.core-IU-262.9437.185" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.9437.185" />
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
       </set>
     </attachedChunks>
   </component>
@@ -237,6 +238,8 @@
       <workItem from="1787829785141" duration="7678000" />
       <workItem from="1787906480179" duration="1135000" />
       <workItem from="1787913878279" duration="1717000" />
+      <workItem from="1788124496802" duration="120000" />
+      <workItem from="1788166604095" duration="1214000" />
     </task>
     <servers />
   </component>

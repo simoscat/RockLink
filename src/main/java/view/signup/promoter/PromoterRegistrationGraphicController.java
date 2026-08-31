@@ -50,11 +50,11 @@ public abstract class PromoterRegistrationGraphicController {
         }
         catch (ControllerLogicException | IllegalArgumentException e){
             navigator.showError(e.getMessage());
-            navigator.restart();
+            this.start();
         }
         catch (RuntimeException e){
             navigator.showError("Internal error: "+ e.getMessage());
-            navigator.restart();
+            this.start();
         }
 
     }
