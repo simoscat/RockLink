@@ -48,7 +48,7 @@
     -fx-text-fill: #ffd400;
 }
 
-/* ---------- Page title (es. "SIGN UP") ---------- */
+/* ---------- Page title (e.g. "SIGN UP") ---------- */
 .page-title {
     -fx-text-fill: #f5f2ec;
     -fx-font-size: 51px;

@@ -51,7 +51,7 @@
     -fx-font-weight: bold;
 }
 
-/* ---------- Pulsante di rifiuto (primario, tono rosso) ---------- */
+/* ---------- Reject button (primary, red tone) ---------- */
 .reject-action-btn {
     -fx-background-color: transparent;
     -fx-border-color: #ff3b30;

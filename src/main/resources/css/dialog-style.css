@@ -7,7 +7,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 24, 0, 0, 10);
 }
 
-/* barra colorata in alto, come i .panel-top-border delle schermate */
+/* colored bar at the top, like the .panel-top-border of the screens */
 .dialog-pane {
     -fx-border-width: 4 1 1 1;
 }
@@ -22,7 +22,7 @@
     -fx-wrap-text: true;
 }
 
-/* ---------- Header (se presente) ---------- */
+/* ---------- Header (if present) ---------- */
 .dialog-pane > .header-panel {
     -fx-background-color: #0a0a0a;
     -fx-padding: 18 24 18 24;
@@ -43,7 +43,7 @@
     -fx-padding: 0;
 }
 
-/* ---------- Barra dei bottoni ---------- */
+/* ---------- Button bar ---------- */
 .dialog-pane > .button-bar > .container {
     -fx-padding: 0 24 20 24;
 }

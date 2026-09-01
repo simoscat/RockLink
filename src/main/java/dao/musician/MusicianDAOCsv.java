@@ -136,7 +136,6 @@ public class MusicianDAOCsv extends MusicianDAO {
             return new Musician(name, surname, stageName, csvEmail, gender, instruments);
 
         } catch (IllegalArgumentException e) {
-            // riga malformata (es. valore di Gender non valido)
             throw new DAOException("Invalid csv line: " + line, e);
         }
     }

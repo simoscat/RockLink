@@ -38,7 +38,7 @@
     -fx-font-family: "JetBrains Mono NL", monospace;
 }
 
-/* ---------- Pulsanti azione per riga candidatura ---------- */
+/* ---------- Row action buttons for an application ---------- */
 .row-action-btn {
     -fx-background-color: transparent;
     -fx-border-color: #333333;

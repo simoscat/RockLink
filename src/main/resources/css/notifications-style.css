@@ -39,7 +39,7 @@
     -fx-font-size: 14px;
 }
 
-/* ---------- Pulsante azione riga notifica ("VIEW JOB") ---------- */
+/* ---------- Notification row action button ("VIEW JOB") ---------- */
 .row-action-btn {
     -fx-background-color: transparent;
     -fx-border-color: #333333;

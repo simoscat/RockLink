@@ -99,7 +99,7 @@
                 <Insets bottom="30.0" left="40.0" right="40.0" top="28.0" />
             </padding>
 
-            <!-- Header (fisso) -->
+            <!-- Header (fixed) -->
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <VBox spacing="4.0">
                     <Label styleClass="dashboard-title" text="MUSICIAN DASHBOARD" />
@@ -119,7 +119,7 @@
                 </HBox>
             </HBox>
 
-            <!-- Applications: intestazione fissa + lista scrollabile -->
+            <!-- Applications: fixed header + scrollable list -->
             <VBox spacing="16.0" VBox.vgrow="ALWAYS">
                 <VBox.margin>
                     <Insets top="34.0" />
@@ -130,7 +130,7 @@
                     <Label fx:id="applicationsCountLabel" styleClass="section-count" text="0 submitted" />
                 </HBox>
 
-                <!-- Solo questa lista scrolla: header e titolo sezione restano fissi. -->
+                <!-- Only this list scrolls: header and section title stay fixed. -->
                 <ScrollPane fitToWidth="true" styleClass="instruments-scroll" VBox.vgrow="ALWAYS">
                     <VBox fx:id="applicationsContainer" spacing="12.0" />
                 </ScrollPane>

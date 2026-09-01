@@ -107,7 +107,7 @@
                     <Insets bottom="30.0" left="40.0" right="40.0" top="28.0" />
                 </padding>
 
-                <!-- Header (fisso) -->
+                <!-- Header (fixed) -->
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <VBox spacing="4.0">
                         <Label styleClass="dashboard-title" text="DISCOVER JOBS" />
@@ -123,7 +123,7 @@
                     </HBox>
                 </HBox>
 
-                <!-- Toolbar: filtri stato + refresh -->
+                <!-- Toolbar: status filters + refresh -->
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
                     <VBox.margin>
                         <Insets top="22.0" />
@@ -137,7 +137,7 @@
                     </HBox>
                 </HBox>
 
-                <!-- Griglia annunci (scrollabile) -->
+                <!-- Announcements grid (scrollable) -->
                 <ScrollPane fitToWidth="true" styleClass="instruments-scroll" VBox.vgrow="ALWAYS">
                     <VBox.margin>
                         <Insets top="16.0" />

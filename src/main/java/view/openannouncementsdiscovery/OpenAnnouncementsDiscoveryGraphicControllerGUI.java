@@ -53,7 +53,7 @@ public class OpenAnnouncementsDiscoveryGraphicControllerGUI extends OpenAnnounce
         return this.view;
     }
 
-    /** true = ultimo filtro applicato "All", false = "Open" (default, come findOpenJobAnnouncements()). */
+    // true = last applied filter was "All", false = "Open" (default, like findOpenJobAnnouncements()).
     private boolean showingAll = false;
 
     @Override

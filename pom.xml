@@ -31,7 +31,7 @@
             <artifactId>json</artifactId>
             <version>20240303</version>
         </dependency>
-        <!-- JavaFX: necessario per i controller grafici (FXML) delle schermate -->
+        <!-- JavaFX: required for the graphic controllers (FXML) of the screens -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>

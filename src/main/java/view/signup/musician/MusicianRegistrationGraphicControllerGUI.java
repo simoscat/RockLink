@@ -86,8 +86,8 @@ public class MusicianRegistrationGraphicControllerGUI extends MusicianRegistrati
     @FXML
     private VBox instrumentsContainer;
 
-    // Campi della prima riga strumento (presente di default nell'FXML,
-    // funge anche da template per le righe aggiunte a runtime).
+    // Fields of the first instrument row (present by default in the FXML,
+    // also acts as a template for the rows added at runtime).
     @FXML
     private TextField instrumentNameField;
     @FXML

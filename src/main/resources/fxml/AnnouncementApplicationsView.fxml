@@ -37,7 +37,7 @@
                 <Insets bottom="30.0" left="60.0" right="60.0" top="28.0" />
             </padding>
 
-            <!-- Header (fisso) -->
+            <!-- Header (fixed) -->
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <VBox spacing="4.0">
                     <Label styleClass="dashboard-title" text="JOB APPLICATIONS" />
@@ -50,7 +50,7 @@
                 </HBox>
             </HBox>
 
-            <!-- Lista candidature (scrollabile) -->
+            <!-- Applications list (scrollable) -->
             <ScrollPane fitToWidth="true" styleClass="instruments-scroll" VBox.vgrow="ALWAYS">
                 <VBox.margin>
                     <Insets top="24.0" />

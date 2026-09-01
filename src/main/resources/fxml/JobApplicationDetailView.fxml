@@ -47,7 +47,7 @@
                                 <Insets bottom="28.0" left="28.0" right="28.0" top="26.0" />
                             </padding>
 
-                            <!-- Stato candidatura -->
+                            <!-- Application status -->
                             <HBox alignment="CENTER_LEFT" spacing="10.0">
                                 <Label fx:id="statusBadge" styleClass="status-badge, status-pending" text="PENDING" />
                                 <Region HBox.hgrow="ALWAYS" />
@@ -58,12 +58,12 @@
 
                             <Region styleClass="divider" />
 
-                            <!-- Dettagli dell'artista (nome, cognome, stage name, email, genere, strumenti...) -->
+                            <!-- Artist details (name, surname, stage name, email, gender, instruments...) -->
                             <VBox fx:id="detailsContainer" spacing="10.0" />
 
                             <Region styleClass="divider" />
 
-                            <!-- Azioni -->
+                            <!-- Actions -->
                             <HBox spacing="12.0">
                                 <Button fx:id="rejectButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleReject" styleClass="reject-action-btn" text="REJECT APPLICATION" HBox.hgrow="ALWAYS" />
                                 <Button fx:id="acceptButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAccept" styleClass="sign-in-btn, sign-in-btn-promoter" text="ACCEPT APPLICATION" HBox.hgrow="ALWAYS" />

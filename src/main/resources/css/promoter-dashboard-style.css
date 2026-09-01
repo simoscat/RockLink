@@ -11,7 +11,7 @@
 
 @import url("musician-dashboard-style.css");
 
-/* ---------- Accento promoter (giallo) al posto dell'arancio musicista ---------- */
+/* ---------- Promoter accent (yellow) instead of the musician orange ---------- */
 .nav-item-active {
     -fx-background-color: rgba(255, 212, 0, 0.12);
 }
@@ -39,7 +39,7 @@
     -fx-background-color: #ffd400;
 }
 
-/* ---------- Stato annuncio (riuso della semantica open/filled/closed) ---------- */
+/* ---------- Announcement status (reuse of the open/filled/closed semantics) ---------- */
 .job-status-badge {
     -fx-font-size: 12px;
     -fx-font-weight: bold;

@@ -17,7 +17,7 @@
 
     <!-- ===================== SIDEBAR ===================== -->
     <left>
-        <VBox prefWidth="240.0" styleClass="sidebar" BorderPane.alignment="CENTER"> <!--prefWidth was 221-->
+        <VBox prefWidth="240.0" styleClass="sidebar" BorderPane.alignment="CENTER"> <!-- prefWidth was 221 -->
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="24.0" />
             </padding>
@@ -45,7 +45,7 @@
                 </VBox>
             </HBox>
 
-            <!-- Navigation: solo le funzionalità del promoter (dashboard, pubblica annuncio, logout) -->
+            <!-- Navigation: promoter features only (dashboard, publish announcement, logout) -->
             <VBox spacing="4.0">
                 <HBox fx:id="dashboardNavItem" alignment="CENTER_LEFT" spacing="10.0" styleClass="nav-item, nav-item-active">
                     <SVGPath content="M2,12 A10,10 0 1,0 22,12 A10,10 0 1,0 2,12 Z M5,12 A7,7 0 1,0 19,12 A7,7 0 1,0 5,12 Z M8,12 A4,4 0 1,0 16,12 A4,4 0 1,0 8,12 Z" fillRule="EVEN_ODD" scaleX="0.583" scaleY="0.583" styleClass="nav-item-icon" />
@@ -79,7 +79,7 @@
                 <Insets bottom="30.0" left="40.0" right="40.0" top="28.0" />
             </padding>
 
-            <!-- Header (fisso) -->
+            <!-- Header (fixed) -->
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <VBox spacing="4.0">
                     <Label styleClass="dashboard-title" text="PROMOTER DASHBOARD" />
@@ -99,7 +99,7 @@
                 </HBox>
             </HBox>
 
-            <!-- Annunci pubblicati: intestazione fissa + lista scrollabile -->
+            <!-- Published announcements: fixed header + scrollable list -->
             <VBox spacing="16.0" VBox.vgrow="ALWAYS">
                 <VBox.margin>
                     <Insets top="34.0" />

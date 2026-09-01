@@ -23,14 +23,13 @@ public final class CsvManager {
     }
 
     /*
-    Percent-encoding dei caratteri "strutturali" usati dai DAO CSV come separatori:
-    virgola (separatore di campo), punto e virgola e due punti (separatori di lista
-    e di coppia chiave/valore), più i ritorni a capo, dato che ogni record CSV
-    occupa una singola riga.
+    Percent-encoding of the "structural" characters used as separators by the CSV DAOs:
+    comma (field separator), semicolon and colon (list and key/value pair separators),
+    plus line breaks, since every CSV record occupies a single line.
 
-    Il carattere '%' viene codificato per primo e decodificato per ultimo: è
-    l'invariante che rende la trasformazione sempre reversibile, anche quando il
-    valore originale contiene già sequenze tipo "%2C".
+    The '%' character is encoded first and decoded last: this is the invariant that
+    keeps the transformation always reversible, even when the original value already
+    contains sequences such as "%2C".
      */
 
     public static String escape(String value) {

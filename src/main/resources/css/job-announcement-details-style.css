@@ -87,7 +87,7 @@
     -fx-font-size: 14px;
 }
 
-/* ---------- Stato annuncio (riuso della semantica open/filled/closed) ---------- */
+/* ---------- Announcement status (reuse of the open/filled/closed semantics) ---------- */
 .job-status-badge {
     -fx-font-size: 12px;
     -fx-font-weight: bold;
@@ -116,7 +116,7 @@
     -fx-text-fill: #9a9a9a;
 }
 
-/* ---------- Riepilogo candidatura del musicista (se già candidato) ---------- */
+/* ---------- Musician application summary (if already applied) ---------- */
 .application-summary-box {
     -fx-background-color: #0f0f0f;
     -fx-border-color: #232323;
@@ -126,7 +126,7 @@
     -fx-padding: 16;
 }
 
-/* ---------- Pulsante secondario (Close announcement) ---------- */
+/* ---------- Secondary button (Close announcement) ---------- */
 .cancel-btn {
     -fx-background-color: #ff3b30;
     -fx-border-color: #333333;

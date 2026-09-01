@@ -24,7 +24,7 @@
         <ToggleGroup fx:id="currencyToggleGroup" />
     </fx:define>
 
-    <!-- ===================== SIDEBAR (identica alla Promoter Dashboard) ===================== -->
+    <!-- ===================== SIDEBAR (identical to the Promoter Dashboard) ===================== -->
     <left>
         <VBox prefWidth="240.0" styleClass="sidebar" BorderPane.alignment="CENTER">
             <padding>
@@ -54,7 +54,7 @@
                 </VBox>
             </HBox>
 
-            <!-- Navigation: solo le funzionalità del promoter -->
+            <!-- Navigation: promoter features only -->
             <VBox spacing="4.0">
                 <HBox fx:id="dashboardNavItem" alignment="CENTER_LEFT" onMouseClicked="#handleDashboard" spacing="10.0" styleClass="nav-item">
                     <SVGPath content="M2,12 A10,10 0 1,0 22,12 A10,10 0 1,0 2,12 Z M5,12 A7,7 0 1,0 19,12 A7,7 0 1,0 5,12 Z M8,12 A4,4 0 1,0 16,12 A4,4 0 1,0 8,12 Z" fillRule="EVEN_ODD" scaleX="0.583" scaleY="0.583" styleClass="nav-item-icon" />
@@ -88,7 +88,7 @@
                 <Insets bottom="30.0" left="40.0" right="40.0" top="28.0" />
             </padding>
 
-            <!-- Header (fisso) -->
+            <!-- Header (fixed) -->
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <VBox spacing="4.0">
                     <Label styleClass="dashboard-title" text="CREATE ANNOUNCEMENT" />
@@ -96,7 +96,7 @@
                 </VBox>
             </HBox>
 
-            <!-- Form (scrollabile) -->
+            <!-- Form (scrollable) -->
             <ScrollPane fitToWidth="true" styleClass="instruments-scroll" VBox.vgrow="ALWAYS">
                 <VBox.margin>
                     <Insets top="24.0" />
@@ -174,7 +174,7 @@
                                     </HBox>
                                 </VBox>
 
-                                <!-- Azioni -->
+                                <!-- Actions -->
                                 <HBox spacing="12.0">
                                     <VBox.margin>
                                         <Insets top="6.0" />

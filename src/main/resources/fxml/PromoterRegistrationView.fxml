@@ -41,9 +41,9 @@
 
     <!-- ===================== CENTER CONTENT ===================== -->
     <center>
-        <!-- Il form intero scrolla verticalmente se non entra nell'altezza della finestra,
-             cosi' nessuna sezione (es. la lista contatti o il bottone finale) resta
-             nascosta fuori dallo schermo. -->
+        <!-- The entire form scrolls vertically if it does not fit the window height,
+             so no section (e.g. the contacts list or the final button)
+             stays hidden off-screen. -->
         <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll"
                     vbarPolicy="AS_NEEDED" BorderPane.alignment="TOP_CENTER">
         <VBox alignment="TOP_CENTER" spacing="0.0">
@@ -117,15 +117,15 @@
                                 <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                             </padding>
 
-                            <!-- Scrollable list of contact entries: se l'utente ne aggiunge tanti,
-                                 questa area scrolla internamente invece di far crescere la pagina. -->
+                            <!-- Scrollable list of contact entries: if the user adds many,
+                                 this area scrolls internally instead of growing the page. -->
                             <ScrollPane fx:id="contactsScrollPane" fitToWidth="true" hbarPolicy="NEVER"
                                         maxHeight="220.0" minHeight="110.0" prefHeight="110.0"
                                         styleClass="contacts-scroll" vbarPolicy="AS_NEEDED">
                                 <VBox fx:id="contactsContainer" spacing="10.0">
 
-                                    <!-- Prima riga contatto: presente di default nell'FXML,
-                                         funge anche da template per quelle aggiunte a runtime. -->
+                                    <!-- First contact row: present by default in the FXML,
+                                         also acts as a template for the ones added at runtime. -->
                                     <HBox spacing="8.0">
                                         <TextField fx:id="contactTypeField" prefWidth="160.0" promptText="Type (e.g. Phone)" styleClass="text-field" />
                                         <TextField fx:id="contactValueField" maxWidth="1.7976931348623157E308" promptText="Value (e.g. +39 123 456 7890)" styleClass="text-field" HBox.hgrow="ALWAYS" />

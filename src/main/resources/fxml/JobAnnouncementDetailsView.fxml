@@ -93,7 +93,7 @@
                                 <VBox fx:id="contactsContainer" spacing="4.0" />
                             </VBox>
 
-                            <!-- Riepilogo della candidatura del musicista (se già candidato) -->
+                            <!-- Musician application summary (if already applied) -->
                             <VBox fx:id="applicationSummaryBox" managed="false" spacing="8.0" styleClass="application-summary-box" visible="false">
                                 <Label styleClass="detail-section-title" text="YOUR APPLICATION" />
                                 <Label fx:id="applicationRaiseLabel" styleClass="detail-text" text="-" />
@@ -102,7 +102,7 @@
 
                             <Region fx:id="actionsDivider" styleClass="divider" />
 
-                            <!-- Candidatura del musicista (nascosto se già candidato o se promoter) -->
+                            <!-- Musician application (hidden if already applied or if promoter) -->
                             <VBox fx:id="applyFormBox" managed="false" spacing="10.0" visible="false">
                                 <Label styleClass="field-label" text="RAISE OFFER (leave empty for base pay)" />
                                 <TextField fx:id="raiseOfferField" maxWidth="1.7976931348623157E308" promptText="e.g. 50 (means you want 50 more)" styleClass="text-field" />
@@ -113,7 +113,7 @@
                                 </Button>
                             </VBox>
 
-                            <!-- Azioni del promoter -->
+                            <!-- Promoter actions -->
                             <HBox fx:id="promoterActionsBox" managed="false" spacing="12.0" visible="false">
                                 <Button fx:id="closeAnnouncementButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleCloseAnnouncement" styleClass="cancel-btn" text="MARK AS CLOSED" HBox.hgrow="ALWAYS" />
                                 <Button fx:id="viewApplicationsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleViewApplications" styleClass="sign-in-btn, sign-in-btn-promoter" text="VIEW APPLICATIONS" HBox.hgrow="ALWAYS" />

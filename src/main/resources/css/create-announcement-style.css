@@ -12,14 +12,14 @@
 
 @import url("promoter-dashboard-style.css");
 
-/* ---------- Toggle "a bottoni" (valuta, tag) in giallo promoter ---------- */
+/* ---------- "Button-style" toggles (currency, tag) in promoter yellow ---------- */
 .gender-toggle:selected {
     -fx-background-color: rgba(255, 212, 0, 0.12);
     -fx-border-color: #ffd400;
     -fx-text-fill: #f5f2ec;
 }
 
-/* ---------- Text area (descrizione annuncio) ---------- */
+/* ---------- Text area (announcement description) ---------- */
 .text-area {
     -fx-control-inner-background: #0a0a0a;
     -fx-background-color: #0a0a0a;
@@ -41,7 +41,7 @@
     -fx-border-color: #6b6b6b;
 }
 
-/* ---------- Pulsante secondario (Cancel) ---------- */
+/* ---------- Secondary button (Cancel) ---------- */
 .cancel-btn {
     -fx-background-color: transparent;
     -fx-border-color: #333333;
