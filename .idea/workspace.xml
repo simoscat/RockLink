@@ -8,9 +8,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="519a35dc-9f4c-41b2-996d-7ecf1640264e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/data/csv/job_announcements.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_announcements.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/job_applications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/job_applications.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/csv/notifications.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/csv/notifications.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/ArtistBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/ArtistBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/JobAnnouncementBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PublishJobAnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PublishJobAnnouncementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/announcement/JobAnnouncementDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/application/JobApplicationDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/artist/ArtistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/artist/ArtistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/instrument/InstrumentDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/musician/MusicianDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAODemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAODemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/promoter/PromoterDAOJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/BeanConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/ApplicationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ApplicationStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/ArtistType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ArtistType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/CurrencyType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CurrencyType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/JobAnnouncementStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobAnnouncementStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/JobAnnouncementTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobAnnouncementTag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/enums/Mastery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Mastery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/persistency/JobDecoratorManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ConcreteJobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ConcreteJobAnnouncement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Instrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Instrument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobAnnouncement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/JobApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MoneyValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MoneyValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Musician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Musician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Promoter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Promoter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/JobAnnouncementDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/jobannouncementdecorators/JobAnnouncementDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NavigatorGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicControllerCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/createannouncement/CreateAnnouncementGraphicControllerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/signup/musician/MusicianRegistrationGraphicControllerCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/TestJobAnnouncementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/TestJobAnnouncementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/TestJobApplicationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/TestJobApplicationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/TestMusicianDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/TestMusicianDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/TestPromoterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/TestPromoterDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/decorator/TestDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/decorator/TestDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +160,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/luma/Documenti/DocsUni/RockLink&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/luma/Documenti/Anno 3.1/ISPW/Java/EsempiInClasse (1)/EsempiInClasse/srcPatterns/it/uniroma2/dicii/ispw/stateExample&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -241,6 +292,8 @@
       <workItem from="1788172407444" duration="446000" />
       <workItem from="1788181807294" duration="1355000" />
       <workItem from="1788185799776" duration="438000" />
+      <workItem from="1788280705918" duration="47000" />
+      <workItem from="1788287662340" duration="2391000" />
     </task>
     <servers />
   </component>

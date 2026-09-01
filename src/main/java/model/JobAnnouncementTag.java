@@ -1,4 +1,4 @@
-package engineering.enums;
+package model;
 
 public enum JobAnnouncementTag {
     LONG_TIME_CONTRACT,

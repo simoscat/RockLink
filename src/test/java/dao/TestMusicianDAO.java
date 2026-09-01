@@ -2,8 +2,8 @@ package dao;
 
 import dao.factories.DAOFactory;
 import dao.musician.MusicianDAO;
-import engineering.enums.Gender;
-import engineering.enums.Mastery;
+import model.Gender;
+import model.Mastery;
 import model.Instrument;
 import model.Musician;
 import org.junit.jupiter.api.Test;

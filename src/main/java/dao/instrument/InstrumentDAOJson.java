@@ -1,7 +1,7 @@
 package dao.instrument;
 
 import engineering.persistency.ConfigManager;
-import engineering.enums.Mastery;
+import model.Mastery;
 import engineering.persistency.JsonManager;
 import exception.DAOException;
 import model.Instrument;

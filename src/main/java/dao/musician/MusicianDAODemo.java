@@ -2,7 +2,7 @@ package dao.musician;
 
 import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAODemo;
-import engineering.enums.Gender;
+import model.Gender;
 import exception.DAOException;
 import model.*;
 

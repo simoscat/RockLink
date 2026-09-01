@@ -12,8 +12,8 @@ import engineering.PasswordChecker;
 import engineering.PasswordEncrypter;
 import engineering.Session;
 import engineering.SessionManager;
-import engineering.enums.Gender;
-import engineering.enums.Mastery;
+import model.Gender;
+import model.Mastery;
 import exception.ControllerLogicException;
 import exception.DAOException;
 import model.*;
@@ -227,6 +227,12 @@ public class LoginController {
                 promoter.getContacts()
         );
 
+    }
+
+    public void logout(SessionBean session) {
+        if (session != null) {
+            SessionManager.getInstance().deleteSession(session.getId());
+        }
     }
 
 }

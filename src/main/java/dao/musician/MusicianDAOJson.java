@@ -3,7 +3,7 @@ package dao.musician;
 import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAOJson;
 import engineering.persistency.ConfigManager;
-import engineering.enums.Gender;
+import model.Gender;
 import engineering.persistency.JsonManager;
 import exception.DAOException;
 import model.Instrument;

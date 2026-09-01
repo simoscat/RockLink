@@ -1,7 +1,7 @@
 package dao.artist;
 
 import dao.factories.DAOFactory;
-import engineering.enums.ArtistType;
+import model.ArtistType;
 import model.Artist;
 import model.Musician;
 

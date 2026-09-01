@@ -1,6 +1,6 @@
 package bean;
 
-import engineering.enums.ArtistType;
+import model.ArtistType;
 
 import java.util.Map;
 

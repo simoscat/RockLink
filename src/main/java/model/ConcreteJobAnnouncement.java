@@ -1,8 +1,6 @@
 package model;
 
 
-import engineering.enums.JobAnnouncementStatus;
-
 import java.time.LocalDateTime;
 
 public class ConcreteJobAnnouncement extends BaseAnnouncement implements JobAnnouncement {

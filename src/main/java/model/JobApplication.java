@@ -1,7 +1,5 @@
 package model;
 
-import engineering.enums.ApplicationStatus;
-
 import java.math.BigDecimal;
 
 public class JobApplication extends Application {

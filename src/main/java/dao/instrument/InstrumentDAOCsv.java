@@ -2,7 +2,7 @@ package dao.instrument;
 
 import engineering.persistency.ConfigManager;
 import engineering.persistency.CsvManager;
-import engineering.enums.Mastery;
+import model.Mastery;
 import exception.DAOException;
 import model.Instrument;
 

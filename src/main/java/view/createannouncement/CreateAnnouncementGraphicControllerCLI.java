@@ -2,8 +2,8 @@ package view.createannouncement;
 
 import bean.JobAnnouncementBean;
 import bean.MoneyValueBean;
-import engineering.enums.CurrencyType;
-import engineering.enums.JobAnnouncementTag;
+import model.CurrencyType;
+import model.JobAnnouncementTag;
 import view.Navigator;
 
 import java.math.BigDecimal;

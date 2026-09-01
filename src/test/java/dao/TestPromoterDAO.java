@@ -2,7 +2,7 @@ package dao;
 
 import dao.factories.DAOFactory;
 import dao.promoter.PromoterDAO;
-import engineering.enums.Gender;
+import model.Gender;
 import model.Promoter;
 import org.junit.jupiter.api.Test;
 

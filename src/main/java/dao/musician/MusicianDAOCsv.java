@@ -4,7 +4,7 @@ import dao.instrument.InstrumentDAO;
 import dao.instrument.InstrumentDAOCsv;
 import engineering.persistency.ConfigManager;
 import engineering.persistency.CsvManager;
-import engineering.enums.Gender;
+import model.Gender;
 import exception.DAOException;
 import model.Instrument;
 import model.Musician;

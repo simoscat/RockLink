@@ -1,6 +1,6 @@
 package model.jobannouncementdecorators;
 
-import engineering.enums.JobAnnouncementStatus;
+import model.JobAnnouncementStatus;
 import model.*;
 
 import java.time.LocalDateTime;

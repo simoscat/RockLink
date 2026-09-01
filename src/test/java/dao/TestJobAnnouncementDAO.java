@@ -2,9 +2,9 @@ package dao;
 
 import dao.announcement.JobAnnouncementDAO;
 import dao.factories.DAOFactory;
-import engineering.enums.CurrencyType;
-import engineering.enums.Gender;
-import engineering.enums.JobAnnouncementStatus;
+import model.CurrencyType;
+import model.Gender;
+import model.JobAnnouncementStatus;
 import model.ConcreteJobAnnouncement;
 import model.JobAnnouncement;
 import model.MoneyValue;

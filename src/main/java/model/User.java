@@ -1,7 +1,6 @@
 package model;
 
 import engineering.EmailChecker;
-import engineering.enums.Gender;
 
 public abstract class User {
     private String name;

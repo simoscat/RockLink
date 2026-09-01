@@ -1,7 +1,7 @@
 package view;
 
 import bean.*;
-import engineering.SessionManager;
+import controller.LoginController;
 import engineering.enums.Screen;
 
 import java.util.List;
@@ -93,16 +93,18 @@ public abstract class Navigator {
     }
 
     public void restart(){
+
         if (this.context.getSession() != null){
-            SessionManager.getInstance().deleteSession(context.getSession().getId());
+            LoginController l = new LoginController();
+            l.logout(this.context.getSession());
         }
         this.context = new Context();
         this.currentScreen = null;
-        logout();
+        navigatorLogout();
         goToLogin();
     }
 
-    protected abstract void logout();
+    protected abstract void navigatorLogout();
 
     public void setCurrentScreen(Screen screen) {
         this.currentScreen = screen;
@@ -210,7 +212,8 @@ public abstract class Navigator {
 
     public void close() {
         if (this.getSession() != null){
-            SessionManager.getInstance().deleteSession(this.getSession().getId());
+            LoginController l = new LoginController();
+            l.logout(this.getSession());
         }
         System.exit(0);
     }

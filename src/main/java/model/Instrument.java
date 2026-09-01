@@ -1,7 +1,5 @@
 package model;
 
-import engineering.enums.Mastery;
-
 public class Instrument {
 
     private String name;

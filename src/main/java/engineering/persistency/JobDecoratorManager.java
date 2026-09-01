@@ -1,6 +1,6 @@
 package engineering.persistency;
 
-import engineering.enums.JobAnnouncementTag;
+import model.JobAnnouncementTag;
 import model.JobAnnouncement;
 import model.jobannouncementdecorators.*;
 

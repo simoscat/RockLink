@@ -4,7 +4,7 @@ import dao.artist.ArtistDAO;
 import dao.factories.DAOFactory;
 
 import engineering.persistency.ConfigManager;
-import engineering.enums.ApplicationStatus;
+import model.ApplicationStatus;
 import engineering.persistency.JsonManager;
 import model.Artist;
 import model.JobAnnouncement;

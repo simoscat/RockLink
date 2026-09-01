@@ -3,7 +3,7 @@ package dao.application;
 import dao.artist.ArtistDAO;
 import dao.factories.DAOFactory;
 import engineering.persistency.ConfigManager;
-import engineering.enums.ApplicationStatus;
+import model.ApplicationStatus;
 import engineering.persistency.CsvManager;
 import exception.DAOException;
 import model.Artist;

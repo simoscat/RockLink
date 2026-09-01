@@ -1,7 +1,7 @@
 package view.signup.musician;
 
 import bean.InstrumentBean;
-import engineering.enums.Mastery;
+import model.Mastery;
 import view.Navigator;
 
 import java.util.*;

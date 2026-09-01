@@ -1,6 +1,6 @@
 package bean;
 
-import engineering.enums.JobAnnouncementTag;
+import model.JobAnnouncementTag;
 
 import java.time.LocalDateTime;
 import java.util.List;

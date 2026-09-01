@@ -1,6 +1,6 @@
 package dao.announcement;
 
-import engineering.enums.JobAnnouncementStatus;
+import model.JobAnnouncementStatus;
 import dao.DAOWithCache;
 import model.JobAnnouncement;
 

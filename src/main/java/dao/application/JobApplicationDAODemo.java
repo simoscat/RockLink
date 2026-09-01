@@ -2,7 +2,7 @@ package dao.application;
 
 import dao.announcement.JobAnnouncementDAO;
 import dao.factories.DAOFactory;
-import engineering.enums.ApplicationStatus;
+import model.ApplicationStatus;
 import model.Artist;
 import model.JobAnnouncement;
 import model.JobApplication;

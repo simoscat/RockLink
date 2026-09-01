@@ -2,8 +2,8 @@ package dao.announcement;
 
 import dao.factories.DAOFactory;
 import dao.promoter.PromoterDAO;
-import engineering.enums.CurrencyType;
-import engineering.enums.JobAnnouncementStatus;
+import model.CurrencyType;
+import model.JobAnnouncementStatus;
 import exception.DAOException;
 import model.ConcreteJobAnnouncement;
 import model.JobAnnouncement;

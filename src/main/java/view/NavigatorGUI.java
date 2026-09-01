@@ -57,7 +57,7 @@ public class NavigatorGUI extends Navigator {
     }
 
     @Override
-    protected void logout() {
+    protected void navigatorLogout() {
         this.login = null;
         this.musicianRegistration = null;
         this.promoterRegistration = null;

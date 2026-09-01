@@ -1,7 +1,5 @@
 package model;
 
-import engineering.enums.ApplicationStatus;
-
 public abstract class Application {
 
     private Artist artist;

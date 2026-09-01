@@ -1,8 +1,5 @@
 package model;
 
-import engineering.enums.ArtistType;
-import engineering.enums.Gender;
-
 import java.util.*;
 
 public class Musician extends User implements Artist {

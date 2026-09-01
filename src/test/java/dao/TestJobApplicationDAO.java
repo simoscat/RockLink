@@ -2,10 +2,10 @@ package dao;
 
 import dao.application.JobApplicationDAO;
 import dao.factories.DAOFactory;
-import engineering.enums.CurrencyType;
-import engineering.enums.Gender;
-import engineering.enums.JobAnnouncementStatus;
-import engineering.enums.Mastery;
+import model.CurrencyType;
+import model.Gender;
+import model.JobAnnouncementStatus;
+import model.Mastery;
 import model.*;
 import org.junit.jupiter.api.Test;
 

@@ -1,7 +1,5 @@
 package model;
 
-import engineering.enums.JobAnnouncementStatus;
-
 import java.time.LocalDateTime;
 
 public interface JobAnnouncement {

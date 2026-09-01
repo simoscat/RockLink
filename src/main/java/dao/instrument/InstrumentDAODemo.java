@@ -1,6 +1,6 @@
 package dao.instrument;
 
-import engineering.enums.Mastery;
+import model.Mastery;
 import exception.DAOException;
 import model.Instrument;
 
